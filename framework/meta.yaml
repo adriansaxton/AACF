@@ -6,7 +6,7 @@
 framework:
   name: AI Adoption Controls Framework
   short_name: AACF
-  version: 1.0.0
+  version: 1.0.1
   status: release
   updated: 2026-11-09
 

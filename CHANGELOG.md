@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.1 (2026-11-09)
+
+Website only; no change to controls, criteria or mappings.
+
+- Links to the GitHub repository from every page footer, the home page and the downloads page.
+- "our coverage" links on the home page renamed "AACF Coverage".
+
 ## 1.0.0 (2026-11-09)
 
 First public release.
