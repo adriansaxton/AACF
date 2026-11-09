@@ -1,0 +1,335 @@
+# SEC: AI Security (bridge domain)
+# Adoption-level security objectives a leader or assessor can judge; technical detail is delegated.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+
+domain: SEC
+name: "AI Security"
+summary: >
+  Sets out what an organisation needs in place to adopt AI securely. This is a bridge domain:
+  it asks whether the organisation has adopted a security baseline for AI, assesses AI-specific
+  threats, manages the security of its AI supply chain, protects information, tests AI
+  security before release and can respond to AI security incidents. The detailed technical controls are delegated to recognised AI security
+  frameworks, which the baseline in SEC-01 is expected to draw on. Keeping services running when
+  AI fails or gets things wrong is OPM-09.
+
+controls:
+
+  - id: SEC-01
+    title: AI security baseline
+    objective: >
+      The organisation has adopted a recognised AI security baseline, built it into its
+      security standards, and applies it to every use of AI.
+    rationale: >
+      General security standards were not written with AI in mind and miss threats specific to
+      models, prompts and training data. Adopting a recognised baseline saves the organisation
+      inventing its own and gives assessors, suppliers and staff a shared reference point.
+    levels:
+      1: "No AI security baseline; security reviews of AI depend on the knowledge of whichever specialist is asked."
+      2: "A baseline has been chosen or drafted, but it is applied only to some uses of AI or is not yet part of security standards."
+      3: "An owned, recognised AI security baseline is part of security standards and applied before go-live, and every live use is monitored with logs set by risk."
+      4: "Conformance with the baseline is checked and reported for each use of AI, and gaps are tracked to closure or formally accepted."
+      5: "The baseline is updated from incidents, threat intelligence and changes in recognised frameworks, and the organisation contributes to shared practice."
+    criteria:
+      - {id: SEC-01.1, applies: core, text: "A recognised AI security baseline is adopted and has an owner."}
+      - {id: SEC-01.2, applies: core, text: "The baseline is written into the organisation's security standards."}
+      - {id: SEC-01.3, applies: core, text: "The baseline is applied to every use of AI before it goes live."}
+      - {id: SEC-01.4, applies: core, text: "Every live use of AI is within security monitoring."}
+      - {id: SEC-01.5, applies: core, text: "Logs for each use of AI support detecting and investigating AI-specific attacks, at a depth set by risk."}
+    questions:
+      - "Which AI security baseline has the organisation adopted, and who owns it?"
+      - "How is the baseline applied to a new use of AI, including AI inside bought products?"
+      - "How do you know which uses of AI meet the baseline and which do not?"
+    evidence:
+      - "The adopted baseline and the security standard or policy that references it"
+      - "Conformance records for a sample of uses of AI"
+      - "A register of baseline gaps with owners and risk acceptance decisions"
+      - "Security monitoring coverage for live uses of AI, with AI-relevant log sources"
+    guidance:
+      steps:
+        - "Choose a recognised AI security control set as the baseline and name its owner."
+        - "Write the baseline into the organisation's security standards."
+        - "Apply the baseline to every use of AI before it goes live and record the result."
+        - "Bring every live use of AI into security monitoring, with logs deep enough, by risk, to detect and investigate AI-specific attacks."
+      pitfalls:
+        - "Writing a new baseline from scratch instead of adopting one that already exists."
+        - "Applying the baseline to new uses but not to AI already in use."
+      artefacts:
+        - "Baseline adoption decision"
+        - "Baseline compliance record per use"
+        - "Monitoring and logging coverage list"
+    owner: {accountable: security_lead, contributors: [ai_governance_lead, delivery_lead]}
+    lifecycle: [design, acquire_build, deploy, operate]
+    applicability: core
+    dependencies: [GOV-01, GOV-06]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: SEC-02
+    title: AI threat modelling
+    objective: >
+      Each use of AI has its AI-specific threats assessed before it goes live and again when
+      it changes, and the results shape its design and controls.
+    rationale: >
+      AI introduces ways of attacking a service that conventional threat assessment does not
+      look for, such as manipulated inputs, poisoned training data and misuse of connected
+      tools. Assessing these per use, in proportion to risk, finds problems while they are still
+      cheap to fix.
+    levels:
+      1: "AI-specific threats are considered only when an individual raises them."
+      2: "Threat modelling covers AI for some uses or teams, or uses conventional methods that miss AI-specific threats."
+      3: "A defined approach covering AI-specific threats, including synthetic media impersonation, is required for every use of AI, with findings recorded and acted on."
+      4: "Threat models are reviewed when uses change or new threats emerge, completion is measured, and untreated findings are escalated."
+      5: "Threat modelling is refined from incidents, testing results and external threat intelligence, and common threats are handled once in shared patterns."
+    criteria:
+      - {id: SEC-02.1, applies: core, text: "A defined threat modelling approach covers AI-specific threats."}
+      - {id: SEC-02.2, applies: core, text: "Threat modelling is required for every use of AI, proportionate to risk."}
+      - {id: SEC-02.3, applies: core, text: "Threats assessed include impersonation of the organisation or its people through synthetic media."}
+      - {id: SEC-02.4, applies: core, text: "Threat modelling findings are recorded for each use of AI."}
+      - {id: SEC-02.5, applies: core, text: "Threat modelling findings are acted on."}
+      - {id: SEC-02.6, applies: [AGT], text: "Threat modelling for agents covers instructions hidden in content they read, misuse of their tools, and chains of actions that go beyond their purpose."}
+    questions:
+      - "Is threat modelling required for every use of AI, and does it cover threats specific to AI?"
+      - "Who carries it out, and do they have the AI knowledge to do it well?"
+      - "Show how the findings of a recent threat model changed the design or controls."
+    evidence:
+      - "Agent threat models covering hidden instructions and tool misuse"
+      - "The threat modelling method or guidance, showing AI-specific threats"
+      - "Completed threat models for a sample of uses, with findings and actions"
+      - "Synthetic media impersonation covered in threat models"
+    guidance:
+      steps:
+        - "Adopt a threat modelling approach that covers AI-specific threats, such as manipulated inputs, poisoned training data and impersonation through synthetic media."
+        - "Require a threat model for every use of AI, scaled to its risk (RSK-02), before go-live and when it changes."
+        - "Record findings and track the resulting actions to completion."
+      pitfalls:
+        - "Using a conventional method that misses threats unique to AI."
+        - "Producing a threat model that nobody acts on."
+      artefacts:
+        - "AI threat modelling guide"
+        - "Threat model template"
+        - "Findings and actions log"
+    owner: {accountable: security_lead, contributors: [delivery_lead, business_owner]}
+    lifecycle: [design, acquire_build, operate]
+    applicability: core
+    dependencies: [SEC-01, RSK-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: SEC-03
+    title: Security of the AI supply chain
+    objective: >
+      The security of models, data, code and services obtained from others is assessed before
+      use and managed for as long as they are in use.
+    rationale: >
+      Most organisations will use models, datasets and components they did not create, and a
+      weakness in any of them becomes a weakness in the service. Knowing where each component
+      came from and holding suppliers to security expectations is the only way to manage a risk
+      the organisation does not directly control.
+    levels:
+      1: "Models, data and components are taken from suppliers or public sources without a security check."
+      2: "Some security checks happen, usually for large procurements, but freely available models and components are not covered."
+      3: "External models, data and components are security assessed before use and reassessed over time, with security responsibilities split, documented and checked for each service from others."
+      4: "Supplier security and reassessment results are measured and reported, and overdue reassessments or unmitigated vulnerabilities are escalated."
+      5: "Supply chain assurance is improved from incidents and supplier performance, and the organisation shares findings with peers and suppliers."
+    criteria:
+      - {id: SEC-03.1, applies: core, text: "A defined process assesses the security of every external model, data set and component before use."}
+      - {id: SEC-03.2, applies: core, text: "The source of each external model, data set and component is recorded."}
+      - {id: SEC-03.3, applies: core, text: "Security expectations are set for suppliers."}
+      - {id: SEC-03.4, applies: core, text: "For each AI service obtained from others, the split of security responsibilities with the provider is documented and reviewed on significant change and at set intervals."}
+      - {id: SEC-03.5, applies: core, text: "The organisation's share of those security responsibilities is implemented and checked."}
+      - {id: SEC-03.6, applies: [PRV], text: "Organisations that receive AI from this organisation are told which security responsibilities they hold."}
+      - {id: SEC-03.7, applies: core, text: "External models and components are reassessed at set intervals and when vulnerabilities are disclosed."}
+      - {id: SEC-03.8, applies: core, text: "Disclosed vulnerabilities in external models and components are tracked to mitigation."}
+    questions:
+      - "How do you check the security of a model, dataset or component before it is used?"
+      - "Does that check apply to freely downloaded models and to AI inside bought products?"
+      - "What happens when a supplier changes a model or a weakness is found in a component?"
+    evidence:
+      - "Responsibility split for each AI service obtained from others, with checks of the organisation's share and review dates"
+      - "The supply chain security assessment process and a sample of completed assessments"
+      - "A record of external AI components in use, with source and version"
+      - "Security clauses or schedules in AI supplier contracts"
+    guidance:
+      steps:
+        - "Define a process to assess the security of every external model, dataset and component before use, including freely downloaded ones, and record its source."
+        - "Set security expectations for suppliers, feeding the contract terms in OPM-04."
+        - "For each AI service from others, document the split of security responsibilities, implement and check the organisation's share, and review the split at set intervals and on significant change."
+        - "Where the organisation provides AI to others, tell them which security responsibilities they hold."
+        - "Reassess external models and components at set intervals and when vulnerabilities are disclosed, tracking each to mitigation."
+      pitfalls:
+        - "Checking purchased products but not open models downloaded by developers."
+        - "Assuming the provider handles all security for a hosted service."
+      artefacts:
+        - "External component assessment record"
+        - "Shared responsibility matrix per service"
+        - "Vulnerability tracking log"
+    owner: {accountable: security_lead, contributors: [delivery_lead, risk_lead]}
+    lifecycle: [acquire_build, deploy, operate]
+    applicability: core
+    dependencies: [SEC-01, RSK-09]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: SEC-04
+    title: Preventing information leakage through AI
+    objective: >
+      Sensitive information is protected from exposure through AI tools, prompts, training and
+      outputs, with rules staff understand and technical measures that enforce them.
+    rationale: >
+      AI tools make it easy to paste sensitive material into a service that stores or learns
+      from it, and outputs can reveal information the user was never entitled to see. Clear
+      rules backed by technical measures protect information without forcing people away from
+      approved tools.
+    levels:
+      1: "No specific rules; staff decide for themselves what information to put into AI tools."
+      2: "Guidance exists on what not to share with AI tools, but it is not enforced and does not cover outputs or training."
+      3: "Rules on which information may be used with which AI tools are communicated to staff and backed by technical measures, and tuned models inherit their data's protection."
+      4: "Leakage controls are monitored, attempted exposures are detected and followed up, and results are reported."
+      5: "Controls are refined from monitoring and incident data so that protection improves without adding friction for legitimate use."
+    criteria:
+      - {id: SEC-04.1, applies: core, text: "Rules set out which classes of information may be used with which AI tools."}
+      - {id: SEC-04.2, applies: core, text: "The rules are communicated to all staff."}
+      - {id: SEC-04.3, applies: core, text: "Technical measures on approved tools support the rules."}
+      - {id: SEC-04.4, applies: [BLD], text: "Models trained or tuned on protected information are handled at least at that protection level, taking account of aggregation."}
+    questions:
+      - "Which classes of information may be used with which AI tools, and how do staff know?"
+      - "What stops sensitive information leaking through prompts, stored conversations or outputs?"
+      - "How would you know if sensitive information had been put into an AI tool it should not have been?"
+    evidence:
+      - "Rules or guidance linking information classification to AI tools"
+      - "Configuration or monitoring records for leakage prevention on approved tools"
+      - "Protection level records for models trained or tuned on protected information"
+    guidance:
+      steps:
+        - "Set rules for which classes of information may be used with which AI tools, linked to the approved tools list (TEC-01)."
+        - "Tell all staff the rules and include them in AI literacy learning (PPL-01)."
+        - "Configure technical measures on approved tools to enforce the rules, such as data loss prevention and supplier settings that stop retention or training on inputs."
+        - "Handle any model trained or tuned on protected information at least at that protection level, taking account of what combined data could reveal."
+      pitfalls:
+        - "Relying on guidance alone with no technical measures behind it."
+        - "Forgetting that a model can expose its training data through its outputs."
+      artefacts:
+        - "Information and AI tool use rules"
+        - "Technical control settings record"
+    owner: {accountable: security_lead, contributors: [data_owner, ai_governance_lead]}
+    lifecycle: [design, deploy, operate]
+    applicability: core
+    dependencies: [SEC-01, GOV-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: SEC-05
+    title: AI in security incident response
+    objective: >
+      Security incident management covers incidents involving AI, with playbooks, people who
+      have the skills to handle them, and the ability to contain an affected AI service quickly.
+    rationale: >
+      An attack on or through an AI service can look different from a conventional incident and
+      may need a model, tool or integration to be switched off fast. Preparing before an incident
+      happens avoids slow, improvised responses. Non-security AI incidents are handled under
+      MON-04.
+    levels:
+      1: "AI security incidents would be handled ad hoc, with no plan for AI-specific scenarios."
+      2: "The incident process mentions AI, but there are no AI playbooks and few responders know how AI services work."
+      3: "Security incident procedures include exercised AI playbooks, trained responders and a known containment route for each AI service, with disclosure and notification routes set."
+      4: "Response performance is measured, and lessons from exercises and real incidents are acted on."
+      5: "Incident response for AI is improved from exercise results, real incidents and external threat information, and lessons are shared with peers."
+    criteria:
+      - {id: SEC-05.1, applies: core, text: "Security incident procedures include AI-specific scenarios, each with a playbook."}
+      - {id: SEC-05.2, applies: core, text: "Playbooks cover recovery from AI-specific attacks to a known good state, linked to continuity plans, and support for affected users and other parties."}
+      - {id: SEC-05.3, applies: core, text: "Each AI service has a known way to contain it."}
+      - {id: SEC-05.4, applies: core, text: "Responders are trained for the AI-specific scenarios."}
+      - {id: SEC-05.5, applies: core, text: "AI scenarios are exercised on a set cycle."}
+      - {id: SEC-05.6, applies: [PRV], text: "Agreements with those the organisation provides AI to set out the incident support they and affected users will receive."}
+      - {id: SEC-05.7, applies: core, text: "A published vulnerability disclosure route covers the organisation's AI services, and reports feed incident handling."}
+      - {id: SEC-05.8, applies: core, text: "Notification routes and deadlines for security breaches, including breaches in the AI supply chain, to regulators, customers and affected parties are set out as law and agreements require."}
+    questions:
+      - "Does the security incident process cover incidents involving AI, and with what playbooks?"
+      - "Who would respond to an AI security incident, and have they been trained or exercised for it?"
+      - "How quickly could you contain or switch off an affected AI service?"
+    evidence:
+      - "Incident procedures and playbooks covering AI scenarios"
+      - "Records of exercises or real incidents involving AI, with lessons and actions"
+      - "Recovery playbooks, the published vulnerability disclosure route and exercise records"
+    guidance:
+      steps:
+        - "Add AI-specific scenarios and playbooks to security incident procedures, including how to contain each AI service and recover it to a known good state, linked to continuity plans (OPM-09)."
+        - "Include support for affected users and other parties in the playbooks, and set it out in agreements where the organisation provides AI to others."
+        - "Train responders for the AI scenarios and exercise them on a fixed cycle."
+        - "Publish a vulnerability disclosure route covering AI services and feed reports into incident handling."
+        - "Set out notification routes and deadlines for security breaches, including in the AI supply chain, to regulators, customers and affected parties as law and agreements require."
+      pitfalls:
+        - "Having no quick way to switch off a compromised AI service."
+        - "Treating AI incidents as general IT incidents, so responders miss what makes them different."
+      artefacts:
+        - "AI incident playbooks"
+        - "Containment method per AI service"
+        - "Vulnerability disclosure page"
+        - "Breach notification matrix"
+    owner: {accountable: security_lead, contributors: [delivery_lead, business_owner]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [SEC-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: SEC-06
+    title: Security testing of AI before release
+    objective: >
+      Before release, each AI system is security tested against the threats in its threat model
+      by suitably skilled testers, including checks that it does not disclose personal or
+      sensitive information.
+    rationale: >
+      An AI system that passes its accuracy tests can still be manipulated, talked out of its
+      safeguards or made to reveal information it holds. Testing against the threats found for
+      the use, by people who know how AI is attacked, finds these weaknesses before an attacker
+      does.
+    levels:
+      1: "Systems are released without security testing, or with conventional checks that miss AI-specific threats."
+      2: "Some security testing is done, but it is not driven by the threat model, testers lack AI skills, or safeguard bypass and information disclosure are not covered."
+      3: "Every release is security tested against its threat model by suitably skilled testers, independent for higher-risk uses, including safeguard bypass for generative AI and checks for disclosure of personal or sensitive information."
+      4: "Security test coverage and findings are reviewed across uses, and releases with unresolved findings are blocked or formally accepted."
+      5: "Security test methods are refined from incidents and live performance, and security testing is repeated for every change."
+    criteria:
+      - {id: SEC-06.1, applies: core, text: "Security testing before release covers the threats in the use's threat model."}
+      - {id: SEC-06.2, applies: core, text: "Security testing is carried out by testers with the right skills."}
+      - {id: SEC-06.3, applies: core, text: "For higher-risk uses, security testers are independent of the build team."}
+      - {id: SEC-06.4, applies: [GEN], text: "Testing of generative AI includes attempts to bypass its safeguards."}
+      - {id: SEC-06.5, applies: core, text: "Testing checks that personal or sensitive information is not disclosed through the system."}
+      - {id: SEC-06.6, applies: [AGT], text: "Before release, testing tries to make each agent act outside its approved permissions, including through instructions hidden in content it reads."}
+    questions:
+      - "Does security testing before release cover the threats in the use's threat model?"
+      - "Who carries out the security testing, what AI skills do they have, and are they independent of the build team for higher-risk uses?"
+      - "How do you test that safeguards cannot be bypassed and that personal or sensitive information is not disclosed?"
+    evidence:
+      - "Test records of attempts to make agents act outside their permissions"
+      - "Security test plans and results for a sample of releases, traced to the threat model"
+      - "Tester skills and independence records for higher-risk uses"
+      - "Safeguard bypass test results for generative AI"
+      - "Information disclosure test results"
+    guidance:
+      steps:
+        - "Plan security testing for each release from the use's threat model (SEC-02), so every identified threat is tested."
+        - "Use testers with the right skills for AI, and for higher-risk uses testers who are independent of the build team."
+        - "For generative AI, include attempts to bypass safeguards, and for every use check that personal or sensitive information is not disclosed through the system."
+        - "Record the results alongside the other test results so they inform the release sign-off (TEC-06)."
+      pitfalls:
+        - "Running conventional security tests that miss threats unique to AI."
+        - "Letting the build team mark its own security testing on a higher-risk use."
+      artefacts:
+        - "Security test plan traced to the threat model"
+        - "Security test results record"
+    owner: {accountable: security_lead, contributors: [delivery_lead, data_owner]}
+    lifecycle: [acquire_build, deploy]
+    applicability: core
+    dependencies: [TEC-06, SEC-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0

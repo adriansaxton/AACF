@@ -1,0 +1,498 @@
+# GOV: Governance & Accountability
+# Who decides, who is accountable, and how AI use is overseen across the organisation.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+
+domain: GOV
+name: "Governance & Accountability"
+summary: >
+  Sets out who is accountable for AI, how decisions about AI are made and recorded, and how
+  the organisation keeps sight of the AI it uses. Governance here should be proportionate:
+  light enough that low-risk use is not slowed, firm enough that high-risk use cannot happen
+  without the right people deciding.
+
+controls:
+
+  - id: GOV-01
+    title: AI policy
+    objective: >
+      The organisation has an approved AI policy that states which uses of AI are permitted,
+      which need approval and which are not allowed, and keeps it current.
+    rationale: >
+      Without a policy, staff either avoid AI entirely or use it without guardrails. A clear
+      policy is the first thing people look for and the basis every other control refers to.
+    levels:
+      1: "No organisation-wide policy; individual teams or staff set their own rules."
+      2: "A policy or guidance note exists but is incomplete, unapproved, or not widely known."
+      3: "An approved, owned and controlled AI policy sets the scope of AI governance and which uses are permitted, need approval or are prohibited, and all staff know it."
+      4: "Policy awareness and compliance are measured; the policy is reviewed on schedule and after significant incidents or external change."
+      5: "The policy is refined from evidence of how AI is actually used, incidents and lessons, and stays ahead of external change rather than reacting to it."
+    criteria:
+      - {id: GOV-01.1, applies: core, text: "An approved AI policy states which parts of the organisation, uses and systems AI governance covers."}
+      - {id: GOV-01.2, applies: core, text: "The policy states which uses of AI are permitted, which need approval and which are prohibited."}
+      - {id: GOV-01.3, applies: core, text: "The policy's prohibited uses include the practices that the law bans."}
+      - {id: GOV-01.4, applies: core, text: "The policy has a named owner and a review date."}
+      - {id: GOV-01.5, applies: core, text: "The policy has been communicated to all staff."}
+      - {id: GOV-01.6, applies: core, text: "The policy and its supporting governance documents are approved, version-controlled and retained."}
+      - {id: GOV-01.7, applies: [PRV], text: "Acceptable use terms are set for users of AI services the organisation offers to others, and are reviewed."}
+      - {id: GOV-01.8, applies: [PRV], text: "Breaches of the acceptable use terms by users of the organisation's AI services are acted on."}
+    questions:
+      - "Is there an AI policy approved at the right level, and when was it last reviewed?"
+      - "Does it distinguish uses that are permitted, need approval, and are not allowed?"
+      - "How would a member of staff find it, and how do you know they have?"
+    evidence:
+      - "The approved policy, with owner, approval record and review date"
+      - "Communication or training records showing staff were told about it"
+      - "Change history showing reviews have happened"
+      - "A stated scope for AI governance, and version control and retention for governance documents"
+      - "Practices banned by law included in the prohibited list"
+    guidance:
+      steps:
+        - "Write a policy that states what AI governance covers (which parts of the organisation, which uses and which systems) and sorts uses into permitted, approval-required and prohibited, with practices banned by law listed as prohibited."
+        - "Where the organisation offers AI services to others, set acceptable use terms for those users and decide how they are enforced and reviewed."
+        - "Name a policy owner and review date, get the policy approved, and keep it and its supporting governance documents under version control and retention."
+        - "Communicate the policy to all staff and check they know where to find it (see PPL-01 and GOV-08)."
+      pitfalls:
+        - "Writing a policy that lists principles but never says which uses are allowed, need approval or are banned."
+        - "Letting supporting documents drift out of version control so nobody knows which is current."
+      artefacts:
+        - "AI policy template with scope, permitted, approval-required and prohibited uses"
+        - "Acceptable use terms for external users of AI services"
+        - "Governance document register with versions and retention"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead, risk_lead, security_lead]}
+    lifecycle: [strategy, design, operate]
+    applicability: core
+    dependencies: [GOV-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: GOV-02
+    title: Executive accountability
+    objective: >
+      A named senior executive is accountable for the organisation's use of AI, with a defined
+      remit, and reports on it to the board or equivalent.
+    rationale: >
+      AI cuts across technology, data, risk and the business. Without one accountable executive
+      it falls between functions, decisions stall and nobody owns the outcome.
+    levels:
+      1: "No one is accountable; AI is treated as a technology matter or left to enthusiasts."
+      2: "Someone is informally seen as the lead, but the remit is unclear or lacks authority."
+      3: "A named senior executive is formally accountable for AI under a written remit and reports on AI to the board or equivalent as a standing item."
+      4: "The board receives regular, evidence-based reporting on AI benefits, risks and performance, and challenges it."
+      5: "Accountability arrangements are reviewed against outcomes and adjusted as AI use grows or changes in nature."
+    criteria:
+      - {id: GOV-02.1, applies: core, text: "A named senior executive is formally accountable for the organisation's use of AI."}
+      - {id: GOV-02.2, applies: core, text: "A written remit sets out that executive's accountability for AI."}
+      - {id: GOV-02.3, applies: core, text: "AI is a standing item in the executive's reporting to the board or equivalent."}
+    questions:
+      - "Who is accountable for AI across the organisation, and where is that written down?"
+      - "What authority does that person have over budget, risk acceptance and stopping a use of AI?"
+      - "How often does the board or equivalent hear about AI, and what does it receive?"
+    evidence:
+      - "Terms of reference, role description or scheme of delegation naming the accountable executive"
+      - "Board or executive committee papers and minutes covering AI"
+    guidance:
+      steps:
+        - "Choose a senior executive to be accountable for the organisation's use of AI and confirm it formally through the usual appointment route."
+        - "Write a short remit covering what they are accountable for, what they can decide and what they must escalate."
+        - "Make AI a standing item in that executive's regular reporting to the board or equivalent, drawing on MON-08."
+      pitfalls:
+        - "Giving accountability to a technical lead without the seniority to stop or redirect AI work."
+        - "Splitting accountability between several executives so nobody owns the whole picture."
+      artefacts:
+        - "Accountable executive remit"
+        - "Board AI report template"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead]}
+    lifecycle: [strategy, operate]
+    applicability: core
+    dependencies: []
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: GOV-03
+    title: Decision rights proportionate to risk
+    objective: >
+      Decision rights for approving, changing and retiring uses of AI are defined, scaled to
+      risk, and followed.
+    rationale: >
+      If every use needs the same approval, low-risk use is choked and people work around the
+      process. If none does, high-risk use goes ahead unseen. Tiered decision rights give speed
+      where it is safe and scrutiny where it matters.
+    levels:
+      1: "No defined approval route; uses of AI start wherever someone decides to try them."
+      2: "An approval route exists for some uses or some parts of the organisation, or is the same for all uses regardless of risk."
+      3: "Risk-tiered decision rights for approving, changing and retiring uses of AI are applied everywhere, screen out prohibited practices and stop uses beyond the risk appetite."
+      4: "Decisions are recorded and periodically checked against the tiers; bypasses are detected and dealt with."
+      5: "Tiers and thresholds are adjusted from evidence such as time to decision, incidents and outcomes, so the route stays proportionate."
+    criteria:
+      - {id: GOV-03.1, applies: core, text: "Defined decision rights, tiered by residual risk, state who can approve, change and retire each class of AI use."}
+      - {id: GOV-03.2, applies: core, text: "The decision rights are applied across the organisation."}
+      - {id: GOV-03.3, applies: core, text: "The approval route screens each proposed use of AI against prohibited practices."}
+      - {id: GOV-03.4, applies: core, text: "A use whose residual risk cannot be brought within the risk appetite is not approved, or is stopped."}
+    questions:
+      - "Who can approve a new use of AI, and does that depend on its risk?"
+      - "Who can change or switch off a use of AI once it is live?"
+      - "How would you know if a use of AI went live without approval?"
+    evidence:
+      - "Documented decision rights or approval matrix by risk tier"
+      - "A sample of approval records for recent uses of AI"
+    guidance:
+      steps:
+        - "Group uses of AI into risk tiers based on residual risk from the risk assessment (RSK-02)."
+        - "For each tier, write down who can approve, change and retire a use, and publish this as a decision rights table."
+        - "Add a screening step at the start of the approval route that checks each proposal against prohibited practices in the policy (GOV-01)."
+        - "Make it a rule that a use whose residual risk cannot be brought within the risk appetite (RSK-01) is refused or stopped, and record such decisions."
+        - "Apply the decision rights to every AI use across the organisation and check a sample each year for compliance (see GOV-08)."
+      pitfalls:
+        - "Covering approval but not change or retirement, so material changes slip through unreviewed."
+        - "Sending every use to the same senior forum, which creates a queue and encourages workarounds."
+      artefacts:
+        - "Decision rights table by risk tier for approve, change and retire"
+        - "Prohibited practice screening checklist"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead, risk_lead, business_owner]}
+    lifecycle: [design, acquire_build, deploy, operate, retire]
+    applicability: core
+    dependencies: [GOV-01, GOV-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: GOV-04
+    title: Oversight forum
+    objective: >
+      A cross-functional forum oversees AI use, risk and performance, with terms of reference,
+      the right membership and a clear link to the organisation's main governance.
+    rationale: >
+      AI decisions need technology, data, legal, security, people and business views in the
+      same room. A standing forum gives that, and gives the accountable executive somewhere to
+      take decisions that are bigger than one team.
+    levels:
+      1: "No forum; AI matters surface ad hoc in other meetings, if at all."
+      2: "An informal group or community of interest meets, but it has no remit to decide or escalate."
+      3: "A diverse, cross-functional oversight forum works to terms of reference, meets on a set cycle, records its decisions and can escalate."
+      4: "The forum tracks its decisions to completion and reports measured performance, risk and benefit to the accountable executive."
+      5: "The forum's remit, membership and cadence are reviewed against its effect and adjusted as AI use matures."
+    criteria:
+      - {id: GOV-04.1, applies: core, text: "An AI oversight forum has terms of reference."}
+      - {id: GOV-04.2, applies: core, text: "The forum's membership is cross-functional and brings diverse demographic backgrounds and lived experience."}
+      - {id: GOV-04.3, applies: core, text: "The forum has a defined escalation route."}
+      - {id: GOV-04.4, applies: core, text: "The forum meets on a set cycle and records its decisions."}
+    questions:
+      - "Is there a group that oversees AI, and what can it decide on its own?"
+      - "Which functions sit on it, and who is missing?"
+      - "Where do its decisions go, and how do you know they are acted on?"
+    evidence:
+      - "Terms of reference and membership list"
+      - "Agendas, minutes and a decision or action log"
+    guidance:
+      steps:
+        - "Write terms of reference for an AI oversight forum covering purpose, remit, decision powers, quorum and how it reports to the main governance."
+        - "Appoint cross-functional members (for example business, data, technology, risk, legal and people), and seek members with diverse demographic backgrounds and lived experience, including from outside the usual senior group if needed."
+        - "Define an escalation route from the forum to the board or equivalent, and from delivery teams to the forum."
+        - "Set a meeting cycle and keep minutes that record decisions and actions."
+      pitfalls:
+        - "Filling the forum with technical staff only, so ethical and service effects are missed."
+        - "Treating diversity as a box ticked by job title rather than by background and experience."
+      artefacts:
+        - "AI oversight forum terms of reference"
+        - "Membership matrix covering functions and backgrounds"
+        - "Decision and action log template"
+    owner: {accountable: ai_governance_lead, contributors: [executive_sponsor, risk_lead, security_lead, data_owner, people_lead]}
+    lifecycle: [strategy, design, operate]
+    applicability: core
+    dependencies: [GOV-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: GOV-05
+    title: Named owners for each use of AI
+    objective: >
+      Every use of AI has named owners for the business outcome, the data, the technology and
+      its assurance, recorded where others can find them.
+    rationale: >
+      When something goes wrong, or a decision is needed, the question is always who owns this.
+      Named owners per use turn organisation-wide accountability into something that works in
+      practice.
+    levels:
+      1: "Ownership is assumed rather than assigned; often only the person who set it up knows."
+      2: "Some uses have a named owner, usually technical, but business and data ownership are gaps."
+      3: "Every use of AI has named business, data, technical and assurance owners in the inventory, and ownership changes hands formally with residual risk accepted."
+      4: "Ownership is checked when people move roles, and gaps are caught and filled within a set time."
+      5: "Owners actively manage their uses against measures, and ownership arrangements are improved from experience."
+    criteria:
+      - {id: GOV-05.1, applies: core, text: "Every use of AI has named business, data, technical and assurance owners recorded in the AI inventory (GOV-06)."}
+      - {id: GOV-05.2, applies: core, text: "Ownership of a use of AI is handed over through a formal, recorded step."}
+      - {id: GOV-05.3, applies: core, text: "The receiving owner records acceptance of the use's residual risk."}
+    questions:
+      - "For a given use of AI, who owns the business outcome, the data and the technology?"
+      - "What happens to ownership when one of those people leaves or moves role?"
+    evidence:
+      - "Ownership fields in the AI inventory"
+      - "Evidence that ownership is updated on staff changes"
+      - "Ownership handover records with residual risk acceptance"
+    guidance:
+      steps:
+        - "Define the four owner roles for each use of AI: business, data, technical and assurance, with a short description of each."
+        - "Name an owner for each role for every use and record them in the AI inventory (GOV-06)."
+        - "Set a handover process for when an owner changes, in which the receiving owner reviews and records acceptance of the residual risk."
+      pitfalls:
+        - "Naming a team or mailbox as owner instead of a person."
+        - "Letting ownership lapse when people move roles, leaving uses with no owner."
+      artefacts:
+        - "Owner role descriptions for business, data, technical and assurance owners"
+        - "Ownership handover form with residual risk acceptance"
+    owner: {accountable: ai_governance_lead, contributors: [business_owner, data_owner, delivery_lead]}
+    lifecycle: [design, deploy, operate, retire]
+    applicability: core
+    dependencies: [GOV-03, GOV-06]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: GOV-06
+    title: AI inventory
+    objective: >
+      The organisation keeps a current inventory of the AI it uses, including AI built into
+      bought products and services, with enough detail to govern it.
+    rationale: >
+      An organisation cannot govern, secure or explain AI it does not know it has. A growing
+      share of AI arrives inside products already in use, so an inventory of in-house builds
+      alone gives a false sense of control.
+    levels:
+      1: "No inventory; knowledge of what AI is in use is scattered or absent."
+      2: "A partial list exists, usually of in-house projects, missing AI embedded in bought products or used informally."
+      3: "A maintained inventory covers in-house, procured and embedded AI, with the details needed to govern each entry and links to its models, data and integrations."
+      4: "The inventory is reconciled against procurement, technology and data records, and its completeness is measured."
+      5: "The inventory feeds portfolio, risk and transparency reporting automatically and is used as the organisation's single view of AI."
+    criteria:
+      - {id: GOV-06.1, applies: core, text: "A maintained AI inventory covers in-house, procured and embedded AI."}
+      - {id: GOV-06.2, applies: core, text: "Each inventory entry records its purpose, owners, risk tier and status."}
+      - {id: GOV-06.3, applies: core, text: "Each inventory entry records its regulatory risk classification and the reasons for it."}
+      - {id: GOV-06.4, applies: core, text: "Each inventory entry records the supplier or source of the use and of its components."}
+      - {id: GOV-06.5, applies: core, text: "Each inventory entry is linked to its models, data sets and integrations."}
+      - {id: GOV-06.6, applies: [AGT], text: "For each agent, the inventory records the tools, systems and data it can act on, and what it can do without a person's approval."}
+    questions:
+      - "Is there a list of the AI in use, and who keeps it up to date?"
+      - "Does it include AI built into products and services you have bought?"
+      - "How would a new use of AI get onto it?"
+    evidence:
+      - "For each agent: the tools, systems and data it can act on, and its approval thresholds"
+      - "The inventory itself, with a recent update date"
+      - "The process or form that adds and removes entries"
+      - "Regulatory classification and reasons recorded against inventory entries"
+    guidance:
+      steps:
+        - "Set up an inventory with fields for purpose, owners, risk tier, regulatory risk classification with reasons, status, and the supplier or source of the use and its components."
+        - "Find AI in use by asking teams, checking procurement and licence records, and reviewing products with built-in AI features, covering in-house, procured and embedded AI."
+        - "Link each entry to its models, data sets and integrations, using existing data and system catalogues where they exist (see DAT-04 and TEC-04)."
+        - "Name an inventory owner and make updating it part of go-live, change and retirement (POR-03 and POR-09)."
+      pitfalls:
+        - "Missing AI built into everyday products such as office suites and service platforms."
+        - "Building the inventory once and never updating it."
+      artefacts:
+        - "AI inventory template with required fields"
+        - "Discovery questionnaire for teams and suppliers"
+    owner: {accountable: ai_governance_lead, contributors: [delivery_lead, security_lead, business_owner]}
+    lifecycle: [acquire_build, deploy, operate, retire]
+    applicability: core
+    dependencies: [GOV-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: GOV-07
+    title: Integration with existing governance
+    objective: >
+      AI governance works through the organisation's existing risk, information, data
+      protection, security and procurement governance rather than alongside it.
+    rationale: >
+      A separate AI governance track duplicates effort, confuses people and leaves gaps where
+      the two meet. Most AI questions are existing questions with a new twist, and the existing
+      owners should answer them.
+    levels:
+      1: "AI is handled entirely outside existing governance, or ignored by it."
+      2: "Some links exist, for example data protection reviews AI cases, but the routes are informal and inconsistent."
+      3: "Existing governance processes each have a defined AI step that the AI route calls on, with information and data protection advice involved from the start."
+      4: "Hand-offs between AI and existing governance are tracked, and duplication or gaps are identified and closed."
+      5: "AI considerations are part of how existing governance normally works, and no separate track is needed for routine decisions."
+    criteria:
+      - {id: GOV-07.1, applies: core, text: "Risk, information management, data protection, security, procurement, safety and quality management, internal audit and business continuity processes each have a defined AI step."}
+      - {id: GOV-07.2, applies: core, text: "The AI governance route calls on those processes rather than repeating them."}
+      - {id: GOV-07.3, applies: [HIR], text: "Uses of AI that could contribute to physical harm have a hazard analysis that feeds the relevant safety case."}
+      - {id: GOV-07.4, applies: core, text: "Information governance and data protection advice is brought in at the start of design for each use of AI."}
+      - {id: GOV-07.5, applies: core, text: "Information governance and data protection advisers have authority to require changes to a use of AI."}
+    questions:
+      - "When a use of AI is proposed, which existing governance processes does it go through?"
+      - "Where do AI decisions duplicate or bypass existing processes?"
+    evidence:
+      - "Process maps or guidance showing the AI steps in existing governance"
+      - "Examples of AI cases handled through those routes"
+      - "The AI step in safety and quality management, and hazard analyses for uses that could cause physical harm"
+    guidance:
+      steps:
+        - "List the existing governance processes (risk, information management, data protection, security, procurement, safety and quality management, internal audit and business continuity) and add a defined AI step to each."
+        - "For uses that could contribute to physical harm, require a hazard analysis and feed its results into the relevant safety case."
+        - "Design the AI approval route so it calls on these processes for their parts rather than repeating their checks."
+        - "Bring information governance and data protection advisers in at the start of design, and give them authority to require changes."
+      pitfalls:
+        - "Building a separate AI process that duplicates existing checks and frustrates delivery teams."
+        - "Involving data protection advisers only at the end, when changes are expensive."
+      artefacts:
+        - "Governance integration map showing the AI step in each process"
+        - "Hazard analysis template for AI uses"
+    owner: {accountable: ai_governance_lead, contributors: [risk_lead, security_lead, data_owner]}
+    lifecycle: [strategy, design, acquire_build]
+    applicability: core
+    dependencies: [GOV-03]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: GOV-08
+    title: Policy compliance and exceptions
+    objective: >
+      Compliance with the AI policy is monitored, and exceptions are requested, approved,
+      recorded and reviewed.
+    rationale: >
+      A policy nobody checks is advice. Recorded exceptions also show where the policy is out of
+      step with real need, which is the best input to its next revision.
+    levels:
+      1: "Compliance is not checked; exceptions happen informally or unseen."
+      2: "Compliance is checked occasionally or after problems; exceptions are agreed verbally or by email without a record."
+      3: "Compliance with the AI policy is checked on a defined basis, and exceptions go through a recorded process with approval, expiry, risk and treatment."
+      4: "Compliance results and exception trends are reported to the oversight forum, and repeat exceptions trigger policy review."
+      5: "Monitoring is largely built into tools and processes, and exception data routinely improves the policy."
+    criteria:
+      - {id: GOV-08.1, applies: core, text: "Compliance with the AI policy is checked on a defined basis."}
+      - {id: GOV-08.2, applies: core, text: "A recorded exception process, with approval and expiry dates, is in use."}
+      - {id: GOV-08.3, applies: core, text: "Each exception record states the exception's risk and its treatment."}
+    questions:
+      - "How do you know whether the AI policy is being followed?"
+      - "If someone needs to do something the policy does not allow, what happens?"
+    evidence:
+      - "Compliance check records or reports"
+      - "The exceptions register, with approvals and expiry dates"
+    guidance:
+      steps:
+        - "Decide how compliance with the AI policy will be checked, such as an annual sample of uses and a self-declaration by owners, and how often."
+        - "Set up an exception process in which each request records the risk, the treatment, the approver and an expiry date."
+        - "Keep an exception register and review exceptions before they expire, either closing, renewing or escalating them."
+        - "Report compliance findings and open exceptions to the oversight forum (GOV-04)."
+      pitfalls:
+        - "Granting exceptions with no expiry, so they become permanent policy by the back door."
+        - "Checking compliance only when something goes wrong."
+      artefacts:
+        - "Policy compliance check plan"
+        - "Exception request form and register"
+    owner: {accountable: ai_governance_lead, contributors: [risk_lead, security_lead]}
+    lifecycle: [operate]
+    applicability: core
+    dependencies: [GOV-01, GOV-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: GOV-09
+    title: Public transparency about AI use
+    objective: >
+      The organisation publishes information about how and why it uses AI, to the extent its
+      obligations and public role require, and keeps it current.
+    rationale: >
+      Public bodies are expected to explain how they use algorithmic tools, and some are
+      required to. Openness also builds trust and catches problems early, because people outside
+      the organisation can see and question what it does.
+    levels:
+      1: "No public information about AI use."
+      2: "Some information is published, for example a statement or a single record, but it is incomplete or out of date."
+      3: "Decisions on what to publish about each use of AI are recorded, required records and registrations are completed and kept current, and sensitive communications are cleared."
+      4: "Publication is checked against the AI inventory for completeness, and public questions and feedback are tracked and answered."
+      5: "Transparency is used as a design input: uses of AI are shaped so they can be explained publicly from the start."
+    criteria:
+      - {id: GOV-09.1, applies: core, text: "For each AI inventory entry, a recorded decision states whether a transparency record must be published, judged against the criteria that apply, and why."}
+      - {id: GOV-09.2, applies: [PUB], text: "Transparency records are published in the required format for all in-scope uses of AI."}
+      - {id: GOV-09.3, applies: [PUB], text: "Each published transparency record has a named owner and a review cycle."}
+      - {id: GOV-09.4, applies: [PUB], text: "Transparency records are updated when a use changes materially or is retired."}
+      - {id: GOV-09.5, applies: [PUB], text: "Each transparency record is checked through information access and security routes before release, with the reason recorded for anything withheld."}
+      - {id: GOV-09.6, applies: [HIR], text: "Any registration the law requires for a use of AI is completed before the use starts."}
+      - {id: GOV-09.7, applies: core, text: "For each use of AI, a recorded decision states whether its impact assessments are published, and why."}
+      - {id: GOV-09.8, applies: core, text: "External communications about sensitive uses of AI are cleared through a designated route."}
+    questions:
+      - "Which of your uses of AI are you required, or choose, to publish information about?"
+      - "Is what is published complete and current against the AI inventory?"
+    evidence:
+      - "Published transparency records or statements"
+      - "Reconciliation of published records against the inventory"
+      - "Registration records where the law requires them"
+      - "Publication decisions with reasons, update records, and pre-release checks showing reasons for anything withheld"
+    guidance:
+      steps:
+        - "Find out which transparency obligations and formats apply, and for each inventory entry decide against those criteria whether a record must be published, recording the reason."
+        - "Complete any registration the law requires before the use starts, and give each published record an owner and review cycle."
+        - "Check each record through information access and security routes before release, recording the reason for anything withheld, and update records when a use changes materially or is retired."
+        - "For each use, decide whether its impact assessments are published and record the reason."
+        - "Set up a designated clearance route for external communications about sensitive uses of AI."
+      pitfalls:
+        - "Publishing records once and leaving them out of date as uses change."
+        - "Withholding information without recording why, which cannot be defended if challenged."
+      artefacts:
+        - "Publication decision log per inventory entry"
+        - "Transparency record template in the required format"
+        - "Pre-release check and clearance procedure"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead, business_owner]}
+    lifecycle: [deploy, operate, retire]
+    applicability: core
+    dependencies: [GOV-06]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: GOV-10
+    title: Review and disclosure of AI-generated content
+    objective: >
+      The organisation has approved rules for reviewing and disclosing AI-generated content that
+      it releases or relies on, so people know when AI was used.
+    rationale: >
+      Content produced by AI can be wrong or misleading, and can be mistaken for the work of a
+      person. Reviewing it before it is released or relied on, and saying plainly where AI was
+      used, protects the people who meet it and keeps official records trustworthy.
+    levels:
+      1: "Whether AI-generated content is reviewed or disclosed is left to the person who produced it."
+      2: "Some teams review or label AI-generated content, but the rules are incomplete, unapproved or not widely known, or content used inside the organisation is not covered."
+      3: "Approved rules set how AI-generated content released outside the organisation, or used inside it for decisions and official records, is reviewed and disclosed, clearly and at least as the law requires."
+      4: "Compliance with the review and disclosure rules is measured, and the rules are reviewed on schedule and after significant incidents or legal change."
+      5: "The rules are refined from evidence of how AI-generated content is actually used and received, and stay ahead of external change rather than reacting to it."
+    criteria:
+      - {id: GOV-10.1, applies: [GEN], text: "Approved rules set how AI-generated content released outside the organisation, including synthetic media, is reviewed and disclosed."}
+      - {id: GOV-10.2, applies: [GEN], text: "Approved rules set how AI-generated content used inside the organisation to inform decisions or form official records is reviewed and disclosed."}
+      - {id: GOV-10.3, applies: [GEN], text: "The rules require disclosure at least to the extent the law requires, made clearly when a person first meets the content."}
+    questions:
+      - "Are there approved rules for reviewing and disclosing AI-generated content released outside the organisation, including synthetic media?"
+      - "Do the rules also cover AI-generated content used inside the organisation to inform decisions or form official records?"
+      - "How and when is disclosure made, and how do you know it meets what the law requires?"
+    evidence:
+      - "The approved rules for reviewing and disclosing AI-generated content, with owner and approval record"
+      - "A sample of released content and internal records showing review and disclosure"
+      - "The legal disclosure requirements the rules were checked against"
+    guidance:
+      steps:
+        - "Set rules for reviewing and disclosing AI-generated content released outside the organisation, including synthetic media such as images, audio and video."
+        - "Extend the rules to AI-generated content used inside the organisation to inform decisions or form official records."
+        - "Check the rules against the disclosure duties in the obligations register (RSK-04), and make disclosure clear at the point a person first meets the content."
+        - "Approve the rules under the AI policy (GOV-01) and tell the staff who produce or publish content."
+      pitfalls:
+        - "Forgetting AI-generated content used internally, such as drafts that become official records."
+        - "Placing the disclosure where people only find it after they have read or relied on the content."
+      artefacts:
+        - "AI-generated content review and disclosure standard"
+        - "Disclosure wording for common content types"
+    owner: {accountable: ai_governance_lead, contributors: [risk_lead, business_owner]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [GOV-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0

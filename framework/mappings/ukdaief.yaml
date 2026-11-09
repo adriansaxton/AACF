@@ -1,0 +1,1084 @@
+# UK Data and AI Ethics Framework mapping
+# Source: GDS Data and AI Ethics Framework, updated 18 Dec 2025, and its Data and AI Ethics Self-Assessment Tool
+# (resources/sources/uk-data-ai-ethics-framework.txt.md and uk-data-ai-ethics-self-assessment.txt.md). OGL v3.0, so
+# labels quote or closely paraphrase the source.
+# Refs: "<Principle> N" = the Nth top-level recommended action under that principle ("Trade-offs N" = the Nth
+# trade-off approach in the Principles overview); "SAT x.y" = self-assessment question x.y (phases 1 Discovery,
+# 2 Alpha, 3 Beta, 4 Live). Counts: Transparency 13, Accountability 9, Fairness 7, Privacy 11, Environmental
+# sustainability 5, Societal impact 6, Safety 9, Trade-offs 5; SAT 16/12/10/13.
+# strength: direct = the control at Level 3 would meet the item; partial = covers part of it, note says what is missing.
+
+source: UKDAIEF
+status: draft
+mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+items:
+- ref: Transparency 1
+  label: Explain the what, how and why of the project in plain language to non-experts
+  controls:
+  - id: POR-05
+    strength: direct
+  - id: TEC-05
+    strength: partial
+  - id: OPM-02
+    strength: partial
+  - id: GOV-09
+    strength: partial
+  note: The business case states in plain language the problem the use solves, with options that include not using AI;
+    documentation and published records explain the how.
+- ref: Transparency 2
+  label: Maintain detailed records of the project, including the decisions made in its design
+  controls:
+  - id: POR-03
+    strength: partial
+  - id: GOV-06
+    strength: partial
+  - id: GOV-05
+    strength: partial
+  - id: POR-05
+    strength: partial
+  - id: RSK-03
+    strength: partial
+  - id: POR-04
+    strength: direct
+  note: A record of key design decisions and assumptions, with reasons, is kept for each use and updated at each gate;
+    owner, user need, supplier and impact assessments are recorded alongside.
+- ref: Transparency 3
+  label: Make information about a project or tool publicly available
+  controls:
+  - id: GOV-09
+    strength: direct
+  note: Published records for in-scope uses, with a recorded decision on publication for each inventory entry.
+- ref: Transparency 4
+  label: Use the ATRS if in mandatory scope; consider publishing a record even if not
+  controls:
+  - id: GOV-09
+    strength: direct
+  note: GOV-09 requires records in the required format and a reasoned publish decision for every inventory entry, which covers
+    voluntary records.
+- ref: Transparency 5
+  label: Give appropriate disclosure when AI has been used to produce an output
+  controls:
+  - id: GOV-10
+    strength: direct
+  - id: RSK-08
+    strength: partial
+  - id: TEC-02
+    strength: partial
+  note: GOV-10 sets disclosure rules for AI content released externally and used internally for decisions or records.
+- ref: Transparency 6
+  label: Maintain records of all data sources, including collection methods, licences and preprocessing
+  controls:
+  - id: DAT-08
+    strength: direct
+  - id: DAT-04
+    strength: partial
+  note: DAT-08 records source, collection method, rights, licence and preparation steps; DAT-04 catalogues other data in use.
+- ref: Transparency 7
+  label: Publish DPIAs and EIAs where possible
+  controls:
+  - id: GOV-09
+    strength: direct
+  - id: RSK-03
+    strength: partial
+  note: For each use it is decided whether its impact assessments are published, with the reason recorded.
+- ref: Transparency 8
+  label: Maintain detailed records of all design decisions and assumptions behind a solution
+  controls:
+  - id: POR-05
+    strength: partial
+  - id: TEC-05
+    strength: partial
+  - id: RSK-02
+    strength: partial
+  - id: POR-04
+    strength: direct
+  note: A record of key design decisions and assumptions, with reasons, is kept for each use and updated at each gate.
+- ref: Transparency 9
+  label: Create and regularly update assurance documentation such as model cards or data set cards
+  controls:
+  - id: TEC-05
+    strength: direct
+  - id: DAT-08
+    strength: partial
+  note: TEC-05 documentation per version states purpose, intended users, limitations and where not to rely on it, checked
+    at each release.
+- ref: Transparency 10
+  label: If possible, publish your source code openly
+  controls:
+  - id: OPM-08
+    strength: partial
+  - id: POR-08
+    strength: partial
+  note: Sharing solutions with peers and reuse inside are covered; no control asks for a decision on publishing code openly.
+- ref: Transparency 11
+  label: Build algorithmic tools with explainability in mind, to the degree the use case needs
+  controls:
+  - id: TEC-02
+    strength: direct
+  - id: TEC-06
+    strength: partial
+  note: TEC-02 builds in explainability and sets the degree needed by risk and audience; TEC-06 tests what was achieved.
+- ref: Transparency 12
+  label: Use technical methods such as SHAP or LIME to assess model interpretability
+  controls: []
+  note: 'out of scope: choice of interpretability technique is technical method advice; TEC-06 already tests the explainability
+    achieved.'
+- ref: Transparency 13
+  label: Consult technical experts and current research when choosing explainability methods
+  controls: []
+  note: 'out of scope: advice on selecting explainability methods is technical practice for build teams, not an adoption control.'
+- ref: Accountability 1
+  label: Nominate an SRO, typically a senior decision maker, accountable for the project
+  controls:
+  - id: GOV-05
+    strength: direct
+  note: Named business owner for every use, recorded in the inventory.
+- ref: Accountability 2
+  label: Talk to the DPO and ensure they have the information, tools and authority to govern
+  controls:
+  - id: DAT-05
+    strength: partial
+  - id: GOV-07
+    strength: direct
+  note: Data protection advice is brought in at the start of design with authority to require changes, and data protection
+    governance has a defined AI step.
+- ref: Accountability 3
+  label: Establish independent reviews to review and challenge data and AI decisions
+  controls:
+  - id: MON-05
+    strength: direct
+  note: Independent assurance by risk tier for all uses, with tracked findings.
+- ref: Accountability 4
+  label: Clarify legal responsibilities across the data and AI supply chain for all parties
+  controls:
+  - id: RSK-04
+    strength: direct
+  - id: SEC-03
+    strength: partial
+  - id: OPM-04
+    strength: partial
+  note: For each use, how legal obligations are split between suppliers, the organisation and users is recorded and each
+    party is told its share.
+- ref: Accountability 5
+  label: When buying a system, define detailed responsibilities and liability contractually
+  controls:
+  - id: OPM-04
+    strength: direct
+  - id: RSK-09
+    strength: partial
+  note: Standard AI contract terms allocate responsibility and liability for AI outputs and harm, alongside data, IP,
+    security split and audit.
+- ref: Accountability 6
+  label: Publish accessible information on how the AI system works and why it is ethical and lawful
+  controls:
+  - id: GOV-09
+    strength: direct
+  - id: TEC-05
+    strength: partial
+  note: Published transparency records cover purpose, data, logic and the measures taken.
+- ref: Accountability 7
+  label: Have mechanisms for users to give feedback, report errors or contest decisions
+  controls:
+  - id: MON-06
+    strength: direct
+  - id: RSK-08
+    strength: direct
+  - id: OPM-07
+    strength: partial
+  note: Feedback per use (MON-06), challenge with human review (RSK-08), problem reporting (OPM-07).
+- ref: Accountability 8
+  label: Establish a human in the loop to oversee outputs in risky or high-impact uses
+  controls:
+  - id: RSK-07
+    strength: direct
+  note: Oversight set by risk, with reviewer authority to override or stop.
+- ref: Accountability 9
+  label: Identify who is responsible for AI outputs and decisions, including LLM tools
+  controls:
+  - id: GOV-05
+    strength: direct
+  - id: TEC-01
+    strength: partial
+  - id: GOV-01
+    strength: partial
+  note: Named owners for every use, embedded and general tools included via the inventory; approved tools each have an owner.
+- ref: Fairness 1
+  label: Define fairness for the project and how to measure it across its life cycle
+  controls:
+  - id: RSK-06
+    strength: direct
+  note: Fairness measures defined per use, tested before release and monitored live.
+- ref: Fairness 2
+  label: 'Understand your users: groups most affected and links to protected characteristics'
+  controls:
+  - id: RSK-06
+    strength: direct
+  - id: RSK-03
+    strength: partial
+  note: RSK-06 defines the groups at risk; RSK-03 covers equality impact.
+- ref: Fairness 3
+  label: Consider proxies for protected characteristics and be transparent about their use
+  controls:
+  - id: RSK-06
+    strength: direct
+  - id: DAT-05
+    strength: partial
+  note: Proxies for protected characteristics are identified for each in-scope use and their use is recorded with reasons.
+- ref: Fairness 4
+  label: Complete an EIA and consider publishing it with the DPIA and ATRS record
+  controls:
+  - id: RSK-03
+    strength: direct
+  - id: GOV-09
+    strength: partial
+  note: RSK-03 covers the equality assessment; publishing the assessment itself is not required.
+- ref: Fairness 5
+  label: 'Include diverse views: consider diversity of the team and contracted third parties'
+  controls:
+  - id: PPL-07
+    strength: partial
+  - id: GOV-04
+    strength: partial
+  - id: OPM-06
+    strength: direct
+  note: Diversity of perspective is considered for each delivery team, including contracted third parties, with structured
+    stakeholder input where it falls short.
+- ref: Fairness 6
+  label: Collect feedback and data throughout so the project stays fair and delivers benefits
+  controls:
+  - id: MON-02
+    strength: direct
+  - id: MON-06
+    strength: direct
+  - id: MON-03
+    strength: partial
+  note: Live fairness monitoring, user feedback and benefits tracking.
+- ref: Fairness 7
+  label: Regularly update your EIA
+  controls:
+  - id: RSK-03
+    strength: direct
+  note: Impact assessment kept current during use.
+- ref: Privacy 1
+  label: Involve information governance teams early in the project design process
+  controls:
+  - id: GOV-07
+    strength: direct
+  - id: DAT-05
+    strength: partial
+  - id: OPM-06
+    strength: partial
+  note: Information governance and data protection advice are brought in at the start of design, with authority to require
+    changes.
+- ref: Privacy 2
+  label: Record purpose and benefit of data collection and use it to prevent scope creep
+  controls:
+  - id: DAT-05
+    strength: direct
+  - id: MON-02
+    strength: partial
+  note: Recorded purpose and compatibility check per use; MON-02 watches for use outside the approved purpose.
+- ref: Privacy 3
+  label: Embed privacy by design and default and undertake a DPIA
+  controls:
+  - id: OPM-06
+    strength: direct
+  - id: RSK-03
+    strength: direct
+  - id: DAT-05
+    strength: partial
+  note: Privacy by design with protective defaults (OPM-06) and a privacy impact assessment (RSK-03).
+- ref: Privacy 4
+  label: 'Adopt data minimisation: collect and process the least data the purpose needs'
+  controls:
+  - id: DAT-05
+    strength: direct
+  - id: DAT-07
+    strength: partial
+  note: Data collected and processed for each use is limited to what the purpose needs.
+- ref: Privacy 5
+  label: Facilitate data subjects' rights to access and correction, with meaningful consent
+  controls:
+  - id: DAT-05
+    strength: direct
+  note: Rights requests handled, including for training data, on a recorded lawful basis.
+- ref: Privacy 6
+  label: Use privacy enhancing technologies such as anonymisation or synthetic data
+  controls:
+  - id: DAT-05
+    strength: direct
+  - id: DAT-08
+    strength: partial
+  note: Privacy enhancing techniques are considered wherever personal data is used, with the decision recorded.
+- ref: Privacy 7
+  label: Share data responsibly under a privacy-preserving governance regime and agreements
+  controls:
+  - id: DAT-07
+    strength: direct
+  - id: DAT-05
+    strength: partial
+  - id: DAT-06
+    strength: partial
+  note: Sharing follows documented agreements; lawful basis and retention sit with DAT-05 and DAT-06.
+- ref: Privacy 8
+  label: Consider additional privacy risks AI brings, such as re-identification or leakage
+  controls:
+  - id: RSK-03
+    strength: direct
+  - id: SEC-04
+    strength: direct
+  - id: TEC-08
+    strength: partial
+  note: Privacy and sensitive inferences in the impact assessment; leakage rules for AI tools; detection of unapproved public
+    tools.
+- ref: Privacy 9
+  label: Provide clear privacy notices and give users free choice to configure settings
+  controls:
+  - id: DAT-05
+    strength: direct
+  - id: OPM-06
+    strength: partial
+  note: People told accessibly how their data is used; privacy-protective defaults in OPM-06.
+- ref: Privacy 10
+  label: Prepare for breaches with clear plans and assigned responsibilities
+  controls:
+  - id: SEC-05
+    strength: direct
+  - id: MON-04
+    strength: partial
+  note: Security incident playbooks with breach notification routes and trained responders.
+- ref: Privacy 11
+  label: 'Plan for decommissioning: data archival or deletion at an appropriate time'
+  controls:
+  - id: POR-09
+    strength: direct
+  - id: DAT-06
+    strength: direct
+  note: Retirement covers disposal or retention of models and data, under records rules.
+- ref: Environmental sustainability 1
+  label: Explore alternative solutions, including simple and low-energy options, before selecting
+  controls:
+  - id: OPM-02
+    strength: direct
+  note: Configure, procure, build or wait decision with environmental footprint as a criterion.
+- ref: Environmental sustainability 2
+  label: Consider reuse of existing models, favouring open-source models over retraining
+  controls:
+  - id: OPM-02
+    strength: direct
+  - id: POR-08
+    strength: partial
+  - id: OPM-08
+    strength: partial
+  note: Reuse of existing and openly available models is considered before training new ones.
+- ref: Environmental sustainability 3
+  label: Select suitable metrics for measuring and assessing environmental impact
+  controls:
+  - id: RSK-03
+    strength: partial
+  - id: MON-01
+    strength: direct
+  note: Measures for each use include environmental footprint (energy, compute, water) where material, with a baseline;
+    the impact assessment covers environmental effects.
+- ref: Environmental sustainability 4
+  label: Evaluate sustainability credentials of third-party providers, including renewable energy use
+  controls:
+  - id: RSK-09
+    strength: direct
+  note: Supplier due diligence covers energy use and wider sustainability practice.
+- ref: Environmental sustainability 5
+  label: Raise awareness of the environmental and social impact of digital technologies
+  controls:
+  - id: PPL-01
+    strength: direct
+  note: The literacy baseline required for all staff covers the environmental and social impact of AI use, which brings
+    sustainability into training.
+- ref: Societal impact 1
+  label: Write down project objectives in non-technical terms before choosing a technical solution
+  controls:
+  - id: POR-05
+    strength: direct
+  - id: STR-01
+    strength: partial
+  note: The business case states the problem in plain language and weighs options, including not using AI, before approval
+    at the gate.
+- ref: Societal impact 2
+  label: Involve diverse stakeholders, especially those most affected, in design and testing
+  controls:
+  - id: OPM-10
+    strength: direct
+  - id: OPM-06
+    strength: partial
+  - id: CUL-08
+    strength: partial
+  - id: CUL-03
+    strength: partial
+  note: Participants who represent the people served and engagement of affected communities (OPM-10); user research and testing
+    with users (OPM-06); public views in design (CUL-08); staff (CUL-03).
+- ref: Societal impact 3
+  label: Complete an Equality Impact Assessment
+  controls:
+  - id: RSK-03
+    strength: direct
+  note: Equality is part of the impact assessment before go-live.
+- ref: Societal impact 4
+  label: Use feedback mechanisms such as surveys and advisory boards to shape outcomes
+  controls:
+  - id: MON-06
+    strength: direct
+  - id: CUL-08
+    strength: partial
+  note: Feedback per use reviewed and acted on; CUL-08 gathers public views.
+- ref: Societal impact 5
+  label: Make sure you have meaningful human control at the right stages
+  controls:
+  - id: RSK-07
+    strength: direct
+  note: Oversight model per use set by risk.
+- ref: Societal impact 6
+  label: Continuously evaluate and improve the project, including decommissioning when no longer useful
+  controls:
+  - id: POR-04
+    strength: direct
+  - id: POR-09
+    strength: direct
+  - id: MON-03
+    strength: partial
+  note: Stage gates from idea to retirement; retirement triggered by periodic review with user transition.
+- ref: Safety 1
+  label: Make sure researchers and research participants are physically and emotionally safe
+  controls:
+  - id: OPM-10
+    strength: partial
+  note: Research with participants has informed consent and ethics review and protects their wellbeing and right to withdraw;
+    the safety of the researchers themselves is not addressed.
+- ref: Safety 2
+  label: Comply with security requirements and standards such as Secure by Design
+  controls:
+  - id: SEC-01
+    strength: direct
+  - id: OPM-06
+    strength: partial
+  note: Recognised security baseline applied to every use before go-live.
+- ref: Safety 3
+  label: Apply data minimisation to limit the potential harms of a data breach
+  controls:
+  - id: DAT-05
+    strength: direct
+  - id: DAT-07
+    strength: partial
+  note: Data collected and processed for each use is limited to what the purpose needs, which covers personal data.
+- ref: Safety 4
+  label: Keep all data secure throughout the project
+  controls:
+  - id: SEC-04
+    strength: direct
+  - id: DAT-07
+    strength: partial
+  - id: SEC-01
+    strength: partial
+  note: Information protection rules and technical measures on AI tools, with least privilege access.
+- ref: Safety 5
+  label: Check for data quality, accuracy or reliability issues such as drift or poisoning
+  controls:
+  - id: DAT-03
+    strength: direct
+  - id: MON-02
+    strength: direct
+  - id: SEC-02
+    strength: partial
+  note: Data quality assessed before and during use; drift monitored live; poisoning as an AI threat.
+- ref: Safety 6
+  label: Ensure human oversight and strategies to intervene, especially in high-risk uses
+  controls:
+  - id: RSK-07
+    strength: direct
+  note: Oversight with authority to override or stop.
+- ref: Safety 7
+  label: Run rigorous testing to find failure modes, including red teaming
+  controls:
+  - id: TEC-06
+    strength: direct
+  - id: SEC-06
+    strength: partial
+  note: Testing against criteria, edge cases and harmful output (TEC-06), with safeguard bypass and independent security testing
+    for higher risk (SEC-06).
+- ref: Safety 8
+  label: If the system cannot be made sufficiently safe, do not use it
+  controls:
+  - id: RSK-01
+    strength: partial
+  - id: GOV-03
+    strength: direct
+  - id: POR-07
+    strength: partial
+  note: A use whose residual risk cannot be brought within the risk appetite is not approved, or is stopped.
+- ref: Safety 9
+  label: Use available resources, including courses on risks and ethics
+  controls:
+  - id: PPL-01
+    strength: direct
+  - id: PPL-05
+    strength: partial
+  note: The literacy baseline covers risks and the adopted ethical principles for all staff; role pathways add specific
+    risk duties.
+- ref: Trade-offs 1
+  label: Include stakeholder perspectives by engaging with affected communities
+  controls:
+  - id: CUL-08
+    strength: direct
+  - id: CUL-03
+    strength: partial
+  note: Views of the people served gathered and considered in design.
+- ref: Trade-offs 2
+  label: Consult legal and human rights frameworks so decisions align with standards
+  controls:
+  - id: RSK-04
+    strength: direct
+  - id: RSK-03
+    strength: partial
+  note: Obligations register used at design with legal advice; rights in the impact assessment.
+- ref: Trade-offs 3
+  label: Balance proportionality and necessity
+  controls:
+  - id: RSK-05
+    strength: direct
+  - id: DAT-05
+    strength: partial
+  note: Where principles conflict, the trade-off is tested for necessity and proportionality through the review route.
+- ref: Trade-offs 4
+  label: Ensure meaningful and inclusive deliberation
+  controls:
+  - id: GOV-04
+    strength: partial
+  - id: RSK-05
+    strength: partial
+  note: Trade-offs between principles go through the review route and are recorded with alternatives and reasons, and the
+    oversight forum is diverse; the review route itself is not required to be inclusive.
+- ref: Trade-offs 5
+  label: Establish mechanisms to monitor outcomes and adjust if necessary
+  controls:
+  - id: MON-02
+    strength: direct
+  - id: RSK-03
+    strength: partial
+  note: Live monitoring against thresholds with named responders.
+- ref: SAT 1.1
+  label: Describe the problem you are trying to solve in non-technical terms
+  controls:
+  - id: POR-05
+    strength: direct
+  - id: POR-03
+    strength: partial
+  note: The proportionate business case for every use states the case for change, benefits and options; the pipeline register
+    holds the proposal but not the problem statement itself.
+- ref: SAT 1.2
+  label: Describe the project purpose and user need
+  controls:
+  - id: OPM-06
+    strength: direct
+  - id: POR-05
+    strength: partial
+  - id: GOV-06
+    strength: partial
+  note: User research under the delivery standards establishes the user need; purpose is recorded in the business case and,
+    once live, the inventory.
+- ref: SAT 1.3
+  label: Have you consulted your organisation's DPO?
+  controls:
+  - id: DAT-05
+    strength: direct
+  - id: GOV-07
+    strength: partial
+  note: Each use of data is signed off with data protection advice before use; GOV-07 gives data protection its AI step.
+- ref: SAT 1.4
+  label: Have you consulted your organisation's data and information security teams?
+  controls:
+  - id: GOV-07
+    strength: direct
+  - id: SEC-01
+    strength: partial
+  - id: SEC-02
+    strength: partial
+  note: Information management and security governance each have a defined AI step that the AI route calls on; the security
+    baseline and threat model bring security teams in per use.
+- ref: SAT 1.5
+  label: Are you using any personal or sensitive data? Consider the privacy impact
+  controls:
+  - id: DAT-04
+    strength: direct
+  - id: DAT-05
+    strength: direct
+  - id: RSK-03
+    strength: partial
+  note: The catalogue records sensitivity and whether data holds personal data; lawful basis and fairness are recorded per
+    use, and the impact assessment covers privacy.
+- ref: SAT 1.6
+  label: Have you conducted a DPIA, and how will identified risks be mitigated?
+  controls:
+  - id: RSK-03
+    strength: direct
+  - id: DAT-05
+    strength: partial
+  - id: GOV-07
+    strength: partial
+  note: The impact assessment covers privacy, is signed off before go-live and tracks mitigations; DAT-05 feeds it and GOV-07
+    ties in the existing DPIA process.
+- ref: SAT 1.7
+  label: What data sharing agreements are in place, and are they proportionate and privacy protecting?
+  controls:
+  - id: DAT-07
+    strength: direct
+  - id: DAT-05
+    strength: partial
+  note: Sharing follows documented agreements approved by the data owner; proportionality to the purpose comes from the DAT-05
+    purpose and fairness check.
+- ref: SAT 1.8
+  label: What governance structures support safe, effective and responsible implementation?
+  controls:
+  - id: GOV-04
+    strength: direct
+  - id: RSK-05
+    strength: direct
+  - id: GOV-03
+    strength: partial
+  - id: GOV-07
+    strength: partial
+  note: Oversight forum and an ethics review route with authority to require changes; decision rights tiered by risk set which
+    structures review each use.
+- ref: SAT 1.9
+  label: How have you assigned responsibility for outcomes? Can owners make necessary changes?
+  controls:
+  - id: GOV-05
+    strength: direct
+  - id: GOV-03
+    strength: direct
+  - id: CUL-04
+    strength: partial
+  note: Named business, data, technical and assurance owners per use, with decision rights to change or retire; concerns raised
+    are acted on through CUL-04.
+- ref: SAT 1.10
+  label: What process documents project decisions and builds an evidence base for them?
+  controls:
+  - id: POR-03
+    strength: direct
+  - id: POR-04
+    strength: direct
+  - id: TEC-05
+    strength: partial
+  note: Decision history and gate decisions are recorded in the pipeline register; design records for audit come through TEC-05
+    documentation.
+- ref: SAT 1.11
+  label: If conducting research, how are researchers and participants kept safe?
+  controls:
+  - id: OPM-10
+    strength: direct
+  note: Evaluations and user research involving people need informed consent and ethics review through the established route,
+    which covers risks to participants and researchers.
+- ref: SAT 1.12
+  label: How are you ensuring diversity and representation in your project team?
+  controls:
+  - id: OPM-06
+    strength: direct
+  - id: PPL-07
+    strength: partial
+  - id: GOV-04
+    strength: partial
+  note: Diversity of perspective is considered for each team, with structured stakeholder input where it falls short.
+- ref: SAT 1.13
+  label: Who are your users, and how might groups be impacted unequally?
+  controls:
+  - id: RSK-03
+    strength: direct
+  - id: RSK-06
+    strength: direct
+  - id: OPM-06
+    strength: partial
+  note: The equality impact assessment and defined groups at risk cover unequal impact; users and their needs come from user
+    research.
+- ref: SAT 1.14
+  label: How are you involving diverse stakeholders and affected groups in planning, design and development?
+  controls:
+  - id: OPM-10
+    strength: direct
+  - id: OPM-06
+    strength: partial
+  - id: CUL-08
+    strength: partial
+  - id: CUL-03
+    strength: partial
+  note: For significant uses, affected communities and experts who are not users are engaged at planning and design (OPM-10),
+    and user research continues through development (OPM-06).
+- ref: SAT 1.15
+  label: Have you consulted civil society and domain experts? What risks and opportunities were recorded?
+  controls:
+  - id: OPM-10
+    strength: direct
+  - id: STR-07
+    strength: partial
+  - id: CUL-08
+    strength: partial
+  note: For significant uses, affected communities and experts who are not users are engaged at planning and design, with
+    their input and the response recorded.
+- ref: SAT 1.16
+  label: Are you researching environmental impact, and is it shaping early decisions?
+  controls:
+  - id: OPM-02
+    strength: direct
+  - id: RSK-03
+    strength: partial
+  note: The configure, procure, build or wait decision for every use weighs environmental footprint; the impact assessment
+    covers environmental effects before go-live.
+- ref: SAT 2.1
+  label: How are you implementing safety principles from the start of your project?
+  controls:
+  - id: OPM-06
+    strength: direct
+  - id: TEC-06
+    strength: partial
+  - id: SEC-02
+    strength: partial
+  - id: GOV-07
+    strength: partial
+  note: Delivery standards require safety, security and privacy by design, with accuracy, robustness and reliability
+    requirements set at design.
+- ref: SAT 2.2
+  label: What processes assess and resolve data quality issues?
+  controls:
+  - id: DAT-03
+    strength: direct
+  note: Quality requirements per use, assessed before use and at intervals, with owned remediation.
+- ref: SAT 2.3
+  label: How are you communicating the system's purpose, design and outcomes to stakeholders?
+  controls:
+  - id: TEC-05
+    strength: direct
+  - id: GOV-09
+    strength: partial
+  - id: CUL-02
+    strength: partial
+  note: Documentation per version states purpose, users, how it works, inputs, outputs and limits, suited to each audience;
+    public records and internal communication add reach.
+- ref: SAT 2.4
+  label: How are you communicating with individuals about how their data is used?
+  controls:
+  - id: DAT-05
+    strength: direct
+  note: People whose data or inputs are used are told accessibly how they are used, accessed and stored.
+- ref: SAT 2.5
+  label: How will outputs be clearly explained and understood by stakeholders and users?
+  controls:
+  - id: TEC-02
+    strength: direct
+  - id: TEC-06
+    strength: partial
+  - id: RSK-08
+    strength: partial
+  note: The degree of explainability is set per use by risk and audience and built into patterns; testing checks what was
+    achieved.
+- ref: SAT 2.6
+  label: What privacy enhancing methods have you integrated into your project?
+  controls:
+  - id: DAT-05
+    strength: direct
+  - id: OPM-06
+    strength: partial
+  - id: DAT-07
+    strength: partial
+  note: Privacy enhancing techniques are considered and recorded for personal data used in training or tuning; privacy by
+    design and minimised test data cover other stages.
+- ref: SAT 2.7
+  label: What plan is in place for fairness testing?
+  controls:
+  - id: RSK-06
+    strength: direct
+  - id: MON-06
+    strength: partial
+  note: Fairness measures and testing before release under a documented approach; user feedback adds a non-technical source.
+- ref: SAT 2.8
+  label: How are you identifying and mitigating biases in your data sets?
+  controls:
+  - id: RSK-06
+    strength: direct
+  - id: DAT-03
+    strength: direct
+  note: Bias management across the lifecycle, and data quality requirements that include representativeness.
+- ref: SAT 2.9
+  label: How are diverse needs captured and integrated into prototype development?
+  controls:
+  - id: RSK-03
+    strength: direct
+  - id: OPM-06
+    strength: partial
+  - id: OPM-10
+    strength: partial
+  note: The equality impact assessment covers the Public Sector Equality Duty; user research (OPM-06) with participants who
+    represent those served (OPM-10) informs design.
+- ref: SAT 2.10
+  label: What would be the harm in not doing the project?
+  controls:
+  - id: POR-05
+    strength: direct
+  note: The business case states benefits and options, which include not proceeding.
+- ref: SAT 2.11
+  label: Consider trade-offs between ethical principles and alternatives. Why prioritise the chosen solution?
+  controls:
+  - id: RSK-05
+    strength: direct
+  - id: RSK-02
+    strength: partial
+  - id: OPM-02
+    strength: partial
+  note: Where principles conflict, the trade-off is recorded with the alternatives considered and the reasons for the
+    choice.
+- ref: SAT 2.12
+  label: What plan is in place for measuring and reducing environmental impact?
+  controls:
+  - id: RSK-03
+    strength: partial
+  - id: OPM-02
+    strength: partial
+  - id: MON-01
+    strength: partial
+  note: Environmental footprint is measured with a baseline and environmental mitigations are tracked, but no control asks
+    for a reduction plan or target set against those measures.
+- ref: SAT 3.1
+  label: How have you considered the accuracy, representativeness and completeness of your data set?
+  controls:
+  - id: DAT-03
+    strength: direct
+  - id: RSK-06
+    strength: partial
+  - id: MON-02
+    strength: partial
+  note: Data quality requirements include relevance and representativeness, with shortfalls mitigated; proxy discrimination
+    and future monitoring sit in RSK-06 and MON-02.
+- ref: SAT 3.2
+  label: How have you evaluated and addressed fairness in your AI system before going live?
+  controls:
+  - id: RSK-06
+    strength: direct
+  - id: TEC-06
+    strength: partial
+  note: Groups at risk and fairness measures are defined, tested before release and mitigated.
+- ref: SAT 3.3
+  label: How are you ensuring accessibility for all users?
+  controls:
+  - id: OPM-06
+    strength: direct
+  - id: RSK-03
+    strength: partial
+  note: Services, documentation and notices are tested with users who have accessibility needs before go-live.
+- ref: SAT 3.4
+  label: How have you designed and tested human oversight mechanisms?
+  controls:
+  - id: RSK-07
+    strength: direct
+  - id: GOV-05
+    strength: partial
+  - id: CUL-04
+    strength: partial
+  note: The oversight model is set per use, and its design is tested before go-live to show reviewers can detect problems
+    and intervene in time.
+- ref: SAT 3.5
+  label: Is documentation in place so others can replicate your process, results and outputs?
+  controls:
+  - id: DAT-08
+    strength: direct
+  - id: TEC-05
+    strength: direct
+  - id: TEC-06
+    strength: partial
+  note: Data sources and preparation linked to models, versioned models, prompts, configuration and data sets, and recorded
+    test results.
+- ref: SAT 3.6
+  label: Have you checked whether the project is in scope of the ATRS?
+  controls:
+  - id: GOV-09
+    strength: direct
+  - id: RSK-04
+    strength: partial
+  note: For each inventory entry a publication decision is made against the applicable criteria, with the reason recorded.
+- ref: SAT 3.7
+  label: How are you integrating environmental monitoring into development?
+  controls:
+  - id: RSK-09
+    strength: partial
+  - id: OPM-02
+    strength: partial
+  - id: RSK-03
+    strength: partial
+  - id: MON-01
+    strength: partial
+  note: Footprint shapes the sourcing choice, supplier energy and sustainability are assessed and a baseline is set before
+    go-live, but environmental measures are not tracked through development.
+- ref: SAT 3.8
+  label: Could the project affect employment, working conditions or skills? Who gains or loses?
+  controls:
+  - id: PPL-06
+    strength: partial
+  - id: CUL-01
+    strength: partial
+  - id: CUL-03
+    strength: partial
+  - id: CUL-07
+    strength: partial
+  - id: RSK-03
+    strength: direct
+  note: The impact assessment for each use covers workforce effects (workload, working conditions, skills and progression)
+    alongside equality; workforce plans add the organisation view.
+- ref: SAT 3.9
+  label: What go or no-go criteria apply before going live, and what would cause delay?
+  controls:
+  - id: POR-04
+    strength: direct
+  - id: GOV-03
+    strength: direct
+  - id: POR-07
+    strength: partial
+  - id: MON-01
+    strength: partial
+  note: Gate exit criteria proportionate to risk, and decision rights naming who approves go-live.
+- ref: SAT 3.10
+  label: How will you transition to live, and who will own the system afterwards?
+  controls:
+  - id: GOV-05
+    strength: direct
+  - id: OPM-07
+    strength: direct
+  - id: POR-03
+    strength: partial
+  - id: OPM-01
+    strength: partial
+  note: Formal ownership handover with residual risk acceptance and a support owner for every live service; the register entry
+    moves to the inventory.
+- ref: SAT 4.1
+  label: How are you monitoring performance in deployment and responding if it degrades or becomes unsafe?
+  controls:
+  - id: MON-02
+    strength: direct
+  - id: OPM-09
+    strength: direct
+  - id: MON-01
+    strength: partial
+  - id: TEC-05
+    strength: partial
+  note: Live monitoring against thresholds with named responders, tested fallbacks with users told, and rollback to a known
+    good version.
+- ref: SAT 4.2
+  label: How are logs and documentation maintained to support investigations and transparency?
+  controls:
+  - id: DAT-06
+    strength: direct
+  - id: MON-02
+    strength: partial
+  - id: TEC-05
+    strength: partial
+  - id: SEC-01
+    strength: partial
+  note: Records rules cover inputs, outputs, decisions and system logs, retrievable for every use; event logging and version
+    documentation support them.
+- ref: SAT 4.3
+  label: What mechanisms let users submit feedback on system performance?
+  controls:
+  - id: MON-06
+    strength: direct
+  - id: OPM-07
+    strength: partial
+  note: Every live use has a feedback route for users and affected people; OPM-07 adds a problem reporting route.
+- ref: SAT 4.4
+  label: How are you actioning user feedback to improve the project?
+  controls:
+  - id: MON-06
+    strength: direct
+  - id: TEC-05
+    strength: partial
+  note: Feedback is reviewed on a set cycle with actions recorded; users are told of planned changes under TEC-05.
+- ref: SAT 4.5
+  label: Can the rationale for outputs be explained understandably to users and affected individuals?
+  controls:
+  - id: RSK-08
+    strength: direct
+  - id: TEC-02
+    strength: partial
+  note: People affected by AI-supported decisions can obtain a meaningful explanation.
+- ref: SAT 4.6
+  label: How are you notifying users they are interacting with AI rather than a human?
+  controls:
+  - id: RSK-08
+    strength: direct
+  - id: GOV-10
+    strength: partial
+  - id: TEC-02
+    strength: partial
+  note: People are told at first contact, clearly and accessibly, when interacting with AI; content disclosure and machine-readable
+    marking support it.
+- ref: SAT 4.7
+  label: If within mandatory scope, have you published an ATRS transparency record?
+  controls:
+  - id: GOV-09
+    strength: direct
+  note: Records are published for all in-scope uses in the required format.
+- ref: SAT 4.8
+  label: How long will data be retained, and what justifies that period?
+  controls:
+  - id: DAT-06
+    strength: direct
+  - id: DAT-05
+    strength: partial
+  note: Retention rules for AI inputs, outputs and decisions are applied to every use; purpose limitation under DAT-05 supports
+    the justification.
+- ref: SAT 4.9
+  label: What monitoring and interventions detect and prevent misuse of the system?
+  controls:
+  - id: MON-02
+    strength: direct
+  - id: SEC-01
+    strength: partial
+  - id: TEC-02
+    strength: partial
+  - id: GOV-03
+    strength: partial
+  note: Live monitoring covers misuse and use outside the approved purpose, with named responders; guardrails and security
+    monitoring add prevention.
+- ref: SAT 4.10
+  label: What procedures are in place to safely stop or retire the system?
+  controls:
+  - id: OPM-09
+    strength: direct
+  - id: POR-09
+    strength: direct
+  - id: MON-09
+    strength: partial
+  - id: SEC-05
+    strength: partial
+  note: Documented safe stop and fallback in continuity plans with recovery objectives, plus a planned retirement process.
+- ref: SAT 4.11
+  label: Will people affected by shutdown or replacement be told? What are the wider impacts?
+  controls:
+  - id: POR-09
+    strength: direct
+  - id: OPM-09
+    strength: partial
+  - id: GOV-09
+    strength: partial
+  note: Retirement assesses the effect of withdrawal on affected people and services, identifies groups at greater risk
+    and tells users and affected people in advance.
+- ref: SAT 4.12
+  label: How will you monitor environmental impact after deployment and respond if it rises?
+  controls:
+  - id: RSK-03
+    strength: partial
+  - id: MON-01
+    strength: partial
+  note: Environmental footprint is measured against a baseline and the impact assessment is kept current, but live
+    monitoring of footprint against a threshold, with a named response, is not required.
+- ref: SAT 4.13
+  label: What measures responsibly manage or recycle hardware and infrastructure?
+  controls:
+  - id: POR-09
+    strength: direct
+  - id: RSK-09
+    strength: partial
+  note: Retirement covers reuse, recycling or disposal of dedicated hardware and infrastructure; supplier due diligence on
+    wider sustainability practice reaches hardware owned by providers.

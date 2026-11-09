@@ -1,0 +1,420 @@
+# TEC: Technology & Platforms
+# Which AI tools are approved, how AI fits the technology estate, and how models are tested, released and changed.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+# Security detail belongs to SEC; monitoring of live AI belongs to MON-02.
+
+domain: TEC
+name: "Technology & Platforms"
+summary: >
+  Covers the technology through which AI is adopted: which tools and platforms people may use,
+  how AI fits into the existing estate, where it is hosted, how models and prompts are tested,
+  released and controlled, and how the organisation copes with fast change from suppliers. The
+  aim is a small number of well understood routes that make the approved way the easy way.
+
+controls:
+
+  - id: TEC-01
+    title: Approved AI tools and platforms
+    objective: >
+      The organisation keeps a current list of approved AI tools and platforms, each with clear
+      conditions of use, and staff know where to find it.
+    rationale: >
+      Staff need a quick answer to which AI tools they can use and for what. An approved list
+      with conditions turns policy into something people can act on, and gives procurement,
+      security and data teams one place to record their decisions about each tool.
+    levels:
+      1: "No approved list; staff choose tools themselves or wait for case-by-case answers."
+      2: "Some tools are known to be allowed, but there is no maintained list, or conditions of use are missing or unclear."
+      3: "A maintained, published list of approved AI tools and platforms states each one's permitted uses, data limits and owner, with a route to request additions."
+      4: "The list is reviewed on a set cycle, requests are handled within an agreed time, and use of approved tools is measured against the conditions."
+      5: "The list is refined from usage, requests and supplier change, and approval of new tools is quick enough that staff rarely look elsewhere."
+    criteria:
+      - {id: TEC-01.1, applies: core, text: "A maintained list of approved AI tools and platforms exists."}
+      - {id: TEC-01.2, applies: core, text: "For each listed tool or platform, the list states its permitted uses, the data that may and may not be used with it, and its owner."}
+      - {id: TEC-01.3, applies: core, text: "The list is published to all staff."}
+      - {id: TEC-01.4, applies: core, text: "Staff have a route to request additions to the list."}
+      - {id: TEC-01.5, applies: [BLD], text: "The list covers the environments and toolchains used to build, test and run the organisation's own AI, each with an owner and support."}
+    questions:
+      - "Where would a member of staff look to find out which AI tools they may use, and for what data?"
+      - "How does a tool get added to or removed from the list, and how long does that take?"
+      - "When was the list last reviewed?"
+    evidence:
+      - "The approved tools list with conditions of use, owners and review date"
+      - "The request process and a log of recent requests and decisions"
+      - "Approved build, test and run environments with owners"
+    guidance:
+      steps:
+        - "List the AI tools and platforms already approved or in use, and confirm which are allowed."
+        - "For each approved item, record permitted uses, data that may and may not be used with it, and an owner."
+        - "Publish the list to all staff with a route to request additions."
+        - "Where the organisation builds its own AI, add the environments and toolchains used to build, test and run it, each with an owner and support."
+      pitfalls:
+        - "Publishing a list without data rules, so staff know what tool to use but not what to put in it."
+        - "Letting requests for additions sit unanswered, which pushes people to unapproved tools (TEC-08)."
+      artefacts:
+        - "Approved AI tools list"
+        - "Tool addition request form"
+    owner: {accountable: delivery_lead, contributors: [security_lead, data_owner, ai_governance_lead]}
+    lifecycle: [acquire_build, deploy, operate, retire]
+    applicability: core
+    dependencies: [GOV-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: TEC-02
+    title: Reference architecture for AI
+    objective: >
+      Agreed architecture patterns set out how AI components fit into the technology estate,
+      and new uses of AI follow them or record why not.
+    rationale: >
+      Without shared patterns each team solves the same problems differently, which raises cost
+      and leaves an estate that is hard to support or secure. A small set of agreed patterns
+      speeds delivery and makes AI services easier to run and change.
+    levels:
+      1: "No agreed patterns; each use of AI is designed from scratch."
+      2: "Some patterns or preferred approaches exist, but they are informal, partial or not used consistently."
+      3: "Owned reference patterns cover the common uses of AI, are applied through design review, and build in explainability, traceability and guardrails proportionate to risk."
+      4: "Conformance with the patterns is checked and reported, and departures are tracked to see whether they show a pattern needs to change."
+      5: "Patterns are updated from delivery experience, operating data and technology change, and retired when better approaches arrive."
+    criteria:
+      - {id: TEC-02.1, applies: core, text: "Documented reference patterns with an owner cover the common ways AI is used in the estate."}
+      - {id: TEC-02.2, applies: core, text: "The patterns are applied through design review, and departures are recorded and approved."}
+      - {id: TEC-02.3, applies: core, text: "The patterns build in explainability and traceability of outputs."}
+      - {id: TEC-02.4, applies: core, text: "The degree of explainability each use of AI needs is set by its risk and audience."}
+      - {id: TEC-02.5, applies: core, text: "The patterns build in input and output guardrails proportionate to risk."}
+      - {id: TEC-02.6, applies: core, text: "Guardrails are re-evaluated when obligations or the risk assessment change."}
+      - {id: TEC-02.7, applies: [BLD, PRV], text: "Where the organisation builds or offers generative AI, the patterns mark its outputs as AI-generated in a machine-readable way."}
+    questions:
+      - "Are there agreed patterns for how AI fits into your technology estate, and who owns them?"
+      - "How is a new use of AI checked against them at design stage?"
+      - "What happens when a team needs to depart from a pattern?"
+    evidence:
+      - "The reference architecture or pattern library for AI"
+      - "Design review records showing patterns applied or departures approved"
+      - "Output marking in generative AI patterns, where applicable"
+    guidance:
+      steps:
+        - "Document reference patterns for the common ways AI is used in the estate, with an owner."
+        - "Build into the patterns explainability and traceability of outputs, at a level set by risk and audience, and input and output guardrails proportionate to risk."
+        - "Where the organisation builds or offers generative AI, include machine-readable marking of outputs as AI-generated."
+        - "Apply the patterns through design review, recording and approving any departure."
+        - "Re-evaluate guardrails when obligations or the risk assessment change."
+      pitfalls:
+        - "Writing patterns so abstract that design reviewers cannot tell whether a design follows them."
+        - "Setting the same explainability level for every use regardless of risk."
+      artefacts:
+        - "Reference pattern set"
+        - "Design review checklist"
+        - "Departure record"
+    owner: {accountable: delivery_lead, contributors: [security_lead, data_owner]}
+    lifecycle: [design, acquire_build]
+    applicability: core
+    dependencies: []
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: TEC-03
+    title: Hosting and data location
+    objective: >
+      Requirements for where AI is hosted and where its data is processed and stored are
+      defined, and each use of AI is checked against them before and during live use.
+    rationale: >
+      Many AI services process data in places the organisation has not chosen, sometimes in
+      other jurisdictions or through subprocessors. Legal, contractual and sensitivity
+      requirements on location only hold if they are stated and then checked against what the
+      service actually does.
+    levels:
+      1: "Hosting and data location are not considered; they follow whatever the supplier offers."
+      2: "Location is checked for some services, usually at purchase, without stated requirements or later checks."
+      3: "Documented requirements set where AI may be hosted and data processed for each class of data, and every use, including subprocessors, is checked before go-live."
+      4: "Compliance with location requirements is rechecked on a set cycle and when suppliers change terms or infrastructure, and breaches are acted on."
+      5: "Location requirements are refined from changes in law, risk and the market, and checks rely on continuous supplier attestation rather than one-off reviews."
+    criteria:
+      - {id: TEC-03.1, applies: core, text: "Documented requirements set where AI may be hosted and data processed for each class of data."}
+      - {id: TEC-03.2, applies: core, text: "Every use of AI is checked against the requirements before go-live."}
+      - {id: TEC-03.3, applies: core, text: "The pre go-live check covers subprocessors."}
+    questions:
+      - "Where is each AI service hosted, and where is your data processed and stored, including by subprocessors?"
+      - "What are your requirements for location, and how are they set for different kinds of data?"
+      - "How would you find out if a supplier moved processing elsewhere?"
+    evidence:
+      - "Documented hosting and data location requirements"
+      - "Location checks for a sample of AI services, including subprocessor information"
+    guidance:
+      steps:
+        - "Set requirements for where AI may be hosted and data processed, for each class of data, informed by legal obligations (RSK-04)."
+        - "Ask suppliers where they host and process data, and who their subprocessors are."
+        - "Check every use of AI against the requirements before go-live, including subprocessors, and record the result."
+      pitfalls:
+        - "Checking the main supplier's location but not its subprocessors."
+        - "Forgetting that a supplier can move processing after the contract is signed."
+      artefacts:
+        - "Hosting and data location requirements"
+        - "Pre-go-live location check record"
+    owner: {accountable: delivery_lead, contributors: [security_lead, data_owner, risk_lead]}
+    lifecycle: [acquire_build, deploy, operate]
+    applicability: core
+    dependencies: [RSK-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: TEC-04
+    title: Integration with existing systems
+    objective: >
+      AI is connected to core systems through supported, documented interfaces that the
+      organisation can maintain, change and switch off.
+    rationale: >
+      AI is most useful when it works with the systems people already use, but informal
+      connections break silently, are hard to change and can become critical without anyone
+      noticing. Supported and documented integration keeps AI services maintainable and lets
+      them be removed cleanly.
+    levels:
+      1: "AI is connected to other systems by whatever means works, often manual workarounds or unsupported links."
+      2: "Some integrations are documented and supported, but others are informal or known only to the people who built them."
+      3: "Every integration between AI and core systems is supported, documented and can be switched off safely, and AI permissions on other systems are limited and approved."
+      4: "Integration health and failures are tracked, undocumented integrations are found and brought under control, and changes go through managed change."
+      5: "Integration patterns are standardised and reused, and improved from incidents and change experience."
+    criteria:
+      - {id: TEC-04.1, applies: core, text: "Every integration between AI and core systems uses supported interfaces."}
+      - {id: TEC-04.2, applies: core, text: "Each integration is documented with its owner and data flows."}
+      - {id: TEC-04.3, applies: core, text: "Each integration can be disabled without disrupting the core system."}
+      - {id: TEC-04.4, applies: core, text: "The permissions and actions an AI system or agent holds on other systems are limited to what its purpose needs."}
+      - {id: TEC-04.5, applies: core, text: "Those permissions and actions are approved and risk assessed."}
+    questions:
+      - "How is this AI service connected to the systems it reads from and writes to?"
+      - "Where are those integrations documented, and who supports them?"
+      - "If you had to switch the AI service off tomorrow, what would break?"
+    evidence:
+      - "Integration documentation showing interfaces, data flows and owners"
+      - "Support arrangements for AI integrations"
+      - "Permission and action limits for AI systems and agents, with approvals and risk assessments"
+    guidance:
+      steps:
+        - "Require every integration between AI and core systems to use supported interfaces."
+        - "Document each integration with its owner and data flows."
+        - "Design and test a way to disable each integration without disrupting the core system."
+        - "Limit the permissions and actions each AI system or agent holds on other systems to what its purpose needs, and get them approved and risk assessed."
+      pitfalls:
+        - "Giving an agent write access to a core system when read access would do."
+        - "Never testing the switch-off, so nobody knows whether it works."
+      artefacts:
+        - "Integration register with owners and data flows"
+        - "Permission approval record for AI systems and agents"
+    owner: {accountable: delivery_lead, contributors: [data_owner, business_owner]}
+    lifecycle: [acquire_build, deploy, operate, retire]
+    applicability: core
+    dependencies: [TEC-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: TEC-05
+    title: Managing models in live use
+    objective: >
+      Models, prompts and their configuration are versioned and released under control, so the
+      organisation knows what is running and can roll back to a known good version.
+    rationale: >
+      A small change to a model, prompt or setting can change behaviour as much as a code
+      change, and suppliers may change models without notice. Version and release control means
+      problems can be traced to a change and reversed quickly.
+    levels:
+      1: "Models and prompts are changed directly in live use; there is no record of what changed or when."
+      2: "Some versioning exists, for example for in-house models, but prompts, settings or supplier model versions are not controlled and rollback is uncertain."
+      3: "Models, prompts and configuration are versioned, released with approval and can be rolled back, with documentation for each version and advance notice of changes to users."
+      4: "Releases and rollbacks are recorded and reviewed, unplanned changes including supplier model updates are detected, and failed releases are investigated."
+      5: "Release and rollback are largely automated and routinely exercised, and the process is refined from release outcomes."
+    criteria:
+      - {id: TEC-05.1, applies: core, text: "Models, prompts and configuration are under version control."}
+      - {id: TEC-05.2, applies: core, text: "Data sets used with each model are versioned alongside each model version."}
+      - {id: TEC-05.3, applies: core, text: "Changes are released through a controlled process with approval."}
+      - {id: TEC-05.4, applies: core, text: "Every live use of AI can be rolled back to a previous known good version."}
+      - {id: TEC-05.5, applies: core, text: "Documentation is kept for each version, suited to its users, operators and, where relevant, regulators, stating intended purpose and users, how it works, inputs and outputs, known limitations, and where it must not be used or relied on."}
+      - {id: TEC-05.6, applies: core, text: "Release approval includes checking the documentation against the released version."}
+      - {id: TEC-05.7, applies: core, text: "Users are told in advance, accessibly, of planned changes that affect them."}
+    questions:
+      - "Which version of the model, prompts and configuration is running in live use right now?"
+      - "How is a change released, and who approves it?"
+      - "When did you last roll back, and how long did it take?"
+    evidence:
+      - "Version history for models, prompts and configuration"
+      - "Release records with approvals"
+      - "A record of a rollback or rollback test"
+      - "Documentation for the current version, written for users, operators and regulators"
+      - "Use documentation stating purpose, users, limitations and where not to rely on it; advance notices of changes"
+    guidance:
+      steps:
+        - "Version models, prompts, configuration and the data sets used with each model version."
+        - "Release changes through a controlled process with approval, and keep the previous known good version ready for rollback."
+        - "Keep documentation for each version suited to users, operators and, where relevant, regulators, covering intended purpose and users, how it works, inputs and outputs, known limits and where it must not be used or relied on."
+        - "Check the documentation against the released version as part of release approval."
+        - "Tell affected users in advance, accessibly, about planned changes."
+      pitfalls:
+        - "Not tracking which version of a supplier's model is behind a service."
+        - "Letting documentation drift from what is actually running."
+      artefacts:
+        - "Version register for models, prompts and data sets"
+        - "Release approval record"
+        - "Per-version documentation template"
+        - "Rollback procedure"
+    owner: {accountable: delivery_lead, contributors: [business_owner, security_lead]}
+    lifecycle: [deploy, operate, retire]
+    applicability: core
+    dependencies: [TEC-06]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: TEC-06
+    title: Testing and evaluation before release
+    objective: >
+      Before release, each AI system is tested for accuracy, robustness and behaviour against
+      acceptance criteria agreed in advance, and released only if it meets them.
+    rationale: >
+      AI can perform well in a demonstration and badly on real cases, unusual inputs or the
+      groups it serves least well. Testing against criteria set before results are seen gives
+      the release decision an objective basis and a record to compare live performance with.
+    levels:
+      1: "Systems are tried informally before release; there are no acceptance criteria."
+      2: "Some testing is done, but criteria are set after the fact, test data is unrepresentative, or robustness and behaviour are not covered."
+      3: "Every release is tested against criteria and operating conditions set in advance, on representative data, with results signed off and the approach reviewed against live performance."
+      4: "Test coverage and results are reviewed across uses, releases that miss criteria are blocked or formally accepted, and test results are compared with live performance."
+      5: "Test methods and criteria are refined from live performance and incidents, and evaluation is automated and repeated for every change."
+    criteria:
+      - {id: TEC-06.1, applies: core, text: "Acceptance criteria for accuracy, robustness and behaviour are agreed before testing starts."}
+      - {id: TEC-06.2, applies: core, text: "Intended operating conditions (where, when and on what inputs the AI can be relied on) are defined before testing and given to operators and risk owners."}
+      - {id: TEC-06.3, applies: core, text: "Limits on the system keep its use within the intended operating conditions."}
+      - {id: TEC-06.4, applies: core, text: "Testing uses representative data, including edge cases, kept independent of any data used to train or tune the model."}
+      - {id: TEC-06.5, applies: [GEN], text: "Testing of generative AI covers harmful output."}
+      - {id: TEC-06.6, applies: core, text: "Testing checks the explainability achieved against what was required and records its limits."}
+      - {id: TEC-06.7, applies: core, text: "Test results are recorded and signed off before every release."}
+      - {id: TEC-06.8, applies: core, text: "The testing approach and its metrics are reviewed on a set cycle against live performance and incidents."}
+    questions:
+      - "What criteria must this system meet before it is released, and when were they agreed?"
+      - "Does the test data reflect the real cases and people the system will meet, including unusual ones?"
+      - "Who signs off test results, and what happens when a criterion is missed?"
+    evidence:
+      - "Acceptance criteria and test plans for a sample of releases"
+      - "Test results and release sign-off records"
+      - "Review records for the testing approach, and harmful output tests for generative AI"
+      - "Defined operating conditions and their enforcement"
+    guidance:
+      steps:
+        - "Before testing, define the intended operating conditions and agree acceptance criteria for accuracy, robustness, behaviour and explainability, taken from the measures in MON-01."
+        - "Test with representative data, including edge cases, kept independent of training data, and for generative AI include harmful output; security testing is SEC-06."
+        - "Record and sign off results before every release, give operators and risk owners the operating conditions, and enforce them with limits."
+        - "Review the testing approach and metrics on a fixed cycle against live performance and incidents."
+      pitfalls:
+        - "Setting acceptance criteria after seeing the results."
+        - "Testing on data that overlaps the training data, which flatters accuracy."
+        - "Describing operating conditions to operators but not enforcing them in the system."
+      artefacts:
+        - "Test plan with acceptance criteria"
+        - "Operating conditions statement"
+        - "Test results and sign-off record"
+    owner: {accountable: delivery_lead, contributors: [business_owner, data_owner, risk_lead]}
+    lifecycle: [acquire_build, deploy]
+    applicability: core
+    dependencies: [MON-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: TEC-07
+    title: Technology change and refresh
+    objective: >
+      The organisation plans for changes to models, suppliers and platforms, including
+      suppliers withdrawing models, so that AI services continue without disruption.
+    rationale: >
+      AI models and platforms are replaced and withdrawn far faster than most enterprise
+      technology, often on the supplier's timetable. Planning for that change avoids services
+      stopping or being kept on unsupported versions, and keeps the organisation able to move
+      to better options.
+    levels:
+      1: "Change is handled when it is forced; supplier withdrawals arrive as surprises."
+      2: "Some services track supplier roadmaps or end-of-life dates, but there is no consistent planning or capacity for change."
+      3: "Every AI service has a maintained, regularly reviewed bill of materials with end dates, a funded refresh plan, and recorded concentration risk."
+      4: "Dependency end dates and supplier notices are tracked across the estate, changes are scheduled ahead of deadlines, and services caught by unplanned change are reviewed."
+      5: "Services are designed so models and platforms can be swapped with little rework, and refresh planning is improved from experience of past changes."
+    criteria:
+      - {id: TEC-07.1, applies: core, text: "Every AI service has a maintained bill of materials covering its models, data sets, libraries, services, suppliers and platforms, with their known end dates."}
+      - {id: TEC-07.2, applies: core, text: "Each AI service has a refresh plan with an owner and a budget for planned change."}
+      - {id: TEC-07.3, applies: core, text: "Concentration on a single foundation model or supplier is recorded as a dependency risk."}
+      - {id: TEC-07.4, applies: core, text: "Each bill of materials is reviewed on a set cycle and on significant change."}
+    questions:
+      - "Which models, suppliers and platforms does each AI service depend on, and when might they change or be withdrawn?"
+      - "How would you learn that a supplier was retiring a model you rely on?"
+      - "What would it take to move a service to a different model or platform?"
+    evidence:
+      - "Bill of materials for each AI service with its last review date"
+      - "A dependency record showing models, platforms, versions and known end dates"
+      - "Refresh plans and budget lines for planned change"
+      - "Dependency records showing concentration on single models or suppliers"
+    guidance:
+      steps:
+        - "Build a bill of materials for every AI service, listing models, data sets, libraries, services, suppliers and platforms with known end dates."
+        - "Give each service a refresh plan, owner and budget for planned change."
+        - "Record reliance on a single foundation model or supplier as a dependency risk."
+        - "Review each bill of materials on a fixed cycle and whenever there is significant change."
+      pitfalls:
+        - "Learning of a model's withdrawal from the supplier's notice instead of a tracked end date."
+        - "Planning refreshes with no budget set aside."
+      artefacts:
+        - "Bill of materials per AI service"
+        - "Refresh plan"
+    owner: {accountable: delivery_lead, contributors: [business_owner, executive_sponsor]}
+    lifecycle: [strategy, acquire_build, operate, retire]
+    applicability: core
+    dependencies: [GOV-06, TEC-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: TEC-08
+    title: Unapproved AI tools
+    objective: >
+      Use of unapproved AI tools is detected, and people using them are steered to an approved
+      alternative or a route to get their need met.
+    rationale: >
+      When approved options are slow or missing, people use whatever is to hand, often with
+      organisational data. Finding that use, and responding by meeting the need rather than only
+      blocking it, reduces the risk and shows where the approved list falls short.
+    levels:
+      1: "No one knows which unapproved AI tools are in use."
+      2: "Some unapproved use is known about, through reports or occasional checks, but responses are inconsistent or limited to blocking."
+      3: "Unapproved AI tool use is detected by defined means across the organisation, and each finding is recorded and leads to the person being steered to an approved route."
+      4: "The level of unapproved use is measured over time, repeat or high-risk use is escalated, and findings feed changes to the approved tools list."
+      5: "Unapproved use is low because approved options meet need, and detection and response are refined from trends and new kinds of tool."
+    criteria:
+      - {id: TEC-08.1, applies: core, text: "Defined means detect use of unapproved AI tools across the organisation."}
+      - {id: TEC-08.2, applies: core, text: "Each finding of unapproved use is recorded."}
+      - {id: TEC-08.3, applies: core, text: "Each finding leads to the person being steered to an approved tool or a request route."}
+    questions:
+      - "How do you find out which AI tools people use that are not approved?"
+      - "When you find one in use, what happens to the person and to the need behind it?"
+      - "Is unapproved use going up or down, and how do you know?"
+    evidence:
+      - "Detection reports or records of unapproved AI tool use"
+      - "Records of responses, including tools added to the approved list as a result"
+    guidance:
+      steps:
+        - "Decide the means of detecting unapproved AI tool use, such as network or browser logs, expense claims and staff surveys, and apply them across the organisation."
+        - "Respond to each finding by steering the person to an approved tool from TEC-01 or to the request route."
+        - "Record each finding and the response, and pass compliance matters to GOV-08."
+      pitfalls:
+        - "Responding only by blocking, which drives use to personal devices."
+        - "Treating findings as disciplinary matters when the need behind them is unmet."
+      artefacts:
+        - "Detection method description"
+        - "Unapproved tool findings log"
+    owner: {accountable: delivery_lead, contributors: [security_lead, ai_governance_lead, people_lead]}
+    lifecycle: [operate]
+    applicability: core
+    dependencies: [TEC-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0

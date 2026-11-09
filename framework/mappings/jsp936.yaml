@@ -1,0 +1,482 @@
+# JSP 936 Part 1 (Dependable Artificial Intelligence in Defence, Part 1: Directive, V1.1 Nov 2024, MOD) mapping
+#. This is the defence overlay: no defence-only control exists (RSK-10 retired), so
+# defence requirements are delivered only through this mapping onto core controls.
+# Source used: resources/sources/jsp-936-part-1.txt.md (text extracted from JSP936_Part1.pdf). Crown copyright,
+# published on GOV.UK under the Open Government Licence; labels are our own short descriptions.
+#
+# What is itemised. JSP 936 para 3 (Preface) defines 'must' as a compulsory requirement and 'should' as recommended
+# good practice. Mapped here: every numbered paragraph that sets a 'must' for MOD organisations, staff or projects;
+# para 195, which uses 'is required' and so is treated as compulsory; and the five ethical principles of para 49,
+# one item each (49a to 49e). 'Should' paragraphs are mapped only where they add something material, and their note
+# says so (paras 28, 105, 203 and 204). Purely descriptive paragraphs are skipped, as are paragraphs whose only
+# 'must' is directed at bodies outside the adopting organisation (for example DAIC training duties, para 5).
+#
+# Paragraph numbers. The Preface numbers its paragraphs 1 to 9 and the main text restarts at 1. Only one Preface
+# paragraph sets a 'must' (Preface para 7, on training); it is mapped as "para 7", and its label says Preface,
+# because main text para 7 sets no requirement and is not itemised. All other refs are main text paragraphs.
+# Footnote 7 (context-appropriate human involvement that achieves meaningful human control) is folded into para 35.
+#
+# Public text only. Where JSP 936 points to '[extant internal policy]', or to defence standards and JSPs whose
+# content is not in the public text (JSP 892, 912, 939, 940, 536, Def Stan 00-055 and 00-056), the mapping covers
+# only what the public text says; whether the internal policy is met is for the defence assessor.
+#
+# strength: direct  = our control at Level 3 would meet the requirement's substance in a defence organisation
+#           partial = the control covers part of it; the note says what is missing
+# Generic catch-all wording never earns "direct" (strictness rule).
+# An item with no controls, or whose note starts "gap:", is a gap; the note gives a suggested fix, preferring to
+# tighten an existing core control with jurisdiction- and sector-neutral wording. Defence specifics (RAISO, DAU,
+# 2PUS, named JSPs and Def Stans) stay in this file.
+# Note on altitude: Chapter 6 (AI lifecycles) sets system engineering requirements (requirements traceability,
+# separate data sets, verification across the operating domain). This framework is organisation-level, so many of
+# those are "partial": we require the practice to exist and be governed, not the artefact for each system.
+# Terms: ODD (Operational Design Domain) is JSP 936's name for the defined conditions in which the AI is designed
+# and shown to perform; RAISO is the Responsible AI Senior Officer each Top Level Budget (TLB) organisation appoints.
+
+source: JSP936
+status: draft
+mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+items:
+
+  # ---------------------------------------------------------------- Preface and Chapter 1 Introduction
+  - ref: "Preface para 7"
+    label: (Preface) The person nominated for technical capability keeps AI staff suitably qualified and liaises with the RAISO on training
+    controls: [{id: PPL-04, strength: partial}, {id: PPL-05, strength: partial}, {id: GOV-02, strength: partial}]
+    note: "Skills assessment by role (PPL-04) and role-based learning (PPL-05) cover keeping staff qualified for the AI they work on. Still missing: a requirement for whoever owns technical skills to agree training needs with the senior AI accountable lead (GOV-02), which is how the RAISO liaison would be met."
+  - ref: "para 6"
+    label: Build confidence in the AI in line with the reliance placed on it; risk owners judge the evidence and communicate uncertainty
+    controls: [{id: MON-05, strength: partial}, {id: RSK-02, strength: partial}, {id: TEC-06, strength: partial}, {id: MON-01, strength: partial}]
+    note: "Assurance depth set by risk tier (MON-05), testing signed off before release (TEC-06), risk assessed through the lifecycle (RSK-02) and unmeasurable risks recorded with proxies (MON-01) give proportionate confidence, and MON-01 measures reliance against accuracy for each use. Still missing: an explicit judgement by the risk owner, through the lifecycle, that the evidence is adequate for the reliance placed on the AI, and a duty to tell those operating it about the uncertainty that remains. The JSP 892 risk management element is mapped at para 194."
+  - ref: "para 8"
+    label: Apply the AI security requirements together with existing defence security policy
+    controls: [{id: SEC-01, strength: direct}, {id: GOV-07, strength: partial}]
+    note: SEC-01 Level 3 writes the AI security baseline into the organisation's security standards, and GOV-07 gives security governance a defined AI step. Covers the public text only; the content of the defence security policy it points to ('[extant internal policy]') is not assessed.
+  - ref: "para 9"
+    label: Where the AI is or sits within a model, apply the defence modelling and simulation policy (JSP 939) as well
+    controls: [{id: GOV-07, strength: partial}]
+    note: "GOV-07 routes AI through existing governance, and its Level 3 list includes safety and quality management, but not modelling and simulation assurance. Defence specific: applying JSP 939 is for the defence assessor to check; a neutral core control can only require AI governance to call on whatever model assurance regime the organisation has."
+  - ref: "para 13"
+    label: Apply the requirements from the outset of capability development; tailor them where legacy AI cannot fully align
+    controls: [{id: POR-04, strength: direct}, {id: GOV-08, strength: partial}, {id: GOV-06, strength: partial}]
+    note: POR-04 Level 3 applies documented stages from the explore stage to every use, which is the outset. Legacy AI is captured by the inventory (GOV-06) and departures go through the exception process (GOV-08); the risk assessment that tailoring needs is covered at para 18.
+  - ref: "para 15"
+    label: All staff apply the JSP in every lifecycle phase, from pre-concept to disposal, including research, sponsors, delivery teams and end users
+    controls: [{id: GOV-01, strength: direct}, {id: POR-04, strength: partial}, {id: POR-09, strength: partial}, {id: PPL-01, strength: partial}]
+    note: GOV-01 Level 3 states which parts of the organisation, uses and systems governance covers and communicates it to all staff; POR-04 and POR-09 carry it from explore to retirement and disposal. Research at early technology readiness levels is in scope only if the organisation's GOV-01 scope includes it, which the defence assessor should check.
+  - ref: "para 18"
+    label: Where requirements are tailored, assess the risk and manage the additional risk
+    controls: [{id: GOV-08, strength: direct}, {id: RSK-02, strength: partial}]
+    note: "GOV-08 Level 3 records each exception's risk and treatment, with approval and expiry dates, which is the risk assessment and management a tailored requirement needs; RSK-02 records residual risk for each use."
+  - ref: "para 20"
+    label: Senior holders make sure those they delegate AI authority to are competent and adequately resourced
+    controls: [{id: GOV-02, strength: partial}, {id: PPL-02, strength: partial}, {id: PPL-04, strength: partial}, {id: OPM-01, strength: partial}]
+    note: "Leadership learning (PPL-02), skills by role (PPL-04) and a resourced operating model (OPM-01) support it. Still missing: a check, when authority over AI is delegated, that the delegate is competent and has the resources to carry it out."
+  - ref: "para 25"
+    label: Review the latest government and commercial standards and guidance for applicability, including optional ones
+    controls: [{id: STR-05, strength: partial}, {id: RSK-04, strength: partial}]
+    note: "STR-05 scans technology, regulation and peer practice, and RSK-04 keeps a register of obligations whose objective includes standards. Still missing: a regular review of AI standards and guidance, binding or optional, with a recorded decision on which to adopt."
+
+  # ---------------------------------------------------------------- Chapter 2 AI in Defence Systems
+  - ref: "para 28"
+    label: (Should) Record and agree, through the governance chain, why AI is chosen over existing technology for major and higher risk uses
+    controls: [{id: POR-05, strength: direct}, {id: OPM-02, strength: partial}, {id: GOV-03, strength: partial}]
+    note: Recommended ('should'), mapped because it is material and is repeated in para 139. The business case weighs options that include not using AI and is approved at the gate set by risk (POR-05, GOV-03), and the build, buy, configure or wait method records reasons (OPM-02).
+  - ref: "para 35"
+    label: Take account of the level of autonomy; keep context-appropriate human involvement that achieves meaningful human control (footnote 7)
+    controls: [{id: RSK-07, strength: direct}, {id: RSK-03, strength: partial}]
+    note: RSK-07 Level 3 sets the oversight model for every use according to risk, with who reviews, when, with what information and authority to override or stop. Assessing each mode and autonomy level separately is covered at paras 54 and 125. The legal and doctrinal meaning of meaningful human control over autonomous military systems is defence specific and rests on internal policy.
+  - ref: "para 36"
+    label: For civil dual-use autonomous systems bought for defence, identify the military difference in operating domain and test for performance drop-off
+    controls: [{id: TEC-06, strength: partial}, {id: RSK-09, strength: partial}, {id: SEC-02, strength: partial}]
+    note: "Testing with representative data and edge cases (TEC-06), due diligence on bought AI (RSK-09) and threat modelling (SEC-02) cover part, and TEC-06 defines the intended operating conditions of each use before testing. Still missing: comparing the conditions a civil product was designed for with the military conditions it will meet, and testing the difference, including deliberate interference by an adversary. Held at partial as a defence residue: the military delta is defence specific and for the defence assessor."
+  - ref: "para 39"
+    label: Clearly identify every in-scope digital system that contains AI as AI-based
+    controls: [{id: GOV-06, strength: direct}, {id: RSK-08, strength: partial}]
+    note: GOV-06 Level 3 records in-house, procured and embedded AI; RSK-08 tells people when they are interacting with AI.
+  - ref: "para 40"
+    label: Products such as documents and images made with AI state that AI was used in producing them
+    controls: [{id: GOV-10, strength: direct}]
+    note: "GOV-10 Level 3 sets review and disclosure rules for AI-generated content used inside the organisation to inform decisions or form official records, as well as content released outside it. The 'should' on giving risk owners information about how the AI was used for high risk products is covered by RSK-02."
+  - ref: "para 47"
+    label: Get legal advice through existing channels at the start of the AI project and at relevant stages
+    controls: [{id: RSK-04, strength: direct}, {id: DAT-05, strength: partial}, {id: GOV-07, strength: partial}]
+    note: "RSK-04 Level 3 requires legal advice at design and on material change, alongside the register of obligations used when uses are designed and approved; DAT-05 takes data protection advice. Existing channels are the organisation's own legal route, which GOV-07 calls on."
+  - ref: "para 48"
+    label: Communicate to relevant stakeholders the controls that keep use of the AI within national and international law
+    controls: [{id: RSK-04, strength: partial}, {id: TEC-01, strength: partial}, {id: PPL-08, strength: partial}]
+    note: "Obligation owners (RSK-04), conditions of use for each tool (TEC-01) and staff guidance (PPL-08) carry some of it, and RSK-04 records how legal obligations are split between suppliers, the organisation and users and tells each party its share. Still missing: telling the people who develop and operate each use about the specific legal controls that apply to it, for example limits on personal data when operating abroad."
+
+  # ---------------------------------------------------------------- Chapter 3 Ethical principles (para 49)
+  - ref: "para 49a"
+    label: Human-centricity. Assess and consider the full range of positive and negative effects on people across the lifecycle
+    controls: [{id: RSK-03, strength: direct}, {id: MON-01, strength: partial}, {id: RSK-06, strength: partial}]
+    note: RSK-03 Level 3 assesses effects on people and groups and on society before go-live and keeps the assessment current during use; MON-01 measures effect on people.
+  - ref: "para 49b"
+    label: Responsibility. Establish human responsibility and accountability for outcomes, with defined means of human control through the lifecycle
+    controls: [{id: GOV-05, strength: direct}, {id: RSK-07, strength: direct}, {id: GOV-02, strength: partial}]
+    note: Named owners for each use (GOV-05) and a documented oversight model with authority to override or stop (RSK-07).
+  - ref: "para 49c"
+    label: Understanding. Relevant people understand the AI and its outputs, with mechanisms for this built into system design
+    controls: [{id: TEC-02, strength: direct}, {id: RSK-08, strength: partial}, {id: TEC-05, strength: partial}, {id: TEC-06, strength: partial}, {id: RSK-07, strength: partial}, {id: PPL-05, strength: partial}]
+    note: "TEC-02 Level 3 patterns build explainability and traceability of outputs into design, with the degree each use needs set by risk and audience, and TEC-06 checks what is achieved; explanation for affected people (RSK-08), documentation for users and operators (TEC-05), informed reviewers (RSK-07) and role-based learning (PPL-05) complete it. The wider stakeholder analysis of para 61 stays partial."
+  - ref: "para 49d"
+    label: Bias and harm mitigation. Proactively mitigate unexpected or unintended bias and harm at rollout and as systems learn, change or are redeployed
+    controls: [{id: RSK-06, strength: direct}, {id: MON-02, strength: direct}, {id: RSK-03, strength: partial}, {id: RSK-02, strength: partial}]
+    note: RSK-06 manages unfair bias from design onwards with testing before release and acts on fairness breaches; MON-02 monitors the fairness measures in live use as well as drift and unexpected behaviour; RSK-03 covers wider harms; RSK-02 reassesses on material change, which catches redeployment.
+  - ref: "para 49e"
+    label: Reliability. AI-enabled systems are demonstrably reliable, robust and secure
+    controls: [{id: TEC-06, strength: direct}, {id: SEC-01, strength: direct}, {id: MON-02, strength: partial}, {id: OPM-09, strength: partial}]
+    note: TEC-06 Level 3 tests accuracy, robustness and behaviour against criteria agreed in advance with results signed off before every release; SEC-01 applies a recognised AI security baseline to every use. Resilience and maintainability (para 73) sit with OPM-09 and OPM-07.
+
+  # ---------------------------------------------------------------- Chapter 3 Applying the principles
+  - ref: "para 50"
+    label: Consider the ethical principles as early as practicable
+    controls: [{id: RSK-05, strength: direct}, {id: POR-04, strength: partial}]
+    note: "RSK-05 Level 3 assesses each use against the adopted principles at the outset, with the result informing its approval tier; POR-04 starts at the explore stage."
+  - ref: "para 51"
+    label: Where AI may affect human well-being, clearly signpost routes to redress
+    controls: [{id: RSK-08, strength: partial}, {id: CUL-04, strength: partial}, {id: MON-06, strength: partial}]
+    note: "RSK-08 gives a route to challenge decisions with authority to change them; CUL-04 and MON-06 give routes to raise concerns and feedback. Still missing: signposted redress for harm that does not come from a decision about the person, such as effects on the well-being of staff working with AI. Covers the public text only; the redress routes in '[extant internal policy]' are not assessed."
+  - ref: "para 52"
+    label: Identify everyone who interacts with or is affected by the AI and assess its impact on each group, justifying any negative effects
+    controls: [{id: RSK-03, strength: direct}, {id: RSK-06, strength: partial}, {id: POR-05, strength: partial}]
+    note: RSK-03 Level 3 assesses effects on people and groups and requires findings to be acted on and mitigations tracked; the business case (POR-05) states benefits to weigh against harms. JSP 936 lists targets of military action among those affected; the defence assessor should check the assessment reaches them. The Human Security factors of para 53 are a 'should'.
+  - ref: "para 54"
+    label: Carry out the impact analysis for every mode of operation and level of autonomy
+    controls: [{id: RSK-03, strength: partial}]
+    note: "RSK-03 assesses each use; it does not require each operating mode or level of autonomy to be assessed separately. Mainly relevant where one system runs in several modes, which is commonest in defence."
+  - ref: "para 61"
+    label: Identify stakeholder groups and analyse the level of understanding each needs to engage with the AI responsibly
+    controls: [{id: TEC-05, strength: partial}, {id: PPL-05, strength: partial}, {id: RSK-08, strength: partial}]
+    note: "Documentation suited to users, operators and regulators (TEC-05), learning by role (PPL-05) and explanation for affected people (RSK-08) answer part. Still missing: an analysis, for each use, of the groups that interact with it and what each needs to understand."
+  - ref: "para 64"
+    label: Take security, privacy and intellectual property into account when giving insight into the AI, using alternatives where full visibility is not possible
+    controls: [{id: SEC-04, strength: partial}, {id: OPM-04, strength: partial}, {id: RSK-08, strength: partial}, {id: GOV-09, strength: partial}]
+    note: "Information protection rules (SEC-04), transparency terms in contracts (OPM-04) and explanation (RSK-08) touch it, and GOV-09 checks published records through information access and security routes, recording why anything is withheld. Still missing: balancing transparency against security and intellectual property for each use beyond published records, with an alternative route to sufficient understanding where full visibility is withheld."
+  - ref: "para 67"
+    label: Set an open and inclusive culture where diverse teams at any grade feel safe to raise issues and take part in ethical risk assessment
+    controls: [{id: CUL-04, strength: direct}, {id: OPM-06, strength: partial}, {id: GOV-04, strength: partial}]
+    note: CUL-04 Level 3 gives a known, no-blame route to raise concerns; OPM-06 requires multidisciplinary teams and GOV-04 diverse forum membership. Involving team members of any grade in the ethical risk assessment itself is not explicit.
+  - ref: "para 69"
+    label: Analyse data, learning algorithms and models for unwanted bias that may lead to harm
+    controls: [{id: RSK-06, strength: direct}, {id: DAT-03, strength: partial}]
+    note: RSK-06 Level 3 defines the groups at risk and fairness measures and tests before release; DAT-03 checks the data is representative for the purpose.
+  - ref: "para 70"
+    label: Where harms may arise, develop monitoring and mitigation strategies based on understanding the AI's behaviour
+    controls: [{id: RSK-03, strength: direct}, {id: MON-02, strength: direct}, {id: RSK-06, strength: partial}]
+    note: RSK-03 tracks mitigations and MON-02 monitors for unexpected behaviour against thresholds with named responders, including fairness measures and personal or sensitive data in outputs.
+  - ref: "para 71"
+    label: Where bias is intentional, still consider and mitigate the ethical harms it causes
+    controls: [{id: RSK-03, strength: direct}, {id: RSK-06, strength: partial}]
+    note: RSK-03 assesses the effects of the use as designed on people and groups, which includes any deliberate weighting; RSK-06 deals with unfair bias.
+  - ref: "para 75"
+    label: Define the operating context for the AI, tell risk owners and operators, and constrain the system's behaviour within bounds
+    controls: [{id: TEC-06, strength: direct}, {id: MON-02, strength: partial}, {id: GOV-03, strength: partial}, {id: TEC-05, strength: partial}, {id: RSK-07, strength: partial}]
+    note: "TEC-06 Level 3 requires intended operating conditions (where, when and on what inputs the AI can be relied on) to be defined before testing, given to operators and risk owners, and enforced by limits; MON-02 monitors each use against them. This is JSP 936's operating context and ODD in neutral wording."
+  - ref: "para 76"
+    label: Define reliability and performance targets for the operating context, show they are met with confidence matching the risk, and check existing targets still hold
+    controls: [{id: TEC-06, strength: direct}, {id: MON-01, strength: direct}, {id: MON-05, strength: partial}]
+    note: TEC-06 Level 3 agrees acceptance criteria before testing and signs off results before release; MON-01 records a baseline of current performance before go-live, which carries the existing targets of the approach being replaced; MON-05 sets assurance depth by risk tier.
+  - ref: "para 78"
+    label: Define and demonstrate the response to reasonably expected inputs outside the intended design
+    controls: [{id: TEC-06, strength: partial}, {id: OPM-09, strength: partial}]
+    note: "TEC-06 defines intended operating conditions and enforces them by limits, and tests robustness with edge cases; OPM-09 provides a safe stop for wrong output. Still missing: defining and demonstrating, through testing, the response to reasonably expected inputs outside those conditions."
+  - ref: "para 79"
+    label: Analyse reasonable security threats and vulnerabilities for the operating context, including development environment and supply and data chains
+    controls: [{id: SEC-02, strength: direct}, {id: SEC-03, strength: partial}]
+    note: SEC-02 Level 3 requires AI-specific threat modelling for every use before go-live and on change; SEC-03 covers the supply chain of models, data and components.
+  - ref: "para 80"
+    label: Put guards and mitigations in place so security is maintained through development and use
+    controls: [{id: SEC-01, strength: direct}, {id: SEC-02, strength: direct}, {id: SEC-05, strength: partial}]
+    note: SEC-01 applies the baseline to every use and SEC-02 findings are acted on; SEC-05 contains AI security incidents.
+  - ref: "para 81"
+    label: Communicate all remaining known vulnerabilities to the risk owner for action
+    controls: [{id: SEC-02, strength: partial}, {id: RSK-02, strength: partial}]
+    note: "SEC-02 records threat modelling findings and RSK-02 records residual risk in corporate risk registers. Still missing: an explicit step passing residual vulnerabilities from threat modelling to the accountable risk owner for a decision."
+  - ref: "para 82"
+    label: Analyse reasonable failure modes, mitigate in design or tell the risk owner, and consider emergent and cascading failures between connected systems
+    controls: [{id: OPM-09, strength: partial}, {id: RSK-02, strength: partial}, {id: TEC-04, strength: partial}, {id: GOV-07, strength: partial}]
+    note: "Fallbacks for unavailability, degradation and wrong output (OPM-09), residual risk recorded (RSK-02) and integrations that can be switched off with limited permissions (TEC-04) cover part, and GOV-07 requires a hazard analysis for uses that could contribute to physical harm. Still missing: a failure mode analysis for significant uses with no physical harm path, and explicit consideration of emergent and cascading failures between connected AI systems."
+  - ref: "para 83"
+    label: Research, trials and tests involving human participants comply with the defence policy on research with human participants (JSP 536)
+    controls: [{id: OPM-10, strength: direct}]
+    note: OPM-10 Level 3 requires informed consent and ethics review through the established route for evaluations and research involving people; in defence the established route is JSP 536, whose content the defence assessor checks.
+  - ref: "para 85"
+    label: Apply the ethical principles whatever the technology readiness level, with early analysis of ethical risk
+    controls: [{id: RSK-05, strength: partial}, {id: POR-06, strength: partial}]
+    note: "RSK-05 assesses each use against the principles at the outset and POR-06 sets guardrails for experiments. Still missing: an explicit requirement that this covers research and experiments at any technology readiness level, not only uses heading for live service."
+  - ref: "para 86"
+    label: Use an AI ethical risk assessment against the principles at the outset and on material change; it sets the approvals pathway
+    controls: [{id: RSK-05, strength: direct}, {id: RSK-02, strength: partial}, {id: RSK-03, strength: partial}, {id: GOV-03, strength: partial}]
+    note: "RSK-05 Level 3 assesses each use against the adopted principles at the outset, and the result informs its approval tier; its review route has triggers, RSK-02 reassesses on material change and GOV-03 tiers approval by residual risk. The Part 2 assessment framework is internal and not assessed."
+  - ref: "para 87"
+    label: Senior leaders overseeing AI review its ethical risks and keep proportionate evidence of risk decisions, with expert advice
+    controls: [{id: RSK-05, strength: partial}, {id: GOV-04, strength: partial}, {id: RSK-02, strength: partial}, {id: GOV-05, strength: partial}]
+    note: "The ethics review route records outcomes (RSK-05), the oversight forum records its decisions (GOV-04) and risk decisions are recorded (RSK-02). Still missing: a duty on the senior owner of each use to review its ethical risks periodically and keep the evidence behind those decisions."
+  - ref: "para 88"
+    label: Give each AI use case an overall risk rating, based on residual risk, that sets the level of approval needed
+    controls: [{id: GOV-03, strength: partial}, {id: GOV-06, strength: partial}, {id: RSK-02, strength: partial}]
+    note: "GOV-03 Level 3 tiers decision rights by residual risk, GOV-06 records a risk tier for each use and RSK-02 records residual risk, which meets the rating itself. Held at partial as a defence residue: the Table 1 approval levels (2PUS or Ministers, JROC/IAC, TLB) are defence specific and for the defence assessor."
+  - ref: "para 90"
+    label: Refer special attention uses (kinetic effect, novel or contentious) and high ethical risk uses to the DAU, notifying the DAIC
+    controls: [{id: GOV-03, strength: partial}, {id: GOV-04, strength: partial}]
+    note: "Risk-tiered decision rights (GOV-03) and the forum's escalation route (GOV-04) provide escalation. Defence specific: referral of named classes of use to a departmental body outside the organisation cannot be met by a neutral core control; the defence assessor checks referral to the DAU."
+  - ref: "para 91"
+    label: Halt development or deployment safely where ethical risk is unacceptable, and take a system out of use until reviewed
+    controls: [{id: MON-09, strength: direct}, {id: OPM-09, strength: partial}, {id: RSK-05, strength: partial}, {id: RSK-07, strength: partial}]
+    note: MON-09 Level 3 has a decision point to suspend use after a serious incident, and suspends use if needed for risks to health, safety or rights short of one; OPM-09 provides a safe stop; RSK-07 gives reviewers authority to stop. Halting work still in development rests on RSK-05's authority to require changes.
+  - ref: "para 92"
+    label: Carry out risk management throughout the lifecycle, including effects review and re-assessment
+    controls: [{id: RSK-02, strength: direct}, {id: RSK-03, strength: partial}, {id: MON-05, strength: partial}]
+    note: RSK-02 Level 3 assesses before approval, during live use and on material change; RSK-03 keeps the impact assessment current.
+  - ref: "para 93"
+    label: The RAISO makes sure trade-offs between ethical risk and operational effectiveness are identified and managed
+    controls: [{id: RSK-05, strength: partial}, {id: RSK-01, strength: partial}, {id: GOV-02, strength: partial}]
+    note: "The ethics review route (RSK-05), risk appetite (RSK-01) and the accountable senior executive (GOV-02) give the means, and RSK-05 records conflicts between principles with alternatives and reasons. Still missing: recording trade-offs between ethical risk and operational need, with the accountable senior lead making sure they are managed."
+  - ref: "para 95"
+    label: Be seen to be ethical, developing and communicating evidence of ethical AI with as much transparency as security allows
+    controls: [{id: GOV-09, strength: partial}, {id: CUL-08, strength: partial}, {id: RSK-05, strength: partial}]
+    note: "Published records (GOV-09), attention to public trust (CUL-08) and recorded ethics review outcomes (RSK-05) cover part, and GOV-09 decides for each use whether its impact assessments are published. Still missing: a deliberate approach to building and publishing evidence of ethical conduct beyond the records the organisation is required to publish."
+
+  # ---------------------------------------------------------------- Chapter 4 AI Ethics Governance
+  - ref: "para 99"
+    label: TLB executive boards give the Second Permanent Under Secretary an annual Statement of AI Ethical Assurance backed by auditable evidence
+    controls: [{id: MON-08, strength: partial}, {id: MON-05, strength: partial}]
+    note: "MON-08 Level 3 requires, where the organisation answers to a parent body, regulator or group board, a periodic signed assurance statement backed by auditable evidence, which is the substance of the Statement of AI Ethical Assurance; MON-05 records assurance findings. Held at partial as a defence residue: the statement's addressee (2PUS) and the annual cycle are defence specific and for the defence assessor."
+  - ref: "para 100"
+    label: Each TLB appoints a Responsible AI Senior Officer
+    controls: [{id: GOV-02, strength: direct}, {id: GOV-05, strength: partial}]
+    note: GOV-02 Level 3 requires a named senior executive formally accountable for AI with a written remit. Assess each TLB as an organisation. The RAISO's detailed remit is in Part 2 guidance, which is internal and not assessed.
+  - ref: "para 101"
+    label: The RAISO makes sure ethical assurance is in place across all AI projects in scope and sets a responsible culture
+    controls: [{id: MON-05, strength: direct}, {id: GOV-02, strength: partial}, {id: RSK-05, strength: partial}, {id: CUL-04, strength: partial}]
+    note: MON-05 Level 3 applies independent assurance to all uses of AI by risk tier; the culture element sits with GOV-02 and CUL-04.
+  - ref: "para 102"
+    label: When AI is transferred, for example from development into operational use, accountability is set up in the receiving organisation and its RAISO accepts the risk
+    controls: [{id: GOV-05, strength: direct}, {id: POR-04, strength: partial}, {id: GOV-03, strength: partial}]
+    note: "GOV-05 Level 3 requires ownership to be handed over formally, with the receiving owner recording acceptance of residual risk. In defence the receiving owner's acceptance is the new RAISO's, which the defence assessor checks."
+  - ref: "para 103"
+    label: The RAISO puts in place context-appropriate roles with defined responsibilities and competencies
+    controls: [{id: PPL-04, strength: direct}, {id: OPM-01, strength: partial}, {id: GOV-05, strength: partial}, {id: PPL-03, strength: partial}]
+    note: PPL-04 Level 3 defines the AI skills needed by role; OPM-01 sets responsibilities by team and GOV-05 names owners for each use.
+  - ref: "para 104"
+    label: Projects identify their RAISO, senior owners tell the RAISO of medium and high risk AI, and the RAISO's governance captures risks from other AI projects
+    controls: [{id: GOV-06, strength: direct}, {id: POR-03, strength: partial}, {id: GOV-02, strength: partial}]
+    note: GOV-06 Level 3 keeps an inventory of in-house, procured and embedded AI with owners and risk tier, and POR-03 registers proposed uses, so the accountable lead sees every medium and high risk use.
+  - ref: "para 105"
+    label: (Should) Large or ethically significant projects have at least an Ethics Manager and an independent ethics assurance mechanism
+    controls: [{id: RSK-05, strength: partial}, {id: MON-05, strength: partial}]
+    note: "Recommended ('should'), mapped because it is the main structural safeguard JSP 936 sets for significant projects. MON-05 gives independent review by risk tier and RSK-05 an ethics review route. Still missing: a named ethics role for each significant use, and independent assurance aimed specifically at ethics."
+  - ref: "para 107"
+    label: Consult the DAU before external communications about ethically sensitive work
+    controls: [{id: GOV-09, strength: partial}]
+    note: "GOV-09 Level 3 requires external communications about sensitive uses of AI to be cleared through a designated route. Held at partial as a defence residue: that the designated route is the DAU, and what counts as ethically sensitive work, are defence specific and for the defence assessor."
+  - ref: "para 108"
+    label: Consult legal advisers where necessary on the legal aspects of AI development and use
+    controls: [{id: RSK-04, strength: direct}, {id: DAT-05, strength: partial}]
+    note: "RSK-04 Level 3 requires legal advice at design and on material change, and DAT-05 takes data protection advice."
+  - ref: "para 113"
+    label: Before using AI or data developed outside the UK, the RAISO is satisfied it meets UK policy, including a Statement of AI Ethics Assurance
+    controls: [{id: RSK-09, strength: partial}, {id: SEC-03, strength: partial}, {id: DAT-08, strength: partial}]
+    note: "Supplier due diligence (RSK-09) confirms that AI from others is consistent with the adopted principles; supply-chain security (SEC-03) and data provenance (DAT-08) cover the rest of AI from others. Held at partial as a defence residue: the UK and non-UK distinction and the Statement of AI Ethics Assurance for non-UK AI are defence specific."
+
+  # ---------------------------------------------------------------- Chapter 5 Human/AI teams
+  - ref: "para 119"
+    label: Apply a recognised human centred design approach across the lifecycle, including introduction into service and in-service updates
+    controls: [{id: OPM-06, strength: direct}, {id: OPM-07, strength: partial}]
+    note: OPM-06 Level 3 requires user research and iterative testing with users for all AI delivery; OPM-07 covers changes in service.
+  - ref: "para 121"
+    label: For military capability, apply the defence Human Factors Integration process (JSP 912)
+    controls: [{id: OPM-06, strength: partial}]
+    note: "OPM-06 requires user-centred methods. Defence specific: applying JSP 912 and Def Stan 00-251 is for the defence assessor to check; a neutral core control cannot name a sector's human factors standard."
+  - ref: "para 122"
+    label: The human centred design approach identifies users, sets human factors requirements with acceptance criteria and involves users in development and testing, including after retraining
+    controls: [{id: OPM-06, strength: partial}, {id: TEC-06, strength: partial}]
+    note: "OPM-06 identifies users through user research, tests with them iteratively and covers the design of how people and AI share work; TEC-06 sets acceptance criteria before testing. Still missing: human factors requirements with their own acceptance criteria, and testing with users after the AI is retrained."
+  - ref: "para 125"
+    label: Analyse the allocation of functions between people and AI across all modes and autonomy levels, so there is no accountability gap
+    controls: [{id: RSK-07, strength: partial}, {id: GOV-05, strength: partial}, {id: OPM-06, strength: partial}, {id: STR-02, strength: partial}]
+    note: "RSK-07 sets who reviews, when and with what authority, GOV-05 names owners, OPM-06 requires delivery standards to cover the design of how people and AI share work, and STR-02 names the kinds of decision that must always be taken by a person. Still missing, held as defence residue: an analysis of which functions sit with people and which with the AI in each mode, used to show that people stay accountable for and in control of its effects, and to support safety cases and legal reviews."
+  - ref: "para 131"
+    label: Where people and AI train together, assure the overall behaviour of each team case by case
+    controls: [{id: TEC-06, strength: partial}, {id: MON-05, strength: partial}]
+    note: "Testing (TEC-06) and independent assurance (MON-05) apply to the AI; assuring a combined human and AI team that learns together is system-level and not required."
+
+  # ---------------------------------------------------------------- Chapter 6 AI lifecycles
+  - ref: "para 137"
+    label: Planning documents include steps through the lifecycle to make sure the ethical principles can be met
+    controls: [{id: RSK-05, strength: partial}, {id: OPM-06, strength: partial}, {id: POR-04, strength: partial}]
+    note: "The principles review route (RSK-05), delivery standards (OPM-06) and stage gates (POR-04) carry ethics through delivery. Still missing: a requirement that each use's delivery plan sets out the steps for meeting the principles."
+  - ref: "para 141"
+    label: Carry out a hazard analysis for hazards introduced by AI, including data failure modes
+    controls: [{id: GOV-07, strength: direct}, {id: RSK-02, strength: partial}, {id: RSK-03, strength: partial}]
+    note: "GOV-07 Level 3 gives safety management a defined AI step and requires a hazard analysis that feeds safety cases for uses that could contribute to physical harm; RSK-02 covers risks particular to AI and RSK-03 includes safety. Whether data failure modes are in the analysis is for the defence assessor to check."
+  - ref: "para 142"
+    label: Pass new hazards introduced by AI back to system-level safety processes for mitigation
+    controls: [{id: GOV-07, strength: direct}, {id: RSK-02, strength: partial}]
+    note: "GOV-07 Level 3 requires the hazard analysis for uses that could contribute to physical harm to feed safety cases, which passes AI hazards into system-level safety processes; RSK-02 records AI risks in corporate risk registers."
+  - ref: "para 144"
+    label: Where required behaviour is learned rather than specified, show the training algorithm and data together meet the intent of the requirement
+    controls: [{id: TEC-06, strength: partial}, {id: DAT-03, strength: partial}]
+    note: Acceptance testing (TEC-06) and data fit for purpose (DAT-03) cover the outcome; tracing learned behaviour back to requirements is system-level detail not required.
+  - ref: "para 145"
+    label: High-level requirements describe the operating context clearly, including the data distributions for training and test data
+    controls: [{id: DAT-03, strength: partial}, {id: TEC-06, strength: partial}]
+    note: "DAT-03 sets relevance and representativeness for the intended purpose, TEC-06 tests with representative data, and TEC-06 defines intended operating conditions before testing. Stating training and test data distributions in high-level requirements is system-level and not required."
+  - ref: "para 150"
+    label: The AI architecture is traceable to requirements and protects against the failure modes found in hazard analysis
+    controls: [{id: TEC-02, strength: partial}, {id: OPM-09, strength: partial}]
+    note: "Reference architecture (TEC-02) and planned fallbacks (OPM-09) cover the organisation-level part, and GOV-07 requires hazard analysis for uses that could contribute to physical harm. Traceability of each system's architecture to requirements and to the failure modes found is system-level."
+  - ref: "para 155"
+    label: Justify every framework or library used to build algorithms and check its output meets the AI requirements
+    controls: [{id: SEC-03, strength: partial}, {id: TEC-01, strength: partial}]
+    note: SEC-03 assesses the security of external components and TEC-01 approves tools, including the toolchains used to build, test and run AI, each with an owner and support; functional justification and checking of each framework or library is system-level detail not required.
+  - ref: "para 158"
+    label: Produce separate training, test and verification data sets
+    controls: [{id: TEC-06, strength: direct}, {id: DAT-08, strength: partial}]
+    note: "TEC-06 Level 3 requires test data to be kept independent of training data; DAT-08 links each training, tuning and test data set to the models that used it. A separate verification set is part of that independence; a defence assessor may expect it named."
+  - ref: "para 161"
+    label: Assure and record data provenance from collection to ingestion by the AI
+    controls: [{id: DAT-08, strength: direct}, {id: SEC-03, strength: partial}]
+    note: DAT-08 Level 3 records source, collection method, rights and use limits for every data set used to train, tune or test AI, before use, linked to the models that used it.
+  - ref: "para 162"
+    label: Keep all data that influences the AI's output, and its metadata, under configuration management to the same standard as the AI
+    controls: [{id: TEC-05, strength: partial}, {id: DAT-08, strength: partial}, {id: DAT-06, strength: partial}]
+    note: "TEC-05 Level 3 versions data sets alongside each model version, together with models, prompts and configuration; DAT-08 links data sets to models and DAT-06 sets retention. Still missing: configuration management of other data that influences output (for example retrieval sources and data metadata) to the same standard."
+  - ref: "para 165"
+    label: Models for real-world use come with information for risk-informed use and re-use, including assumptions, dependencies, known errors and operating domain
+    controls: [{id: TEC-05, strength: direct}, {id: TEC-07, strength: partial}, {id: TEC-06, strength: partial}]
+    note: "TEC-05 Level 3 requires documentation for each version stating intended purpose and users, how it works, inputs and outputs, known limitations and where it must not be used or relied on; TEC-06 defines the operating conditions (the ODD) and gives them to operators, and TEC-07 records dependencies. Assumptions are not named separately."
+  - ref: "para 166"
+    label: Before re-using or retraining an existing model, the risk owner has enough information on it to understand the risk
+    controls: [{id: POR-08, strength: partial}, {id: RSK-09, strength: partial}, {id: TEC-05, strength: partial}]
+    note: "Reuse is checked against a known store (POR-08), bought AI comes with the provider's instructions for use (RSK-09) and TEC-05 documentation states limitations and where a model must not be relied on. Still missing: a check before re-use or retraining that the risk owner has that documentation and understands the risk of using the model in the new context."
+  - ref: "para 168"
+    label: Models built from security classified data take at least the same classification, allowing for aggregation
+    controls: [{id: SEC-04, strength: partial}, {id: DAT-07, strength: partial}]
+    note: "SEC-04 Level 3 requires models trained or tuned on protected information to be handled at least at that protection level, taking account of aggregation. Held at partial as a defence residue: government security classifications themselves, and how they apply to aggregated data, are defence and public sector specific and for the defence assessor."
+  - ref: "para 170"
+    label: Verification and validation cover the operating domain, including boundary conditions and realistic edge cases
+    controls: [{id: TEC-06, strength: direct}]
+    note: "TEC-06 Level 3 tests with representative data including edge cases against criteria agreed in advance, and defines intended operating conditions before testing, so testing covers the defined domain. Boundary conditions are not named separately."
+  - ref: "para 171"
+    label: Demonstrate safe behaviour when the AI receives inputs outside its operating domain
+    controls: [{id: TEC-06, strength: partial}, {id: OPM-09, strength: partial}]
+    note: "TEC-06 defines operating conditions and enforces them by limits, and OPM-09 provides a safe stop, tested on a set cycle. Still missing: a demonstration, through testing, of safe behaviour on inputs outside the operating conditions."
+  - ref: "para 172"
+    label: When AI is updated, test existing and new behaviours, including regression testing
+    controls: [{id: TEC-06, strength: direct}, {id: TEC-05, strength: partial}, {id: MON-02, strength: partial}]
+    note: TEC-06 Level 3 tests against the agreed acceptance criteria before every release, which re-tests existing behaviour on each update; TEC-05 controls the release and MON-02 watches for drift.
+  - ref: "para 175"
+    label: Where performance is shown in an environment other than the final system, analyse and mitigate the differences
+    controls: [{id: TEC-06, strength: partial}, {id: TEC-05, strength: partial}]
+    note: "Testing (TEC-06) and controlled release (TEC-05) cover part. Still missing: analysis of differences between test and live environments, or between host systems when AI moves, as part of release."
+  - ref: "para 176"
+    label: After substantive changes to the system hosting the AI, such as processors or operating systems, show performance is still satisfactory
+    controls: [{id: OPM-07, strength: direct}, {id: TEC-07, strength: partial}, {id: TEC-06, strength: partial}]
+    note: "OPM-07 Level 3 change management covers hosting platform changes, alongside model, prompt and data changes, and TEC-06 tests before every release, which is where continued performance is shown; TEC-07 plans platform change."
+  - ref: "para 177"
+    label: Clearly define the approved operating domain in which the AI has been shown to perform acceptably
+    controls: [{id: TEC-06, strength: direct}, {id: GOV-03, strength: partial}]
+    note: "TEC-06 Level 3 requires intended operating conditions to be defined before testing and given to operators and risk owners; testing against them shows the domain in which the AI performs acceptably, and GOV-03 approval rests on those results."
+  - ref: "para 178"
+    label: Where necessary, AI products have clear Security Operating Procedures proportionate to the risk of their use
+    controls: [{id: SEC-01, strength: partial}, {id: TEC-01, strength: partial}]
+    note: "The security baseline (SEC-01) and conditions of use for each tool (TEC-01) cover part. Still missing: security operating procedures for each AI product where its risk calls for them."
+  - ref: "para 179"
+    label: Monitor the operational environment to make sure the AI stays within its operating domain
+    controls: [{id: MON-02, strength: direct}]
+    note: "MON-02 Level 3 monitors each use against its defined operating conditions, alongside drift and use outside the approved purpose."
+  - ref: "para 180"
+    label: Monitor AI performance at an appropriate rate to keep it acceptable against operational requirements
+    controls: [{id: MON-02, strength: direct}, {id: RSK-07, strength: partial}]
+    note: MON-02 Level 3 monitors every live use against thresholds with named responders. The 'should' on expert checks of outputs for important decisions sits with RSK-07.
+  - ref: "para 181"
+    label: Where AI is meant to be modified, have processes that keep its behaviour assured and its changing risk managed
+    controls: [{id: OPM-07, strength: direct}, {id: TEC-05, strength: direct}, {id: RSK-02, strength: partial}]
+    note: OPM-07 Level 3 manages model, prompt and data changes, TEC-05 releases them under approval with rollback, and RSK-02 reassesses risk on material change.
+  - ref: "para 185"
+    label: Give all staff appropriate training and supervision until they are competent
+    controls: [{id: PPL-05, strength: partial}, {id: PPL-01, strength: partial}, {id: RSK-07, strength: partial}]
+    note: "Baseline and role-based learning (PPL-01, PPL-05) and trained reviewers (RSK-07) cover training. Still missing: supervision of staff working on AI until they are assessed as competent."
+  - ref: "para 186"
+    label: Where in-house competence is short, bring in external support that supervises staff and builds internal competence
+    controls: [{id: PPL-07, strength: direct}]
+    note: PPL-07 Level 3 requires external engagements to include defined knowledge transfer to named internal staff.
+
+  # ---------------------------------------------------------------- Chapter 7 Quality, safety and security
+  - ref: "para 187"
+    label: Apply the MOD quality policy (JSP 940) to AI development and use
+    controls: [{id: GOV-07, strength: partial}]
+    note: "GOV-07 Level 3 includes quality management among the governance with a defined AI step. Held at partial as a defence residue: applying JSP 940 itself is defence specific and for the defence assessor."
+  - ref: "para 188"
+    label: Quality planning matches the risk and maturity of the AI, covering data, user interaction and the AI's rate of change
+    controls: [{id: MON-05, strength: partial}, {id: POR-04, strength: partial}, {id: GOV-07, strength: partial}]
+    note: "Assurance by risk tier (MON-05) and proportionate gates (POR-04) give proportion, and GOV-07 gives quality management a defined AI step. Still missing: quality planning for each use matched to its risk and maturity, covering data, user interaction and rate of change."
+  - ref: "para 189"
+    label: Quality assurance covers configuration management, safety, security and ethical requirements
+    controls: [{id: MON-05, strength: partial}, {id: GOV-08, strength: partial}, {id: GOV-07, strength: partial}]
+    note: "Independent assurance (MON-05), compliance checks (GOV-08) and the AI step in quality management (GOV-07) cover part. Still missing: quality assurance whose scope explicitly includes configuration management, safety, security and ethics."
+  - ref: "para 190"
+    label: For safety-related AI, have enough evidence to support a meaningful safety management system, collected from early development
+    controls: [{id: TEC-06, strength: partial}, {id: DAT-06, strength: partial}, {id: GOV-07, strength: partial}]
+    note: "Recorded test results (TEC-06), AI records (DAT-06) and GOV-07's safety management step with hazard analysis give evidence. Still missing: collecting safety evidence from the earliest stages of development for safety-related AI. JSP 815 is defence specific."
+  - ref: "para 191"
+    label: Analyse AI's particular safety risks and include them in wider safety cases and system risk assessments
+    controls: [{id: GOV-07, strength: direct}, {id: RSK-02, strength: partial}, {id: RSK-03, strength: partial}]
+    note: "GOV-07 Level 3 requires a hazard analysis for uses that could contribute to physical harm, feeding safety cases; RSK-02 covers risks particular to AI and RSK-03 includes safety. JSP 375 and JSP 376 are defence specific."
+  - ref: "para 192"
+    label: Carry out safety risk assessments early and manage all identified risks proportionately through the lifecycle
+    controls: [{id: RSK-02, strength: partial}, {id: RSK-03, strength: partial}, {id: GOV-07, strength: partial}]
+    note: "RSK-03 assesses safety before go-live, RSK-02 manages risk through the lifecycle and GOV-07 links AI to safety management through hazard analysis. Held at partial as a defence residue: compliance with Def Stan 00-055 and 00-056 is defence specific."
+  - ref: "para 194"
+    label: Apply the defence risk management policy (JSP 892) to AI risk, reflecting societal concerns, at a pace that keeps up with AI change
+    controls: [{id: RSK-02, strength: direct}, {id: GOV-07, strength: partial}, {id: RSK-03, strength: partial}]
+    note: RSK-02 Level 3 records results in corporate risk registers and reassesses during live use and on material change; GOV-07 runs AI through existing risk governance; RSK-03 covers societal effects. Covers the public text only; the content of JSP 892 is not assessed.
+  - ref: "para 195"
+    label: Apply a Secure by Design approach to AI from definition through to disposal ('is required', treated as compulsory)
+    controls: [{id: SEC-01, strength: direct}, {id: SEC-02, strength: partial}, {id: SEC-05, strength: partial}]
+    note: SEC-01 Level 3 writes a recognised AI security baseline into security standards and applies it to every use before go-live. The text says 'is required' rather than 'must'; treated as compulsory. Covers the public text only; the defence Secure by Design policy ('[extant internal policy]') is not assessed. Continuous security assurance in use is a 'should'.
+  - ref: "para 196"
+    label: Analyse AI's particular security risks, such as data poisoning, as early as practicable and include them in safety cases and risk assessments
+    controls: [{id: SEC-02, strength: direct}, {id: RSK-02, strength: partial}, {id: GOV-07, strength: partial}]
+    note: "SEC-02 Level 3 assesses AI-specific threats for every use before go-live and on change; GOV-07 hazard analysis feeds safety cases, which is the route into them. Covers the public text only."
+  - ref: "para 197"
+    label: Security analyses cover conventional risks and adversarial interference with the AI, including security of development data against poisoning
+    controls: [{id: SEC-02, strength: direct}, {id: SEC-03, strength: partial}]
+    note: SEC-02 Level 3 requires a threat modelling approach that covers AI-specific threats; SEC-03 assesses external data sets.
+
+  # ---------------------------------------------------------------- Chapter 8 Suppliers
+  - ref: "para 198"
+    label: AI acquired from outside must give the same confidence that the requirements are met as AI developed in-house
+    controls: [{id: RSK-09, strength: partial}, {id: TEC-06, strength: partial}, {id: MON-05, strength: partial}]
+    note: "Supplier due diligence (RSK-09) feeds the risk assessment, and testing (TEC-06) and independent assurance (MON-05) apply to all uses. Still missing: an explicit rule that bought AI is held to the same assurance requirements as AI built in-house, with extra assurance where supplier evidence falls short."
+  - ref: "para 200"
+    label: Require suppliers of AI to demonstrate competence to deliver to a confidence level matching the use
+    controls: [{id: RSK-09, strength: partial}, {id: OPM-04, strength: partial}]
+    note: "RSK-09 assesses the assurance a supplier offers and OPM-04 sets contract terms. Still missing: requiring suppliers to show they have the people, processes and experience for the use, in proportion to its risk."
+  - ref: "para 201"
+    label: Require suppliers using third-party software, tools, libraries or data to argue why confidence in the AI is not undermined
+    controls: [{id: SEC-03, strength: partial}, {id: RSK-09, strength: partial}]
+    note: "SEC-03 sets security expectations for suppliers and assesses external components; RSK-09 covers supplier assurance. Still missing: requiring suppliers to justify their use of third-party components beyond security."
+  - ref: "para 202"
+    label: Assure and document the provenance of all training and test data, including legal and ethical compliance, for MOD and third-party data
+    controls: [{id: DAT-08, strength: direct}, {id: DAT-05, strength: partial}, {id: SEC-03, strength: partial}]
+    note: DAT-08 Level 3 records source, collection method, rights, licence terms and use limits for every data set used to train, tune or test AI; DAT-05 confirms lawful and fair use; SEC-03 assesses external data sets for security, including deliberately introduced vulnerabilities.
+  - ref: "para 203"
+    label: (Should) Contracts consider through-life support, access to data, algorithms and models, and ownership of intellectual property
+    controls: [{id: OPM-04, strength: direct}, {id: OPM-05, strength: partial}]
+    note: Recommended ('should'), mapped because it is material for long-lived defence capability. OPM-04 Level 3 sets standard terms on data rights, intellectual property, transparency and exit; OPM-05 covers exit and data return.
+  - ref: "para 204"
+    label: (Should) Assess foreign export control restrictions on data, algorithms and models to keep freedom to maintain, modify and operate the AI
+    controls: [{id: RSK-04, strength: partial}, {id: TEC-07, strength: partial}, {id: OPM-05, strength: partial}]
+    note: "Recommended ('should'), mapped because it is material for defence. The obligations register (RSK-04), dependency records (TEC-07) and exit plans (OPM-05) touch it. Still missing: assessment of legal restrictions from other jurisdictions (such as export controls) on the organisation's freedom to maintain, modify and run each AI service."
+
+  # ---------------------------------------------------------------- Chapter 9 AI Assurance
+  - ref: "para 206"
+    label: Do not adopt AI where assurance risk is too great; otherwise match assurance to the risk of incorrect outputs
+    controls: [{id: MON-05, strength: partial}, {id: RSK-01, strength: partial}, {id: GOV-03, strength: partial}, {id: POR-07, strength: partial}]
+    note: "MON-05 sets assurance depth by risk tier, RSK-01 risk appetite is used in approval, POR-07 can stop a use, and GOV-03 refuses or stops a use whose residual risk cannot be brought within the risk appetite. Still missing: an explicit rule that a use is not approved where it cannot be assured to the level its risk needs (assurance risk as distinct from residual risk)."
+  - ref: "para 209"
+    label: Assurance covers behaviour on reasonably expected excursions from the operating domain, including adversarial action, and failure mode behaviour
+    controls: [{id: TEC-06, strength: partial}, {id: SEC-06, strength: partial}, {id: OPM-09, strength: partial}, {id: SEC-02, strength: partial}]
+    note: "Robustness testing (TEC-06), security testing (SEC-06), fallbacks and safe stop (OPM-09) and threat modelling (SEC-02) cover part, and TEC-06 defines operating conditions and enforces them by limits. Still missing: assurance of behaviour on reasonably expected excursions from those conditions, and a recorded choice of failure behaviour (fail safe or keep operating) for each use."

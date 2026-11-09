@@ -1,0 +1,886 @@
+# AACF worked example: completed assessment of an invented organisation (D3.4), updated to the v1.0 rules.
+# Every document named in `evidence` and every named role holder is invented. Regenerate the workbook and report
+# with the commands in README.md in this folder.
+#
+# Per control: level (0 to 5, "Insufficient evidence" or "N/A"), criteria_not_met (applicable Level 3 criteria not
+# met, for any control below Level 3), confidence, evidence, target (default 3; below 3 needs target_rationale,
+# target_approver and target_review), assessor, reviewer (GOV, RSK, SEC, MON and any Level 4 or 5), notes.
+# Roadmap fields for the agreed actions: action, action_owner, priority, due, delivery.
+
+profile:
+  organisation: Westmere Standards Agency (fictional)
+  sector: "UK public sector: arm's-length body that sets and checks technical standards for a regulated industry"
+  size: "About 2,000 staff; data team of six; Microsoft 365 Copilot licensed to 600 staff"
+  scope_of_assessment: "Whole organisation. All AI in use or in development at November 2026: Microsoft 365 Copilot (agents and plugins switched off in the tenant), the correspondence triage classifier pilot (a model tuned by the data team, planned to go live in January 2027), the guidance library search assistant pilot, and AI features in bought products. Three uses in all, so every use was sampled."
+  assessor: "Self-assessment led by the Head of Data (J. Okafor); security controls assessed by the Head of Information Assurance (S. Lindqvist); challenge from the Head of Internal Audit (P. Rourke)"
+  assessment_date: 2026-11-09
+  assessment_sponsor: "Chief Operating Officer (R. Pellow), executive sponsor for AI"
+  notes: Invented organisation for the AACF worked example. Any resemblance to a real body is coincidental.
+
+overlays:
+  PUB:
+    applies: "Yes"
+    reason: "An arm's-length public body with public duties, in mandatory scope for algorithmic transparency records."
+  PRV:
+    applies: "No"
+    reason: "All AI is for Westmere's own use; it offers no AI service, product or model to anyone else."
+  HIR:
+    applies: "No"
+    reason: "No use decides or shapes people's rights, safety or access to services: triage only suggests a team for each letter and a person checks every suggestion, and safety reports arrive through the separate statutory reporting line, not the correspondence mailbox. Revisit at the triage go-live review."
+  GEN:
+    applies: "Yes"
+    reason: "Microsoft 365 Copilot for 600 staff, and the search assistant generates answers from the guidance library."
+  AGT:
+    applies: "No"
+    reason: "No AI acts in other systems: Copilot agents and plugins are switched off and the triage classifier only suggests a route."
+  BLD:
+    applies: "Yes"
+    reason: "The data team tuned the triage classifier on labelled letters and built the search assistant's retrieval pipeline."
+
+responses:
+
+  # Strategy & Value
+  STR-01:
+    level: 2
+    criteria_not_met: [STR-01.1, STR-01.2, STR-01.3]
+    confidence: High
+    target: 3
+    evidence: "Corporate Plan 2025 to 2028, section 4 (productivity); AI Discovery Paper to the Executive Committee, October 2025"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The corporate plan commits to using AI to improve productivity and the COO's discovery paper sets out a vision, but neither links AI to specific organisational objectives and no ambition has been approved. Level 3 needs an approved ambition tied to objectives, with an owner, communicated to staff."
+  STR-02:
+    level: 2
+    criteria_not_met: [STR-02.1, STR-02.2, STR-02.3, STR-02.4]
+    confidence: High
+    target: 3
+    evidence: "Draft AI Policy v0.4 (September 2026), section 5"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The draft policy says AI must not make final compliance findings and favours correspondence and search work, but it is unapproved and gives no reasons for these boundaries. Level 3 needs approved encouraged, conditional and ruled-out areas with reasons, consistent with a risk appetite that does not yet exist (RSK-01)."
+  STR-03:
+    level: 2
+    criteria_not_met: [STR-03.1, STR-03.2, STR-03.3, STR-03.4]
+    confidence: High
+    target: 3
+    evidence: "IT budget 2026 to 2027, Copilot licence line; Transformation Fund award letter for the two pilots, March 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Copilot licences are funded centrally for this financial year only and the pilots have one-off transformation money that does not cover running costs after go-live. There is no documented funding approach or criteria for judging requests, which Level 3 requires."
+  STR-04:
+    level: 1
+    criteria_not_met: [STR-04.1, STR-04.2, STR-04.3, STR-04.4]
+    confidence: High
+    target: 3
+    evidence: "Copilot Pilot Evaluation Report, May 2026, section 3 (self-reported time saved)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Benefits are claimed use by use: the Copilot pilot reported self-estimated time savings and the pilot briefs list expected benefits in a sentence each. There is no organisation-level view of expected value, so Level 2 is not reached."
+  STR-05:
+    level: 2
+    criteria_not_met: [STR-05.1, STR-05.2, STR-05.4]
+    confidence: Low
+    target: 3
+    evidence: "AI Watch monthly newsletter from the Head of Data, issues from January 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The Head of Data circulates a monthly newsletter on technology and regulatory developments, so output is regular (STR-05.3), but scanning is a personal habit rather than a defined role, peer practice and public expectation are not covered, and nothing links it to strategy decisions. Confidence is low: the assessor wrote the newsletter and no reader was asked whether it is used."
+  STR-06:
+    level: 1
+    criteria_not_met: [STR-06.1, STR-06.2, STR-06.3, STR-06.4, STR-06.5]
+    confidence: High
+    target: 3
+    evidence: "Digital Change Board decision log, 2025 to 2026 (AI work approved project by project)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "AI work is planned project by project through the Digital Change Board; no roadmap exists, even as a project list. Level 2 would be reached by a first roadmap, which depends on the ambition (STR-01) and funding approach (STR-03)."
+  STR-07:
+    level: 0
+    criteria_not_met: [STR-07.1, STR-07.2, STR-07.3]
+    confidence: High
+    target: 3
+    evidence: "Interview with the Chief Operating Officer, 21 October 2026 (confirmed no AI strategy and no engagement on one)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Confirmed absence: there is no AI strategy, so no stakeholder engagement on one has taken place. The trade union and staff network questions about Copilot were handled as rollout queries, not as input to a strategy."
+  STR-08:
+    level: 0
+    criteria_not_met: [STR-08.1, STR-08.2, STR-08.3, STR-08.4]
+    confidence: High
+    target: 3
+    evidence: "Interview with the Chief Operating Officer, 21 October 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Confirmed absence: there is no AI strategy to review. A review cycle and triggers should be set when the strategy is approved."
+
+  # Governance & Accountability
+  GOV-01:
+    level: 2
+    criteria_not_met: [GOV-01.1, GOV-01.2, GOV-01.3, GOV-01.4, GOV-01.5, GOV-01.6]
+    confidence: High
+    target: 3
+    evidence: "Draft AI Policy v0.4 (September 2026); Using Copilot Safely intranet guidance, June 2026"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "A draft policy sets scope and permitted, approval-required and prohibited uses, but it is unapproved, so no criterion is met yet; its prohibited list also omits the practices the law bans, and most staff do not know about it. Approval with an owner, review date, version control and communication to all staff would meet Level 3. GOV-01.7 and GOV-01.8 are left out: PRV does not apply. Disclosure of AI-generated content is now assessed under GOV-10."
+    action: "Add the legally banned practices to the draft, approve AI Policy v1.0 at the Executive Committee with an owner and review date, place it under document control and brief all staff"
+    action_owner: "Head of Data (J. Okafor)"
+    priority: High
+    due: "2027-02-26"
+    delivery: In progress
+  GOV-02:
+    level: 2
+    criteria_not_met: [GOV-02.2, GOV-02.3]
+    confidence: High
+    target: 3
+    evidence: "Executive Committee minutes, 12 November 2025, item 6 (COO named senior responsible owner for AI adoption)"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The COO was named as senior responsible owner by an Executive Committee minute (GOV-02.1 met), but there is no written remit covering budget, risk acceptance or authority to stop a use, and AI is not a standing item in board reporting."
+  GOV-03:
+    level: 2
+    criteria_not_met: [GOV-03.1, GOV-03.2, GOV-03.3, GOV-03.4]
+    confidence: High
+    target: 3
+    evidence: "Digital Change Board terms of reference v2 (2024); Digital Change Board decision log entries for the triage and search pilots"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "AI pilots are approved through the existing Digital Change Board and Copilot was approved by the Executive Committee, but the route is the same whatever the risk and does not screen for prohibited practices. Level 3 needs decision rights tiered by residual risk for approving, changing and retiring uses."
+  GOV-04:
+    level: 2
+    criteria_not_met: [GOV-04.1, GOV-04.2, GOV-04.3, GOV-04.4]
+    confidence: High
+    target: 3
+    evidence: "Copilot Steering Group notes, April to September 2026"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "A Copilot Steering Group met during rollout and an informal AI interest group meets monthly, but neither has terms of reference, a remit to decide or a route to escalate. There is no AI oversight forum."
+  GOV-05:
+    level: 2
+    criteria_not_met: [GOV-05.1, GOV-05.2, GOV-05.3]
+    confidence: High
+    target: 3
+    evidence: "Triage and search pilot briefs (technical owner named); IT service catalogue entry for Microsoft 365 Copilot"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Copilot has an IT service owner and each pilot names the Head of Data as technical owner, but business, data and assurance owners are not named and there is no inventory to record them in. Level 3 depends on the inventory (GOV-06)."
+  GOV-06:
+    level: 1
+    criteria_not_met: [GOV-06.1, GOV-06.2, GOV-06.3, GOV-06.4, GOV-06.5]
+    confidence: High
+    target: 3
+    evidence: "Interviews with the Head of Data and the IT Service Manager, October 2026 (no inventory held)"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "There is no AI inventory. The data team knows its two pilots and IT knows Copilot, but AI features in bought products such as the HR system and the case management system have never been listed. A partial list would reach Level 2."
+    action: "Build the AI inventory: Copilot, both pilots and AI features in bought products (HR and case management systems first), each with owners, risk tier, regulatory classification and suppliers"
+    action_owner: "Head of Data (J. Okafor)"
+    priority: High
+    due: "2027-03-31"
+    delivery: Not started
+  GOV-07:
+    level: 2
+    criteria_not_met: [GOV-07.1, GOV-07.2, GOV-07.4, GOV-07.5]
+    confidence: High
+    target: 3
+    evidence: "Copilot data protection impact assessment, March 2026; Information Assurance security assessment of Microsoft 365 Copilot, February 2026"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Copilot went through the existing data protection and security assessment routes, but the pilots did not have a data protection impact assessment, no existing process has a defined AI step, and information governance was brought in to the triage pilot only after it was built. GOV-07.3 is left out: HIR does not apply."
+  GOV-08:
+    level: 0
+    criteria_not_met: [GOV-08.1, GOV-08.2, GOV-08.3]
+    confidence: High
+    target: 3
+    evidence: "Draft AI Policy v0.4 (no compliance or exception section); interview with the Head of Data, October 2026"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Confirmed absence: with no approved AI policy there is nothing to check compliance against and no exception process. This can only move once GOV-01 and GOV-04 are in place."
+  GOV-09:
+    level: 1
+    criteria_not_met: [GOV-09.1, GOV-09.2, GOV-09.3, GOV-09.4, GOV-09.5, GOV-09.7]
+    confidence: High
+    target: 3
+    evidence: "Legal team note on transparency obligations, August 2026; Communications clearance procedure v2"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "PUB applies. Westmere is in mandatory scope for algorithmic transparency records but has published none and has made no publication decisions for its uses or impact assessments. External statements on AI go through the standard communications clearance route (GOV-09.8 met). The triage classifier needs a record before it goes live; this is a compliance gap, not only a maturity gap. GOV-09.6 is left out: HIR does not apply."
+    action: "Publish an algorithmic transparency record for the triage classifier before go-live, and record a publication decision for every inventory entry and impact assessment"
+    action_owner: "Head of Data (J. Okafor)"
+    priority: High
+    due: "2027-01-15"
+    delivery: Not started
+  GOV-10:
+    level: 2
+    criteria_not_met: [GOV-10.1, GOV-10.2, GOV-10.3]
+    confidence: Medium
+    target: 3
+    evidence: "Using Copilot Safely intranet guidance, June 2026, section 3 (check before you send); Communications team publishing checklist, 2026 (no AI-generated images)"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "GEN applies. Copilot users are told to check outputs before sending, and the Communications team does not use AI-generated images, but there are no approved rules on disclosing AI-generated content to recipients, and nothing covers Copilot summaries used in case files or decision papers. The September 2026 Copilot summary that misstated a clause of a published standard shows the gap."
+
+  # Risk, Ethics & Compliance
+  RSK-01:
+    level: 1
+    criteria_not_met: [RSK-01.1, RSK-01.2, RSK-01.3]
+    confidence: High
+    target: 3
+    evidence: "Corporate Risk Appetite Statement, approved 2025 (no mention of AI)"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The corporate risk appetite statement does not mention AI and there is no draft AI statement, so tolerance depends on who is deciding. Level 2 would be reached by adding AI to the corporate appetite or drafting an AI statement."
+    action: "Draft an AI risk appetite statement covering harm to people, legal, reputational and operational risk, with an owner and review date, for board approval"
+    action_owner: "Head of Risk and Compliance (D. Fairbairn)"
+    priority: High
+    due: "2027-04-30"
+    delivery: Not started
+  RSK-02:
+    level: 2
+    criteria_not_met: [RSK-02.1, RSK-02.2, RSK-02.3, RSK-02.4, RSK-02.5, RSK-02.6, RSK-02.7]
+    confidence: High
+    target: 3
+    evidence: "Copilot rollout risk log; Corporate Risk Management Policy v4; triage pilot project risk log"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The corporate risk method was applied to the Copilot rollout and each pilot keeps a project risk log, but the method does not cover AI-specific risks such as wrong outputs, drift or the generative AI risk categories (GEN applies), residual risk is not recorded, and results do not reach the corporate register."
+  RSK-03:
+    level: 2
+    criteria_not_met: [RSK-03.1, RSK-03.2, RSK-03.3, RSK-03.4, RSK-03.5, RSK-03.6]
+    confidence: High
+    target: 3
+    evidence: "Copilot data protection impact assessment, March 2026"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Impact assessment has been done for Copilot only and covers privacy, not equality, rights, workforce or wider effects. RSK-03.7 has nothing to apply to: Westmere has no public-facing AI assistant."
+    action: "Complete and sign off an impact assessment for the triage classifier covering equality, privacy, rights, workforce and wider effects before go-live, then adopt the template for every use"
+    action_owner: "Data Protection Officer (M. Achebe)"
+    priority: High
+    due: "2027-01-15"
+    delivery: In progress
+  RSK-04:
+    level: 2
+    criteria_not_met: [RSK-04.1, RSK-04.2, RSK-04.3, RSK-04.4, RSK-04.5, RSK-04.6, RSK-04.7, RSK-04.8]
+    confidence: High
+    target: 3
+    evidence: "Data Protection Officer annual report 2025 to 2026, section on AI; Legal team note on transparency obligations, August 2026"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Data protection obligations are tracked by the Data Protection Officer and the legal team has noted the transparency record duty, but there is no register of obligations, owners or regulatory role per use, and legal advice is not taken use by use."
+  RSK-05:
+    level: 1
+    criteria_not_met: [RSK-05.1, RSK-05.2, RSK-05.3, RSK-05.4, RSK-05.5, RSK-05.6, RSK-05.7]
+    confidence: High
+    target: 3
+    evidence: "Draft AI Policy v0.4, section 2 (five ethical principles, not adopted)"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The draft policy lists five ethical principles, but they have not been adopted and there is no route for applying them to real cases. Adopting the principles would reach Level 2."
+  RSK-06:
+    level: 2
+    criteria_not_met: [RSK-06.1, RSK-06.2, RSK-06.3, RSK-06.4, RSK-06.5, RSK-06.6]
+    confidence: High
+    target: 3
+    evidence: "Triage pilot evaluation note, September 2026, section 4 (accuracy by correspondent type)"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The data team checked that the triage classifier routes letters from the public, industry and MPs with similar accuracy, a useful informal test at design. There is no documented fairness approach, no defined groups or measures, no test of the search assistant and no live monitoring."
+  RSK-07:
+    level: 2
+    criteria_not_met: [RSK-07.1, RSK-07.2, RSK-07.3]
+    confidence: High
+    target: 3
+    evidence: "Triage pilot operating note, July 2026 (all routing checked by the correspondence team); Using Copilot Safely intranet guidance"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Every triage routing suggestion is checked by the correspondence team during the pilot and Copilot users are told to check outputs, but the oversight model is not set by risk, reviewers are not trained for the role and the design has not been tested before go-live."
+  RSK-08:
+    level: 1
+    criteria_not_met: [RSK-08.1, RSK-08.2, RSK-08.3]
+    confidence: High
+    target: 3
+    evidence: "Correspondence acknowledgement letter template, 2026 (no mention of AI); website contact page"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "People who write to Westmere are not told that AI suggests how their letter is routed, and there is no specific route to question it. RSK-08.4 is met: nobody outside Westmere interacts with AI directly. RSK-08.5 is left out: HIR does not apply."
+    action: "Add an AI notice to the correspondence acknowledgement and website contact page, and a route for a person to ask for their letter's routing to be reviewed"
+    action_owner: "Head of Correspondence (L. Haddad)"
+    priority: High
+    due: "2027-01-15"
+    delivery: Not started
+  RSK-09:
+    level: 2
+    criteria_not_met: [RSK-09.1, RSK-09.2, RSK-09.3, RSK-09.4, RSK-09.5, RSK-09.6]
+    confidence: High
+    target: 3
+    evidence: "Information Assurance supplier security questionnaire v3 (AI questions added May 2026); completed questionnaire for Microsoft 365 Copilot"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Information Assurance added AI questions to its supplier questionnaire and used them for Copilot, but AI features added to existing products by updates are not picked up, and regulatory status, instructions for use and reassessment are not covered. RSK-09.7 is left out: HIR does not apply."
+
+  # Portfolio & Use Cases
+  POR-01:
+    level: 2
+    criteria_not_met: [POR-01.1, POR-01.2, POR-01.4, POR-01.5]
+    confidence: Medium
+    target: 3
+    evidence: "Data and Analytics Request form on the intranet"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "AI ideas can be put through the data team's request form, which the Head of Data owns, but it is not documented or publicised as an AI route and proposals are not always acknowledged or logged."
+  POR-02:
+    level: 1
+    criteria_not_met: [POR-02.1, POR-02.2, POR-02.3, POR-02.4]
+    confidence: High
+    target: 3
+    evidence: "Interview with the Chief Operating Officer, 21 October 2026 (pilot selection)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The two pilots were chosen by the COO and the Head of Data from ideas they favoured; no criteria were used. Writing down even informal criteria would reach Level 2."
+  POR-03:
+    level: 2
+    criteria_not_met: [POR-03.1, POR-03.2, POR-03.3]
+    confidence: High
+    target: 3
+    evidence: "Data team delivery board (Jira), AI epics"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The data team's delivery board tracks its own AI work, but it does not cover Copilot use cases or ideas from other teams and has no decision history."
+  POR-04:
+    level: 2
+    criteria_not_met: [POR-04.1, POR-04.2, POR-04.3, POR-04.4, POR-04.5]
+    confidence: High
+    target: 3
+    evidence: "Digital Change Board project lifecycle (discovery, alpha, beta, live), 2024"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "AI pilots follow the existing digital project lifecycle, but its gate criteria are general and say nothing about AI risk, Copilot did not pass through it, and no design decision record is kept."
+  POR-05:
+    level: 2
+    criteria_not_met: [POR-05.1, POR-05.2, POR-05.3]
+    confidence: High
+    target: 3
+    evidence: "Microsoft 365 Copilot business case, Executive Committee, May 2026; pilot briefs for triage and search"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Copilot had a full business case and each case was approved at a gate, but the pilots have one-page briefs with no running costs or option of not using AI, and there is no scaled template."
+  POR-06:
+    level: 2
+    criteria_not_met: [POR-06.1, POR-06.2, POR-06.3, POR-06.4, POR-06.5]
+    confidence: High
+    target: 3
+    evidence: "Data team Azure development subscription design note, January 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The data team has a development environment for experiments, but no documented route, no rules on data, duration or exit, and other teams have no sanctioned route at all."
+  POR-07:
+    level: 2
+    criteria_not_met: [POR-07.1, POR-07.2]
+    confidence: High
+    target: 3
+    evidence: "Copilot Pilot Evaluation Report, May 2026; triage pilot brief (90% routing accuracy target)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The Copilot pilot and the triage pilot had success criteria set at the start and the Copilot decision is minuted on its evidence, but the search pilot has no criteria and has run past its planned end without a decision."
+  POR-08:
+    level: 2
+    criteria_not_met: [POR-08.1, POR-08.2, POR-08.3]
+    confidence: High
+    target: 2
+    target_rationale: "Three uses and one build team: a reuse catalogue would cost more than it saves. Raise to 3 when a second team builds AI."
+    target_approver: "Chief Operating Officer (R. Pellow), Executive Committee, 4 November 2026"
+    target_review: "2027-11-30"
+    evidence: "Data team code repository: shared prompt library and Azure OpenAI deployment used by both pilots"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Both pilots share a prompt library and hosting set up by the same team, but there is no catalogue others could search. At its agreed target of 2; still below the baseline."
+  POR-09:
+    level: 1
+    criteria_not_met: [POR-09.1, POR-09.2, POR-09.3, POR-09.4, POR-09.5, POR-09.6]
+    confidence: High
+    target: 3
+    evidence: "Website chatbot trial closure email, 2025; supplier contract for the chatbot trial"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "A 2025 website chatbot trial was switched off without a plan and its conversation logs are still held by the supplier. No retirement process exists; Level 2 would need at least a deliberate retirement with steps for users and data."
+
+  # Operating Model & Delivery
+  OPM-01:
+    level: 1
+    criteria_not_met: [OPM-01.1, OPM-01.2, OPM-01.3, OPM-01.4, OPM-01.5]
+    confidence: High
+    target: 3
+    evidence: "AI Discovery Paper, October 2025, section 6 (hub and spoke mentioned, not described)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The data team builds, IT runs Copilot and business teams adopt it, but none of this is written down and it arose from who had capacity, so Level 2 is not reached."
+  OPM-02:
+    level: 1
+    criteria_not_met: [OPM-02.1, OPM-02.2, OPM-02.3, OPM-02.4]
+    confidence: High
+    target: 3
+    evidence: "Copilot business case, May 2026; triage and search pilot briefs (no options compared)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Copilot was chosen because of the existing Microsoft agreement and the pilots were built in-house because the data team was available; no method compared configure, procure, build or wait. BLD applies, and nobody checked whether an existing model could do the triage work before tuning one (OPM-02.4)."
+  OPM-03:
+    level: 2
+    criteria_not_met: [OPM-03.2, OPM-03.3, OPM-03.5]
+    confidence: High
+    target: 3
+    evidence: "Microsoft 365 licence usage report (monthly, IT); Azure cost management budget alert for the data team subscription"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Actual costs are tracked for Copilot and the Azure subscription, and both have limits or alerts, but pilot running costs are not forecast, costs are not assigned to business budget holders and there is no review against budget."
+  OPM-04:
+    level: 2
+    criteria_not_met: [OPM-04.1, OPM-04.2, OPM-04.3, OPM-04.4, OPM-04.5, OPM-04.6, OPM-04.7, OPM-04.8]
+    confidence: High
+    target: 3
+    evidence: "Microsoft enterprise agreement and data protection addendum; Information Assurance security schedule for Copilot, February 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The Copilot contract carries the supplier's data protection terms and an Information Assurance security schedule, but there are no standard AI contract terms, so none of the criteria on what those terms cover can be met."
+  OPM-05:
+    level: 2
+    criteria_not_met: [OPM-05.2, OPM-05.3]
+    confidence: Low
+    target: 3
+    evidence: "Microsoft quarterly service review notes, IT supplier management"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Microsoft has a named supplier manager and is reviewed quarterly, but no AI-specific measures are agreed and there is no exit plan for Copilot or the Azure services behind the pilots. Confidence is low: only two sets of review notes were seen and the supplier manager was not interviewed."
+  OPM-06:
+    level: 2
+    criteria_not_met: [OPM-06.1, OPM-06.2, OPM-06.3, OPM-06.4, OPM-06.5, OPM-06.6, OPM-06.7, OPM-06.8]
+    confidence: High
+    target: 3
+    evidence: "Triage pilot user research summary, May 2026; triage pilot brief (accuracy target)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The triage pilot involved the correspondence team in user research and set an accuracy target at design, but the search pilot did neither and there is no AI delivery standard, so no criterion is met across all delivery. Consent and ethics review for research are now assessed under OPM-10."
+  OPM-07:
+    level: 2
+    criteria_not_met: [OPM-07.1, OPM-07.2, OPM-07.3, OPM-07.4]
+    confidence: High
+    target: 3
+    evidence: "IT service desk category for Microsoft 365 Copilot"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Copilot problems go through the IT service desk, but the pilots are supported informally by the data team and nobody manages prompt or model changes as changes. This is needed before the triage classifier goes live."
+  OPM-08:
+    level: 1
+    criteria_not_met: [OPM-08.1, OPM-08.2, OPM-08.3, OPM-08.4]
+    confidence: High
+    target: 2
+    target_rationale: "A small body gets most of the value by joining existing peer groups and sharing lessons informally, without a formal partnership approach."
+    target_approver: "Chief Operating Officer (R. Pellow), Executive Committee, 4 November 2026"
+    target_review: "2027-11-30"
+    evidence: "Interview with the Head of Data, October 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The Head of Data attends a cross-government data science community in a personal capacity; nothing is tracked or agreed. Joining a peer group as Westmere would meet the target of 2."
+  OPM-09:
+    level: 1
+    criteria_not_met: [OPM-09.1, OPM-09.2, OPM-09.3, OPM-09.4, OPM-09.5]
+    confidence: High
+    target: 3
+    evidence: "Business Continuity Plan v5 (no mention of AI)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Business continuity plans do not mention AI. Manual routing would be the fallback for the triage classifier, but this is assumed rather than documented or tested, and wrong output is not considered. Level 3 needs documented, tested fallbacks before go-live."
+  OPM-10:
+    level: "Insufficient evidence"
+    confidence: Low
+    target: 3
+    evidence: "Triage pilot user research summary, May 2026 (no consent records attached)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The triage pilot ran user research with the correspondence team, but the consent forms could not be found, the user researcher (a contractor) has left, and nobody could say whether the research went to the staff research ethics panel. The search pilot did no research with people. Not scored: the evidence neither shows the practice nor confirms its absence. To resolve, ask the ethics panel secretariat for its 2026 log and the contractor's supplier for the research file."
+
+  # Data & Information
+  DAT-01:
+    level: 2
+    criteria_not_met: [DAT-01.2, DAT-01.3, DAT-01.4, DAT-01.5]
+    confidence: High
+    target: 3
+    evidence: "Data Strategy 2024 to 2027, section 6 (advanced analytics and AI)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "An approved data strategy has an owner and review date and mentions AI as a future use of data, but it does not say what planned uses need or how gaps will be closed, and there is no data architecture or shared definitions covering AI. Should follow the AI ambition (STR-01)."
+  DAT-02:
+    level: 3
+    confidence: High
+    target: 3
+    evidence: "Information Asset Register (October 2026 extract); Information Asset Owner Handbook v3, sections 2 and 5"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "All three criteria met for all three uses: the correspondence records, guidance library and SharePoint content used by the pilots and Copilot have named Information Asset Owners and Administrators in the register, and the handbook covers approving new uses, quality and access. Level 4 would need coverage measured and owners reviewed against AI-specific responsibilities."
+  DAT-03:
+    level: 2
+    criteria_not_met: [DAT-03.1, DAT-03.2, DAT-03.3, DAT-03.4]
+    confidence: High
+    target: 3
+    evidence: "Triage pilot data preparation note, April 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The data team checked the completeness and labelling of the triage training sample, but no quality requirements were set for either pilot and nothing is planned for live use."
+  DAT-04:
+    level: 2
+    criteria_not_met: [DAT-04.1, DAT-04.2]
+    confidence: High
+    target: 3
+    evidence: "Information Asset Register (October 2026 extract)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The asset register records owner, sensitivity and whether personal data is held, but not meaning, coverage, known limits or conditions of use, and there is no data catalogue."
+  DAT-05:
+    level: 2
+    criteria_not_met: [DAT-05.1, DAT-05.2, DAT-05.3, DAT-05.4, DAT-05.5, DAT-05.6]
+    confidence: High
+    target: 3
+    evidence: "Copilot data protection impact assessment, March 2026; Data Protection Officer advice note on the triage pilot, August 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Copilot has a recorded assessment and the Data Protection Officer advised on the triage pilot, but only after it was built and tuned on correspondents' letters, and correspondents have not been told how their letters are used. Rights requests do not consider the tuned model."
+  DAT-06:
+    level: 2
+    criteria_not_met: [DAT-06.1, DAT-06.2, DAT-06.3]
+    confidence: High
+    target: 3
+    evidence: "Records Retention Schedule v7, entry 4.12; Microsoft Purview retention policy for Copilot interactions, June 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Information governance set Copilot interaction retention to match the email rules, but the pilots' prompts, outputs, routing suggestions and system logs are not covered by any rule."
+  DAT-07:
+    level: 3
+    confidence: High
+    target: 3
+    evidence: "SharePoint permissions review report before Copilot rollout, April 2026; Information Asset Owner approvals for triage and search pilot data access, March and May 2026; Access Control Policy v6, section 7 (data access requests); Microsoft data protection addendum"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "All six criteria met for all three uses: SharePoint oversharing was cleaned up before Copilot went live, both pilots' access was requested through the section 7 route and approved by the owner, the triage service account is limited to one mailbox, sharing with Microsoft runs under the addendum, and live data in development was approved and pseudonymised. Level 4 would need access for AI reviewed on a set cycle with breaches detected."
+  DAT-08:
+    level: 2
+    criteria_not_met: [DAT-08.1, DAT-08.2, DAT-08.3]
+    confidence: High
+    target: 3
+    evidence: "Triage pilot data preparation note, April 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The source of the 2,000 labelled letters used to tune and test the triage classifier is recorded, but rights and use limits were not checked, the data is not linked to the model version and labelling steps are only partly written down. DAT-08.4 has nothing to apply to: no synthetic data is used."
+
+  # Technology & Platforms
+  TEC-01:
+    level: 2
+    criteria_not_met: [TEC-01.1, TEC-01.2, TEC-01.3, TEC-01.4, TEC-01.5]
+    confidence: High
+    target: 3
+    evidence: "Using Copilot Safely intranet guidance, June 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Staff know Copilot is allowed and public chatbots are blocked, but there is no maintained list of approved tools, conditions for other tools or route to request additions, and the data team's build environment (BLD applies) is not listed with an owner."
+  TEC-02:
+    level: 1
+    criteria_not_met: [TEC-02.1, TEC-02.2, TEC-02.3, TEC-02.4, TEC-02.5, TEC-02.6, TEC-02.7]
+    confidence: High
+    target: 3
+    evidence: "Interview with the Enterprise Architect, October 2026 (not involved in either pilot)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Each pilot was designed from scratch and the enterprise architect was not involved; there are no AI patterns, even informal ones. Level 2 would be reached by writing down the retrieval and classification approaches the pilots already share."
+  TEC-03:
+    level: 3
+    confidence: High
+    target: 3
+    evidence: "Cloud Hosting and Data Location Standard v3.1 (Information Assurance); location and subprocessor checks for Microsoft 365 Copilot and the pilots' Azure UK South services, February and March 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "All three criteria met: the standard sets hosting locations by data class and Information Assurance checked Copilot and both pilots, including subprocessors, before use. Level 4 would need rechecks on a set cycle and when suppliers change terms."
+  TEC-04:
+    level: 2
+    criteria_not_met: [TEC-04.2, TEC-04.3, TEC-04.4, TEC-04.5]
+    confidence: High
+    target: 3
+    evidence: "Triage pilot integration design, case management API, June 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Both pilots use supported interfaces and the triage integration is documented, but the search assistant's SharePoint connector is not, neither has been shown to be removable without disruption, and the permissions Copilot and the pilots hold have not been risk assessed."
+  TEC-05:
+    level: 2
+    criteria_not_met: [TEC-05.2, TEC-05.3, TEC-05.4, TEC-05.5, TEC-05.6, TEC-05.7]
+    confidence: High
+    target: 3
+    evidence: "Data team code repository: version history for pilot prompts and configuration"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Pilot prompts and configuration are in version control (TEC-05.1 met), but data sets are not versioned with the tuned model, releases have no approval step, Copilot model changes are not controlled and rollback has never been tried."
+  TEC-06:
+    level: 2
+    criteria_not_met: [TEC-06.1, TEC-06.2, TEC-06.3, TEC-06.4, TEC-06.5, TEC-06.6, TEC-06.7, TEC-06.8]
+    confidence: High
+    target: 3
+    evidence: "Triage pilot evaluation note, September 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The triage classifier was tested against an accuracy target agreed in advance on a held-out sample, but without edge cases, operating conditions or sign-off, and the search assistant was only tried informally, with no test for harmful output (GEN applies). Security testing is now assessed under SEC-06."
+
+  TEC-07:
+    level: 2
+    criteria_not_met: [TEC-07.1, TEC-07.2, TEC-07.3, TEC-07.4]
+    confidence: High
+    target: 3
+    evidence: "IT Microsoft 365 message centre review log"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "IT tracks Microsoft's roadmap for Copilot, but the pilots have no record of their model versions or end dates and were caught out when a model version was retired in August 2026. All three uses depend on one supplier and this is not recorded as a risk."
+  TEC-08:
+    level: 3
+    confidence: High
+    target: 3
+    evidence: "Cloud app discovery reports (monthly); block page configuration redirecting to Copilot and the IT request form; Information Assurance monthly report, generative AI section"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "All three criteria met: Information Assurance detects generative AI tool use through cloud app discovery, records findings monthly, and blocks unapproved tools with a page that points staff to Copilot and a request form. Level 4 would need trends measured and findings fed into an approved tools list, which does not yet exist (TEC-01)."
+
+  # AI Security
+  SEC-01:
+    level: 2
+    criteria_not_met: [SEC-01.2, SEC-01.3, SEC-01.4, SEC-01.5]
+    confidence: High
+    target: 3
+    evidence: "Draft AI annex to the Security Standard, August 2026; Copilot audit log feed into the security monitoring service"
+    assessor: "Head of Information Assurance (S. Lindqvist)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Information Assurance has adopted the UK AI cyber security code of practice as its baseline and owns it (SEC-01.1 met), and Copilot activity is in security monitoring, but the annex is not yet part of the approved standard, has not been applied to the pilots, and the pilots are outside monitoring."
+  SEC-02:
+    level: 2
+    criteria_not_met: [SEC-02.1, SEC-02.2, SEC-02.3, SEC-02.4, SEC-02.5]
+    confidence: High
+    target: 3
+    evidence: "Threat model for the triage pilot, Information Assurance, July 2026"
+    assessor: "Head of Information Assurance (S. Lindqvist)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The triage pilot was threat modelled, including prompt injection through incoming letters, but there is no defined AI-aware method, threat modelling is not required for every use, synthetic media impersonation is not considered, the search assistant has no threat model, and the prompt injection finding has not yet been acted on."
+  SEC-03:
+    level: 2
+    criteria_not_met: [SEC-03.1, SEC-03.2, SEC-03.4, SEC-03.5, SEC-03.7, SEC-03.8]
+    confidence: High
+    target: 3
+    evidence: "Information Assurance supplier security assessment of Microsoft, 2026; supplier security questionnaire v3"
+    assessor: "Head of Information Assurance (S. Lindqvist)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Security expectations are set for suppliers through the questionnaire (SEC-03.3 met) and Microsoft services have been assessed, but the open source embedding model used by the search assistant was downloaded from a public model hub without a security check, and there is no record of external components. SEC-03.6 is left out: PRV does not apply."
+  SEC-04:
+    level: 4
+    confidence: High
+    target: 3
+    evidence: "Information Handling Standard v5.2, section 9 (AI tools), approved by the Senior Information Risk Owner, July 2026; Microsoft Purview sensitivity label and data loss prevention configuration for Copilot; triage model storage record, labelled at the classification of its training letters; Information Assurance monthly report, data loss prevention section"
+    assessor: "Head of Information Assurance (S. Lindqvist)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Level 3 is met on all four criteria: the standard maps each information class to the AI tools allowed, every Copilot user covers it in mandatory information handling training, labels and data loss prevention enforce it, and (BLD applies) the tuned triage model is stored and labelled at the level of the letters it was trained on. It reaches Level 4 because attempted exposures are detected, followed up and reported monthly. Level 5 would need controls tuned from that data against a measured outcome. Challenged by Internal Audit, who re-performed three months of the monthly report."
+  SEC-05:
+    level: 2
+    criteria_not_met: [SEC-05.1, SEC-05.2, SEC-05.3, SEC-05.4, SEC-05.5, SEC-05.7, SEC-05.8]
+    confidence: High
+    target: 3
+    evidence: "Security Incident Response Plan v4 (Copilot listed as an in-scope system); draft Copilot oversharing playbook, September 2026"
+    assessor: "Head of Information Assurance (S. Lindqvist)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The incident plan covers Copilot as a system and a playbook for oversharing is drafted, but there are no AI-specific playbooks for the pilots, responders have not been trained or exercised on AI scenarios, containment is not defined, and neither vulnerability disclosure nor AI supply chain breach notification is covered. SEC-05.6 is left out: PRV does not apply."
+  SEC-06:
+    level: 1
+    criteria_not_met: [SEC-06.1, SEC-06.2, SEC-06.3, SEC-06.4, SEC-06.5]
+    confidence: High
+    target: 3
+    evidence: "IT Health Check Policy v2 (internet-facing systems only); search assistant pilot release note, June 2026 (no security test)"
+    assessor: "Head of Information Assurance (S. Lindqvist)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The search assistant went to pilot users with no security testing, and the standard IT health check, which would only cover conventional threats, does not apply to internal systems. The triage classifier is not yet released and no test is planned. Level 2 needs at least some AI-aware testing."
+    action: "Commission security testing of the triage classifier against its threat model, including prompt injection through incoming letters and disclosure of personal data, by testers independent of the data team, before go-live"
+    action_owner: "Head of Information Assurance (S. Lindqvist)"
+    priority: High
+    due: "2027-01-08"
+    delivery: Not started
+
+  # People & Skills
+  PPL-01:
+    level: 2
+    criteria_not_met: [PPL-01.2, PPL-01.3, PPL-01.4, PPL-01.5, PPL-01.6]
+    confidence: High
+    target: 3
+    evidence: "Copilot e-learning module (45 minutes, required before a licence is issued); completion report, October 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The module sets out what AI can do, its limits and risks (PPL-01.1 met), but only the 600 Copilot users take it; the other 1,400 staff, new joiners and contractors have no AI learning, and it does not cover ethics, wider impact or security threats."
+  PPL-02:
+    level: 2
+    criteria_not_met: [PPL-02.1, PPL-02.2]
+    confidence: High
+    target: 3
+    evidence: "Executive Committee development session on AI, February 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The Executive Committee had one development session and a supplier briefing, but there is no defined leadership offer and the board has had no AI learning."
+  PPL-03:
+    level: 1
+    criteria_not_met: [PPL-03.1, PPL-03.2, PPL-03.3, PPL-03.4]
+    confidence: High
+    target: 2
+    target_rationale: "A body of this size can use the cross-government profession framework for role profiles rather than build its own career paths and community."
+    target_approver: "Chief Operating Officer (R. Pellow), Executive Committee, 4 November 2026"
+    target_review: "2027-11-30"
+    evidence: "Data team job descriptions (generic analyst grades), 2025"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The six data team members are in generic analyst roles with no AI role profiles or path to progress. Adopting the cross-government profiles would meet the target of 2."
+  PPL-04:
+    level: 1
+    criteria_not_met: [PPL-04.1, PPL-04.2, PPL-04.3, PPL-04.4]
+    confidence: High
+    target: 3
+    evidence: "Copilot Pilot Evaluation Report, May 2026, confidence survey (pilot users only)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "No AI skills assessment has been done; the Copilot pilot survey asked about confidence but only of pilot users and was not used to plan. Level 2 needs at least one assessment, even of some groups."
+  PPL-05:
+    level: 2
+    criteria_not_met: [PPL-05.1, PPL-05.2, PPL-05.3, PPL-05.4, PPL-05.5, PPL-05.6, PPL-05.7]
+    confidence: High
+    target: 3
+    evidence: "Copilot champion advanced sessions, July 2026; data team learning budget records"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Copilot champions had advanced sessions and the data team has a learning budget, but there are no pathways for roles that build, buy, assure or secure AI, none covers secure development for the data team (BLD applies), and nothing is linked to an assessed need."
+  PPL-06:
+    level: 1
+    criteria_not_met: [PPL-06.1, PPL-06.2, PPL-06.3]
+    confidence: High
+    target: 3
+    evidence: "Joint consultation committee minutes, July 2026, item 4 (union question on roles)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The effect of AI on roles has not been considered; the trade union asked about it during Copilot rollout and was told there were no plans to change roles. Level 2 needs effects considered at least for individual projects, starting with the correspondence team."
+  PPL-07:
+    level: 2
+    criteria_not_met: [PPL-07.1, PPL-07.2, PPL-07.3]
+    confidence: Medium
+    target: 3
+    evidence: "Data scientist recruitment campaigns, March and June 2026; search assistant prototype contract, statement of work"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Westmere has recruited for AI roles (one of two campaigns filled) and used a supplier for the search prototype, but there is no recruitment and retention plan, team diversity is not considered, and the contract had no knowledge transfer clause."
+  PPL-08:
+    level: 2
+    criteria_not_met: [PPL-08.1, PPL-08.2, PPL-08.4, PPL-08.5]
+    confidence: High
+    target: 3
+    evidence: "Copilot hub on the intranet (updated with each Microsoft release); Copilot champions Teams channel"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Copilot users have a guidance hub that is kept up to date and a champions channel, but pilot users have no support route, champions work in their own time, and the guidance does not set out known limitations, failure modes or residual security risks."
+
+  # Culture & Change
+  CUL-01:
+    level: 2
+    criteria_not_met: [CUL-01.1, CUL-01.2, CUL-01.3, CUL-01.4, CUL-01.5]
+    confidence: High
+    target: 3
+    evidence: "Copilot Adoption Plan, IT and Internal Communications, April 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The Copilot rollout had an adoption plan, but there is no organisation-wide change plan, no assessment of the current culture and no funded change resource."
+  CUL-02:
+    level: 2
+    criteria_not_met: [CUL-02.1, CUL-02.2, CUL-02.3]
+    confidence: Medium
+    target: 3
+    evidence: "Intranet news articles on Copilot, June to September 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Staff have had regular news about Copilot, but there is no owned plan, the news focuses on benefits, says nothing about the pilots and does not cover limits or effect on jobs."
+  CUL-03:
+    level: 2
+    criteria_not_met: [CUL-03.1, CUL-03.2, CUL-03.4]
+    confidence: Medium
+    target: 3
+    evidence: "Joint consultation committee minutes, July 2026, item 4 (Copilot); triage pilot user research summary, May 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The trade union was told about Copilot after the rollout decision and the correspondence team shaped the triage design; input is minuted, but engagement is late or project by project and nobody is told what changed."
+  CUL-04:
+    level: "Insufficient evidence"
+    confidence: Low
+    target: 3
+    evidence: "Raising Concerns (whistleblowing) Policy v3"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The general raising concerns policy does not mention AI. HR, which owns it, could not say during the assessment window whether it would accept AI concerns or whether any had been raised, and its case log was not made available. Not scored, and not treated as 0: ask HR for the case log and a written view on scope, then score."
+  CUL-05:
+    level: 1
+    criteria_not_met: [CUL-05.1, CUL-05.2, CUL-05.3]
+    confidence: High
+    target: 3
+    evidence: "Website chatbot trial closure email, 2025 (no review held)"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "The 2025 website chatbot trial was dropped without a review and its lessons stayed with the two people involved. Level 2 needs teams at least to review what went wrong."
+  CUL-06:
+    level: 2
+    criteria_not_met: [CUL-06.1, CUL-06.2, CUL-06.3, CUL-06.4]
+    confidence: Low
+    target: 3
+    evidence: "Copilot champions list (40 champions), September 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Forty Copilot champions cover four of the six directorates and are linked to IT, but they work in their own time with no defined role and there is no wider community of practice. Confidence is low: the list is three months old and how many champions are still active was not checked."
+  CUL-07:
+    level: 2
+    criteria_not_met: [CUL-07.1, CUL-07.2, CUL-07.3]
+    confidence: High
+    target: 3
+    evidence: "Copilot drop-in session schedule, June and July 2026; Microsoft 365 licence usage report"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Copilot users had drop-in sessions at launch, which then stopped, and licence usage is the only adoption measure, with no planned level to compare against. Start with a support plan for the correspondence team."
+  CUL-08:
+    level: 0
+    criteria_not_met: [CUL-08.1, CUL-08.2, CUL-08.3]
+    confidence: High
+    target: 2
+    target_rationale: "Uses are internal or low visibility, so asking the existing industry stakeholder panel about the triage classifier is a proportionate first step. Raise to 3 if public-facing AI is planned."
+    target_approver: "Chief Operating Officer (R. Pellow), Executive Committee, 4 November 2026"
+    target_review: "2027-11-30"
+    evidence: "Industry stakeholder panel agendas, 2025 to 2026 (AI never discussed); interview with the Head of Communications, October 2026"
+    assessor: "Head of Data (J. Okafor)"
+    notes: "Confirmed absence: Westmere has not sought the views of the industry or public it serves on its AI use."
+
+  # Measure & Improve
+  MON-01:
+    level: 2
+    criteria_not_met: [MON-01.1, MON-01.2, MON-01.3, MON-01.4]
+    confidence: High
+    target: 3
+    evidence: "Triage pilot brief and baseline study (2025 misrouting rate and handling time), April 2026"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The triage pilot has accuracy measures and a baseline from 2025 routing data, but Copilot is measured only by licence usage and no use measures effect on people or reliance. MON-01.5 has nothing to apply to: no use has a material environmental footprint of its own."
+  MON-02:
+    level: 2
+    criteria_not_met: [MON-02.1, MON-02.2, MON-02.3, MON-02.4, MON-02.5, MON-02.6, MON-02.7]
+    confidence: High
+    target: 3
+    evidence: "Microsoft 365 service health and usage reports (IT)"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Copilot availability and usage are monitored, but nothing checks output quality, drift, misuse, fairness or sensitive data in outputs, and no thresholds trigger action. The triage classifier will need this from go-live."
+  MON-03:
+    level: 1
+    criteria_not_met: [MON-03.1, MON-03.2, MON-03.3]
+    confidence: High
+    target: 3
+    evidence: "Microsoft 365 Copilot business case, May 2026 (forecast savings, not tracked since)"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The Copilot business case forecast time savings, but these have not been tracked since approval. Level 2 needs at least a first review of benefits for one use."
+  MON-04:
+    level: 1
+    criteria_not_met: [MON-04.1, MON-04.2, MON-04.3]
+    confidence: High
+    target: 3
+    evidence: "IT service desk category list, October 2026 (no AI category); interview with the team that corrected the September 2026 Copilot summary"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "There is no AI incident definition or process. When a Copilot summary misstated a clause of a published standard in September 2026, it was corrected by the team concerned and not recorded. Level 2 needs AI incidents logged in a general system. Serious incidents and notification are now assessed under MON-09."
+    action: "Define AI incidents and near misses, add an AI category to the service desk linked to security incident handling, and brief staff with the September 2026 Copilot case as the example"
+    action_owner: "Head of Data (J. Okafor)"
+    priority: Medium
+    due: "2027-03-31"
+    delivery: Not started
+  MON-05:
+    level: 2
+    criteria_not_met: [MON-05.1, MON-05.2, MON-05.3, MON-05.4, MON-05.5, MON-05.6, MON-05.7]
+    confidence: High
+    target: 3
+    evidence: "Information Assurance security assessment of Microsoft 365 Copilot, February 2026; Internal Audit plan 2026 to 2027 (AI governance review scheduled for Q4)"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Independent member of the Audit and Risk Committee (K. Osei)"
+    notes: "Copilot was reviewed independently by Information Assurance and internal audit plans an AI governance review, but there is no defined basis for which uses are reviewed or how deeply, and no tracking of findings. Challenged by an Audit and Risk Committee member because Internal Audit operates part of this control."
+  MON-06:
+    level: 2
+    criteria_not_met: [MON-06.1, MON-06.2, MON-06.3]
+    confidence: High
+    target: 3
+    evidence: "Copilot Pilot Evaluation Report, May 2026, user survey; triage pilot feedback channel"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The Copilot pilot surveyed users and the triage pilot has a feedback channel, but feedback is not reviewed on a cycle and people affected by triage cannot give feedback."
+  MON-07:
+    level: 1
+    criteria_not_met: [MON-07.1, MON-07.2, MON-07.3]
+    confidence: High
+    target: 3
+    evidence: "This assessment, November 2026; COO proposal for an annual cycle, Executive Committee paper, October 2026"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "This is Westmere's first assessment against the framework. Level 3 needs it re-run on a set cycle with an owner, compared round on round, with an improvement plan; the COO has proposed an annual cycle."
+  MON-08:
+    level: 2
+    criteria_not_met: [MON-08.1, MON-08.2, MON-08.4]
+    confidence: High
+    target: 3
+    evidence: "COO six-monthly operational report to the board, September 2026, Copilot section"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "The board receives a narrative Copilot update with licence usage twice a year (MON-08.3 met), but nothing on the pilots, benefits, incidents or risk, it is not built from defined data, and no signed assurance statement goes to the sponsoring department."
+  MON-09:
+    level: 1
+    criteria_not_met: [MON-09.1, MON-09.3, MON-09.5, MON-09.6, MON-09.7]
+    confidence: High
+    target: 3
+    evidence: "Security Incident Response Plan v4, section 8 (personal data breach notification only); interview with the Head of Data, October 2026"
+    assessor: "Head of Data (J. Okafor)"
+    reviewer: "Head of Internal Audit (P. Rourke)"
+    notes: "Serious AI incidents are not defined, and nobody has decided who tells Microsoft or affected people, or who can suspend a use. Personal data breach notification is set out for security incidents, but not for AI incidents. MON-09.2, MON-09.4 and MON-09.8 are left out: HIR does not apply."

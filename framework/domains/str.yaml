@@ -1,0 +1,399 @@
+# STR: Strategy & Value
+# Why the organisation is adopting AI, where it will and will not use it, how it pays for it and what value it expects.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+
+domain: STR
+name: "Strategy & Value"
+summary: >
+  Sets out what the organisation wants from AI and how that serves its wider strategy: the
+  ambition, the boundaries, the funding, the expected value and the roadmap. The aim is
+  adoption driven by the organisation's own objectives, with choices made deliberately and
+  revisited as technology, rules and expectations change.
+
+controls:
+
+  - id: STR-01
+    title: AI ambition aligned to organisational strategy
+    objective: >
+      The organisation has a stated ambition for AI that is derived from its own strategy and
+      objectives, and that leaders and staff can describe.
+    rationale: >
+      AI adopted for its own sake produces scattered pilots that do not add up to anything the
+      organisation needs. Tying the ambition to existing objectives gives every later decision
+      on funding, priority and risk a test to apply: does this help us do what we are here to do.
+    levels:
+      1: "No stated ambition; AI activity is driven by individual interest or supplier offers."
+      2: "An ambition or vision statement exists, but it is generic, not linked to organisational objectives, or not agreed by leadership."
+      3: "An approved AI ambition, owned by a named person and expressed in terms of the organisation's objectives, is known across the organisation."
+      4: "Progress against the ambition is measured and reported, and AI activity that does not serve it is identified and challenged."
+      5: "The ambition is refined from evidence of what AI has delivered and from changes in the organisation's strategy."
+    criteria:
+      - {id: STR-01.1, applies: core, text: "An approved AI ambition states what AI is for in terms of the organisation's objectives."}
+      - {id: STR-01.2, applies: core, text: "The AI ambition has a named owner."}
+      - {id: STR-01.3, applies: core, text: "The AI ambition has been communicated across the organisation."}
+    questions:
+      - "What is the organisation trying to achieve with AI, and which organisational objectives does that serve?"
+      - "Who approved the ambition, and where is it written down?"
+      - "Can you show a recent AI decision that was tested against the ambition?"
+    evidence:
+      - "The approved AI ambition or strategy, showing links to organisational objectives"
+      - "Approval record from the board or executive committee"
+      - "Decision papers that refer to the ambition"
+    guidance:
+      steps:
+        - "List the organisation's current strategic objectives and, for each one, write down where AI could help and where it has no part to play."
+        - "Draft a short ambition of one page that says what AI is for in terms of those objectives, not in terms of technology."
+        - "Name a senior owner for the ambition and get it approved by leadership through the normal decision route."
+        - "Communicate the approved ambition to all staff through existing channels and include it in AI induction material (see CUL-02 and PPL-01)."
+      pitfalls:
+        - "Writing a vision about the technology that could belong to any organisation and gives no test for choosing between proposals."
+        - "Getting approval but never telling staff, so the ambition exists only in a board paper."
+      artefacts:
+        - "One-page AI ambition statement linked to organisational objectives"
+        - "Objective to AI opportunity mapping table"
+        - "Staff briefing note on the AI ambition"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead, business_owner]}
+    lifecycle: [strategy]
+    applicability: core
+    dependencies: [GOV-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: STR-02
+    title: Where AI will and will not be used
+    objective: >
+      The organisation has decided, and recorded with reasons, the areas of its work where AI is
+      encouraged, where it is allowed only under conditions, and where it is ruled out.
+    rationale: >
+      Staff and suppliers need to know where effort is welcome and where it is not, before they
+      invest time in a proposal. Stating the reasons lets people apply the boundaries to cases the
+      list does not name, and lets the organisation revisit them when the reasons change.
+    levels:
+      1: "No stated boundaries; whether AI is suitable for an area is argued case by case, if at all."
+      2: "Some areas are informally favoured or avoided, but this is not written down, not reasoned, or not agreed by leadership."
+      3: "Approved strategic boundaries say where AI is encouraged, conditional or ruled out and why, fit the risk appetite and the policy, and keep some decisions with people."
+      4: "Proposals and live uses are checked against the boundaries, and pressure on them (repeated requests in a ruled-out area, for example) is reported and considered."
+      5: "Boundaries are adjusted from evidence such as outcomes, incidents and external change, and the reasons for each change are published internally."
+    criteria:
+      - {id: STR-02.1, applies: core, text: "Approved strategic boundaries set out the areas where AI is encouraged, allowed only under conditions, or ruled out, with the reason for each."}
+      - {id: STR-02.2, applies: core, text: "The strategic boundaries are consistent with the approved AI risk appetite (RSK-01)."}
+      - {id: STR-02.3, applies: core, text: "The AI policy (GOV-01) reflects the strategic boundaries."}
+      - {id: STR-02.4, applies: core, text: "The strategic boundaries name the kinds of decision that must always be taken by a person."}
+    questions:
+      - "Which areas of your work are you actively seeking to use AI in, and which have you ruled out?"
+      - "What reasons are recorded for the areas that are ruled out or conditional?"
+      - "How do the boundaries show up in the AI policy and in how proposals are judged?"
+    evidence:
+      - "The approved statement of strategic boundaries, with reasons"
+      - "Cross-references between the boundaries, the risk appetite and the AI policy"
+    guidance:
+      steps:
+        - "Work through the organisation's main areas of work and sort each into encouraged, conditional or ruled out for AI, writing the reason for each choice."
+        - "Check each boundary against the approved risk appetite (RSK-01) and adjust any that would accept more risk than it allows."
+        - "List the kinds of decision that must always be taken by a person, such as those with serious effects on someone's rights or livelihood."
+        - "Get the boundaries approved and make sure the AI policy (GOV-01) reflects them, including the decisions reserved for people."
+      pitfalls:
+        - "Recording the categories without the reasons, so nobody can apply them to a new case."
+        - "Setting boundaries that contradict the risk appetite or the policy, leaving staff unsure which applies."
+      artefacts:
+        - "AI boundaries table with encouraged, conditional and ruled-out areas and reasons"
+        - "List of decisions reserved for people"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead, risk_lead, business_owner]}
+    lifecycle: [strategy, design]
+    applicability: core
+    dependencies: [STR-01, RSK-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: STR-03
+    title: Investment and funding for AI
+    objective: >
+      The organisation has a defined approach to funding AI, covering what is paid for centrally
+      and locally, how long commitments last, and how requests for money are judged.
+    rationale: >
+      AI needs some shared spending (platforms, skills, governance) that no single team will fund,
+      and much of its value only appears after more than one budget year. Without a funding
+      approach, promising work stops when a pilot budget runs out, and money goes to whoever asks
+      first rather than to what serves the ambition.
+    levels:
+      1: "AI is funded from whatever local budgets teams can find; there is no view of total spend."
+      2: "Some central or ring-fenced funding exists, but the rules for accessing it are unclear, it is year to year only, or it covers pilots and not running costs."
+      3: "A documented approach to funding AI sets central and local responsibilities, longer commitments where needed and published criteria, and is followed across the organisation."
+      4: "Total AI spend is known and reported against the funding approach, and funded work is reviewed against what it was funded to deliver."
+      5: "Funding allocation is adjusted from evidence of which investments delivered value, and the approach is refined each planning cycle."
+    criteria:
+      - {id: STR-03.1, applies: core, text: "A documented funding approach sets out which AI costs are the responsibility of central budgets and which of local budgets."}
+      - {id: STR-03.2, applies: core, text: "The funding approach provides multi-year commitments where the work needs them."}
+      - {id: STR-03.3, applies: core, text: "Criteria for judging requests for AI funding are published."}
+      - {id: STR-03.4, applies: core, text: "Funding decisions across the organisation follow the documented approach."}
+    questions:
+      - "How is AI work funded, and what is paid for centrally versus by individual teams?"
+      - "Can work that proves itself in a pilot get funding to run and scale beyond the current year?"
+      - "How are competing requests for AI funding judged, and by whom?"
+    evidence:
+      - "The documented funding approach or investment framework for AI"
+      - "Budget papers showing AI allocations, including any multi-year commitments"
+      - "Records of recent funding decisions against the stated criteria"
+    guidance:
+      steps:
+        - "Decide which AI costs are paid centrally (for example shared platforms, licences and governance) and which are paid by individual teams."
+        - "Identify which AI commitments need funding over more than one year, such as platforms, contracts and skills, and agree how they are protected."
+        - "Write and publish the criteria used to judge funding requests, linked to the value case (STR-04) and prioritisation criteria (POR-02)."
+        - "Document the funding approach, get it approved by finance and leadership, and apply it to every AI funding request from then on."
+      pitfalls:
+        - "Funding AI only through one-year pilot budgets, so successful uses have no money to run once the pilot ends."
+        - "Publishing criteria but letting requests bypass them through local budgets."
+      artefacts:
+        - "AI funding approach note setting out central and local responsibilities"
+        - "Published funding request criteria and scoring sheet"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead, business_owner, delivery_lead]}
+    lifecycle: [strategy, design]
+    applicability: core
+    dependencies: [STR-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: STR-04
+    title: Organisation-level value case
+    objective: >
+      The organisation has stated the value it expects from AI across its work, by type of value,
+      with the assumptions behind each estimate written down.
+    rationale: >
+      An organisation-level value case lets leaders judge whether the overall investment is worth
+      making and which kinds of value to pursue first. Writing the assumptions down means they can
+      be tested later, so the case improves rather than becoming a figure nobody can check.
+    levels:
+      1: "No organisation-level view of expected value; benefits are claimed use by use, if at all."
+      2: "Expected value is described in general terms, without estimates, assumptions or a split by type of value."
+      3: "An approved, owned value case states the gains expected from AI and the assumptions behind them, and is used in strategy and funding decisions."
+      4: "The value case is compared with tracked benefits from live uses, and assumptions that prove wrong are reported and corrected."
+      5: "The value case is refined each cycle from measured outcomes, and its accuracy over time is itself tracked."
+    criteria:
+      - {id: STR-04.1, applies: core, text: "An approved value case sets out the efficiency, quality, service and capability gains expected from AI."}
+      - {id: STR-04.2, applies: core, text: "The value case states the assumptions behind the expected gains."}
+      - {id: STR-04.3, applies: core, text: "The value case has a named owner."}
+      - {id: STR-04.4, applies: core, text: "Strategy and funding decisions refer to the value case."}
+    questions:
+      - "What value does the organisation expect from AI overall, and of what kinds?"
+      - "What assumptions sit behind those estimates, and who owns them?"
+      - "When did you last check the value case against what live uses have actually delivered?"
+    evidence:
+      - "The organisation-level value case, with assumptions recorded"
+      - "Strategy or funding papers that draw on it"
+      - "A comparison of the value case with tracked benefits"
+    guidance:
+      steps:
+        - "Estimate the value expected from AI under four headings: efficiency, quality, service and capability."
+        - "Write down the assumptions behind each estimate, including what the comparison is and how confident the estimate is."
+        - "Name an owner for the value case and get it approved alongside the AI ambition (STR-01)."
+        - "Use the value case when making strategy and funding decisions (STR-03), and set up tracking of whether benefits arrive through MON-03."
+      pitfalls:
+        - "Counting only time saved and ignoring quality, service and capability gains."
+        - "Leaving assumptions unstated, so estimates cannot be challenged or checked later."
+      artefacts:
+        - "Organisation-level AI value case with assumptions log"
+        - "Value type definitions for efficiency, quality, service and capability"
+    owner: {accountable: executive_sponsor, contributors: [business_owner, ai_governance_lead]}
+    lifecycle: [strategy]
+    applicability: core
+    dependencies: [STR-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: STR-05
+    title: Horizon scanning and external expectations
+    objective: >
+      The organisation tracks changes in AI technology, regulation, peer practice and public
+      expectation, and feeds what it finds into its AI strategy.
+    rationale: >
+      AI capability, rules and public attitudes are changing faster than most planning cycles. An
+      organisation that does not look outward will find its strategy overtaken, or will learn of a
+      new obligation or a better approach from someone else.
+    levels:
+      1: "No organised scanning; individuals follow developments informally and share them ad hoc."
+      2: "Some scanning happens, for example a newsletter or occasional briefing, but it is not linked to strategy decisions."
+      3: "An owned horizon scanning activity covers technology, regulation, peers and public expectation, produces regular output and informs strategy decisions."
+      4: "Findings are logged with the action taken on each, and the time from a relevant external change to a strategy response is tracked."
+      5: "Scanning anticipates change well enough that the organisation acts ahead of it, and the scanning sources and method are reviewed against how useful they proved."
+    criteria:
+      - {id: STR-05.1, applies: core, text: "A defined horizon scanning activity covers AI technology, regulation, peer practice and public expectation."}
+      - {id: STR-05.2, applies: core, text: "The scanning activity has a named owner."}
+      - {id: STR-05.3, applies: core, text: "The scanning activity produces output on a regular cycle."}
+      - {id: STR-05.4, applies: core, text: "Scanning findings are considered in strategy decisions."}
+    questions:
+      - "How does the organisation keep track of changes in AI technology, regulation and practice elsewhere?"
+      - "Who receives the findings, and can you show a strategy decision that one of them changed?"
+      - "How do you find out how the people you serve feel about AI being used?"
+    evidence:
+      - "Horizon scanning outputs, such as briefings or a log of developments"
+      - "Records showing findings were considered by the forum or in strategy papers"
+    guidance:
+      steps:
+        - "Name an owner for horizon scanning and agree the four areas it covers: technology, regulation, peer practice and public expectation."
+        - "Choose a small set of sources for each area and set a regular cycle, such as quarterly, for reviewing them."
+        - "Produce a short regular summary of what has changed and what it could mean for the organisation."
+        - "Put each summary on the agenda of the forum or person that makes AI strategy decisions and record what was decided (see STR-08)."
+      pitfalls:
+        - "Collecting news without saying what it means for the organisation."
+        - "Scanning only technology and missing changes in regulation or public expectation."
+      artefacts:
+        - "Horizon scanning source list by area"
+        - "Quarterly horizon scan summary template"
+    owner: {accountable: ai_governance_lead, contributors: [risk_lead, delivery_lead, security_lead]}
+    lifecycle: [strategy]
+    applicability: core
+    dependencies: []
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: STR-06
+    title: Multi-year AI roadmap tied to planning
+    objective: >
+      The organisation has a phased AI roadmap that is linked to its business and financial
+      planning cycles and shows the points where it will decide whether to proceed.
+    rationale: >
+      A strategy without a roadmap is hard to fund and hard to hold anyone to. Linking the roadmap
+      to normal planning cycles means AI work competes for resources in the same process as
+      everything else, and explicit decision points stop the organisation drifting into large
+      commitments without choosing to.
+    levels:
+      1: "No roadmap; AI work is planned project by project, if at all."
+      2: "A roadmap exists but is a list of projects, is not linked to business or financial planning, or has no decision points."
+      3: "An approved, owned multi-year roadmap follows the planning cycles, sets decision points with criteria and names the capacity planned uses depend on."
+      4: "Progress against the roadmap is reported, decisions at each point are recorded with their evidence, and slippage is acted on."
+      5: "The roadmap is revised each planning cycle from delivery evidence, value achieved and external change."
+    criteria:
+      - {id: STR-06.1, applies: core, text: "An approved, phased AI roadmap covers several years."}
+      - {id: STR-06.2, applies: core, text: "The roadmap is aligned with the organisation's business and financial planning cycles."}
+      - {id: STR-06.3, applies: core, text: "The roadmap names its decision points and the criteria for each."}
+      - {id: STR-06.4, applies: core, text: "The roadmap has a named owner."}
+      - {id: STR-06.5, applies: core, text: "The roadmap names the capability, data and technology capacity, including compute and storage, that planned uses depend on, and shows which uses depend on which."}
+    questions:
+      - "Is there a roadmap for AI, and how far ahead does it look?"
+      - "How does it connect to the organisation's business plan and budget cycle?"
+      - "What are the next decision points, and what will each decision be based on?"
+    evidence:
+      - "The approved roadmap, with phases and decision points"
+      - "Business or financial planning documents that reference it"
+      - "Records of decisions taken at roadmap decision points"
+      - "Roadmap entries for enabling capability, data and compute capacity, with dependencies"
+    guidance:
+      steps:
+        - "Set out the planned AI work in phases over several years, aligned to the organisation's business and financial planning cycles."
+        - "Name the decision points in the roadmap and the criteria for deciding whether to proceed, change course or stop at each."
+        - "For each phase, list the capability, data and technology capacity (including compute and storage) that the planned uses depend on, and the dependencies between them."
+        - "Name an owner for the roadmap and get it approved through the same route as business plans and budgets."
+      pitfalls:
+        - "Producing a list of projects with dates but no decision points, so the roadmap is never questioned."
+        - "Planning uses without the data, skills and compute they depend on."
+      artefacts:
+        - "Phased AI roadmap with decision points and criteria"
+        - "Dependency register for capability, data and technology capacity"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead, delivery_lead, business_owner]}
+    lifecycle: [strategy]
+    applicability: core
+    dependencies: [STR-01, STR-03]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: STR-07
+    title: Stakeholder input to strategy
+    objective: >
+      Staff, their representatives, service users, partners and, where relevant, the public and
+      regulators have a real opportunity to shape the AI strategy, and the organisation can show
+      what changed as a result.
+    rationale: >
+      The people who do the work and the people affected by it see risks and opportunities that
+      leaders do not. Involving them early produces a better strategy and makes it more likely to
+      be accepted, while consultation after decisions are made does neither.
+    levels:
+      1: "The strategy is written by a small group without wider input."
+      2: "Some groups are consulted, but late, selectively, or with no record of what they said or what changed."
+      3: "A planned engagement approach involves the relevant stakeholder groups before the strategy is settled and records what they said and how the organisation responded."
+      4: "The reach and influence of engagement are measured, gaps in who has been heard are identified, and stakeholders are told what changed because of them."
+      5: "Stakeholder involvement is a continuing part of how the strategy is developed, and the approach is improved from participants' feedback."
+    criteria:
+      - {id: STR-07.1, applies: core, text: "A planned engagement approach identifies the stakeholder groups relevant to the AI strategy."}
+      - {id: STR-07.2, applies: core, text: "The identified groups are involved before the strategy is settled."}
+      - {id: STR-07.3, applies: core, text: "A record shows the input from each group and the organisation's response to it."}
+    questions:
+      - "Who was involved in shaping the AI strategy, and at what stage?"
+      - "Which groups affected by your use of AI have not been heard?"
+      - "Can you point to something in the strategy that changed because of stakeholder input?"
+    evidence:
+      - "The stakeholder engagement plan for the strategy"
+      - "A record of input received and how the strategy responded"
+    guidance:
+      steps:
+        - "Identify the stakeholder groups that should shape the AI strategy, such as staff, their representatives, service users, partners and, where relevant, the public and regulators."
+        - "Plan how and when each group will be involved, making sure it happens before the strategy is settled."
+        - "Run the engagement and record what each group said."
+        - "Record how the strategy responded to each main point, including where input was not taken up and why, and share that response with the groups (see CUL-03)."
+      pitfalls:
+        - "Consulting on a strategy that is already decided, so input cannot change anything."
+        - "Recording what people said but not what was done about it."
+      artefacts:
+        - "Stakeholder engagement plan for the AI strategy"
+        - "Input and response log"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead, people_lead, business_owner]}
+    lifecycle: [strategy]
+    applicability: core
+    dependencies: [GOV-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: STR-08
+    title: Strategy review cycle
+    objective: >
+      The AI strategy is reviewed on a set cycle and whenever defined triggers occur, and each
+      change is recorded with its reason.
+    rationale: >
+      A strategy written for one state of the technology and the rules will be wrong within a year
+      or two. A fixed cycle keeps it current, defined triggers catch changes that cannot wait, and a
+      change record lets people see why direction shifted.
+    levels:
+      1: "The strategy is not reviewed once written, or is rewritten only when leadership changes."
+      2: "Reviews happen, but irregularly, without defined triggers, or without a record of what changed and why."
+      3: "The AI strategy is reviewed by its owner on a set cycle and when defined triggers occur, and each change is recorded with its reason."
+      4: "Reviews draw on measured evidence such as value achieved, risk and incident trends and horizon scanning, and actions from each review are tracked to completion."
+      5: "The review cycle and triggers are themselves adjusted from experience, so the strategy is updated at the pace the organisation needs."
+    criteria:
+      - {id: STR-08.1, applies: core, text: "The AI strategy has a set review cycle."}
+      - {id: STR-08.2, applies: core, text: "Defined triggers, such as major regulatory, technology or organisational change, prompt a review outside the cycle."}
+      - {id: STR-08.3, applies: core, text: "Each review is carried out by the strategy's owner."}
+      - {id: STR-08.4, applies: core, text: "Changes to the strategy are recorded with their reasons."}
+    questions:
+      - "When was the AI strategy last reviewed, and when is the next review due?"
+      - "What events would cause an unscheduled review?"
+      - "What changed at the last review, and why?"
+    evidence:
+      - "Strategy version history or change log, with reasons"
+      - "Papers and minutes from the most recent review"
+    guidance:
+      steps:
+        - "Set a review cycle for the AI strategy, such as yearly, aligned to business planning."
+        - "Define the triggers that require a review outside the cycle, such as major regulatory, technology or organisational change, and link them to horizon scanning (STR-05)."
+        - "Make the strategy owner responsible for carrying out each review and reporting the result to leadership."
+        - "Keep a change log that records each change to the strategy with its reason and date."
+      pitfalls:
+        - "Setting triggers that nobody watches for, so only the yearly review ever happens."
+        - "Changing the strategy without recording why, so later readers cannot follow its history."
+      artefacts:
+        - "Strategy review schedule and trigger list"
+        - "Strategy change log"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead]}
+    lifecycle: [strategy]
+    applicability: core
+    dependencies: [STR-01, STR-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0

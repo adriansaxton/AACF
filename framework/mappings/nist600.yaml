@@ -1,0 +1,69 @@
+# NIST AI 600-1 (Generative AI Profile, July 2024) mapping
+# One entry per generative AI risk in section 2. Refs R1 to R12 follow the order and numbering NIST uses in
+# section 2 (1 CBRN Information or Capabilities, 2 Confabulation, 3 Dangerous, Violent, or Hateful Content,
+# 4 Data Privacy, 5 Environmental Impacts, 6 Harmful Bias or Homogenization, 7 Human-AI Configuration,
+# 8 Information Integrity, 9 Information Security, 10 Intellectual Property, 11 Obscene, Degrading, and/or
+# Abusive Content, 12 Value Chain and Component Integration).
+# Risk names are NIST's (US government work, public domain); the descriptions after them are our own.
+# Source used: resources/sources/nist-ai-600-1.txt.md (section 2 for the risks, section 3 for what managing each involves)
+#
+# strength: direct  = an organisation meeting the control at Level 3 would have a credible way to identify and manage the risk
+#           partial = the control contributes but is not enough on its own; the note says what is missing
+# An item with no controls, or whose note starts "gap:", is a gap: our controls do not credibly address the risk.
+# Note on altitude: several risks (CBRN, obscene content, much of dangerous content and environmental cost) arise
+# mainly in how model providers train and safeguard their models. For an adopting organisation the right
+# controls are its acceptable use rules, risk assessment, testing, monitoring and supplier due diligence, so
+# those are mapped and the notes say so. Section 3 actions aimed at model developers are not expected here.
+
+source: NIST600
+status: draft
+mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+items:
+
+  - ref: R1
+    label: CBRN Information or Capabilities; AI making it easier to get or design chemical, biological, radiological or nuclear weapons knowledge
+    controls: [{id: RSK-02, strength: partial}, {id: RSK-09, strength: partial}, {id: GOV-01, strength: partial}, {id: MON-02, strength: partial}, {id: SEC-02, strength: partial}]
+    note: "Held at partial: RSK-02 requires the method to cover the recognised generative AI risk categories, which names CBRN only generically; no control addresses this risk specifically. Supporting controls are listed. Revisit if a specific control is added."
+  - ref: R2
+    label: Confabulation; confident but false or invented output, including made up citations and reasoning
+    controls: [{id: TEC-06, strength: direct}, {id: MON-02, strength: partial}, {id: RSK-07, strength: partial}, {id: PPL-01, strength: partial}, {id: OPM-09, strength: partial}, {id: MON-04, strength: partial}]
+    note: Accuracy testing before release (TEC-06) and accuracy monitoring in live use (MON-02) identify it; human review (RSK-07), literacy about limits (PPL-01), fallbacks for wrong output (OPM-09) and incident reporting (MON-04) manage it. Checking facts and citations in general purpose tools used by staff rests on literacy and oversight rather than testing.
+  - ref: R3
+    label: Dangerous, Violent, or Hateful Content; AI producing inciting, violent, self harm or hateful output, including when safeguards are bypassed
+    controls: [{id: TEC-06, strength: direct}, {id: SEC-06, strength: partial}, {id: RSK-09, strength: partial}, {id: RSK-02, strength: partial}, {id: MON-02, strength: partial}, {id: SEC-02, strength: partial}, {id: GOV-01, strength: partial}, {id: RSK-03, strength: partial}, {id: MON-04, strength: partial}]
+    note: TEC-06 Level 3 requires generative AI testing to cover harmful output, SEC-06 tests attempts to bypass safeguards, and RSK-09 assesses supplier content safeguards. Monitoring (MON-02), threat modelling (SEC-02), prohibited uses (GOV-01), safety impact (RSK-03) and incident handling (MON-04) contribute. Filtering harmful output in live use is not named.
+  - ref: R4
+    label: Data Privacy; leakage, misuse or inference of personal and sensitive data through AI training, prompts and outputs
+    controls: [{id: DAT-05, strength: direct}, {id: SEC-04, strength: direct}, {id: RSK-03, strength: direct}, {id: DAT-07, strength: partial}, {id: DAT-08, strength: partial}, {id: RSK-09, strength: partial}]
+    note: Lawful and fair use (DAT-05) and leakage rules with technical measures (SEC-04) carry it, and RSK-03 privacy impact names sensitive inferences about people. TEC-06 tests that personal or sensitive information is not disclosed and MON-02 monitors outputs for it in live use.
+  - ref: R5
+    label: Environmental Impacts; energy, carbon and other resource costs of training and running generative models
+    controls: [{id: RSK-02, strength: partial}, {id: OPM-02, strength: partial}, {id: RSK-09, strength: partial}, {id: RSK-03, strength: partial}, {id: MON-01, strength: partial}]
+    note: "Held at partial: RSK-02 requires the method to cover the recognised generative AI risk categories, which names environmental cost only generically. Supporting controls are listed. Specific wording: MON-01 measures environmental footprint (energy, compute, water) where material, with a baseline, OPM-02 considers reuse of existing and open models before training new ones, and RSK-09 covers supplier sustainability practice."
+  - ref: R6
+    label: Harmful Bias or Homogenization; AI amplifying bias, performing worse for some groups or languages, or giving overly uniform output
+    controls: [{id: RSK-06, strength: direct}, {id: TEC-06, strength: partial}, {id: MON-02, strength: partial}, {id: DAT-03, strength: partial}, {id: RSK-03, strength: partial}, {id: TEC-07, strength: partial}]
+    note: Bias across groups is carried by RSK-06, with fairness measures monitored in live use through MON-02. TEC-07 records concentration on a single foundation model or supplier as a dependency risk; overly uniform output is not named.
+  - ref: R7
+    label: Human-AI Configuration; people trusting AI too much or too little, treating it as human, or becoming emotionally reliant on it
+    controls: [{id: RSK-07, strength: direct}, {id: MON-01, strength: direct}, {id: RSK-03, strength: partial}, {id: PPL-01, strength: partial}, {id: PPL-05, strength: partial}, {id: CUL-07, strength: partial}, {id: MON-06, strength: partial}]
+    note: Designed oversight with trained reviewers (RSK-07) addresses automation bias in decisions; literacy and role learning (PPL-01, PPL-05) and adoption support (CUL-07) address over and under reliance, and MON-01 measures reliance against accuracy for each use so over- and under-reliance show up. RSK-03 covers over-reliance and people treating the AI as human for public-facing assistants.
+  - ref: R8
+    label: Information Integrity; AI easing the spread of misleading content, synthetic media and impersonation
+    controls: [{id: GOV-10, strength: direct}, {id: SEC-02, strength: partial}, {id: RSK-08, strength: partial}, {id: GOV-09, strength: partial}, {id: TEC-02, strength: partial}, {id: TEC-06, strength: partial}]
+    note: GOV-10 Level 3 sets rules for reviewing and disclosing AI generated content released outside the organisation, including synthetic media; SEC-02 assesses impersonation of the organisation or its people through synthetic media; RSK-08 tells people when they interact with AI and TEC-02 marks generative outputs where the organisation offers generative AI.
+  - ref: R9
+    label: Information Security; attacks on AI such as prompt injection and data poisoning, and AI lowering the barrier to cyber attack
+    controls: [{id: SEC-02, strength: direct}, {id: SEC-01, strength: direct}, {id: SEC-03, strength: partial}, {id: SEC-04, strength: partial}, {id: SEC-05, strength: partial}, {id: SEC-06, strength: partial}]
+    note: Attacks on the organisation's own AI are carried by the security baseline (SEC-01) and AI threat modelling (SEC-02). Attackers using generative AI against the organisation (better phishing, faster exploitation) is a general cyber security matter outside this framework's scope.
+  - ref: R10
+    label: Intellectual Property; AI reproducing protected work, exposing trade secrets, or copying likeness or voice without permission
+    controls: [{id: OPM-04, strength: direct}, {id: DAT-08, strength: direct}, {id: RSK-04, strength: partial}, {id: SEC-04, strength: partial}, {id: GOV-01, strength: partial}]
+    note: Contract terms on IP in inputs and outputs (OPM-04) and rights over training data (DAT-08) carry it; leakage rules (SEC-04) protect trade secrets. No control asks staff to check generated output for infringement before it is published or reused.
+  - ref: R11
+    label: Obscene, Degrading, and/or Abusive Content; AI producing abusive imagery such as synthetic child abuse material or non consensual intimate images
+    controls: [{id: RSK-02, strength: partial}, {id: RSK-09, strength: partial}, {id: GOV-01, strength: partial}, {id: MON-02, strength: partial}, {id: MON-04, strength: partial}, {id: TEC-06, strength: partial}, {id: DAT-08, strength: partial}]
+    note: "Held at partial: RSK-02 requires the method to cover the recognised generative AI risk categories, which names abusive content only generically; no control addresses this risk specifically. Supporting controls are listed. Revisit if a specific control is added."
+  - ref: R12
+    label: Value Chain and Component Integration; untraceable or poorly vetted third party models, data and components in AI systems
+    controls: [{id: RSK-09, strength: direct}, {id: SEC-03, strength: direct}, {id: DAT-08, strength: direct}, {id: OPM-04, strength: partial}, {id: TEC-07, strength: partial}, {id: GOV-06, strength: partial}]

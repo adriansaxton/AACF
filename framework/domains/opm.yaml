@@ -1,0 +1,514 @@
+# OPM: Operating Model & Delivery
+# How the organisation is set up to build, buy, run and pay for AI, and how it manages suppliers.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+# Boundary: OPM owns the commercial relationship with suppliers; assessing supplier AI risk is RSK-09.
+
+domain: OPM
+name: "Operating Model & Delivery"
+summary: >
+  Covers who builds, buys, runs and supports AI, how sourcing choices are made, how running
+  costs and suppliers are managed, and the standards delivery teams work to. A clear operating
+  model lets AI move from pilot to dependable service without every team inventing its own way
+  of working.
+
+controls:
+
+  - id: OPM-01
+    title: Target operating model for AI
+    objective: >
+      The organisation has a defined, approved operating model that states who builds, buys,
+      runs and supports AI, and what is done centrally and what locally.
+    rationale: >
+      Without an agreed model, central teams and business units duplicate effort, compete for
+      the same scarce skills, or each assume the other is responsible. Whether the model is
+      central, devolved or hub-and-spoke matters less than everyone knowing which it is.
+    levels:
+      1: "No defined model; AI work is done wherever capability and interest happen to exist."
+      2: "A model is described or emerging, but responsibilities between central and local teams are unclear or not followed."
+      3: "An approved operating model sets out who builds, buys, runs and supports AI, centrally and locally, through named and resourced teams, and is followed across the organisation."
+      4: "The model's performance is measured, for example delivery times, capacity and demand, and work done outside it is identified and addressed."
+      5: "The model is reviewed against outcomes and adjusted as AI use grows or its nature changes."
+    criteria:
+      - {id: OPM-01.1, applies: core, text: "An approved operating model for AI is documented."}
+      - {id: OPM-01.2, applies: core, text: "The model states which parts of building, buying, running and supporting AI are done centrally and which locally."}
+      - {id: OPM-01.3, applies: core, text: "Each of these activities has a named responsible team with the resources to carry it out."}
+      - {id: OPM-01.4, applies: core, text: "The interfaces between central and local teams are defined."}
+      - {id: OPM-01.5, applies: core, text: "AI work across the organisation follows the model."}
+    questions:
+      - "Which teams build, buy, run and support AI, and where is that written down?"
+      - "What is done centrally and what is left to business units?"
+      - "Where is AI work happening outside the agreed model?"
+    evidence:
+      - "The approved operating model document, with owner and review date"
+      - "Team remits or service catalogue entries that reflect the model"
+    guidance:
+      steps:
+        - "Map who currently builds, buys, runs and supports AI, including work happening in business units without central involvement."
+        - "Choose a model (central, devolved or hub-and-spoke) and write down which of those four activities sit centrally and which locally."
+        - "Name the team responsible for each activity, the people and budget behind it, and how central and local teams hand work to each other."
+        - "Get the model approved by the executive sponsor (GOV-02), give it an owner and review date, and update team remits to match."
+        - "Tell every business unit how to route AI work through the model and check new work against it."
+      pitfalls:
+        - "Writing a model on paper while the people and money stay where they were, so nobody follows it."
+        - "Covering building and buying but forgetting who runs and supports AI once it is live."
+      artefacts:
+        - "Operating model document with owner and review date"
+        - "Responsibility matrix for build, buy, run and support"
+        - "Updated team remits"
+    owner: {accountable: executive_sponsor, contributors: [delivery_lead, ai_governance_lead, people_lead]}
+    lifecycle: [strategy, operate]
+    applicability: core
+    dependencies: [GOV-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: OPM-02
+    title: Build, buy or configure approach
+    objective: >
+      A consistent, documented method decides for each use of AI whether to configure tools
+      already owned, procure, build, or wait, and the reasons are recorded.
+    rationale: >
+      AI capability is increasingly built into products the organisation already pays for, so
+      building or buying something new is often unnecessary. A consistent method weighs cost,
+      speed, control, skills and lock-in, and avoids choices driven by habit or by whichever
+      supplier asked first.
+    levels:
+      1: "Sourcing choices are made case by case, usually by whoever starts the work."
+      2: "Some guidance exists, but it is not used consistently or does not consider configuring existing tools or waiting."
+      3: "A documented sourcing method with set criteria decides whether to configure, procure, build or wait for every use of AI, and each decision is recorded."
+      4: "Sourcing decisions are reviewed against actual cost, delivery time and supportability, and departures from the method are explained and approved."
+      5: "The method's criteria are updated from the outcomes of past decisions and changes in the market."
+    criteria:
+      - {id: OPM-02.1, applies: core, text: "A documented sourcing method covers the options to configure existing tools, procure, build or wait."}
+      - {id: OPM-02.2, applies: core, text: "The method sets decision criteria, such as cost, speed, control, skills, lock-in and environmental footprint."}
+      - {id: OPM-02.3, applies: core, text: "The method is applied to every use of AI and each sourcing decision is recorded."}
+      - {id: OPM-02.4, applies: [BLD], text: "Reuse of existing and openly available models is considered before any new model is trained."}
+    questions:
+      - "How was the sourcing route chosen for your most recent use of AI?"
+      - "Is configuring tools you already own considered before buying or building?"
+      - "Have past sourcing choices turned out as expected on cost and support?"
+    evidence:
+      - "The sourcing method or decision guide"
+      - "Recorded sourcing decisions for a sample of uses"
+    guidance:
+      steps:
+        - "Write a short decision method with four routes: configure tools already owned, procure, build, or wait."
+        - "Set criteria for choosing between them, covering cost, speed, control, skills, lock-in and environmental footprint."
+        - "Require teams to check whether an existing or openly available model can be reused before proposing to train a new one."
+        - "Apply the method to every proposed use and record the route chosen and the reasons, for example in the pipeline register (POR-03)."
+      pitfalls:
+        - "Skipping the configure and wait options because a supplier is already pitching a new product."
+        - "Recording the decision but not the reasons, so it cannot be reviewed later."
+      artefacts:
+        - "Sourcing decision guide"
+        - "Sourcing decision record template"
+    owner: {accountable: delivery_lead, contributors: [business_owner, security_lead, ai_governance_lead]}
+    lifecycle: [design, acquire_build]
+    applicability: core
+    dependencies: [OPM-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: OPM-03
+    title: Running cost management
+    objective: >
+      The ongoing cost of each AI service, including usage-based charges, is known, forecast,
+      assigned to an owner and kept within agreed limits.
+    rationale: >
+      AI services are often priced by usage, so costs can grow quickly and unpredictably as
+      adoption spreads. Costs that nobody watches can erode the benefits a use was approved for,
+      or lead to abrupt withdrawal when the money runs out.
+    levels:
+      1: "Running costs are not tracked separately; they surface in general budgets after the event."
+      2: "Costs are tracked for some services, but forecasts, usage limits or cost owners are missing."
+      3: "Running costs of every AI service are tracked, forecast and held by a budget holder, with usage limits or alerts and regular review against budget."
+      4: "Cost per unit of use is measured and compared with the business case, overspends trigger action, and unused licences or capacity are removed."
+      5: "Cost data shapes design and sourcing choices, and pricing models are renegotiated or changed from evidence of how services are used."
+    criteria:
+      - {id: OPM-03.1, applies: core, text: "Actual running costs are tracked for every AI service."}
+      - {id: OPM-03.2, applies: core, text: "Running costs are forecast for every AI service."}
+      - {id: OPM-03.3, applies: core, text: "The running costs of each AI service are assigned to a named budget holder."}
+      - {id: OPM-03.4, applies: core, text: "Usage limits or cost alerts are set for each AI service."}
+      - {id: OPM-03.5, applies: core, text: "Running costs are reviewed against budget on a set cycle."}
+    questions:
+      - "What does each AI service cost to run each month, and who owns that cost?"
+      - "What stops usage-based charges rising beyond budget without anyone noticing?"
+      - "How do actual running costs compare with what the business case assumed?"
+    evidence:
+      - "Cost reports by AI service, with budget holders"
+      - "Usage limits, alerts or forecasts in place for usage-priced services"
+    guidance:
+      steps:
+        - "List every AI service, including licences and usage-priced services, and assign each to a named budget holder."
+        - "Set up tracking so the running cost of each service can be seen separately each month."
+        - "Forecast the cost of each service for the year ahead, using expected growth in use."
+        - "Set usage limits or spending alerts on usage-priced services, at levels agreed with the budget holder."
+        - "Review actual cost against budget and forecast on a fixed cycle, and adjust limits or forecasts as needed."
+      pitfalls:
+        - "Tracking licence costs but missing charges that rise with use, such as per-request pricing."
+        - "Setting alerts that go to a shared inbox nobody reads."
+      artefacts:
+        - "AI service cost register with budget holders"
+        - "Monthly cost report"
+        - "Usage limit and alert settings record"
+    owner: {accountable: delivery_lead, contributors: [business_owner, executive_sponsor]}
+    lifecycle: [acquire_build, operate]
+    applicability: core
+    dependencies: [GOV-06, POR-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: OPM-04
+    title: AI-aware procurement and contracts
+    objective: >
+      Contracts for AI products and services set clear terms on data rights, intellectual
+      property, notice of model changes, transparency and exit.
+    rationale: >
+      Standard technology contracts often say nothing about how a supplier may use the
+      organisation's data, who owns outputs, or what happens when the underlying model changes.
+      Settling these terms at procurement is far easier than trying to add them once the
+      service is in use.
+    levels:
+      1: "AI is bought on standard terms with no AI-specific clauses."
+      2: "AI-specific terms are added for some contracts, depending on who runs the procurement."
+      3: "Standard AI contract terms, informed by the supplier risk assessment, are used in every relevant procurement and cover rights, change, transparency, security, assurance, resilience, exit and liability."
+      4: "Contracts are checked for the standard terms before signature, departures are approved and recorded, and existing contracts are reviewed when renewed."
+      5: "Standard terms are updated from supplier disputes, incidents, market practice and legal change."
+    criteria:
+      - {id: OPM-04.1, applies: core, text: "Standard AI contract terms exist and are used in every relevant procurement."}
+      - {id: OPM-04.2, applies: core, text: "The terms used in each procurement are informed by the supplier risk assessment (RSK-09)."}
+      - {id: OPM-04.3, applies: core, text: "The terms cover data use and rights, and intellectual property in inputs and outputs."}
+      - {id: OPM-04.4, applies: core, text: "The terms require notice of model changes and the transparency information the organisation needs, including what it must publish about the use."}
+      - {id: OPM-04.5, applies: core, text: "The terms set security requirements and the split of security responsibilities between the parties."}
+      - {id: OPM-04.6, applies: core, text: "The terms give incident notification, access to the logs the organisation needs, and a right to audit or accepted independent assurance."}
+      - {id: OPM-04.7, applies: core, text: "The terms cover operational resilience and exit, including data format, retention, return and deletion."}
+      - {id: OPM-04.8, applies: core, text: "The terms allocate responsibility and liability for AI outputs and any harm they cause."}
+    questions:
+      - "What does your standard contract say about the supplier's use of your data?"
+      - "Will the supplier tell you before changing the model behind the service?"
+      - "Who owns the outputs, and what happens to your data when the contract ends?"
+    evidence:
+      - "Standard AI contract clauses or schedule"
+      - "A sample of recent AI contracts showing those terms"
+    guidance:
+      steps:
+        - "Draft a standard AI contract schedule covering data use and rights, intellectual property in inputs and outputs, notice of model changes, transparency information needed for publication, and exit."
+        - "Add security terms: security requirements and the split of responsibilities, incident notification, access to logs, a right to audit or accepted independent assurance, and operational resilience."
+        - "Make the exit terms state data format, retention, return and deletion, and set out who is responsible and liable for AI outputs and any harm they cause."
+        - "Require the supplier risk assessment (RSK-09) to be done first and use its findings to decide which terms need strengthening."
+        - "Make the schedule a required part of every procurement that involves AI, and brief the people who run procurements."
+      pitfalls:
+        - "Using the schedule only for large purchases while AI features arrive through renewals of existing products."
+        - "Accepting a supplier's standard terms on model changes, which often allow change without notice."
+        - "Leaving liability for wrong or harmful outputs unaddressed."
+      artefacts:
+        - "Standard AI contract schedule"
+        - "Procurement checklist for AI"
+    owner: {accountable: delivery_lead, contributors: [risk_lead, data_owner, security_lead]}
+    lifecycle: [acquire_build]
+    applicability: core
+    dependencies: [OPM-02, RSK-09]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: OPM-05
+    title: Supplier performance and exit
+    objective: >
+      AI suppliers are managed against agreed performance measures, and each critical AI
+      service has a tested route to exit or replace the supplier.
+    rationale: >
+      AI suppliers change their models, pricing and products often, and some may withdraw
+      altogether. Regular performance management catches decline early, and a workable exit
+      route stops the organisation being tied to a supplier that no longer serves it.
+    levels:
+      1: "Suppliers are not actively managed once the contract is signed; there is no exit plan."
+      2: "Some suppliers are reviewed, but measures are informal and exit plans are missing or untested."
+      3: "Every AI supplier has an owner and agreed performance measures reviewed regularly, and each critical AI service has a documented exit plan."
+      4: "Supplier performance is reported and acted on, and exit plans for critical services are tested or rehearsed."
+      5: "Supplier management and exit planning are refined from experience of supplier changes and exits."
+    criteria:
+      - {id: OPM-05.1, applies: core, text: "Every AI supplier has a named owner in the organisation."}
+      - {id: OPM-05.2, applies: core, text: "Every AI supplier has agreed performance measures that are reviewed on a set cycle."}
+      - {id: OPM-05.3, applies: core, text: "Each critical AI service has a documented exit plan covering data return and replacement."}
+    questions:
+      - "Who manages each AI supplier, and what measures are they held to?"
+      - "If a critical AI supplier withdrew its service, what would you do and how long would it take?"
+      - "Has any exit plan been tested?"
+    evidence:
+      - "Supplier performance reports and review records"
+      - "Exit plans for critical AI services, with any test results"
+    guidance:
+      steps:
+        - "Name an owner for every AI supplier relationship."
+        - "Agree performance measures with each supplier, such as availability, response times, accuracy or support quality."
+        - "Hold supplier reviews against those measures on a fixed cycle and record the outcome."
+        - "Identify which AI services are critical and write an exit plan for each, covering how data is returned and what would replace the service."
+      pitfalls:
+        - "Treating exit planning as a contract clause rather than a plan someone could follow."
+        - "Measuring only availability when the supplier's model quality is what matters to users."
+      artefacts:
+        - "AI supplier register with owners"
+        - "Supplier review record"
+        - "Exit plan template for critical services"
+    owner: {accountable: delivery_lead, contributors: [business_owner, data_owner]}
+    lifecycle: [operate, retire]
+    applicability: core
+    dependencies: [OPM-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: OPM-06
+    title: Delivery standards for AI
+    objective: >
+      AI work is delivered by multidisciplinary teams using user-centred methods to defined
+      delivery standards.
+    rationale: >
+      AI that works technically can still fail in use if it does not fit how people work. Teams
+      that bring together users, business, data, technical and risk knowledge, and that test
+      with real users as they go, are more likely to build something people adopt.
+    levels:
+      1: "AI work is done by technical staff alone, with little contact with users."
+      2: "Some projects use multidisciplinary teams or user research, but there is no common standard."
+      3: "Documented delivery standards for multidisciplinary, user-centred AI delivery, with safety, security, privacy, accessibility and quality built in from design, are applied to all AI delivery."
+      4: "Delivery is checked against the standards at gates, and user adoption and satisfaction are measured and acted on."
+      5: "Delivery standards are improved from user outcomes and lessons across the portfolio."
+    criteria:
+      - {id: OPM-06.1, applies: core, text: "Documented delivery standards for AI exist and are applied to all AI delivery."}
+      - {id: OPM-06.2, applies: core, text: "The standards require multidisciplinary teams, user research and iterative testing with users."}
+      - {id: OPM-06.3, applies: core, text: "The standards include AI-specific engineering practice and the design of how people and AI share work."}
+      - {id: OPM-06.4, applies: core, text: "Delivery teams include subject matter experts for the data and the work, involved in design and evaluation."}
+      - {id: OPM-06.5, applies: core, text: "The standards require safety, security and privacy by design, with privacy-protective default settings."}
+      - {id: OPM-06.6, applies: core, text: "Accuracy, robustness and reliability requirements are set at design for each use of AI."}
+      - {id: OPM-06.7, applies: core, text: "Diversity of perspective is considered for each team, including contracted third parties, and structured stakeholder input is added where it falls short."}
+      - {id: OPM-06.8, applies: core, text: "Services, documentation and notices are tested with users who have accessibility needs before go-live."}
+    questions:
+      - "Who is in the team delivering a use of AI, and how are users involved?"
+      - "What delivery standards apply to AI work, and how is compliance checked?"
+    evidence:
+      - "The delivery standards or playbook for AI work"
+      - "Team composition and user research records for a sample of projects"
+      - "Accessibility test records from before go-live"
+    guidance:
+      steps:
+        - "Write AI delivery standards requiring multidisciplinary teams that include subject matter experts for the data and the work, user research and iterative testing with users, and AI engineering practice."
+        - "Include in the standards how people and AI share work, safety, security and privacy by design with protective defaults, and accuracy, robustness and reliability requirements set at design."
+        - "Require each team to check its diversity of perspective, including contractors, and to seek structured stakeholder input where it falls short; research with people follows OPM-10."
+        - "Require testing of services, documentation and notices with users who have accessibility needs before go-live, and apply the standards to all AI delivery."
+      pitfalls:
+        - "Bringing users in only at the end to accept something already built."
+        - "Leaving accessibility testing until after launch."
+      artefacts:
+        - "AI delivery standards or playbook"
+        - "Team composition checklist"
+    owner: {accountable: delivery_lead, contributors: [business_owner, people_lead]}
+    lifecycle: [design, acquire_build, deploy]
+    applicability: core
+    dependencies: [OPM-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: OPM-07
+    title: Service management for live AI
+    objective: >
+      Every live AI service has defined support, change and problem management arrangements,
+      including handling of changes to models and prompts.
+    rationale: >
+      Once live, AI needs the same support as any other service, plus extra care because its
+      behaviour can change when models, prompts or data change. Without service management,
+      problems go unreported and changes reach users untested.
+    levels:
+      1: "Live AI is supported informally by whoever built it."
+      2: "Some services are in the support process, but AI-specific changes such as model or prompt updates are not covered."
+      3: "Every live AI service has a support owner, a problem reporting route for users, and change and problem management that covers AI-specific changes."
+      4: "Service levels, problems and changes are measured and reported, and repeat problems lead to root cause fixes."
+      5: "Service management practice for AI is refined from incident and change data and from user feedback."
+    criteria:
+      - {id: OPM-07.1, applies: core, text: "Every live AI service has a named support owner."}
+      - {id: OPM-07.2, applies: core, text: "Users of each live AI service have a route to report problems."}
+      - {id: OPM-07.3, applies: core, text: "Change management for each live AI service covers changes to the model, prompts, data and hosting platform."}
+      - {id: OPM-07.4, applies: core, text: "Problem management covers each live AI service, including problems arising from model, prompt, data and hosting platform changes."}
+    questions:
+      - "If a user finds a problem with a live AI service, where do they report it?"
+      - "How are changes to the model or prompts behind a service approved and tested?"
+      - "Who supports each live AI service out of hours, if needed?"
+    evidence:
+      - "Service catalogue or support records for live AI services"
+      - "Change records covering model or prompt updates"
+    guidance:
+      steps:
+        - "Name a support owner for every live AI service and add each service to the service catalogue."
+        - "Give users a clear route to report problems with each service, using the existing service desk where there is one."
+        - "Extend change management so that changes to models, prompts, data and the hosting platform are recorded, assessed and approved before they reach users."
+        - "Bring AI problems into problem management so repeat faults are investigated, with release and rollback detail handled under TEC-05."
+      pitfalls:
+        - "Missing changes made by the supplier to the underlying model, which arrive without a change request."
+        - "Leaving prompt edits outside change control because they look minor."
+      artefacts:
+        - "Service catalogue entries for AI services"
+        - "Change request template covering model and prompt changes"
+    owner: {accountable: delivery_lead, contributors: [business_owner, security_lead]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [OPM-01, GOV-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: OPM-08
+    title: Collaboration and sharing
+    objective: >
+      The organisation works with peer organisations and partners to share AI solutions,
+      lessons and capacity where this serves its aims.
+    rationale: >
+      Many organisations face the same AI problems. Sharing solutions and lessons reduces cost
+      and repeated mistakes, and pooled capacity gives smaller organisations access to skills
+      they could not hold alone.
+    levels:
+      1: "No deliberate collaboration; contact with peers happens through individuals."
+      2: "Some collaboration or sharing takes place, but it is opportunistic and not tracked."
+      3: "A stated approach guides collaboration with peers and partners, and solutions and lessons are shared and taken up under agreed data, intellectual property and ethical terms."
+      4: "The value of collaboration is assessed, for example time or cost saved, and partnerships that do not deliver are changed or ended."
+      5: "Collaboration shapes the organisation's AI plans, and it contributes to and learns from shared work as a matter of course."
+    criteria:
+      - {id: OPM-08.1, applies: core, text: "A stated approach to collaboration exists and says which kinds of partner are sought and why."}
+      - {id: OPM-08.2, applies: core, text: "The organisation takes part in relevant peer groups or partnerships."}
+      - {id: OPM-08.3, applies: core, text: "Solutions and lessons are shared and taken up within agreed rules on data and intellectual property."}
+      - {id: OPM-08.4, applies: core, text: "Partnership agreements state the adopted ethical principles and the data and intellectual property terms."}
+    questions:
+      - "Which peer organisations or partners do you work with on AI, and on what?"
+      - "Can you give an example of a solution or lesson you shared or took up?"
+    evidence:
+      - "Membership or partnership records and agreements"
+      - "Examples of solutions or lessons shared or reused"
+      - "Partnership agreements stating principles, data and intellectual property terms"
+    guidance:
+      steps:
+        - "Write a short collaboration approach that says which kinds of partner the organisation seeks and why."
+        - "Join one or more relevant peer groups or partnerships and name who represents the organisation."
+        - "Agree rules for sharing data and intellectual property before sharing solutions or lessons."
+        - "Make sure each partnership agreement states the ethical principles adopted (RSK-05) and the data and intellectual property terms."
+        - "Record solutions and lessons shared with and taken up from partners."
+      pitfalls:
+        - "Relying on personal contacts, so collaboration stops when one person leaves."
+        - "Sharing material before agreeing who owns it and how it may be used."
+      artefacts:
+        - "Collaboration approach statement"
+        - "Partnership agreement template"
+        - "Log of solutions and lessons shared"
+    owner: {accountable: executive_sponsor, contributors: [delivery_lead, ai_governance_lead]}
+    lifecycle: [strategy, design, operate]
+    applicability: core
+    dependencies: [OPM-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: OPM-09
+    title: Continuity when AI fails
+    objective: >
+      Services that depend on AI can continue safely when the AI is unavailable, degraded or
+      producing wrong results, through planned fallbacks that have been tested.
+    rationale: >
+      AI services fail in ways other systems do not, including supplier outages, model changes
+      and confident but wrong output. Services that rely on AI need a planned way to carry on, or
+      to stop safely, so that a failure does not become harm to the people they serve.
+    levels:
+      1: "Dependence on AI is not considered in continuity planning; a failure would be handled when it happened."
+      2: "Some services have fallbacks, but they are informal, untested or do not cover degraded or wrong output."
+      3: "Every service that depends on AI has a tested fallback or safe stop, based on an impact analysis and part of continuity plans, and people are told when it is used."
+      4: "Recovery times are measured against targets, and failures in testing are fixed."
+      5: "Continuity is improved from tests, incidents and supplier changes, and the degree of dependence on AI is set deliberately for each service."
+    criteria:
+      - {id: OPM-09.1, applies: core, text: "An impact analysis of AI unavailability exists for each service that depends on AI and sets its recovery objectives."}
+      - {id: OPM-09.2, applies: core, text: "Each such service has a documented fallback or safe stop, based on the impact analysis, covering unavailability, degradation and wrong output."}
+      - {id: OPM-09.3, applies: core, text: "Fallbacks and safe stops are included in continuity plans."}
+      - {id: OPM-09.4, applies: core, text: "Fallbacks are tested on a set cycle."}
+      - {id: OPM-09.5, applies: core, text: "Users and affected parties are told when a fallback or safe stop is in force."}
+    questions:
+      - "Which services depend on AI, and what happens to each if the AI stops or gets things wrong?"
+      - "Are AI dependencies included in business continuity plans?"
+      - "When were the fallbacks last tested, and what did the test show?"
+    evidence:
+      - "Impact analysis of AI unavailability with recovery objectives for each dependent service"
+      - "Continuity plans or service designs showing AI dependencies and fallbacks"
+      - "Fallback test records with results and actions"
+    guidance:
+      steps:
+        - "List every service that depends on AI, using the AI inventory (GOV-06)."
+        - "Analyse the impact of the AI being unavailable for each service and set recovery objectives from that analysis."
+        - "Document a fallback or safe stop for each service that covers the AI being unavailable, degraded or producing wrong output, and add it to continuity plans."
+        - "Prepare how users and affected parties will be told when a fallback or safe stop is in force."
+        - "Test each fallback on a fixed cycle and record the results and actions."
+      pitfalls:
+        - "Planning only for outages and not for the AI giving confident but wrong answers."
+        - "Assuming staff can return to the manual process when the skills or capacity to do so have gone."
+      artefacts:
+        - "AI dependency impact analysis with recovery objectives"
+        - "Fallback and safe stop plan per service"
+        - "Fallback test record"
+    owner: {accountable: delivery_lead, contributors: [business_owner, security_lead]}
+    lifecycle: [design, deploy, operate]
+    applicability: core
+    dependencies: [GOV-06, OPM-07]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: OPM-10
+    title: Involving people in AI design and evaluation
+    objective: >
+      Evaluations and research that involve people have their informed consent, ethics review
+      and protection, use participants who represent those the service will serve, and for
+      significant uses draw on the communities affected.
+    rationale: >
+      Testing AI with people gives the best evidence of how it will work in use, but it puts
+      those people at some risk and is only useful if they reflect the people the service will
+      serve. Engaging affected communities early on significant uses brings concerns to light
+      while the design can still change.
+    levels:
+      1: "Research and evaluation with people happen informally, without consent records or ethics review."
+      2: "Some projects obtain consent or ethics review, but there is no common standard, participants are chosen for convenience, or affected communities are not engaged."
+      3: "Evaluations and research involving people have informed consent, ethics review, representative participants and protection of wellbeing and the right to withdraw, and significant uses engage affected communities at planning and design."
+      4: "Consent, ethics review and participant representation are checked at delivery gates, and community input and the response to it are reviewed for significant uses."
+      5: "Research practice and community engagement are improved from participant feedback, outcomes and lessons across the portfolio."
+    criteria:
+      - {id: OPM-10.1, applies: core, text: "Evaluations and user research involving people have the informed consent of participants."}
+      - {id: OPM-10.2, applies: core, text: "Evaluations and user research involving people go through ethics review by the organisation's established route."}
+      - {id: OPM-10.3, applies: core, text: "Participants represent the people the service will serve."}
+      - {id: OPM-10.4, applies: core, text: "Research with participants protects their wellbeing and their right to withdraw."}
+      - {id: OPM-10.5, applies: core, text: "For significant uses, affected communities and experts who are not users are engaged at planning and design, and their input and the organisation's response are recorded."}
+    questions:
+      - "How do evaluations and user research involving people get informed consent and ethics review?"
+      - "How do you make sure participants represent the people the service will serve, and that their wellbeing and right to withdraw are protected?"
+      - "For significant uses, which affected communities and outside experts were engaged at planning and design, and what was done with their input?"
+    evidence:
+      - "Consent and ethics review records for evaluations involving people"
+      - "Participant recruitment records showing how representation was sought"
+      - "Engagement records for significant uses, with the input received and the organisation's response"
+    guidance:
+      steps:
+        - "Set rules for research with people: informed consent, and ethics review through the organisation's existing route."
+        - "Recruit participants who represent the people the service will serve, and protect their wellbeing and their right to withdraw."
+        - "For significant uses, engage affected communities and experts who are not users at planning and design, and record their input and the response."
+        - "Build these rules into the delivery standards (OPM-06) so every team applies them."
+      pitfalls:
+        - "Treating ethics review and consent as optional for internal pilots that still involve people."
+        - "Engaging communities only after the design is fixed, so their input cannot change it."
+      artefacts:
+        - "Consent form and participant information template"
+        - "Stakeholder engagement record"
+    owner: {accountable: business_owner, contributors: [delivery_lead, risk_lead]}
+    lifecycle: [strategy, design, acquire_build]
+    applicability: core
+    dependencies: [OPM-06]
+    mappings: []
+    status: reviewed
+    version: 1.0.0

@@ -1,0 +1,274 @@
+# ISO/IEC 42001 mapping
+# One entry per requirement: main body clauses 4 to 10 (6.1 split into its four subclauses) and Annex A controls.
+# ISO text is copyright: refs are clause numbers only and labels are our own short descriptions, not ISO titles.
+# Source used: Database/Areas/Work/Data & AI Service Line/Standards & Frameworks/ISOIEC 42001.md
+#
+# strength: direct  = the control at Level 3 would meet the requirement's substance
+#           partial = the control covers part of it; the note says what is missing
+# An item with no controls is a gap (note starts "gap:") or deliberately out of scope (note starts "out of scope:").
+# Note on altitude: ISO 42001 is a management system standard and Annex A includes system-level engineering
+# controls (documentation, logs, data preparation). This framework is organisation-level, so many of those are
+# "partial": we require the practice to exist and be governed, not the artefact for each system.
+
+source: ISO42001
+status: draft
+mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+items:
+
+  # ---------------------------------------------------------------- 4 Context
+  - ref: "4.1"
+    label: Understand the organisation's context and the issues that affect its AI aims
+    controls: [{id: STR-05, strength: partial}, {id: STR-01, strength: partial}]
+    note: Horizon scanning and strategy alignment cover external and internal issues; no control asks for an explicit context analysis for AI governance.
+  - ref: "4.2"
+    label: Identify interested parties and their requirements
+    controls: [{id: STR-07, strength: direct}, {id: RSK-04, strength: partial}]
+  - ref: "4.3"
+    label: Define the scope of AI governance
+    controls: [{id: GOV-01, strength: direct}, {id: STR-02, strength: partial}]
+    note: GOV-01 Level 3 requires the policy to state what AI governance covers.
+  - ref: "4.4"
+    label: Establish and run the AI management system as a whole
+    controls: [{id: GOV-04, strength: partial}, {id: MON-07, strength: partial}]
+    note: Met by operating the framework as a whole rather than by one control.
+
+  # ---------------------------------------------------------------- 5 Leadership
+  - ref: "5.1"
+    label: Top management commitment and support
+    controls: [{id: GOV-02, strength: direct}, {id: STR-03, strength: partial}]
+  - ref: "5.2"
+    label: Set and communicate an AI policy
+    controls: [{id: GOV-01, strength: direct}]
+  - ref: "5.3"
+    label: Make clear who does what in AI governance, and with what authority
+    controls: [{id: GOV-02, strength: direct}, {id: GOV-05, strength: direct}, {id: GOV-03, strength: partial}]
+
+  # ---------------------------------------------------------------- 6 Planning
+  - ref: "6.1.1"
+    label: Address risks and opportunities; set AI risk criteria
+    controls: [{id: RSK-01, strength: direct}, {id: RSK-02, strength: partial}]
+  - ref: "6.1.2"
+    label: Assess AI risks
+    controls: [{id: RSK-02, strength: direct}]
+  - ref: "6.1.3"
+    label: Treat AI risks and justify the controls chosen
+    controls: [{id: RSK-02, strength: direct}, {id: RSK-07, strength: partial}]
+    note: RSK-02 Level 3 requires the treatment and the controls applied to be recorded with reasons, which serves as the statement of applicability.
+  - ref: "6.1.4"
+    label: Have a process for AI system impact assessment
+    controls: [{id: RSK-03, strength: direct}]
+  - ref: "6.2"
+    label: Set measurable AI objectives and plan to achieve them
+    controls: [{id: STR-01, strength: direct}, {id: STR-06, strength: partial}, {id: MON-01, strength: partial}]
+  - ref: "6.3"
+    label: Plan changes to the management system in a controlled way
+    controls: [{id: STR-08, strength: partial}]
+    note: Strategy review covers changing direction; no control covers controlled change to the governance arrangements themselves.
+
+  # ---------------------------------------------------------------- 7 Support
+  - ref: "7.1"
+    label: Provide the resources needed
+    controls: [{id: STR-03, strength: direct}, {id: OPM-01, strength: partial}]
+  - ref: "7.2"
+    label: Ensure competence
+    controls: [{id: PPL-04, strength: direct}, {id: PPL-05, strength: direct}, {id: PPL-03, strength: partial}]
+  - ref: "7.3"
+    label: Ensure awareness of the policy and of each person's part in it
+    controls: [{id: PPL-01, strength: direct}, {id: CUL-02, strength: partial}]
+  - ref: "7.4"
+    label: Plan internal and external communication
+    controls: [{id: CUL-02, strength: direct}, {id: GOV-09, strength: partial}]
+  - ref: "7.5"
+    label: Keep governance records current, approved and findable
+    controls: [{id: GOV-01, strength: direct}, {id: DAT-06, strength: partial}]
+    note: GOV-01 Level 3 requires governance documents to be approved, version-controlled and retained; DAT-06 covers AI records.
+
+  # ---------------------------------------------------------------- 8 Operation
+  - ref: "8.1"
+    label: Plan and control operational processes
+    controls: [{id: POR-04, strength: direct}, {id: GOV-03, strength: partial}, {id: OPM-07, strength: partial}]
+  - ref: "8.2"
+    label: Carry out AI risk assessments at planned intervals and on change
+    controls: [{id: RSK-02, strength: direct}, {id: MON-05, strength: partial}]
+  - ref: "8.3"
+    label: Implement the risk treatment plan
+    controls: [{id: RSK-02, strength: direct}, {id: RSK-07, strength: partial}]
+    note: Covered through RSK-02's treatment record, as for 6.1.3.
+  - ref: "8.4"
+    label: Assess the effects of each AI system on people and society
+    controls: [{id: RSK-03, strength: direct}]
+
+  # ---------------------------------------------------------------- 9 Performance evaluation
+  - ref: "9.1"
+    label: Check how well AI governance is working, using evidence
+    controls: [{id: MON-01, strength: direct}, {id: MON-02, strength: direct}, {id: MON-03, strength: partial}]
+  - ref: "9.2"
+    label: Audit the management system internally
+    controls: [{id: MON-05, strength: direct}, {id: MON-07, strength: partial}]
+    note: MON-05 Level 3 requires the AI governance arrangements as a whole to be independently audited on a set cycle, with findings owned and tracked; MON-07 re-runs this assessment.
+  - ref: "9.3"
+    label: Top management reviews the management system
+    controls: [{id: MON-08, strength: direct}, {id: GOV-04, strength: partial}]
+
+  # ---------------------------------------------------------------- 10 Improvement
+  - ref: "10.1"
+    label: Improve continually
+    controls: [{id: MON-07, strength: direct}, {id: GOV-08, strength: partial}]
+  - ref: "10.2"
+    label: Fix failures to follow the system, and their causes
+    controls: [{id: GOV-08, strength: partial}, {id: MON-04, strength: partial}]
+    note: Exceptions and incidents are covered; no control requires root-cause analysis and corrective action for nonconformities generally.
+
+  # ---------------------------------------------------------------- Annex A.2 Policies
+  - ref: A.2.2
+    label: Document an AI policy
+    controls: [{id: GOV-01, strength: direct}]
+  - ref: A.2.3
+    label: Align the AI policy with other organisational policies
+    controls: [{id: GOV-07, strength: direct}]
+  - ref: A.2.4
+    label: Review the AI policy
+    controls: [{id: GOV-01, strength: direct}]
+
+  # ---------------------------------------------------------------- A.3 Internal organisation
+  - ref: A.3.2
+    label: Define and allocate AI roles and responsibilities
+    controls: [{id: GOV-05, strength: direct}, {id: GOV-02, strength: partial}]
+  - ref: A.3.3
+    label: A route to report concerns about AI
+    controls: [{id: CUL-04, strength: direct}]
+
+  # ---------------------------------------------------------------- A.4 Resources
+  - ref: A.4.2
+    label: Document the resources AI activities need
+    controls: [{id: GOV-06, strength: partial}, {id: OPM-01, strength: partial}, {id: STR-06, strength: partial}]
+    note: "The inventory records each use and links it to its models, data sets and integrations (GOV-06), and the roadmap names the capability, data and technology capacity planned uses depend on (STR-06); documenting the other resources per system and lifecycle stage (tooling, compute, people) is system-level detail."
+  - ref: A.4.3
+    label: Document data resources
+    controls: [{id: GOV-06, strength: direct}, {id: DAT-08, strength: partial}, {id: DAT-04, strength: partial}]
+    note: "GOV-06 Level 3 links each inventory entry to the data sets it uses, and DAT-08 records each data set's source, collection method, rights and use limits, so the data resources of each use are documented; DAT-04 catalogues meaning, coverage and limits."
+  - ref: A.4.4
+    label: Document tooling resources
+    controls: [{id: TEC-01, strength: partial}]
+    note: TEC-01 lists approved tools, where AI is built in house, the environments and toolchains used to build, test and run it, each with an owner and support. Recording which tooling each system uses is system-level and not required.
+  - ref: A.4.5
+    label: Document system and computing resources
+    controls: [{id: TEC-02, strength: partial}, {id: TEC-03, strength: partial}, {id: STR-06, strength: partial}]
+    note: Architecture and hosting are governed (TEC-02, TEC-03), and the roadmap names the compute and storage capacity planned uses depend on (STR-06); per-system compute records are system-level.
+  - ref: A.4.6
+    label: Document people and competences involved
+    controls: [{id: PPL-04, strength: partial}, {id: GOV-05, strength: partial}]
+    note: Skills are assessed by role (PPL-04) and owners are named (GOV-05); per-system records of the people and competences involved are system-level.
+
+  # ---------------------------------------------------------------- A.5 Impact assessment
+  - ref: A.5.2
+    label: A process to assess impacts on people and society
+    controls: [{id: RSK-03, strength: direct}]
+  - ref: A.5.3
+    label: Document and retain impact assessment results
+    controls: [{id: RSK-03, strength: partial}, {id: DAT-06, strength: partial}]
+    note: RSK-03 requires the assessment; keeping documented results for a defined period is implied, not explicit (DAT-06 covers AI records generally).
+  - ref: A.5.4
+    label: Assess impacts on individuals and groups
+    controls: [{id: RSK-03, strength: direct}, {id: RSK-06, strength: partial}]
+  - ref: A.5.5
+    label: Weigh effects on society and the environment
+    controls: [{id: RSK-03, strength: direct}]
+    note: RSK-03 widened to societal and environmental effects.
+
+  # ---------------------------------------------------------------- A.6 Life cycle
+  - ref: A.6.1.2
+    label: Goals that steer how AI is built responsibly
+    controls: [{id: RSK-05, strength: partial}, {id: OPM-06, strength: partial}]
+    note: Adopted principles (RSK-05) and delivery standards (OPM-06) guide development; documented objectives for responsible development are not explicit.
+  - ref: A.6.1.3
+    label: Defined processes for responsible design and development
+    controls: [{id: OPM-06, strength: direct}, {id: POR-04, strength: partial}]
+  - ref: A.6.2.2
+    label: Specify requirements for new or materially changed systems
+    controls: [{id: POR-05, strength: partial}, {id: OPM-06, strength: partial}]
+    note: The business case (POR-05) and delivery standards (OPM-06) capture the need; documented system requirements are system-level.
+  - ref: A.6.2.3
+    label: Document design and development
+    controls: [{id: OPM-06, strength: partial}, {id: TEC-05, strength: partial}, {id: POR-04, strength: partial}]
+    note: Delivery standards and release control imply design records, and POR-04 keeps a record of key design decisions and assumptions for each use, updated at each gate; full design and development documentation for each system is system-level.
+  - ref: A.6.2.4
+    label: Verification and validation measures and criteria
+    controls: [{id: TEC-06, strength: direct}]
+  - ref: A.6.2.5
+    label: Deployment plan and pre-deployment requirements
+    controls: [{id: POR-04, strength: partial}, {id: POR-07, strength: partial}, {id: TEC-05, strength: partial}]
+    note: Stage gates (POR-04), pilot-to-production criteria (POR-07) and release control (TEC-05) cover go-live; a documented deployment plan is not explicit.
+  - ref: A.6.2.6
+    label: Operation and monitoring, repairs, updates and support
+    controls: [{id: OPM-07, strength: direct}, {id: MON-02, strength: direct}, {id: TEC-05, strength: partial}]
+  - ref: A.6.2.7
+    label: Technical documentation for each kind of interested party
+    controls: [{id: TEC-05, strength: direct}, {id: RSK-08, strength: partial}, {id: GOV-09, strength: partial}]
+    note: TEC-05 Level 3 requires documentation for each version suited to users, operators and regulators.
+  - ref: A.6.2.8
+    label: Keep event logs, at least when in use
+    controls: [{id: MON-02, strength: direct}, {id: DAT-06, strength: partial}]
+    note: MON-02 Level 3 requires event logging while in use.
+
+  # ---------------------------------------------------------------- A.7 Data
+  - ref: A.7.2
+    label: Data management processes for development
+    controls: [{id: DAT-01, strength: direct}, {id: DAT-08, strength: partial}, {id: DAT-02, strength: partial}, {id: DAT-03, strength: partial}]
+    note: DAT-01 Level 3 backs the data strategy with an approved data architecture covering how data used by AI is taken in, stored, organised and maintained, with shared definitions, and DAT-08 records provenance and the preparation and labelling steps applied to each data set. Ownership (DAT-02) and quality requirements (DAT-03) complete the documented data management processes.
+  - ref: A.7.3
+    label: Record how data is acquired and selected
+    controls: [{id: DAT-08, strength: direct}]
+  - ref: A.7.4
+    label: Data quality requirements met
+    controls: [{id: DAT-03, strength: direct}]
+  - ref: A.7.5
+    label: Record data provenance
+    controls: [{id: DAT-08, strength: direct}]
+  - ref: A.7.6
+    label: Criteria and methods for data preparation
+    controls: [{id: DAT-08, strength: direct}, {id: DAT-03, strength: partial}]
+    note: DAT-08 Level 3 records the preparation and labelling steps applied to each data set used to train, tune or test AI, and how synthetic and augmented data were generated and checked; DAT-03 quality requirements for each use give the criteria the prepared data must meet. Choosing particular preparation techniques is system-level.
+
+  # ---------------------------------------------------------------- A.8 Information for interested parties
+  - ref: A.8.2
+    label: Give users the information they need
+    controls: [{id: TEC-05, strength: direct}, {id: RSK-08, strength: partial}, {id: PPL-08, strength: partial}, {id: GOV-09, strength: partial}]
+    note: "TEC-05 Level 3 requires documentation for each version, suited to users, stating intended purpose and users, how it works, inputs and outputs, known limitations and where it must not be relied on, and PPL-08 tool guidance states limitations, failure modes and residual risks. RSK-08 explains to affected people and GOV-09 publishes records."
+  - ref: A.8.3
+    label: A way for others to report adverse impacts
+    controls: [{id: MON-06, strength: partial}, {id: RSK-08, strength: partial}]
+    note: Feedback (MON-06) and challenge (RSK-08) give routes in; a route specifically for reporting adverse impacts is not explicit.
+  - ref: A.8.4
+    label: A plan for telling users about incidents
+    controls: [{id: MON-09, strength: direct}]
+    note: MON-09 Level 3 includes a plan for telling affected people about serious incidents, alongside notification routes for suppliers and regulators. Telling users about lesser incidents is not explicit.
+  - ref: A.8.5
+    label: Know and meet reporting obligations to interested parties
+    controls: [{id: RSK-04, strength: direct}, {id: GOV-09, strength: partial}]
+
+  # ---------------------------------------------------------------- A.9 Use
+  - ref: A.9.2
+    label: Ways of working that keep use of AI responsible
+    controls: [{id: GOV-01, strength: partial}, {id: PPL-08, strength: partial}, {id: RSK-05, strength: partial}]
+    note: Policy, principles and staff support shape responsible use; documented processes for responsible use are spread across controls rather than explicit.
+  - ref: A.9.3
+    label: Goals that steer how AI is used responsibly
+    controls: [{id: RSK-05, strength: partial}, {id: STR-02, strength: partial}]
+    note: Principles (RSK-05) and strategic boundaries (STR-02), which name the kinds of decision that must always be taken by a person, set direction; documented objectives for responsible use are not explicit.
+  - ref: A.9.4
+    label: Use AI only as intended
+    controls: [{id: MON-02, strength: direct}, {id: TEC-06, strength: partial}, {id: GOV-03, strength: partial}]
+    note: "MON-02 Level 3 monitors each use against its defined operating conditions, as well as AI from others against the provider's instructions for use; TEC-06 defines those conditions and enforces them by limits, and GOV-03 approval sets the purpose."
+
+  # ---------------------------------------------------------------- A.10 Third parties
+  - ref: A.10.2
+    label: Allocate responsibilities with partners, suppliers and customers
+    controls: [{id: OPM-04, strength: direct}, {id: GOV-05, strength: partial}]
+  - ref: A.10.3
+    label: Suppliers align with the responsible approach
+    controls: [{id: RSK-09, strength: direct}, {id: OPM-05, strength: partial}]
+  - ref: A.10.4
+    label: Consider customer expectations and needs
+    controls: [{id: CUL-08, strength: partial}, {id: MON-06, strength: partial}]
+    note: Public and customer trust (CUL-08) and feedback (MON-06) consider expectations; building customer needs into the responsible approach is not explicit.

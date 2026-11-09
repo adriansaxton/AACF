@@ -1,0 +1,94 @@
+# AI Adoption Controls Framework: metadata and controlled vocabularies.
+# Single source of truth for everything a control record may refer to. The validator
+# (_build/validate.py) rejects any value in a domain file that is not listed here.
+# Decisions behind each block are recorded in ../CLAUDE.md (D0.1 to D0.7).
+
+framework:
+  name: AI Adoption Controls Framework
+  short_name: AACF
+  version: 1.0.0
+  status: release
+  updated: 2026-11-09
+
+# D0.5: 0 to 5 scale. Level 3 is the default "control met" line; an organisation
+# profile may set a different target per control. N/A is recorded with a reason,
+# never as a level.
+scale:
+  baseline_level: 3
+  levels:
+    0: {name: Absent, meaning: "Confirmed absent: the evidence shows nothing is in place. Not known is recorded as insufficient evidence, not 0."}
+    1: {name: Initial, meaning: "Happens through individual effort; undocumented and inconsistent."}
+    2: {name: Developing, meaning: "Some practice and documentation, but partial, local or not yet enforced."}
+    3: {name: Defined, meaning: "Documented, owned, resourced and applied across the organisation."}
+    4: {name: Managed, meaning: "Measured, assured and reported; exceptions are caught and acted on."}
+    5: {name: Optimising, meaning: "Improved continuously against measured outcomes and external change."}
+
+# D0.3: the 11 working domains. Order here is the order in every output.
+domains:
+  STR: {name: "Strategy & Value", file: str.yaml}
+  GOV: {name: "Governance & Accountability", file: gov.yaml}
+  RSK: {name: "Risk, Ethics & Compliance", file: rsk.yaml}
+  POR: {name: "Portfolio & Use Cases", file: por.yaml}
+  OPM: {name: "Operating Model & Delivery", file: opm.yaml}
+  DAT: {name: "Data & Information", file: dat.yaml}
+  TEC: {name: "Technology & Platforms", file: tec.yaml}
+  SEC: {name: "AI Security", file: sec.yaml, note: "Bridge domain: adoption-level objectives only; detail delegated to CSA AICM and the AI Cyber Security Code of Practice."}
+  PPL: {name: "People & Skills", file: ppl.yaml}
+  CUL: {name: "Culture & Change", file: cul.yaml}
+  MON: {name: "Measure & Improve", file: mon.yaml}
+
+# D0.4: generic owner roles in an adopting organisation.
+owner_roles:
+  executive_sponsor: "Senior executive accountable for AI across the organisation"
+  ai_governance_lead: "Runs AI governance day to day: policy, register, forum secretariat"
+  business_owner: "Owns the business outcome a given AI use serves"
+  data_owner: "Accountable for the data an AI use depends on"
+  security_lead: "Accountable for information and cyber security"
+  people_lead: "Accountable for workforce, skills and learning"
+  delivery_lead: "Accountable for building, buying and running AI services"
+  risk_lead: "Accountable for corporate risk, compliance and legal advice"
+
+# D0.4: organisational lifecycle stages a control applies to (one or more).
+lifecycle_stages:
+  strategy: "Setting direction and deciding where AI should and should not be used"
+  design: "Shaping a specific AI use: need, options, risk and benefit"
+  acquire_build: "Procuring, configuring or building the solution"
+  deploy: "Putting it into live use"
+  operate: "Running, monitoring and supporting it in live use"
+  retire: "Withdrawing it and disposing of models and data"
+
+# D0.2: applicability. Every control is core unless it only makes sense in an overlay.
+applicability:
+  core: "Any organisation"
+  uk_public: "UK public sector overlay"
+  defence: "UK defence overlay (mainly delivered through mappings: JSP 936 onto core controls)"
+
+# v1.0 (review theme E): criteria are core (every organisation) or conditional on an overlay the organisation selects
+# when scoping an assessment. A conditional criterion counts only when its overlay applies.
+overlays:
+  PUB: {name: "Public body", meaning: "A public sector organisation, or one acting on its behalf, with public duties such as transparency and equality."}
+  PRV: {name: "Provides AI to others", meaning: "Offers AI services, products or models to customers, partners or the public, not only for its own use."}
+  HIR: {name: "Regulated or high-impact use", meaning: "Has uses of AI that are regulated, high-risk under law, or could significantly affect people's rights, safety or access to services."}
+  GEN: {name: "Generative AI", meaning: "Uses AI that generates text, images, audio, video or code."}
+  AGT: {name: "Agentic AI", meaning: "Uses AI that can take actions in other systems or act with some autonomy, including through tools."}
+  BLD: {name: "Builds or tunes its own models", meaning: "Trains, fine-tunes or otherwise develops models or AI components itself, rather than only configuring others' products."}
+
+statuses: [draft, reviewed, retired]
+
+# D0.6 (+D0.8): the frameworks mapped to in Phase 2. Mapping references are by clause,
+# principle or control ID only; no source wording is copied. See
+# ../resources/source-register.md for versions and licences.
+sources:
+  ISO42001: {name: "ISO/IEC 42001", url: "https://www.iso.org/standard/42001", layer: core, ref_pattern: '^(\d+(\.\d+)*|A\.\d+(\.\d+)*)$'}
+  NISTRMF: {name: "NIST AI RMF 1.0", url: "https://www.nist.gov/itl/ai-risk-management-framework", layer: core, ref_pattern: '^(GOVERN|MAP|MEASURE|MANAGE) \d+\.\d+$'}   # subcategory IDs, verified from NIST AI 100-1 and the AI RMF Playbook CSV
+  NIST600: {name: "NIST AI 600-1", url: "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence", layer: core, ref_pattern: '^R(1[0-2]|[1-9])$'}   # the 12 generative AI risks, numbered as in section 2
+  EUAIA: {name: "EU AI Act", url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj", layer: core, ref_pattern: '^(Art(icle)?\.? ?\d+[a-z]?(\(\d+\))?|Annex [IVX]+)$'}
+  AICM: {name: "CSA AICM v1.1", url: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1", layer: core, ref_pattern: '^[A-Z&]{2,4}-\d{2}$'}
+  GDSPB: {name: "GDS AI Playbook", url: "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government", layer: uk_public, ref_pattern: '^P([1-9]|10)$'}
+  ATRS: {name: "Algorithmic Transparency Recording Standard", url: "https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub", layer: uk_public, ref_pattern: '^(Tier [12]( .+)?|Scope .+)$'}   # template tiers, plus scope-policy items
+  AICSCOP: {name: "AI Cyber Security Code of Practice", url: "https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice", layer: uk_public, ref_pattern: '^([1-9]|1[0-3])\.\d{1,2}$'}   # provisions (principle.provision); sub-provisions folded into notes
+  JSP936: {name: "JSP 936 Part 1", url: "https://www.gov.uk/government/publications/jsp-936-dependable-artificial-intelligence-ai-in-defence-part-1-directive", layer: defence, ref_pattern: '^(Preface )?para \d+[a-z]?$'}   # numbered paragraphs ('Preface para N' for the Preface, which restarts at 1); 'must' = compulsory
+  # D0.8 cross-walk sources (maturity models and UK ethics): mapped at dimension / category / principle level
+  MITREAIMM: {name: "MITRE AI Maturity Model", url: "https://www.mitre.org/news-insights/publication/mitre-ai-maturity-model-and-organizational-assessment-tool-guide", layer: core, ref_pattern: '^P[1-6]\.[1-4]$'}   # pillar.dimension in the guide's order (6 pillars, 20 dimensions)
+  UNESCOAIMF: {name: "UNESCO AI Maturity Framework", url: "https://unesdoc.unesco.org/ark:/48223/pf0000397145", layer: core, ref_pattern: '^[1-6]\.[1-5]$'}
+  UKDAIEF: {name: "UK Data and AI Ethics Framework", url: "https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework", layer: uk_public, ref_pattern: '^((Transparency|Accountability|Fairness|Privacy|Environmental sustainability|Societal impact|Safety|Trade-offs) \d{1,2}|SAT [1-4]\.\d{1,2})$'}

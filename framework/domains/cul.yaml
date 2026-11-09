@@ -1,0 +1,404 @@
+# CUL: Culture & Change
+# How the organisation brings people with it: planned change, honest communication,
+# engagement, a climate where problems are raised, and the trust of the people it serves.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+
+domain: CUL
+name: "Culture & Change"
+summary: >
+  Covers the human side of adopting AI: managing it as organisational change, telling people
+  plainly what is happening and why, involving staff and their representatives, making it safe
+  to raise problems, and keeping the trust of the people the organisation serves. Technology
+  that people do not trust or understand is either not used or used badly, so these controls
+  decide whether the rest of the framework produces real benefit.
+
+controls:
+
+  - id: CUL-01
+    title: Planned approach to AI change
+    objective: >
+      AI adoption is managed as organisational change, with a change plan, named sponsors and
+      the resources to carry it out.
+    rationale: >
+      Most of the effort in adopting AI goes into changing how people work, not into the
+      technology. Treating adoption as a technology rollout leaves processes, roles and habits
+      unchanged, and the expected benefits do not arrive.
+    levels:
+      1: "No change approach; AI tools are made available and people are left to work out what to do with them."
+      2: "Some change activity happens on individual projects, but there is no organisation-wide plan or dedicated resource."
+      3: "A documented AI change plan, based on an assessment of the current culture, has named senior sponsors and funded resource, and is applied to every significant use."
+      4: "Progress against the change plan is measured and reported, and areas where adoption is stalling are identified and given extra support."
+      5: "The change approach is refined from what has and has not worked in earlier rollouts and from changes in the scale and type of AI being adopted."
+    criteria:
+      - {id: CUL-01.1, applies: core, text: "An assessment of the current culture and what has to change for AI adoption has been carried out."}
+      - {id: CUL-01.2, applies: core, text: "A documented change plan for AI adoption is in place and builds on that assessment."}
+      - {id: CUL-01.3, applies: core, text: "The change plan has named senior sponsors."}
+      - {id: CUL-01.4, applies: core, text: "A funded change resource is in place to carry out the plan."}
+      - {id: CUL-01.5, applies: core, text: "The change plan is applied to every significant use of AI."}
+    questions:
+      - "Is there a change plan for AI adoption, and who sponsors it?"
+      - "What people and budget are assigned to change, as opposed to delivery?"
+      - "How is the change approach applied to a new use of AI going live?"
+    evidence:
+      - "The AI change plan, with sponsors, resources and timescales"
+      - "Change plans or impact assessments for recent uses of AI"
+    guidance:
+      steps:
+        - "Assess the current culture and how people work today, using a short survey and conversations with teams, and record what has to change for AI to be used well."
+        - "Write a change plan for AI adoption based on that assessment, with aims, activities and timescales."
+        - "Name senior sponsors and set aside a budget and people for change work, separate from delivery."
+        - "Make a change plan or a proportionate change section a requirement for every significant use of AI, checked at the stage gates (POR-04)."
+      pitfalls:
+        - "Treating AI adoption as a tool rollout and putting all the budget into technology."
+        - "Writing a plan without first finding out how people work and feel today."
+        - "Naming sponsors who have no time or authority to act."
+      artefacts:
+        - "Culture and readiness assessment"
+        - "AI change plan with sponsors and resources"
+        - "Change section template for individual uses of AI"
+    owner: {accountable: executive_sponsor, contributors: [people_lead, business_owner, delivery_lead]}
+    lifecycle: [strategy, design, deploy]
+    applicability: core
+    dependencies: [GOV-02, STR-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: CUL-02
+    title: Internal communication about AI
+    objective: >
+      Staff receive clear, honest and regular communication about what AI is being used for,
+      why, and what it means for them.
+    rationale: >
+      In the absence of information, people assume the worst, usually that AI is being brought
+      in to cut jobs. Open communication, including about limits and problems, builds the trust
+      that adoption depends on.
+    levels:
+      1: "Communication about AI is occasional, comes from enthusiasts or suppliers, and is not coordinated."
+      2: "Announcements are made about some uses of AI, but they focus on benefits, are irregular or reach only some staff."
+      3: "An owned communication plan delivers regular, honest messages to all staff about AI use, purpose, limits and effect on staff."
+      4: "Reach and understanding are measured, for example through surveys, and messages are adjusted where staff are confused or concerned."
+      5: "Communication is two-way as a matter of course, and its content and channels are improved from staff feedback and observed understanding."
+    criteria:
+      - {id: CUL-02.1, applies: core, text: "A communication plan for AI is in place and has an owner."}
+      - {id: CUL-02.2, applies: core, text: "The plan sets out regular, honest messages about AI use, its purpose, its limits and its effect on staff."}
+      - {id: CUL-02.3, applies: core, text: "The messages reach all staff."}
+    questions:
+      - "How do staff find out which uses of AI are planned or live, and why?"
+      - "Does communication cover limits, problems and the effect on jobs, as well as benefits?"
+      - "How do you know the messages have been understood?"
+    evidence:
+      - "The communication plan and a sample of recent messages"
+      - "Staff survey or pulse results on understanding of AI use"
+    guidance:
+      steps:
+        - "Name an owner for internal communication about AI."
+        - "Write a communication plan that sets the channels and frequency, and commits to covering what AI is used for, why, its limits and its effect on staff."
+        - "Publish regular updates that include problems and limits as well as benefits, and keep a list of planned and live uses of AI that staff can see."
+        - "Check that the plan reaches all staff, including those without regular computer access or on leave."
+      pitfalls:
+        - "Only announcing successes, which staff quickly stop believing."
+        - "Avoiding the question of jobs, which leaves people to assume the worst."
+        - "Leaving communication to suppliers or enthusiasts."
+      artefacts:
+        - "AI communication plan"
+        - "Staff-facing list of planned and live uses of AI"
+        - "Regular update template"
+    owner: {accountable: executive_sponsor, contributors: [people_lead, ai_governance_lead]}
+    lifecycle: [strategy, design, deploy, operate]
+    applicability: core
+    dependencies: [CUL-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: CUL-03
+    title: Staff and representative engagement
+    objective: >
+      Staff and their representatives, including trade unions where present, are involved early
+      in decisions about AI that affect their work, and their input is considered and answered.
+    rationale: >
+      The people who do the work know where AI will help and where it will cause problems.
+      Involving them and their representatives before decisions are made produces better uses
+      of AI and avoids the resistance that follows when change is presented as already decided.
+    levels:
+      1: "Staff and representatives hear about AI after decisions are made, if at all."
+      2: "Engagement happens on some projects or late in the process, often as consultation on a decided plan."
+      3: "Affected staff and their representatives are involved at design stage of significant uses of AI through a defined route, their input is recorded, and they hear what changed."
+      4: "The timing and effect of engagement are tracked, and uses of AI that skipped it are identified and addressed."
+      5: "Staff and representatives help shape the AI agenda itself, and the engagement approach is improved from their feedback on how well it works."
+    criteria:
+      - {id: CUL-03.1, applies: core, text: "A defined route is in place for engaging affected staff and their representatives on uses of AI."}
+      - {id: CUL-03.2, applies: core, text: "Affected staff and their representatives are involved at the design stage of each significant use of AI."}
+      - {id: CUL-03.3, applies: core, text: "Their input is recorded."}
+      - {id: CUL-03.4, applies: core, text: "They are told what changed as a result of their input."}
+    questions:
+      - "At what point are affected staff involved in a proposed use of AI?"
+      - "Where representative bodies exist, how and when are they engaged?"
+      - "Can you show a case where staff input changed a decision about AI?"
+    evidence:
+      - "Engagement records or minutes from staff and representative meetings about AI"
+      - "Examples of designs or decisions changed after staff input"
+    guidance:
+      steps:
+        - "Define what counts as a significant use of AI that needs staff engagement, and add engagement to the design stage of the stage gates (POR-04)."
+        - "Agree with representative bodies, where they exist, how and when they will be involved."
+        - "Hold engagement sessions with affected staff and representatives during design and record what they said."
+        - "Report back to those involved what changed as a result of their input, and what did not and why."
+      pitfalls:
+        - "Consulting on a plan that has already been decided."
+        - "Recording input but never telling people what happened to it."
+        - "Engaging only with managers and not with the staff who do the work."
+      artefacts:
+        - "Engagement route description"
+        - "Engagement record template"
+        - "You said, we did summary"
+    owner: {accountable: people_lead, contributors: [business_owner, executive_sponsor]}
+    lifecycle: [strategy, design, deploy]
+    applicability: core
+    dependencies: [CUL-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: CUL-04
+    title: Safe to raise concerns
+    objective: >
+      Anyone can raise a concern or report a problem with AI without fear of blame, and can see
+      what was done about it.
+    rationale: >
+      The first signs that AI is producing wrong or harmful results are usually noticed by the
+      people using it. If they fear blame or expect nothing to happen, they stay quiet and the
+      problem grows.
+    levels:
+      1: "There is no known route for raising AI concerns; problems are raised informally or not at all."
+      2: "A route exists, such as a general helpdesk or whistleblowing policy, but staff do not know it covers AI or doubt that it is safe to use."
+      3: "An owned, no-blame route for raising AI concerns is known to all staff, and everyone who raises a concern hears what was done."
+      4: "Use of the route and staff confidence in it are measured, and response times and outcomes are monitored and reported."
+      5: "Raising concerns is seen as normal practice, and the route and the response to it are improved from staff feedback and trends in what is raised."
+    criteria:
+      - {id: CUL-04.1, applies: core, text: "A no-blame route for raising AI concerns is in place and has an owner."}
+      - {id: CUL-04.2, applies: core, text: "The route has been communicated to all staff."}
+      - {id: CUL-04.3, applies: core, text: "People who raise a concern receive a response on what was done."}
+    questions:
+      - "If a member of staff thought an AI tool was giving wrong or unfair results, what would they do?"
+      - "How do you know staff feel safe to raise AI concerns?"
+      - "What happens after a concern is raised, and does the person hear back?"
+    evidence:
+      - "Guidance describing the route for raising AI concerns"
+      - "A log of concerns raised, with responses and outcomes"
+      - "Staff survey results on confidence in speaking up"
+    guidance:
+      steps:
+        - "Choose or set up a route for raising AI concerns, which can be an existing route explicitly extended to cover AI, and name its owner."
+        - "Write down that concerns raised in good faith will not lead to blame, and get senior leaders to say so publicly."
+        - "Tell all staff about the route, with examples of the kinds of AI concerns it is for."
+        - "Log each concern and give the person who raised it a response on what was done, with links to the incident process (MON-04) where needed."
+      pitfalls:
+        - "Assuming staff know that a general whistleblowing policy covers AI."
+        - "Taking concerns in but never telling the person what happened."
+        - "Making the route anonymous only, so there is no way to reply."
+      artefacts:
+        - "Guidance on raising AI concerns"
+        - "Concerns log with responses"
+        - "No-blame statement from leadership"
+    owner: {accountable: ai_governance_lead, contributors: [people_lead, risk_lead]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [GOV-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: CUL-05
+    title: Learning from what did not work
+    objective: >
+      Experiments and uses of AI that fail or are stopped are reviewed without blame, and the
+      lessons are recorded and shared.
+    rationale: >
+      Many AI experiments should not continue, and stopping them is a sign the process works.
+      If stopped work is hidden or treated as failure, teams repeat the same mistakes and become
+      unwilling to try things.
+    levels:
+      1: "Stopped or failed work is quietly dropped; lessons stay with the people involved."
+      2: "Some teams review what went wrong, but findings are not recorded or shared beyond the team."
+      3: "Every stopped or failed AI experiment or use has a no-blame review, and its lessons are recorded in a shared place and passed to relevant teams."
+      4: "Lessons are checked for take-up, for example in new proposals and stage gates, and repeat mistakes are identified and followed up."
+      5: "Lessons from inside and outside the organisation are used routinely to shape new proposals, and stopping work early is recognised as good practice."
+    criteria:
+      - {id: CUL-05.1, applies: core, text: "A no-blame review is held for every stopped or failed AI experiment or use."}
+      - {id: CUL-05.2, applies: core, text: "Lessons from each review are recorded in a shared place."}
+      - {id: CUL-05.3, applies: core, text: "Lessons are communicated to the relevant teams."}
+    questions:
+      - "What happened to the last AI experiment that was stopped, and what was learned?"
+      - "Where are lessons recorded, and who reads them?"
+      - "How are teams who stop an experiment treated?"
+    evidence:
+      - "Review records for stopped or failed AI work"
+      - "A lessons log or library, with evidence it is used in new proposals"
+    guidance:
+      steps:
+        - "Set a short no-blame review format, focused on what happened and what to do differently, not on who was at fault."
+        - "Make the review a required step whenever an AI experiment or use is stopped or fails, linked to the stop decision (POR-07)."
+        - "Record lessons in one shared place that anyone proposing AI can search."
+        - "Send each new lesson to the teams it is relevant to, for example through the community of practice (CUL-06)."
+      pitfalls:
+        - "Reviewing only failures and not work that was stopped for good reasons."
+        - "Writing long reports nobody reads instead of short, searchable lessons."
+        - "Letting reviews turn into blame, which makes teams hide problems next time."
+      artefacts:
+        - "No-blame review template"
+        - "Shared lessons log"
+    owner: {accountable: ai_governance_lead, contributors: [delivery_lead, business_owner]}
+    lifecycle: [design, acquire_build, retire]
+    applicability: core
+    dependencies: [POR-06]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: CUL-06
+    title: Champions and communities
+    objective: >
+      Networks of champions and communities of practice, with time and support to do so, spread
+      know-how about AI and good practice across the organisation.
+    rationale: >
+      People learn most from colleagues doing similar work. A supported network of champions
+      reaches parts of the organisation that central teams cannot, and brings practical problems
+      back to the centre.
+    levels:
+      1: "A few enthusiasts help colleagues on their own initiative and in their own time."
+      2: "A champions network or community exists in some areas, but without agreed time, support or a link to the central AI team."
+      3: "A champions network with defined roles and agreed time covers all major business areas, and a centrally supported community of practice meets regularly."
+      4: "Champion coverage and activity are tracked, and the network's effect on adoption and good practice is measured and reported."
+      5: "The network shapes guidance, tools and priorities, and its structure is refreshed as adoption spreads and needs change."
+    criteria:
+      - {id: CUL-06.1, applies: core, text: "A champions network covers all major business areas."}
+      - {id: CUL-06.2, applies: core, text: "Champions have a defined role and agreed time for it."}
+      - {id: CUL-06.3, applies: core, text: "A community of practice for AI meets regularly."}
+      - {id: CUL-06.4, applies: core, text: "The community of practice receives central support."}
+    questions:
+      - "Is there a network of AI champions, and which parts of the organisation does it cover?"
+      - "How much time do champions have for the role, and who supports them?"
+      - "How do issues raised by champions reach the people who can act on them?"
+    evidence:
+      - "Champion role description and a list of champions by area"
+      - "Community of practice meeting records or activity data"
+    guidance:
+      steps:
+        - "Write a champion role description that sets out what champions do and how much time they get, and agree that time with their managers."
+        - "Recruit champions so that every major business area has at least one."
+        - "Set up a community of practice that meets regularly, with a central contact who supports it and passes issues to the people who can act."
+        - "Keep a list of champions by area and a record of community meetings."
+      pitfalls:
+        - "Asking champions to do the role on top of a full workload with no agreed time."
+        - "Concentrating champions in technical teams and leaving front-line areas uncovered."
+        - "Treating the network as a substitute for a resourced support route (PPL-08)."
+      artefacts:
+        - "Champion role description"
+        - "Champions list by business area"
+        - "Community of practice meeting record"
+    owner: {accountable: people_lead, contributors: [ai_governance_lead, business_owner]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [CUL-01, PPL-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: CUL-07
+    title: Adoption support for affected teams
+    objective: >
+      Teams whose work changes because of AI get practical support through the change, and
+      actual adoption is tracked against what was planned.
+    rationale: >
+      Going live is not the same as being used well. Teams need time, help and adjusted
+      processes to change how they work, and without tracking nobody knows whether a tool is
+      being used as intended, worked around or ignored.
+    levels:
+      1: "Teams are given the tool and expected to adapt; nobody checks whether it is used."
+      2: "Some teams get support at launch, but it stops soon after and adoption is not tracked."
+      3: "Every team affected by a significant use of AI has a support plan for the change, and adoption is tracked against planned levels."
+      4: "Adoption data is reviewed regularly, teams falling behind receive targeted support, and the reasons for low adoption are recorded and acted on."
+      5: "Support approaches are improved from adoption patterns across many rollouts, and new rollouts plan support from that evidence."
+    criteria:
+      - {id: CUL-07.1, applies: core, text: "Every team affected by a significant use of AI has a support plan."}
+      - {id: CUL-07.2, applies: core, text: "Each support plan covers process changes, time to adapt and help after go-live."}
+      - {id: CUL-07.3, applies: core, text: "Adoption is tracked against planned levels."}
+    questions:
+      - "For a recent use of AI, what support did the affected team receive before and after go-live?"
+      - "How do you know whether the team is actually using it as intended?"
+      - "What happens when adoption is lower than planned?"
+    evidence:
+      - "Support plans for teams affected by recent rollouts"
+      - "Adoption tracking data compared with planned levels"
+    guidance:
+      steps:
+        - "Write a support plan template that covers process changes, time for teams to adapt and help after go-live."
+        - "Require a completed support plan for every team affected by a significant use of AI before it goes live."
+        - "Agree planned adoption levels for each rollout, such as how many people use the tool and for which tasks."
+        - "Track actual adoption against those levels after go-live and share the results with the team and its business owner."
+      pitfalls:
+        - "Stopping support at launch week, when most adjustment happens later."
+        - "Measuring logins rather than whether the tool is used for the intended work."
+        - "Expecting teams to adapt without time set aside from their normal workload."
+      artefacts:
+        - "Team support plan template"
+        - "Adoption tracking sheet against planned levels"
+    owner: {accountable: business_owner, contributors: [people_lead, delivery_lead]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [CUL-01, PPL-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: CUL-08
+    title: Public and customer trust
+    objective: >
+      The organisation understands how the people it serves view its use of AI and takes that
+      into account in its decisions and how it explains itself.
+    rationale: >
+      An organisation's use of AI can be lawful and still lose the confidence of the people it
+      serves. Knowing their views and expectations early lets it avoid uses they would not
+      accept and explain the ones they would.
+    levels:
+      1: "Public or customer views on the organisation's AI use are not sought; reaction is discovered only through complaints or media coverage."
+      2: "Views are gathered occasionally, for example on a single project, but are not used consistently in decisions."
+      3: "The views of the people the organisation serves on its AI use are gathered through a defined approach and shape design decisions and explanations."
+      4: "Levels of trust are measured over time, and changes in trust or emerging concerns lead to recorded action."
+      5: "The people served help shape decisions about where and how AI is used, and the approach to building trust is improved from measured results."
+    criteria:
+      - {id: CUL-08.1, applies: core, text: "A defined approach is in place and used to gather the views of the people the organisation serves on its use of AI."}
+      - {id: CUL-08.2, applies: core, text: "These views are considered in design decisions on uses of AI."}
+      - {id: CUL-08.3, applies: core, text: "These views are considered in how uses of AI are explained."}
+    questions:
+      - "What do you know about how the people you serve feel about your use of AI?"
+      - "How have their views affected a decision about using AI?"
+      - "How would you find out if trust in your use of AI was falling?"
+    evidence:
+      - "Research, surveys or panel findings on public or customer views of AI use"
+      - "Decision records showing those views were considered"
+    guidance:
+      steps:
+        - "Decide how you will gather the views of the people you serve on your AI use, such as surveys, panels, user research or reviews of complaints."
+        - "Gather those views on a regular basis and for significant new uses of AI."
+        - "Add a step in design reviews where those views are considered, and record the result."
+        - "Use what you learn to shape how each use of AI is explained to the people it affects."
+      pitfalls:
+        - "Relying on complaints and media coverage as the only source of public views."
+        - "Gathering views and not recording how they affected any decision."
+        - "Asking only people who already support the use of AI."
+      artefacts:
+        - "Public and customer views approach"
+        - "Findings summary from research or surveys"
+        - "Design review record showing views considered"
+    owner: {accountable: executive_sponsor, contributors: [business_owner, ai_governance_lead]}
+    lifecycle: [strategy, design, operate]
+    applicability: core
+    dependencies: [CUL-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0

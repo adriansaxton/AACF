@@ -1,0 +1,414 @@
+# PPL: People & Skills
+# Whether the organisation has the knowledge, skills and workforce plans it needs to use AI well.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+
+domain: PPL
+name: "People & Skills"
+summary: >
+  Covers the knowledge and skills people need to use AI safely and well, from a baseline for
+  everyone to specialist careers, and how the organisation plans for the effect of AI on its
+  workforce. Capability should be built inside the organisation rather than rented, and
+  changes to roles should be planned in the open with the people affected.
+
+controls:
+
+  - id: PPL-01
+    title: AI literacy for all staff
+    objective: >
+      Everyone in the organisation has a baseline understanding of what AI is, what it can
+      and cannot do, and how to use it safely under the organisation's policy.
+    rationale: >
+      Staff meet AI in the tools they already use, whether or not the organisation plans for it.
+      A shared baseline lets people spot unreliable output, avoid sharing what they should not,
+      and see where AI could help their work.
+    levels:
+      1: "No organisation-wide AI learning; understanding depends on individual interest."
+      2: "Some AI awareness material exists, but it is optional, reaches few staff or is out of date."
+      3: "Everyone who uses or operates AI for the organisation must complete a defined AI literacy baseline that is kept current, and completion is recorded."
+      4: "Completion and understanding are measured across the organisation, gaps by group are followed up, and content is refreshed on a set cycle."
+      5: "The baseline is updated from incidents, staff feedback and changes in AI tools, and its effect on safe use is assessed."
+    criteria:
+      - {id: PPL-01.1, applies: core, text: "A defined AI literacy baseline covers what AI can do, its limits and its risks."}
+      - {id: PPL-01.2, applies: core, text: "The baseline covers the AI policy, the adopted ethical principles, and the environmental and social impact of AI use."}
+      - {id: PPL-01.3, applies: core, text: "The baseline covers the AI security threats relevant to all staff, and updates are issued as new threats appear."}
+      - {id: PPL-01.4, applies: core, text: "The baseline is required for all staff, including new joiners."}
+      - {id: PPL-01.5, applies: core, text: "The baseline is also required for contractors and others who operate AI on the organisation's behalf."}
+      - {id: PPL-01.6, applies: core, text: "Completion of the baseline is recorded for everyone it is required of."}
+    questions:
+      - "What does every member of staff need to know about AI, and where is that set out?"
+      - "How many staff have completed it, including new joiners and contractors?"
+      - "How do you know people understand it, not just that they completed it?"
+    evidence:
+      - "The literacy baseline or curriculum, with an owner and review date"
+      - "Completion records by group"
+      - "Results of knowledge checks or surveys"
+      - "Literacy completion records for contractors who operate AI"
+      - "AI security content in the literacy baseline and recent threat updates"
+    guidance:
+      steps:
+        - "Write a short literacy baseline that covers what AI can and cannot do, its main risks, the security threats every member of staff could meet, the AI policy (GOV-01), the adopted ethical principles (RSK-05) and the environmental and social effects of AI use."
+        - "Name an owner for the baseline and set a way to send staff brief updates when a new threat or significant tool change appears."
+        - "Make the baseline required for all staff, add it to the joining process, and make it a condition for contractors and others who operate AI on your behalf."
+        - "Record completion for every group, including contractors, in one place that can be reported by team."
+      pitfalls:
+        - "Teaching only how to use one tool, so staff learn the buttons but not the limits and risks."
+        - "Leaving contractors and temporary staff out because they sit outside the normal learning system."
+        - "Writing the security content once and never updating it as new threats appear."
+      artefacts:
+        - "AI literacy baseline with owner and review date"
+        - "Completion register covering staff and contractors"
+        - "Threat update bulletin template"
+    owner: {accountable: people_lead, contributors: [ai_governance_lead, security_lead]}
+    lifecycle: [strategy, operate]
+    applicability: core
+    dependencies: [GOV-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: PPL-02
+    title: Leadership capability
+    objective: >
+      Leaders understand AI well enough to set direction for it, question proposals and risks,
+      and make informed decisions about its use.
+    rationale: >
+      Leaders approve AI investment, accept its risks and set the tone for how staff use it. If
+      they cannot judge claims made for AI, decisions are left to enthusiasts or vendors, or are
+      not taken at all.
+    levels:
+      1: "Leaders' understanding of AI depends on personal interest and vendor briefings."
+      2: "Some leaders have attended AI briefings, but there is no defined expectation of what leaders should know."
+      3: "Board members, executives and senior managers have completed a defined learning offer on AI opportunity, risk and governance."
+      4: "Leadership capability is assessed, gaps are addressed, and the quality of AI decisions and challenge is reviewed."
+      5: "Leadership learning is updated from decision reviews and external change, and leaders keep their knowledge current through ongoing exposure to AI in practice."
+    criteria:
+      - {id: PPL-02.1, applies: core, text: "A defined leadership learning offer covers AI opportunity, risk, governance and the questions leaders should ask."}
+      - {id: PPL-02.2, applies: core, text: "Board members, executives and senior managers have completed the offer."}
+    questions:
+      - "What are leaders expected to understand about AI, and how was that decided?"
+      - "Which members of the board and executive have completed AI learning?"
+      - "Give an example of a leader challenging an AI proposal or risk."
+    evidence:
+      - "The leadership learning offer and attendance records"
+      - "Board or committee minutes showing informed challenge on AI"
+    guidance:
+      steps:
+        - "Agree what the board, executive and senior managers need to understand about AI opportunity, risk, governance and the questions to ask of a proposal."
+        - "Build or buy a short leadership session or series that covers those four topics, using examples from your own organisation where possible."
+        - "Schedule it so every board member, executive and senior manager completes it, including new appointees."
+        - "Record attendance and give leaders a one-page list of challenge questions to use at decision points (GOV-03, POR-04)."
+      pitfalls:
+        - "Relying on vendor briefings, which explain the product's benefits rather than how to judge them."
+        - "Covering opportunity only and leaving out risk and governance."
+        - "Letting the board opt out because members are assumed to know enough already."
+      artefacts:
+        - "Leadership AI learning outline"
+        - "Attendance record for board, executive and senior managers"
+        - "Leader's challenge question card"
+    owner: {accountable: people_lead, contributors: [executive_sponsor]}
+    lifecycle: [strategy, design]
+    applicability: core
+    dependencies: []
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: PPL-03
+    title: Specialist roles and careers
+    objective: >
+      The organisation defines the specialist AI roles it needs, with career paths and a
+      professional community that help people grow and stay.
+    rationale: >
+      Specialists who have no defined role or route to progress tend to leave or move into
+      unrelated work. Clear roles and careers make it possible to recruit, develop and keep the
+      people who build, assure and run AI.
+    levels:
+      1: "Specialist AI work is done by people in unrelated roles with no recognition or route to progress."
+      2: "Some AI roles are defined locally, but titles, grades and expectations differ across the organisation."
+      3: "Specialist AI roles are defined in the same way across the organisation, with skills expectations, career paths and an active professional community."
+      4: "Progression, retention and role coverage for specialists are measured and reported, and gaps or attrition are acted on."
+      5: "Roles and career paths are updated as AI work changes, and the organisation is known as a place where specialists develop."
+    criteria:
+      - {id: PPL-03.1, applies: core, text: "Specialist AI roles are defined and the same definitions are used across the organisation."}
+      - {id: PPL-03.2, applies: core, text: "Each specialist AI role has stated skills expectations."}
+      - {id: PPL-03.3, applies: core, text: "Career paths are set out for specialist AI roles."}
+      - {id: PPL-03.4, applies: core, text: "A professional community for AI specialists is in place and active."}
+    questions:
+      - "Which specialist AI roles does the organisation need, and are they defined?"
+      - "How does a specialist progress, and what professional community can they join?"
+    evidence:
+      - "Role profiles and career framework for AI specialists"
+      - "Professional community terms of reference or activity records"
+    guidance:
+      steps:
+        - "List the specialist AI roles the organisation needs, using the skills assessment (PPL-04) as the starting point."
+        - "Write one role profile per specialist role with skills expectations, and agree common titles and grades across the organisation."
+        - "Set out a career path for each role family showing how people progress and what they need to show at each step."
+        - "Set up a professional community for specialists with a named lead, regular meetings and a shared space, and keep a record of its activity."
+      pitfalls:
+        - "Letting each team invent its own titles and grades, which blocks movement and fair pay."
+        - "Defining roles without a route upwards, so experienced specialists leave to progress."
+        - "Starting a community with no lead or time set aside, so it fades after a few meetings."
+      artefacts:
+        - "Specialist AI role profiles"
+        - "AI career framework"
+        - "Professional community terms of reference"
+    owner: {accountable: people_lead, contributors: [delivery_lead]}
+    lifecycle: [strategy, operate]
+    applicability: core
+    dependencies: [PPL-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: PPL-04
+    title: Skills assessment
+    objective: >
+      The organisation knows which AI skills it has and which it needs, by role and group, and
+      uses this to plan learning, recruitment and workforce decisions.
+    rationale: >
+      Learning and recruitment spent without knowing the gap is often wasted. A skills
+      assessment shows where capability is missing and gives a baseline to measure progress
+      against.
+    levels:
+      1: "No assessment; skills are known only through individual managers' impressions."
+      2: "Skills have been assessed once, or only for some groups, and the results are not used to plan."
+      3: "The AI skills each role needs are defined, current skills are assessed across the organisation, and the recorded gap drives learning and recruitment plans."
+      4: "Skills are reassessed on a set cycle, progress against the gap is measured, and priority gaps are tracked to closure."
+      5: "Skills needs are anticipated from the AI roadmap and external change, and the assessment method is improved from experience."
+    criteria:
+      - {id: PPL-04.1, applies: core, text: "The AI skills each role needs are defined."}
+      - {id: PPL-04.2, applies: core, text: "Current AI skills have been assessed across the organisation."}
+      - {id: PPL-04.3, applies: core, text: "The gap between needed and current skills is recorded."}
+      - {id: PPL-04.4, applies: core, text: "Learning and recruitment plans are based on the recorded gap."}
+    questions:
+      - "What AI skills does each role or group need, and how was that worked out?"
+      - "When were current skills last assessed, and what did it show?"
+      - "How have the results changed learning or recruitment plans?"
+    evidence:
+      - "A skills framework or needs analysis for AI by role"
+      - "Skills assessment results and the resulting plan"
+    guidance:
+      steps:
+        - "Define the AI skills each role or role group needs, starting with the roles that use, build, buy or assure AI most."
+        - "Assess current skills across the whole organisation using a simple self-assessment checked by managers, or a short skills test for specialist roles."
+        - "Record the gap by role and group in a single register."
+        - "Use the gap to set learning priorities (PPL-05) and recruitment needs (PPL-07), and record which actions came from it."
+      pitfalls:
+        - "Assessing only the technology team and missing the skills needed by everyone else who works with AI."
+        - "Running a survey and filing the results without changing any plan."
+        - "Using a skills list so long that people cannot assess themselves against it honestly."
+      artefacts:
+        - "AI skills framework by role"
+        - "Skills assessment questionnaire"
+        - "Skills gap register with resulting actions"
+    owner: {accountable: people_lead, contributors: [business_owner, delivery_lead]}
+    lifecycle: [strategy, operate]
+    applicability: core
+    dependencies: []
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: PPL-05
+    title: Role-based learning
+    objective: >
+      People can get learning matched to what their role needs to do with AI, beyond the
+      baseline for all staff, and use it in their work.
+    rationale: >
+      What a caseworker, a developer, a procurement officer and an auditor need to know about AI
+      differs. Learning built around roles is more likely to change how people work than generic
+      courses.
+    levels:
+      1: "Learning beyond the baseline depends on individuals finding their own courses."
+      2: "Some role-specific learning exists, but coverage is uneven and not linked to assessed needs."
+      3: "Resourced learning pathways, linked to the skills assessment, exist for every role group that works with AI, including suppliers, and cover risk duties and AI security."
+      4: "Uptake and the effect of learning on work are measured, and pathways with low uptake or effect are changed."
+      5: "Pathways are updated from skills reassessment, feedback and changes in AI tools, and include learning on the job as well as formal courses."
+    criteria:
+      - {id: PPL-05.1, applies: core, text: "Learning pathways are defined for each role group that works with AI and are linked to the skills assessment."}
+      - {id: PPL-05.2, applies: core, text: "The pathways are resourced and available across the organisation."}
+      - {id: PPL-05.3, applies: core, text: "The pathways cover the specific risk management duties of each role group."}
+      - {id: PPL-05.4, applies: core, text: "The pathways extend to suppliers and contractors who operate AI for the organisation."}
+      - {id: PPL-05.5, applies: core, text: "Pathways for roles that build, run, buy or secure AI include AI security."}
+      - {id: PPL-05.6, applies: [BLD], text: "Pathways for people who build AI include secure design and development."}
+      - {id: PPL-05.7, applies: core, text: "The AI security content of pathways is reviewed when significant new threats emerge."}
+    questions:
+      - "What learning is available for roles that build, buy, assure or use AI heavily?"
+      - "How does it link to the skills gaps you have identified?"
+      - "How do you know it has changed how people work?"
+    evidence:
+      - "Role-based learning pathways and the needs they address"
+      - "Uptake records and evaluation results"
+      - "Learning records for people with AI risk duties, including contractors"
+      - "AI security in learning pathways for builders, operators, buyers and security staff"
+    guidance:
+      steps:
+        - "Identify the role groups that work with AI and, for each, write a learning pathway built from the gaps found in the skills assessment (PPL-04)."
+        - "Include in each pathway the risk management duties that role holds, and add AI security for roles that build, run, buy or secure AI, with secure design and development for builders."
+        - "Fund the pathways, make them available across the organisation, and require suppliers and contractors who operate AI for you to follow the relevant pathway."
+        - "Set a trigger to review security content when a significant new threat emerges, and name who carries out that review."
+      pitfalls:
+        - "Offering a generic catalogue of courses that no one has linked to actual role needs."
+        - "Forgetting that buyers and risk staff need AI learning as much as developers do."
+        - "Assuming suppliers already know your risk duties and security rules."
+      artefacts:
+        - "Role-based learning pathway map"
+        - "Learning records for people with AI risk duties"
+        - "Security content review trigger log"
+    owner: {accountable: people_lead, contributors: [business_owner, delivery_lead, security_lead]}
+    lifecycle: [design, acquire_build, deploy, operate]
+    applicability: core
+    dependencies: [PPL-01, PPL-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: PPL-06
+    title: Workforce planning for AI
+    objective: >
+      The expected effect of AI on roles, numbers and skills is planned for openly, with
+      affected staff and their representatives informed and involved, and decisions made fairly.
+    rationale: >
+      AI can change what roles involve, create new ones and reduce demand for some tasks. Planning
+      this in the open, and treating redeployment, reskilling and growth as real options, keeps
+      trust and avoids losing knowledge the organisation still needs.
+    levels:
+      1: "The effect of AI on the workforce is not considered until changes are already under way."
+      2: "Effects are considered for individual projects, but there is no organisation-wide view and staff learn of changes late."
+      3: "Workforce plans set out the expected effect of AI on roles, numbers and skills, with options for affected staff, and are shared with staff and representatives."
+      4: "Actual effects on roles and skills are tracked against the plan, fairness of outcomes across groups is checked, and differences are acted on."
+      5: "Workforce planning for AI is updated from outcomes and external change, and staff help shape how roles develop."
+    criteria:
+      - {id: PPL-06.1, applies: core, text: "Workforce plans include the expected effect of AI on roles, numbers and skills."}
+      - {id: PPL-06.2, applies: core, text: "The plans set out options for affected staff, such as reskilling and redeployment."}
+      - {id: PPL-06.3, applies: core, text: "The plans are shared with staff and their representatives."}
+    questions:
+      - "How does workforce planning account for the effect of AI on roles, numbers and skills?"
+      - "When and how are affected staff and their representatives told and involved?"
+      - "What options are offered to people whose roles change, and how are outcomes checked for fairness?"
+    evidence:
+      - "Workforce plans showing the expected effect of AI"
+      - "Records of consultation or engagement with staff and representatives"
+      - "Reskilling or redeployment records and outcome monitoring"
+    guidance:
+      steps:
+        - "Add a section to the workforce plan that sets out the expected effect of AI on roles, numbers and skills, drawing on the AI use boundaries (STR-02) and the skills gap (PPL-04)."
+        - "Set out the options for affected staff, such as reskilling, redeployment and new roles, and how choices between them will be made fairly."
+        - "Share the plan with staff and their representatives before decisions are taken, and record when and how this was done."
+        - "Name an owner to update the plan as new uses of AI are approved."
+      pitfalls:
+        - "Keeping the workforce effect confidential until changes are already decided, which destroys trust."
+        - "Treating headcount reduction as the only outcome and not planning reskilling or redeployment."
+        - "Planning one project at a time with no view across the organisation."
+      artefacts:
+        - "AI section of the workforce plan"
+        - "Reskilling and redeployment options paper"
+        - "Record of sharing with staff and representatives"
+    owner: {accountable: people_lead, contributors: [executive_sponsor, business_owner, risk_lead]}
+    lifecycle: [strategy, design, deploy]
+    applicability: core
+    dependencies: [STR-02, PPL-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: PPL-07
+    title: Bringing in and keeping expertise
+    objective: >
+      The organisation recruits and keeps the AI expertise it needs and uses external experts
+      in a way that transfers knowledge, so that capability stays when contracts end.
+    rationale: >
+      Demand for AI expertise is high and organisations often rely on contractors and suppliers.
+      Without deliberate knowledge transfer, each engagement leaves the organisation no more
+      capable than before and dependent on the next one.
+    levels:
+      1: "Expertise is hired or contracted as needs arise, with no plan for keeping knowledge."
+      2: "Recruitment for AI roles happens, but retention is not managed and external engagements rarely include knowledge transfer."
+      3: "A plan covers recruiting, retaining and diversifying AI expertise, and every external engagement transfers knowledge to named internal staff."
+      4: "Time to hire, retention and reliance on external expertise are measured, and knowledge transfer is checked at the end of each engagement."
+      5: "The balance of internal and external expertise is set deliberately from evidence and adjusted as needs change."
+    criteria:
+      - {id: PPL-07.1, applies: core, text: "A plan for recruiting and retaining AI expertise is in place."}
+      - {id: PPL-07.2, applies: core, text: "The plan addresses the diversity of AI teams."}
+      - {id: PPL-07.3, applies: core, text: "Each external engagement for AI expertise includes defined knowledge transfer to named internal staff."}
+    questions:
+      - "How do you attract and keep people with AI expertise?"
+      - "When you use contractors or suppliers for AI, how is their knowledge passed to your own staff?"
+      - "Which AI capabilities would be lost if a key contract or person left tomorrow?"
+    evidence:
+      - "Recruitment and retention plan or data for AI roles"
+      - "Knowledge transfer clauses or records from external engagements"
+    guidance:
+      steps:
+        - "Write a short plan for recruiting and retaining AI expertise, covering where to find candidates, what keeps them, and how you will build diversity in AI teams."
+        - "Add a standard knowledge transfer clause to contracts with AI suppliers and contractors that names what must be handed over and how."
+        - "Name the internal staff who will receive the knowledge in each external engagement before it starts."
+        - "Keep a list of engagements with their named recipients so gaps can be seen."
+      pitfalls:
+        - "Naming no internal recipient, so knowledge transfer becomes a document nobody reads."
+        - "Treating diversity as a recruitment statistic only, with no action in the plan."
+        - "Renewing the same contractor year after year without asking why the skill was never built inside."
+      artefacts:
+        - "AI recruitment and retention plan"
+        - "Knowledge transfer contract clause"
+        - "Engagement register with named internal recipients"
+    owner: {accountable: people_lead, contributors: [delivery_lead, executive_sponsor]}
+    lifecycle: [strategy, acquire_build, operate]
+    applicability: core
+    dependencies: [PPL-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: PPL-08
+    title: Support for staff using AI
+    objective: >
+      People using AI day to day can get practical help, current guidance and answers to their
+      questions quickly from a known place.
+    rationale: >
+      Training fades and tools change. People who cannot get help when they are stuck either stop
+      using AI or find their own ways round problems, which is where mistakes and unsafe use start.
+    levels:
+      1: "Help depends on knowing someone who understands the tool."
+      2: "Some guidance or a help channel exists for particular tools or teams, but it is hard to find or not kept current."
+      3: "A known, resourced support route gives current guidance on every approved AI tool, including its limits and security risks, and tells users promptly of security changes."
+      4: "Use of support, common questions and response times are measured, and recurring problems feed changes to guidance, learning or tools."
+      5: "Support is shaped by how people actually use AI, and good practice from users is captured and shared back."
+    criteria:
+      - {id: PPL-08.1, applies: core, text: "A known support route offers guidance, examples and answers for every approved AI tool."}
+      - {id: PPL-08.2, applies: core, text: "The support route is resourced."}
+      - {id: PPL-08.3, applies: core, text: "Guidance is updated when approved tools change."}
+      - {id: PPL-08.4, applies: core, text: "Guidance for each approved tool states its known limitations, failure modes and residual security risks, and what users should do about them."}
+      - {id: PPL-08.5, applies: core, text: "Users are told promptly of changes to approved tools that affect security."}
+    questions:
+      - "Where does someone go when they are unsure how to use an AI tool safely or well?"
+      - "Who keeps the guidance current when tools change?"
+      - "What are the most common questions, and what has changed as a result?"
+    evidence:
+      - "The support route and guidance, with update dates"
+      - "Support request data or logs showing common themes and actions"
+      - "Tool guidance stating limitations, failure modes and residual risks"
+    guidance:
+      steps:
+        - "Set up one known support route for all approved AI tools (TEC-01), such as an intranet page with a question channel, and give it named people with time to run it."
+        - "Write guidance for each approved tool with examples, known limitations, failure modes and residual security risks, and what users should do about each."
+        - "Agree a routine with the owners of each tool so guidance is updated whenever the tool changes."
+        - "Set up a way to tell users promptly about security-relevant changes, such as a short notice on the support page and a message to users."
+      pitfalls:
+        - "Relying on a champions network (CUL-06) alone, which is a peer network and not a resourced support route."
+        - "Publishing guidance at launch and never updating it when the tool changes."
+        - "Describing only what a tool can do and leaving out where it fails."
+      artefacts:
+        - "AI support page and question channel"
+        - "Per-tool guidance template with limitations section"
+        - "Security change notice template"
+    owner: {accountable: people_lead, contributors: [delivery_lead, ai_governance_lead]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [PPL-01, TEC-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0

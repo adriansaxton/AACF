@@ -1,0 +1,410 @@
+# DAT: Data & Information
+# Whether the data AI depends on is owned, fit for purpose, lawful, findable and properly controlled.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+# Security detail (including information leakage, SEC-04) belongs to SEC, not here.
+
+domain: DAT
+name: "Data & Information"
+summary: >
+  Covers the data and information that AI uses and produces: who owns it, whether it is good
+  enough for the job, whether its use is lawful and fair, whether people can find and understand
+  it, how long it is kept, who can reach it and where it came from. Most problems with AI in use
+  trace back to data, so these controls apply to bought and embedded AI as much as to anything
+  built in-house.
+
+controls:
+
+  - id: DAT-01
+    title: Data strategy supports AI
+    objective: >
+      The organisation's data strategy states what its planned uses of AI need from data and
+      sets out how those needs will be met.
+    rationale: >
+      AI ambitions often assume data that does not exist, cannot be joined up or is not allowed
+      to be used. Writing AI's needs into the data strategy brings those gaps into view early,
+      and lets data investment be planned alongside AI investment rather than after it.
+    levels:
+      1: "No data strategy, or one that does not mention AI; data needs are discovered project by project."
+      2: "The data strategy mentions AI in general terms, but does not state what data AI needs or how gaps will be closed."
+      3: "An approved, owned data strategy sets out what planned AI needs from data and the actions and funding to meet it, backed by an approved data architecture."
+      4: "Progress against the data actions that AI depends on is measured and reported, and slippage that puts AI plans at risk is escalated."
+      5: "The data strategy and the AI strategy are revised together, using evidence of which data constraints have most limited AI value."
+    criteria:
+      - {id: DAT-01.1, applies: core, text: "An approved data strategy exists with an owner and a review date."}
+      - {id: DAT-01.2, applies: core, text: "The strategy sets out what planned uses of AI need from data."}
+      - {id: DAT-01.3, applies: core, text: "The strategy sets out the actions and funding to meet those needs."}
+      - {id: DAT-01.4, applies: core, text: "An approved data architecture covers how data used by AI is taken in, stored, organised and maintained."}
+      - {id: DAT-01.5, applies: core, text: "Shared definitions are in place for the data used by AI."}
+    questions:
+      - "Does the data strategy say what your planned uses of AI need from data?"
+      - "Which data gaps are holding back AI today, and who is closing them?"
+      - "When the AI roadmap changes, how does the data strategy change with it?"
+    evidence:
+      - "The approved data strategy, with the sections covering AI needs"
+      - "A data action plan or roadmap linked to the AI roadmap, with owners and progress"
+      - "The approved data architecture"
+    guidance:
+      steps:
+        - "Gather what the planned uses of AI need from data, drawing on the AI strategy (STR-01) and roadmap (STR-06)."
+        - "Compare those needs with the data held today and list the gaps."
+        - "Set out actions and funding to close the gaps in the data strategy, and get it approved with an owner and review date."
+        - "Document a data architecture showing how data used by AI is taken in, stored, organised and maintained, with shared definitions for key terms, and get it approved."
+      pitfalls:
+        - "Writing the data strategy in general terms without naming the AI uses it serves."
+        - "Agreeing actions with no funding attached."
+      artefacts:
+        - "Data strategy with AI needs section"
+        - "Data architecture diagram and description"
+        - "Shared data definitions list"
+    owner: {accountable: data_owner, contributors: [executive_sponsor, ai_governance_lead, delivery_lead]}
+    lifecycle: [strategy, design]
+    applicability: core
+    dependencies: [STR-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: DAT-02
+    title: Data ownership and stewardship
+    objective: >
+      Every data set used by AI has a named accountable owner and day-to-day stewards who
+      understand the data and look after it.
+    rationale: >
+      Decisions about whether data can be used for AI, whether it is good enough and who may
+      see it need someone with authority to make them. Without named owners and stewards these
+      questions go unanswered, or are answered by whoever happens to be building the system.
+    levels:
+      1: "Ownership of data is unclear; system administrators or project teams make decisions about data by default."
+      2: "Some important data sets have named owners, but stewardship is informal and data used by AI is not consistently covered."
+      3: "Every data set used by AI has a named owner and steward, recorded centrally, with defined responsibilities for approving use, quality and access."
+      4: "Coverage of ownership and stewardship is measured, gaps are filled within a set time, and owners are held to their responsibilities through regular review."
+      5: "Owners and stewards actively shape how their data is used for AI, and the arrangements are improved from experience of where decisions were slow or missed."
+    criteria:
+      - {id: DAT-02.1, applies: core, text: "Every data set used by AI has a named owner and a named steward."}
+      - {id: DAT-02.2, applies: core, text: "Owners and stewards are recorded in a central record."}
+      - {id: DAT-02.3, applies: core, text: "Owner and steward responsibilities for approving use, quality and access are defined."}
+    questions:
+      - "For the data a given use of AI depends on, who is the owner and who looks after it day to day?"
+      - "What can the owner decide, and what must they be asked about before the data is used for AI?"
+      - "What happens to ownership when the owner changes role or the data set changes?"
+    evidence:
+      - "A register of data owners and stewards covering data used by AI"
+      - "Role descriptions or terms of reference setting out owner and steward responsibilities"
+      - "Examples of owners approving or declining a use of their data"
+    guidance:
+      steps:
+        - "List every data set used by AI, starting from the AI inventory (GOV-06)."
+        - "Name an accountable owner and a day-to-day steward for each data set."
+        - "Write down what owners and stewards are responsible for, including approving use, quality and access."
+        - "Record owners and stewards in one central place, such as the data catalogue (DAT-04), and keep it current when people move."
+      pitfalls:
+        - "Naming a team or system as owner rather than a person."
+        - "Giving people the title without the time or authority to do the job."
+      artefacts:
+        - "Data owner and steward register"
+        - "Role descriptions for data owner and steward"
+    owner: {accountable: data_owner, contributors: [ai_governance_lead, business_owner]}
+    lifecycle: [design, acquire_build, operate, retire]
+    applicability: core
+    dependencies: []
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: DAT-03
+    title: Data quality fit for purpose
+    objective: >
+      The quality of data used by each AI system is assessed against what that use needs, and
+      shortfalls are fixed or their effects managed before and during live use.
+    rationale: >
+      AI reproduces the gaps, errors and skews in its data, often at scale and with confidence.
+      Quality is relative to the use: data adequate for monthly reporting may be unfit for an
+      automated decision about an individual.
+    levels:
+      1: "Data quality is assumed; problems are found when outputs look wrong."
+      2: "Quality is checked for some uses or some data sets, without agreed measures or a link to what the AI use needs."
+      3: "Quality requirements are set for each use of AI, data is assessed against them before and during use, and shortfalls are owned and remediated or mitigated."
+      4: "Quality measures are tracked over time for data used by AI, falls below threshold trigger action, and the effect of quality on AI outputs is understood."
+      5: "Quality issues are fixed at source, and requirements and checks are refined from evidence of which quality problems most affected AI outcomes."
+    criteria:
+      - {id: DAT-03.1, applies: core, text: "Quality requirements, including relevance and representativeness for the intended purpose, are set for each use of AI."}
+      - {id: DAT-03.2, applies: core, text: "Data is assessed against those requirements before use."}
+      - {id: DAT-03.3, applies: core, text: "Data is reassessed against those requirements at intervals during use."}
+      - {id: DAT-03.4, applies: core, text: "Each quality shortfall has an owner and a remediation or mitigation plan."}
+    questions:
+      - "What quality does this use of AI need from its data, and who decided that?"
+      - "When was the data last assessed against those requirements, and what did it find?"
+      - "What happens when data quality drops while the system is live?"
+    evidence:
+      - "Data quality requirements for a sample of uses of AI"
+      - "Data quality assessment results and the remediation actions that followed"
+    guidance:
+      steps:
+        - "For each use of AI, set quality requirements for its data, including relevance and representativeness for the intended purpose."
+        - "Assess the data against those requirements before use and record the result."
+        - "Reassess at set intervals while the AI is live."
+        - "Give every shortfall an owner and a plan to fix it or reduce its effect."
+      pitfalls:
+        - "Checking completeness and accuracy but not whether the data represents the people or cases the AI will meet."
+        - "Assessing quality once before launch and never again."
+      artefacts:
+        - "Data quality requirements per use"
+        - "Data quality assessment record"
+        - "Shortfall and remediation log"
+    owner: {accountable: data_owner, contributors: [delivery_lead, business_owner]}
+    lifecycle: [design, acquire_build, deploy, operate]
+    applicability: core
+    dependencies: [DAT-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: DAT-04
+    title: Finding and understanding data
+    objective: >
+      Data available for AI is catalogued and described well enough that people can find it,
+      understand what it means and its limits, and use it correctly.
+    rationale: >
+      Teams that cannot find suitable data either give up or use the wrong data. Descriptions of
+      meaning, coverage and known limits stop data being used for purposes it does not support,
+      which is a common cause of misleading AI outputs.
+    levels:
+      1: "Knowledge of what data exists sits with individuals; finding data means asking around."
+      2: "Some data sets are listed or documented, but descriptions are incomplete, out of date or held in separate places."
+      3: "A maintained catalogue describes data used or available for AI, including its owner, meaning, limits, conditions of use and sensitivity."
+      4: "Catalogue completeness and accuracy are measured, and use of the catalogue is tracked to show whether people find what they need."
+      5: "Catalogue entries are kept current largely as a by-product of normal data work, and descriptions are improved from feedback by the people using them."
+    criteria:
+      - {id: DAT-04.1, applies: core, text: "A maintained catalogue covers data used or available for AI."}
+      - {id: DAT-04.2, applies: core, text: "Each catalogue entry records the owner, meaning, coverage, known limits and conditions of use."}
+      - {id: DAT-04.3, applies: core, text: "Each catalogue entry records its sensitivity classification and whether it holds personal data."}
+    questions:
+      - "How would a team planning a new use of AI find out what data exists and whether they can use it?"
+      - "For a data set used by AI, where are its meaning, coverage and known limits written down?"
+      - "How do you know the catalogue is complete and current?"
+    evidence:
+      - "The data catalogue, with sample entries for data used by AI"
+      - "The process for adding and updating catalogue entries"
+    guidance:
+      steps:
+        - "Choose a catalogue tool or a simple shared register, and give it an owner."
+        - "Add every data set used or available for AI, recording owner, meaning, coverage, known limits and conditions of use."
+        - "Record each entry's sensitivity classification and whether it holds personal data."
+        - "Set a routine for owners or stewards (DAT-02) to keep entries current."
+      pitfalls:
+        - "Building a large catalogue that nobody maintains, so it goes out of date within months."
+        - "Leaving out known limits, which are what stop data being misused."
+      artefacts:
+        - "Data catalogue or register"
+        - "Catalogue entry template"
+    owner: {accountable: data_owner, contributors: [delivery_lead, ai_governance_lead]}
+    lifecycle: [design, acquire_build, operate]
+    applicability: core
+    dependencies: [DAT-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: DAT-05
+    title: Lawful and fair use of data
+    objective: >
+      Before data is used in an AI system, its use is confirmed as lawful, consistent with the
+      purpose for which it was collected, and fair to the people it describes.
+    rationale: >
+      Using existing data for AI is often a new purpose that the original basis for holding it
+      does not cover. Settling the lawful basis and fairness of each use before work starts
+      avoids systems that have to be withdrawn, and protects the people whose data is used.
+    levels:
+      1: "Data is used for AI wherever it is available; lawful basis and fairness are not considered."
+      2: "Data protection advice is sought for some uses, usually late or only for obviously personal data."
+      3: "Each use of data in AI has a lawful basis, purpose check and fairness consideration signed off before use, with data minimised and privacy techniques considered."
+      4: "These records are checked for completeness against the AI inventory, are revisited when the use or the data changes, and gaps are acted on."
+      5: "Lawful and fair use is designed in from the start of each use of AI, and the approach is refined from case outcomes, complaints and changes in law."
+    criteria:
+      - {id: DAT-05.1, applies: core, text: "Each use of data in AI has a record of its lawful basis, purpose compatibility check and fairness consideration."}
+      - {id: DAT-05.2, applies: core, text: "Each record is completed before use and signed off by the data owner with data protection advice."}
+      - {id: DAT-05.3, applies: core, text: "Data collected and processed for each use is limited to what the purpose needs."}
+      - {id: DAT-05.4, applies: core, text: "Wherever personal data is used, including to train or tune AI, privacy enhancing techniques such as minimisation, anonymisation or synthetic data are considered, informed by the impact assessment, and the decision is recorded with reasons."}
+      - {id: DAT-05.5, applies: core, text: "People whose data or inputs an AI system uses are told, accessibly, how they are used, accessed and stored, including any retraining and review by staff or suppliers."}
+      - {id: DAT-05.6, applies: core, text: "Individual rights requests about data used in AI are handled, including where personal data has been used to train a model."}
+    questions:
+      - "For a given use of AI, what is the lawful basis for using each data set, and where is it recorded?"
+      - "Was the data collected for a purpose compatible with this use?"
+      - "When is this checked again, for example when the system or its data changes?"
+    evidence:
+      - "Recorded decision on privacy enhancing techniques for each training or tuning data set that holds personal data"
+      - "Records of lawful basis, purpose compatibility and fairness for a sample of uses of AI"
+      - "Data protection advice or sign-off on those uses"
+      - "Notices telling people how their data and inputs are used, accessed and stored"
+    guidance:
+      steps:
+        - "Before each use of data in AI, record the lawful basis, a check that the use fits the purpose the data was collected for, and a fairness consideration, signed off by the data owner with data protection advice."
+        - "Limit the data collected and processed to what the purpose needs, and record the decision on privacy enhancing techniques such as minimisation, anonymisation or synthetic data, with reasons informed by the impact assessment (RSK-03)."
+        - "Tell people, in accessible language, how their data or inputs are used, accessed and stored, including any retraining and any review by staff or suppliers."
+        - "Set up a route to handle individual rights requests, including where personal data has been used to train a model."
+      pitfalls:
+        - "Seeking data protection advice only after the system is built."
+        - "Having no answer for a rights request about data already used to train a model."
+      artefacts:
+        - "Data use assessment template"
+        - "Privacy notice wording for AI uses"
+        - "Rights request procedure covering trained models"
+    owner: {accountable: data_owner, contributors: [risk_lead, business_owner, ai_governance_lead]}
+    lifecycle: [design, acquire_build, deploy, operate]
+    applicability: core
+    dependencies: [DAT-02, RSK-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: DAT-06
+    title: Records management for AI
+    objective: >
+      Retention and records rules cover what AI systems take in and produce, including prompts,
+      outputs and the decisions they supported, and are applied in practice.
+    rationale: >
+      AI creates new kinds of information that may need to be kept as evidence of a decision,
+      disclosed on request, or deleted on time. If records rules do not cover them, the
+      organisation can neither explain past decisions nor show it is not keeping data longer
+      than it should.
+    levels:
+      1: "No one has considered whether AI inputs and outputs are records; retention depends on product defaults."
+      2: "Some rules exist for some AI systems, but prompts, outputs and AI-supported decisions are not consistently covered."
+      3: "Records and retention rules cover AI inputs, prompts, outputs, supported decisions and system logs, and are applied to every use of AI."
+      4: "Application of the rules is checked, including retention settings in bought tools, and failures such as unretrievable records or late deletion are caught and fixed."
+      5: "Records handling for AI is largely automated, and the rules are refined from requests for information, audits and changes in how AI is used."
+    criteria:
+      - {id: DAT-06.1, applies: core, text: "Records and retention rules state how AI inputs, prompts, outputs and supported decisions are classified, kept, made retrievable and deleted."}
+      - {id: DAT-06.2, applies: core, text: "The rules cover system logs and keep them for at least as long as the law requires."}
+      - {id: DAT-06.3, applies: core, text: "The rules are applied to every use of AI."}
+    questions:
+      - "Are prompts and outputs from your AI tools treated as records, and under which rules?"
+      - "If asked to show how an AI-supported decision was reached a year ago, what could you retrieve?"
+      - "Who checks that retention settings in bought AI tools match your rules?"
+    evidence:
+      - "Retention schedule or records policy entries covering AI inputs, outputs and decisions"
+      - "Configuration records showing retention settings in AI tools"
+      - "Results of a retrieval or deletion check"
+      - "Retention settings for AI system logs"
+    guidance:
+      steps:
+        - "Extend the records and retention schedule to cover AI inputs, prompts, outputs and the decisions they supported."
+        - "Set for each how it is classified, how long it is kept, how it can be retrieved and how it is deleted."
+        - "Include system logs, kept at least as long as the law requires (see RSK-04 for the obligations)."
+        - "Apply the rules to every use of AI and check that retrieval works in practice."
+      pitfalls:
+        - "Keeping AI outputs but not the prompts or inputs that produced them, so decisions cannot be reconstructed."
+        - "Leaving supplier-held logs outside the rules."
+      artefacts:
+        - "AI records and retention schedule"
+        - "Retrieval test record"
+    owner: {accountable: data_owner, contributors: [risk_lead, delivery_lead, ai_governance_lead]}
+    lifecycle: [design, acquire_build, operate, retire]
+    applicability: core
+    dependencies: [DAT-02, RSK-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: DAT-07
+    title: Controlled access and sharing
+    objective: >
+      AI systems and their users can reach only the data they need for the agreed purpose, and
+      data is shared into and out of AI systems only under agreed rules.
+    rationale: >
+      AI systems are often given broad access to make them work quickly, and then surface data
+      to users who would never have been allowed to see it directly. Applying least privilege
+      and sharing rules to the AI system itself, not only to its users, keeps existing
+      permissions meaningful.
+    levels:
+      1: "AI systems are given whatever access makes them work; sharing happens without agreed rules."
+      2: "Access is restricted for some systems or data, but AI systems' own access is not reviewed and sharing rules are informal."
+      3: "Access to data by AI systems and users is limited to the agreed purpose and approved, sharing follows agreements, and live sensitive data in development is controlled."
+      4: "Access rights and sharing agreements for AI are reviewed on a set cycle, excess access is removed, and breaches of sharing rules are detected and acted on."
+      5: "Access and sharing controls for AI are applied automatically from data classification and purpose, and are refined from review findings."
+    criteria:
+      - {id: DAT-07.1, applies: core, text: "Access by each AI system and its users is limited to what the agreed purpose needs."}
+      - {id: DAT-07.2, applies: core, text: "Access by each AI system and its users is approved by the data owner."}
+      - {id: DAT-07.3, applies: core, text: "Sharing data with other systems or organisations follows documented agreements."}
+      - {id: DAT-07.4, applies: core, text: "A documented route exists for requesting access to data for AI work."}
+      - {id: DAT-07.5, applies: core, text: "Live personal or sensitive data is used in development, test or experimentation only with data owner approval."}
+      - {id: DAT-07.6, applies: core, text: "Live personal or sensitive data used in development, test or experimentation is minimised or protected."}
+    questions:
+      - "What data can this AI system reach, and could a user obtain through it something they could not see directly?"
+      - "Who approved that access, and when was it last reviewed?"
+      - "Where data is shared with another organisation or service for AI, what agreement covers it?"
+    evidence:
+      - "Access approvals and the latest access review for a sample of AI systems"
+      - "Data sharing agreements covering AI use"
+    guidance:
+      steps:
+        - "For each AI system, define the data it and its users need for the agreed purpose and limit access to that, with data owner approval."
+        - "Put sharing with other systems or organisations under documented agreements."
+        - "Publish a route for requesting access to data for AI work."
+        - "Require data owner approval before live personal or sensitive data is used in development, test or experimentation, and minimise or protect it when it is."
+      pitfalls:
+        - "Giving an AI system broad service account access because it is easier to set up."
+        - "Copying live data into test environments without approval."
+      artefacts:
+        - "Access approval record per AI system"
+        - "Data sharing agreement template"
+        - "Data access request form"
+    owner: {accountable: data_owner, contributors: [security_lead, delivery_lead]}
+    lifecycle: [design, acquire_build, deploy, operate, retire]
+    applicability: core
+    dependencies: [DAT-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: DAT-08
+    title: Provenance of training and test data
+    objective: >
+      For data used to train, tune or test AI, the organisation knows and records where it came
+      from, what rights it holds over it, and any limits on its use.
+    rationale: >
+      Data of unknown origin can carry rights the organisation does not hold, biases nobody can
+      trace, or restrictions that surface only after release. A recorded provenance lets these
+      questions be answered, and lets a model be rebuilt or withdrawn if a source turns out to
+      be unusable.
+    levels:
+      1: "Training and test data are gathered from wherever is convenient, and their origin is not recorded."
+      2: "Origin is recorded for some data sets, but rights, licences and limits are not consistently checked."
+      3: "For every data set used to train, tune or test AI, origin, rights, limits and preparation are recorded before use and linked to the models that used it."
+      4: "Provenance records are checked for completeness before release, and when a source's rights or limits change, affected models are identified and acted on."
+      5: "Provenance is captured automatically through data pipelines, and the approach is refined from audits, disputes and changes in rights or regulation."
+    criteria:
+      - {id: DAT-08.1, applies: core, text: "For every data set used to train, tune or test AI, the source, collection method, rights, licence terms and use limits are recorded before use."}
+      - {id: DAT-08.2, applies: core, text: "Each such data set is linked to the models that used it."}
+      - {id: DAT-08.3, applies: core, text: "The preparation and labelling steps applied to each such data set are recorded."}
+      - {id: DAT-08.4, applies: core, text: "Synthetic and augmented data are labelled as such, with a record of how they were generated and how their fitness was checked."}
+    questions:
+      - "For a model you train or tune, which data was used and where did each set come from?"
+      - "What rights do you hold over that data, and what limits apply to its use?"
+      - "If a source had to be withdrawn, could you identify every model that used it?"
+    evidence:
+      - "Provenance records for training and test data sets"
+      - "Licence or rights documentation for externally sourced data"
+      - "Links between data sets and the models or versions that used them"
+      - "Preparation, labelling and synthetic data records"
+    guidance:
+      steps:
+        - "Before any data set is used to train, tune or test AI, record its source, collection method, rights, licence terms and use limits."
+        - "Record the preparation and labelling steps applied to each data set."
+        - "Label synthetic and augmented data as such, and record how it was generated and how its fitness was checked."
+        - "Link each data set record to the models that used it, for example through the bill of materials (TEC-07)."
+      pitfalls:
+        - "Assuming data found online is free to use for training."
+        - "Recording provenance but not linking it to models, so the effect of a rights problem cannot be traced."
+      artefacts:
+        - "Data provenance record template"
+        - "Data set to model link register"
+    owner: {accountable: data_owner, contributors: [delivery_lead, risk_lead]}
+    lifecycle: [design, acquire_build, operate, retire]
+    applicability: core
+    dependencies: [DAT-04, DAT-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0

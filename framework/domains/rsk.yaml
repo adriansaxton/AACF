@@ -1,0 +1,478 @@
+# RSK: Risk, Ethics & Compliance
+# How much AI risk the organisation accepts, how it assesses risk and impact, and how it meets its legal and ethical duties.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+
+domain: RSK
+name: "Risk, Ethics & Compliance"
+summary: >
+  Sets out how the organisation decides how much AI risk it will accept, assesses the risks and
+  effects of each use of AI, and meets its legal, regulatory and ethical obligations. Assessment
+  should be proportionate: a quick check for low-risk use, and deeper work where people's rights,
+  safety or livelihoods could be affected.
+
+controls:
+
+  - id: RSK-01
+    title: AI risk appetite
+    objective: >
+      The board or equivalent has approved a statement of how much AI risk the organisation will
+      accept, broken down by kind of risk, and it is used in decisions.
+    rationale: >
+      Without a stated appetite, each approver applies their own tolerance, so similar uses get
+      different answers and nobody can say whether the organisation is taking too much risk or too
+      little. A board-approved appetite gives approvers a common reference and makes risk
+      acceptance a deliberate choice.
+    levels:
+      1: "No statement of AI risk appetite; tolerance depends on whoever is deciding."
+      2: "AI is mentioned in the general risk appetite, or a draft AI statement exists, but it does not distinguish kinds of risk or is not approved."
+      3: "A board-approved, owned AI risk appetite sets tolerances by kind of risk, has a review date and is referred to in approval decisions."
+      4: "Exposure across live and proposed uses is reported against the appetite, and decisions that exceed it are escalated and recorded."
+      5: "The appetite is recalibrated from evidence of outcomes, incidents and external change, and the board reviews whether it is enabling the intended use of AI."
+    criteria:
+      - {id: RSK-01.1, applies: core, text: "A board-approved AI risk appetite sets a tolerance for each relevant kind of risk, such as harm to people, legal, reputational and operational risk."}
+      - {id: RSK-01.2, applies: core, text: "The AI risk appetite has a named owner and a review date."}
+      - {id: RSK-01.3, applies: core, text: "Approval decisions on uses of AI refer to the risk appetite."}
+    questions:
+      - "Has the board approved a statement of how much AI risk the organisation will accept?"
+      - "Does it set different tolerances for different kinds of risk?"
+      - "How do approvers use it when deciding whether a use of AI can go ahead?"
+    evidence:
+      - "The approved AI risk appetite statement, with approval record and review date"
+      - "Approval records for uses of AI that refer to the appetite"
+      - "Risk reports comparing exposure with the appetite"
+    guidance:
+      steps:
+        - "Agree the kinds of AI risk that matter to the organisation, for example harm to people, legal, reputational and operational."
+        - "For each kind, write a tolerance statement saying what level of risk is acceptable, using the organisation's existing risk scale where possible."
+        - "Name an owner and review date, and get the appetite approved by the board or equivalent."
+        - "Add a reference to the appetite in AI approval templates so approvers must state how each decision fits it (see GOV-03)."
+      pitfalls:
+        - "Writing one overall tolerance that does not separate different kinds of risk."
+        - "Approving the appetite but never citing it in actual decisions."
+      artefacts:
+        - "AI risk appetite statement by kind of risk"
+        - "Approval template section referencing the appetite"
+    owner: {accountable: executive_sponsor, contributors: [risk_lead, ai_governance_lead]}
+    lifecycle: [strategy, design]
+    applicability: core
+    dependencies: [GOV-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: RSK-02
+    title: AI risk assessment method
+    objective: >
+      The organisation uses one consistent, documented method to assess the risks of each use of
+      AI, and the results feed its corporate risk management.
+    rationale: >
+      Different teams assessing AI risk in different ways produce results that cannot be compared
+      or added up. A single method, built into the existing risk process, lets the organisation see
+      its overall AI risk and makes sure the risks particular to AI are not missed.
+    levels:
+      1: "AI risk is assessed, if at all, by individual judgement with no common method."
+      2: "A method or checklist exists, but it is used in some areas only, does not cover risks particular to AI, or sits outside corporate risk management."
+      3: "A documented, proportionate method assesses every use of AI before approval and in live use, records treatment and residual risk, and feeds corporate risk registers."
+      4: "Assessments are quality checked, and the AI risk profile, including trends in residual risk, is reported to the oversight forum."
+      5: "The method is refined from incidents, near misses and assessment reviews, and its results are shown to predict where problems occur."
+    criteria:
+      - {id: RSK-02.1, applies: core, text: "A documented AI risk assessment method, proportionate to risk tier, covers risks particular to AI as well as general risks."}
+      - {id: RSK-02.2, applies: core, text: "Every use of AI is assessed with the method before approval."}
+      - {id: RSK-02.3, applies: core, text: "Each use of AI is assessed again during live use and on material change."}
+      - {id: RSK-02.4, applies: core, text: "Assessment results are recorded in the corporate risk registers."}
+      - {id: RSK-02.5, applies: core, text: "Each assessment records the treatment chosen for each risk and the controls applied, with the reasons for choosing them."}
+      - {id: RSK-02.6, applies: core, text: "Each assessment records the residual risk."}
+      - {id: RSK-02.7, applies: [GEN], text: "The method covers the recognised generative AI risk categories."}
+    questions:
+      - "How is the risk of a proposed use of AI assessed, and is the method the same across the organisation?"
+      - "Does the method cover risks particular to AI, such as wrong outputs, drift or misuse, alongside general ones?"
+      - "Where do assessment results go, and when is a use reassessed?"
+    evidence:
+      - "The documented risk assessment method and guidance"
+      - "A sample of completed assessments for recent uses of AI"
+      - "Corporate or departmental risk registers showing AI risks"
+      - "Risk treatment records showing the controls selected for each use and why"
+      - "Reassessment records for live uses, with residual risk recorded"
+    guidance:
+      steps:
+        - "Write a risk assessment method with depth scaled to risk tier, covering AI-specific risks (such as error, drift, misuse and opacity) as well as general ones, and the recognised risk categories for generative AI."
+        - "Require each assessment to record the treatment chosen for each risk, the controls applied with the reasons for choosing them, and the residual risk."
+        - "Apply the method to every use before approval, and again during live use and on material change."
+        - "Record results in the corporate risk registers using the organisation's standard scales."
+      pitfalls:
+        - "Assessing once at approval and never again as the use or its data changes."
+        - "Keeping AI risks in a separate register that corporate risk management never sees."
+      artefacts:
+        - "AI risk assessment method and template by tier"
+        - "AI risk catalogue including generative AI categories"
+        - "Treatment and controls record with reasons"
+    owner: {accountable: risk_lead, contributors: [ai_governance_lead, business_owner, security_lead]}
+    lifecycle: [design, acquire_build, deploy, operate]
+    applicability: core
+    dependencies: [RSK-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: RSK-03
+    title: Impact assessment before deployment
+    objective: >
+      Before a use of AI goes live, its likely effects on people and groups (including equality,
+      privacy, rights and safety) and on society and the environment are assessed to a depth that
+      matches its risk, and the findings are acted on.
+    rationale: >
+      Risk assessment looks at the risk to the organisation; impact assessment looks at what the
+      use of AI could do to the people it touches. Some harms, such as a group being treated less
+      favourably, only appear when someone asks that question directly and before the system is in
+      use.
+    levels:
+      1: "Effects on people are not assessed before go-live, or only after a complaint."
+      2: "Some impact assessment happens, for example for data protection, but equality, rights and safety are not covered consistently, or findings are not acted on."
+      3: "A proportionate impact assessment covering people, workforce, society and environment is signed off before each in-scope use goes live, kept current, and its mitigations tracked."
+      4: "Completion and quality of impact assessments are checked, assessments are revisited after significant change, and actual effects in live use are compared with what was predicted."
+      5: "Impact assessment shapes design from the start, and the method is improved from evidence of effects it missed."
+    criteria:
+      - {id: RSK-03.1, applies: core, text: "Impact assessments, proportionate to risk, cover equality, privacy (including sensitive inferences about people), rights and safety."}
+      - {id: RSK-03.2, applies: core, text: "Impact assessments cover effects on the workforce: workload, working conditions, skills and progression."}
+      - {id: RSK-03.3, applies: core, text: "Impact assessments cover wider societal and environmental effects."}
+      - {id: RSK-03.4, applies: core, text: "An impact assessment is completed and signed off before each in-scope use of AI goes live."}
+      - {id: RSK-03.5, applies: core, text: "Each impact assessment is kept current while the use is live."}
+      - {id: RSK-03.6, applies: core, text: "Mitigations identified in impact assessments are tracked."}
+      - {id: RSK-03.7, applies: core, text: "For public-facing AI assistants, the impact assessment also covers over-reliance and people treating the AI as human."}
+    questions:
+      - "Which uses of AI need an impact assessment before going live, and who decides?"
+      - "What does the assessment cover beyond data protection?"
+      - "Can you show a case where an impact assessment changed the design or stopped a deployment?"
+    evidence:
+      - "The impact assessment template and guidance on proportionality"
+      - "Completed and signed-off assessments for recent deployments"
+      - "Records of mitigations and their completion"
+      - "Impact assessment reviews during live use"
+    guidance:
+      steps:
+        - "Build an impact assessment template covering equality, privacy (including sensitive inferences about people), rights, safety, effects on the workforce (workload, working conditions, skills and progression) and wider societal and environmental effects."
+        - "Add questions on over-reliance and people treating the AI as human for public-facing assistants."
+        - "Scale the depth of assessment to risk and require sign-off before every in-scope use goes live."
+        - "Track mitigations to completion and review the assessment during use and when the use changes."
+      pitfalls:
+        - "Treating the impact assessment as a form to finish rather than findings to act on."
+        - "Leaving out effects on the organisation's own staff."
+      artefacts:
+        - "AI impact assessment template with proportionate depth"
+        - "Mitigation tracker"
+    owner: {accountable: business_owner, contributors: [risk_lead, data_owner, ai_governance_lead]}
+    lifecycle: [design, acquire_build, deploy]
+    applicability: core
+    dependencies: [RSK-02, DAT-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: RSK-04
+    title: Legal and regulatory obligations
+    objective: >
+      The organisation keeps a current view of the laws, regulations and standards that apply to
+      its use of AI, with an owner for each obligation and a way of checking it is met.
+    rationale: >
+      Obligations on AI come from many places at once: data protection, equality, sector
+      regulation, consumer and employment law, and new AI-specific rules. Without one maintained
+      view, obligations are missed or each team interprets them differently.
+    levels:
+      1: "No view of which obligations apply to AI use; legal advice is sought only when a problem arises."
+      2: "Some obligations are known and tracked, typically data protection, but the view is incomplete, unowned or out of date."
+      3: "An owned, reviewed register of AI obligations guides design and approval, and each use records its regulatory role, duties, regulator contact and how obligations are shared."
+      4: "Compliance with each obligation is checked and reported, and new or changed obligations are assessed for effect within a set time."
+      5: "The organisation anticipates regulatory change, shapes its practice ahead of it, and contributes to consultations where it has relevant experience."
+    criteria:
+      - {id: RSK-04.1, applies: core, text: "A maintained register lists the obligations that apply to the organisation's use of AI, with a named owner for each."}
+      - {id: RSK-04.2, applies: core, text: "The register of obligations is reviewed on a set cycle."}
+      - {id: RSK-04.3, applies: core, text: "The register is used when uses of AI are designed and approved."}
+      - {id: RSK-04.4, applies: core, text: "Legal advice is taken when each use of AI is designed and when it changes materially."}
+      - {id: RSK-04.5, applies: core, text: "For each use of AI, the organisation's regulatory role, for example provider or deployer, is recorded and checked again when the purpose, branding or system changes."}
+      - {id: RSK-04.6, applies: core, text: "For each use of AI, the reporting duties that follow from that role are recorded, with a named owner for contact with regulators."}
+      - {id: RSK-04.7, applies: core, text: "For each use of AI, a record shows how legal obligations are split between suppliers, the organisation and users."}
+      - {id: RSK-04.8, applies: core, text: "Each party is told its share of the legal obligations for a use of AI."}
+    questions:
+      - "Which laws, regulations and standards apply to your use of AI, and where is that recorded?"
+      - "Who owns each obligation, and how do you know it is being met?"
+      - "How would you find out about a new obligation, and how quickly would you act on it?"
+    evidence:
+      - "The obligations register, with owners and review dates"
+      - "Compliance check records or legal sign-off for recent uses of AI"
+      - "Regulatory role recorded for each use, with re-check records and the named regulator contact"
+    guidance:
+      steps:
+        - "Build a register of laws, regulations and standards that apply to AI use, name an owner for each obligation and set a review cycle."
+        - "For each use, record the organisation's regulatory role (for example provider or deployer), the reporting duties that follow and a named owner for contact with regulators, and re-check the role when purpose, branding or the system changes."
+        - "Record for each use how legal obligations are split between suppliers, the organisation and users, and tell each party its share."
+        - "Make the register part of design and approval, with legal advice taken at design and on material change."
+      pitfalls:
+        - "Treating the register as a legal team document that delivery teams never use."
+        - "Missing a change of regulatory role when a bought system is rebranded or repurposed."
+      artefacts:
+        - "AI obligations register with owners"
+        - "Per-use regulatory role and responsibility split record"
+    owner: {accountable: risk_lead, contributors: [ai_governance_lead, data_owner, security_lead]}
+    lifecycle: [strategy, design, acquire_build, operate]
+    applicability: core
+    dependencies: [GOV-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: RSK-05
+    title: Ethical principles in practice
+    objective: >
+      The organisation has adopted ethical principles for AI and applies them through a working
+      review route that can change or stop a use of AI.
+    rationale: >
+      Many organisations publish principles that have no effect on what they build or buy.
+      Principles only matter when there is a route that tests real proposals against them and has
+      the authority to require changes.
+    levels:
+      1: "No adopted principles; ethical questions are left to individuals."
+      2: "Principles are published, but there is no route for applying them to real cases, or the route is advisory and rarely used."
+      3: "Adopted ethical principles are applied through a working review route with triggers and authority, used at the outset of each use and for recorded trade-offs."
+      4: "Review outcomes are tracked to completion, the route's use and effect are reported, and cases that should have been reviewed but were not are identified."
+      5: "Principles and the review route are refined from case experience and stakeholder feedback, and reasoning from past cases is reused as guidance."
+    criteria:
+      - {id: RSK-05.1, applies: core, text: "Adopted ethical principles for AI are applied through a defined review route with clear triggers."}
+      - {id: RSK-05.2, applies: core, text: "The review route has authority to require changes to a use of AI."}
+      - {id: RSK-05.3, applies: core, text: "The review route records its outcomes."}
+      - {id: RSK-05.4, applies: core, text: "The review route is used across the organisation."}
+      - {id: RSK-05.5, applies: core, text: "Each use of AI is assessed against the adopted principles at the outset, and the result informs its approval tier."}
+      - {id: RSK-05.6, applies: core, text: "Where principles conflict, the trade-off goes through the review route and is tested for necessity and proportionality."}
+      - {id: RSK-05.7, applies: core, text: "Each trade-off between principles is recorded with the alternatives considered and the reasons for the choice."}
+    questions:
+      - "What ethical principles has the organisation adopted for AI?"
+      - "Which proposals go to ethical review, and what can the review require?"
+      - "Can you give an example where ethical review changed or stopped a use of AI?"
+    evidence:
+      - "Record of trade-offs between principles, with alternatives and reasons"
+      - "The adopted principles and the terms of reference for the review route"
+      - "Records of ethical reviews and their outcomes"
+      - "Principles assessments at the outset and the approval tier they informed"
+    guidance:
+      steps:
+        - "Adopt a short set of ethical principles for AI and get them approved."
+        - "Set up a review route with clear triggers, recorded outcomes and authority to require changes or stop a use, and make it available across the organisation."
+        - "Assess each use against the principles at the outset and use the result to set its approval tier (GOV-03)."
+        - "Where principles conflict, send the trade-off through the review route, test it for necessity and proportionality, and record the alternatives considered and the reasons."
+      pitfalls:
+        - "Publishing principles with no route that can change or stop a use."
+        - "Resolving conflicts between principles informally, leaving no record of the trade-off."
+      artefacts:
+        - "Ethical principles statement"
+        - "Principles screening checklist for new uses"
+        - "Ethics review record including trade-off analysis"
+    owner: {accountable: ai_governance_lead, contributors: [risk_lead, business_owner, people_lead]}
+    lifecycle: [strategy, design, operate]
+    applicability: core
+    dependencies: [GOV-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: RSK-06
+    title: Fairness and bias management
+    objective: >
+      Unfair bias is identified, tested for and reduced at each stage of a use of AI, from design
+      through to live operation.
+    rationale: >
+      AI can reproduce or amplify unfairness present in its data, its design or how it is used,
+      and the effect often falls on groups already at a disadvantage. Bias needs managing across
+      the lifecycle because it can appear after go-live as data and users change.
+    levels:
+      1: "Bias is not considered, or is assumed not to be present."
+      2: "Bias is considered for some uses, usually at design, but testing is informal and live use is not checked."
+      3: "A documented fairness approach defines groups and measures for each in-scope use, tests before release, records mitigations and proxies, and monitors fairness in live use."
+      4: "Fairness breaches in live use lead to investigation, root-cause analysis and action, and fairness results are reported to the oversight forum."
+      5: "Fairness methods are improved from monitoring results and external developments, and lessons are shared across uses."
+    criteria:
+      - {id: RSK-06.1, applies: core, text: "A documented approach to fairness and bias is applied across the organisation."}
+      - {id: RSK-06.2, applies: core, text: "For each in-scope use of AI, the groups at risk and the fairness measures that matter are defined."}
+      - {id: RSK-06.3, applies: core, text: "Each in-scope use of AI is tested for fairness before release."}
+      - {id: RSK-06.4, applies: core, text: "Fairness mitigations are recorded for each in-scope use of AI."}
+      - {id: RSK-06.5, applies: core, text: "Fairness is monitored in live use through MON-02."}
+      - {id: RSK-06.6, applies: core, text: "Proxies for protected characteristics are identified, and any use of them is recorded with reasons."}
+    questions:
+      - "For a given use of AI, which groups could be treated unfairly, and how was that worked out?"
+      - "What testing for bias is done before release, and against what measures?"
+      - "How would you know if a live use started producing unfair results?"
+    evidence:
+      - "The documented approach to fairness and bias"
+      - "Bias test results and mitigation records for recent uses"
+      - "Live fairness monitoring reports"
+    guidance:
+      steps:
+        - "Write a fairness approach for the organisation explaining how groups at risk are identified, how fairness measures are chosen and how testing is done."
+        - "For each in-scope use, define the groups at risk and the fairness measures that matter, and identify proxies for protected characteristics, recording any use of them with reasons."
+        - "Test against the chosen measures before release and record the mitigations applied."
+        - "Hand the fairness measures to live monitoring (MON-02) so they are tracked in use."
+      pitfalls:
+        - "Testing only overall accuracy, which can hide poor results for smaller groups."
+        - "Removing protected characteristics but ignoring proxies that carry the same information."
+      artefacts:
+        - "Fairness approach document"
+        - "Per-use fairness test plan and results record"
+    owner: {accountable: business_owner, contributors: [data_owner, delivery_lead, risk_lead]}
+    lifecycle: [design, acquire_build, deploy, operate]
+    applicability: core
+    dependencies: [RSK-03]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: RSK-07
+    title: Human oversight proportionate to risk
+    objective: >
+      Each use of AI has human oversight designed to match its risk, stating who reviews, at which
+      point, and with what authority to override or stop it.
+    rationale: >
+      Putting a person in the loop does not help if they lack the time, information or authority to
+      disagree with the system. Oversight has to be designed for each use so that human control is
+      real where it is needed and not imposed as a formality where it adds nothing.
+    levels:
+      1: "Oversight is not designed; whether anyone checks AI outputs depends on the individual."
+      2: "Some uses have a human review step, but its purpose, timing and authority are not defined, or reviewers lack the information to challenge outputs."
+      3: "Every use of AI has a documented, risk-based oversight model with trained reviewers, tested before go-live to show they can detect problems and intervene."
+      4: "Oversight is checked in practice, for example override rates and review times, and signs of rubber-stamping or overload are acted on."
+      5: "Oversight designs are refined from evidence of where human review adds value and where it does not."
+    criteria:
+      - {id: RSK-07.1, applies: core, text: "For every use of AI, a documented oversight model, set according to risk, states who reviews, when, with what information, and their authority to override or stop the use."}
+      - {id: RSK-07.2, applies: core, text: "Reviewers are trained for their oversight role."}
+      - {id: RSK-07.3, applies: core, text: "The oversight design is tested before go-live to show that reviewers can detect problems and intervene in time."}
+      - {id: RSK-07.4, applies: [AGT], text: "Agent actions that are consequential or hard to reverse need a person's approval before they take effect, and the oversight model lists which actions these are."}
+    questions:
+      - "For a given use of AI, who reviews its outputs, at what point, and can they override it?"
+      - "How was the level of oversight chosen, and how does it relate to the risk?"
+      - "How do you know reviewers are genuinely checking rather than approving by default?"
+    evidence:
+      - "List of agent actions that need a person's approval, with approval records"
+      - "Documented oversight models for in-scope uses of AI"
+      - "Training records for people in oversight roles"
+      - "Override and review data from live uses"
+    guidance:
+      steps:
+        - "Define a small set of oversight models (for example a person decides, a person reviews before action, a person monitors) and link each to risk tiers."
+        - "For every use, document the chosen model, who reviews, when, with what information, and their authority to override or stop."
+        - "Train reviewers for their role, including the limits of the AI and the risk of over-trusting it (see PPL-05)."
+        - "Test the oversight design before go-live to show reviewers can detect problems and intervene in time."
+      pitfalls:
+        - "Naming a reviewer who lacks the time, information or authority to intervene."
+        - "Assuming oversight works without testing whether reviewers actually catch errors."
+      artefacts:
+        - "Oversight model catalogue linked to risk tiers"
+        - "Per-use oversight design record"
+        - "Oversight test scenario pack"
+    owner: {accountable: business_owner, contributors: [delivery_lead, risk_lead, people_lead]}
+    lifecycle: [design, deploy, operate]
+    applicability: core
+    dependencies: [RSK-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: RSK-08
+    title: Explanation and challenge for affected people
+    objective: >
+      People affected by decisions that AI supports can find out that AI was involved, get an
+      explanation they can understand, and challenge the outcome through a route that can change it.
+    rationale: >
+      People are entitled to understand decisions made about them, and some have legal rights to do
+      so. A working route to explanation and challenge also corrects individual errors and shows the
+      organisation where a system is going wrong.
+    levels:
+      1: "Affected people are not told AI was involved and have no specific route to question the outcome."
+      2: "Explanations or challenge are available for some uses, or on request only, and the route may not be able to change outcomes."
+      3: "People know when AI is involved in decisions about them or in their interactions, can get a meaningful explanation, and can challenge outcomes through human review."
+      4: "Requests for explanation and challenges are logged, outcomes and response times are measured, and patterns are fed back to the owners of the use."
+      5: "Explanation and challenge are designed in from the start, and the route is improved from the experience of the people who use it."
+    criteria:
+      - {id: RSK-08.1, applies: core, text: "For every use of AI that supports decisions about people, those people are told that AI was involved."}
+      - {id: RSK-08.2, applies: core, text: "People affected by such a decision can obtain a meaningful explanation of it."}
+      - {id: RSK-08.3, applies: core, text: "People affected by such a decision can challenge the outcome through a defined route with human review and authority to change it."}
+      - {id: RSK-08.4, applies: core, text: "People are told when they are interacting with AI, at first contact, clearly and accessibly, unless it is obvious."}
+      - {id: RSK-08.5, applies: [HIR], text: "People are told when they are exposed to emotion recognition or biometric categorisation, at first contact, clearly and accessibly, unless it is obvious."}
+    questions:
+      - "How do people know when AI has contributed to a decision about them?"
+      - "What explanation can they get, and is it one a non-specialist can understand?"
+      - "How can they challenge an outcome, and how often do challenges succeed?"
+    evidence:
+      - "Notices or communications telling people AI is involved"
+      - "The documented explanation and challenge route"
+      - "A log of challenges and their outcomes"
+      - "Notices shown to people at first contact with AI services"
+    guidance:
+      steps:
+        - "Identify every use of AI that supports decisions about people."
+        - "For each, write a clear notice telling people AI was involved, and set up a way for them to obtain a meaningful explanation."
+        - "Set up a challenge route with human review and authority to change the outcome."
+        - "Tell people clearly and accessibly at first contact when they are interacting with AI or are exposed to emotion recognition or biometric categorisation, unless it is obvious."
+      pitfalls:
+        - "Offering an explanation that describes the technology but not why this person got this outcome."
+        - "Routing challenges to staff who cannot change the decision."
+      artefacts:
+        - "AI involvement notice template"
+        - "Explanation and challenge procedure"
+    owner: {accountable: business_owner, contributors: [risk_lead, data_owner, ai_governance_lead]}
+    lifecycle: [design, deploy, operate]
+    applicability: core
+    dependencies: [RSK-07, DAT-06]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: RSK-09
+    title: Risk of AI from suppliers
+    objective: >
+      Before AI in a bought product or service is used, and when it changes, the organisation
+      assesses what it does, how it uses data, how the supplier changes the model, and what
+      assurance the supplier offers.
+    rationale: >
+      Much of an organisation's AI arrives inside products it has bought, often switched on by a
+      supplier update. The organisation carries the risk of that AI even though it did not build
+      it, so it needs to understand it as well as it would its own.
+    levels:
+      1: "AI in bought products is not identified or assessed; it is accepted as part of the product."
+      2: "Some suppliers are asked about AI, but questions are ad hoc, cover only new purchases, or miss updates that add AI to existing products."
+      3: "Standard due diligence covers AI in new and existing bought products before use and at intervals, feeds each risk assessment, and keeps unregistered high-risk AI out."
+      4: "Gaps in supplier assurance are tracked to closure and reported, and reassessment results inform renewal and purchasing decisions."
+      5: "Due diligence is refined from incidents and supplier experience, and the organisation's requirements shape what suppliers offer."
+    criteria:
+      - {id: RSK-09.1, applies: core, text: "A standard due diligence process covers AI in both new and existing bought products and services."}
+      - {id: RSK-09.2, applies: core, text: "The due diligence covers function, data use, model change, content safeguards, energy use and wider sustainability practice, and supplier assurance."}
+      - {id: RSK-09.3, applies: core, text: "Before AI from a supplier is used, its regulatory status is confirmed and the provider's instructions for use are obtained."}
+      - {id: RSK-09.4, applies: core, text: "Due diligence confirms that AI from others is consistent with the organisation's adopted principles."}
+      - {id: RSK-09.5, applies: core, text: "Due diligence results feed the risk assessment for each use of AI."}
+      - {id: RSK-09.6, applies: core, text: "Supplier AI risk is reassessed on significant change and at set intervals."}
+      - {id: RSK-09.7, applies: [HIR], text: "High-risk AI that is not registered where the law requires it is not used, and the provider or distributor is told."}
+    questions:
+      - "How do you find out whether a bought product or service contains AI, including after an update?"
+      - "What do you ask suppliers about how their AI works, uses your data and changes over time?"
+      - "What assurance do suppliers provide, and what happens when it is not enough?"
+    evidence:
+      - "The supplier AI due diligence questionnaire or process"
+      - "Completed due diligence records for recent purchases and updates"
+      - "Regulatory status checks and provider instructions for use, held for bought AI"
+    guidance:
+      steps:
+        - "Build a due diligence questionnaire covering function, data use, model change, content safeguards, energy use and wider sustainability practice, assurance, and consistency with the adopted principles (RSK-05)."
+        - "Apply it to AI in new and existing products and services, confirming regulatory status and obtaining the provider's instructions for use before use."
+        - "Do not use high-risk AI that is not registered where the law requires it, and tell the provider or distributor."
+        - "Feed the results into the risk assessment for each use (RSK-02) and reassess on significant change and at set intervals."
+      pitfalls:
+        - "Checking only new purchases and missing AI added to existing products by supplier updates."
+        - "Accepting supplier marketing claims as assurance without asking for evidence."
+      artefacts:
+        - "Supplier AI due diligence questionnaire"
+        - "Supplier AI reassessment schedule"
+    owner: {accountable: risk_lead, contributors: [delivery_lead, security_lead, data_owner]}
+    lifecycle: [acquire_build, operate]
+    applicability: core
+    dependencies: [RSK-02, GOV-06]
+    mappings: []
+    status: reviewed
+    version: 1.0.0

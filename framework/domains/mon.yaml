@@ -1,0 +1,470 @@
+# MON: Measure & Improve
+# How the organisation measures, monitors and assures AI in live use, and uses what it learns
+# to improve both individual uses of AI and its overall approach.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+
+domain: MON
+name: "Measure & Improve"
+summary: >
+  Covers what happens once AI is in use: setting measures before go-live, monitoring live
+  behaviour, tracking whether benefits arrive, handling non-security incidents
+  and notifying serious ones, independent
+  assurance, listening to users, re-running this assessment and reporting to leadership. Without
+  measurement the organisation cannot tell whether AI is working, causing harm or worth its cost.
+
+controls:
+
+  - id: MON-01
+    title: Performance measures and baselines
+    objective: >
+      Each use of AI has agreed performance measures and a recorded baseline of current
+      performance before it goes live.
+    rationale: >
+      Without a baseline taken before go-live, nobody can show later whether AI made things
+      better or worse. Agreeing measures in advance also stops success being defined after the
+      event to fit whatever happened.
+    levels:
+      1: "Measures are not set; success is judged by impression or anecdote."
+      2: "Some uses of AI have measures, but they are set after go-live, lack a baseline or cover only technical performance."
+      3: "Every use of AI has owned measures of accuracy, outcome, effect on people and reliance, with baselines set before go-live and proxies for risks not yet measurable."
+      4: "Measures and baselines are checked at stage gates, and uses without them are stopped or held until they are in place."
+      5: "Measures are refined from experience of which ones actually predicted success or problems, and common measures allow comparison across uses."
+    criteria:
+      - {id: MON-01.1, applies: core, text: "Every use of AI has agreed measures covering accuracy, service outcome and effect on people, with a named owner."}
+      - {id: MON-01.2, applies: core, text: "A baseline for each measure is recorded before go-live."}
+      - {id: MON-01.3, applies: core, text: "Measures include reliance, meaning how often outputs are accepted, checked or overridden, compared with measured accuracy so that overreliance and underreliance show up."}
+      - {id: MON-01.4, applies: core, text: "Risks that cannot yet be measured are recorded, with the indicators or proxies used to track them."}
+      - {id: MON-01.5, applies: core, text: "Where the environmental footprint of a use is material, measures include it, such as energy, compute and water, with a baseline."}
+    questions:
+      - "For a recent use of AI, what measures were agreed and when?"
+      - "What was the baseline before go-live, and how was it measured?"
+      - "Do the measures cover effects on people as well as technical performance?"
+    evidence:
+      - "Measure definitions and baseline data for a sample of uses of AI"
+      - "Stage gate records showing measures were checked"
+      - "Recorded risks that cannot yet be measured, with their proxy indicators"
+      - "Reliance measures compared with accuracy for live uses"
+    guidance:
+      steps:
+        - "For each use of AI, agree measures with a named owner covering accuracy, service outcome and effect on people, plus environmental footprint where it is material."
+        - "Include a reliance measure, such as how often outputs are accepted, checked or overridden, and plan to compare it with measured accuracy."
+        - "Record a baseline for every measure before go-live, using current performance of the process the AI will support."
+        - "List any risks that cannot yet be measured and set the indicators or proxies you will use to track them."
+      pitfalls:
+        - "Measuring only technical accuracy and missing the effect on people and services."
+        - "Setting measures after go-live, when no baseline can be taken."
+        - "Ignoring reliance, so people accepting wrong outputs without checking goes unseen."
+      artefacts:
+        - "Measures and baseline template for each use"
+        - "Unmeasurable risks and proxies list"
+    owner: {accountable: business_owner, contributors: [delivery_lead, data_owner]}
+    lifecycle: [design, acquire_build, deploy]
+    applicability: core
+    dependencies: [POR-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: MON-02
+    title: Monitoring live AI
+    objective: >
+      Live AI is monitored against its measures for accuracy, drift, misuse and unexpected
+      behaviour, with thresholds that trigger action.
+    rationale: >
+      AI that worked at go-live can degrade as data, users or the underlying model change, often
+      without any visible failure. Continuous monitoring with set thresholds catches this before
+      it causes harm.
+    levels:
+      1: "Live AI is not monitored; problems are found when users complain."
+      2: "Some uses are monitored, usually for availability or cost, without checks on output quality or thresholds for action."
+      3: "Every live use of AI is logged and monitored against thresholds, operating conditions, fairness measures and provider instructions, with named people to respond to breaches."
+      4: "Monitoring results are reviewed on a set cycle, threshold breaches are tracked to resolution, and monitoring coverage is itself checked."
+      5: "Monitoring methods and thresholds are tuned from incident history and changes in models and use, and early warning signs are acted on before thresholds are reached."
+    criteria:
+      - {id: MON-02.1, applies: core, text: "Every live use of AI is monitored for accuracy, drift, misuse and unexpected behaviour against defined thresholds."}
+      - {id: MON-02.2, applies: core, text: "Event logging is enabled for each use of AI while it is in use."}
+      - {id: MON-02.3, applies: core, text: "Named people are responsible for responding when thresholds are crossed."}
+      - {id: MON-02.4, applies: core, text: "AI provided by others is monitored against the provider's instructions for use."}
+      - {id: MON-02.5, applies: core, text: "Each use is monitored against its defined operating conditions."}
+      - {id: MON-02.6, applies: core, text: "Each use is monitored against the fairness measures set under RSK-06."}
+      - {id: MON-02.7, applies: core, text: "Each use is monitored for personal or sensitive data appearing in its outputs."}
+      - {id: MON-02.8, applies: [AGT], text: "Every action an agent takes in another system is logged with what triggered it, and a named person can stop each agent at once."}
+    questions:
+      - "How do you know a live use of AI is still performing as it did at go-live?"
+      - "What thresholds trigger action, and who acts?"
+      - "How would you detect AI being used for purposes it was not approved for?"
+    evidence:
+      - "Agent action logs, and a tested way to stop each agent"
+      - "Monitoring dashboards or reports for live uses of AI"
+      - "Records of threshold breaches and the action taken"
+      - "Event logs for live uses of AI, with their retention period"
+      - "Monitoring against operating conditions"
+      - "Live fairness and sensitive data monitoring results"
+    guidance:
+      steps:
+        - "For each live use of AI, set thresholds for accuracy, drift, misuse and unexpected behaviour, using the measures from MON-01, the operating conditions and the fairness measures from RSK-06."
+        - "Turn on event logging for each live use and add checks for personal or sensitive data appearing in outputs."
+        - "For AI provided by others, add monitoring against the provider's instructions for use."
+        - "Name the people who respond when a threshold is crossed and write down what they do."
+      pitfalls:
+        - "Monitoring availability and cost only, with no check on the quality of outputs."
+        - "Setting thresholds with no named person to act when they are crossed."
+        - "Assuming a supplier monitors its AI on your behalf."
+      artefacts:
+        - "Monitoring plan with thresholds for each use"
+        - "Threshold response guide"
+        - "Event log retention setting"
+    owner: {accountable: delivery_lead, contributors: [business_owner, data_owner]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [MON-01, TEC-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: MON-03
+    title: Benefits tracking
+    objective: >
+      Whether the expected benefits of AI arrive is tracked and reported, for each use and across
+      the portfolio, and shortfalls are acted on.
+    rationale: >
+      Benefits stated in a business case are forecasts, and many do not arrive in full or arrive
+      later than planned. Tracking them shows which uses are worth continuing and keeps future
+      business cases realistic.
+    levels:
+      1: "Benefits are not tracked after approval."
+      2: "Benefits are reviewed for some uses, usually once and informally, and not totalled across the portfolio."
+      3: "A named owner tracks each use's benefits against its business case on a set schedule, and results are reported across the portfolio."
+      4: "Benefit claims are checked against evidence, shortfalls trigger review of the use, and actual results are compared with forecasts."
+      5: "Actual benefit data is used to calibrate new business cases and the organisation-level value case, and the tracking method is refined from experience."
+    criteria:
+      - {id: MON-03.1, applies: core, text: "Benefits for each use of AI are tracked against its business case on a set schedule."}
+      - {id: MON-03.2, applies: core, text: "Each use has a named owner for tracking its benefits."}
+      - {id: MON-03.3, applies: core, text: "Benefits are reported across the portfolio."}
+    questions:
+      - "For a use of AI that has been live for some time, what benefits have actually been realised?"
+      - "Who tracks benefits, and how often?"
+      - "What happens when benefits fall short of the business case?"
+    evidence:
+      - "Benefits tracking records for a sample of uses of AI"
+      - "Portfolio benefits report comparing forecast and actual results"
+    guidance:
+      steps:
+        - "Take the expected benefits from each business case (POR-05) and record them with measures and dates."
+        - "Name an owner for benefits on each use and set a schedule for checking them."
+        - "Track actual benefits against the business case on that schedule."
+        - "Combine the results into a portfolio report that shows each use and the total."
+      pitfalls:
+        - "Checking benefits once soon after launch and never again."
+        - "Counting time saved without asking what that time is now used for."
+        - "Leaving benefits ownership with the delivery team, which moves on after go-live."
+      artefacts:
+        - "Benefits register for each use"
+        - "Portfolio benefits report template"
+    owner: {accountable: business_owner, contributors: [executive_sponsor, ai_governance_lead]}
+    lifecycle: [deploy, operate, retire]
+    applicability: core
+    dependencies: [MON-01, POR-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: MON-04
+    title: AI incidents and near misses
+    objective: >
+      AI incidents and near misses that are not security incidents, such as wrong outputs, harm
+      to people or misuse, are reported, investigated and learned from.
+    rationale: >
+      AI fails in ways that ordinary incident processes often do not recognise, such as
+      confident but wrong answers or unfair treatment of some groups. Recording near misses as
+      well as incidents shows patterns early, while the cost is still low.
+    levels:
+      1: "AI incidents are handled as they arise, if they are recognised at all; nothing is recorded."
+      2: "Some AI incidents are logged in general systems, but there is no agreed definition, investigation method or record of near misses."
+      3: "A defined process, linked to security incident handling, covers reporting, triage, investigation and resolution of non-security AI incidents and near misses that staff can recognise."
+      4: "Incident and near miss trends are analysed and reported, and actions are tracked to completion."
+      5: "Lessons from incidents, including those reported by other organisations, routinely change designs, controls and training."
+    criteria:
+      - {id: MON-04.1, applies: core, text: "A defined process covers reporting, triage, investigation and resolution of non-security AI incidents and near misses."}
+      - {id: MON-04.2, applies: core, text: "A definition of an AI incident and a near miss is in place and staff understand it."}
+      - {id: MON-04.3, applies: core, text: "The process has a defined link to security incident handling."}
+    questions:
+      - "What counts as an AI incident here, and how would staff report one?"
+      - "Are near misses recorded as well as incidents?"
+      - "Can you show an AI incident that led to a change?"
+    evidence:
+      - "The AI incident process and definition"
+      - "The incident and near miss log, with investigations and actions"
+    guidance:
+      steps:
+        - "Write a plain definition of a non-security AI incident and near miss, with examples, and a process for reporting, triage, investigation and resolution that hands security cases to SEC-05."
+        - "Investigate each incident and near miss to its cause, record the resolution, and pass serious incidents to MON-09 for notification and any suspension."
+        - "Tell staff how to report, using the route for raising concerns (CUL-04), and keep a log of incidents and near misses."
+      pitfalls:
+        - "Recording only incidents that caused harm and ignoring near misses."
+        - "Leaving AI incidents in the general IT queue, where wrong or unfair outputs are not recognised."
+      artefacts:
+        - "AI incident definition and process"
+        - "Incident and near miss log"
+    owner: {accountable: ai_governance_lead, contributors: [business_owner, delivery_lead, risk_lead]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [GOV-05, CUL-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: MON-05
+    title: Independent assurance reviews
+    objective: >
+      Uses of AI are reviewed by people independent of their delivery, with the depth and
+      frequency of review proportionate to risk.
+    rationale: >
+      Teams that build or run a use of AI are not well placed to judge it objectively.
+      Independent review gives leaders confidence that controls work in practice, and directs
+      review effort to the uses that carry most risk.
+    levels:
+      1: "No independent review; delivery teams assure their own work."
+      2: "Independent reviews happen for occasional high-profile uses, without a defined basis for which uses are reviewed or how."
+      3: "Every use of AI gets independent review set by risk tier and triggered by change, findings are owned and reported, and AI governance as a whole is audited periodically."
+      4: "Assurance coverage against the plan is reported, findings are tracked to closure, and overdue actions are escalated."
+      5: "The assurance approach is refined from findings, incidents and external developments, and uses methods that test real behaviour as well as documents."
+    criteria:
+      - {id: MON-05.1, applies: core, text: "A defined assurance approach sets the depth and frequency of independent review for each risk tier."}
+      - {id: MON-05.2, applies: core, text: "Independent reviews are carried out on all uses of AI in line with the approach."}
+      - {id: MON-05.3, applies: core, text: "Reviews are also triggered by material change or emerging risk."}
+      - {id: MON-05.4, applies: core, text: "Reviews check compliance against the obligations register (RSK-04)."}
+      - {id: MON-05.5, applies: core, text: "Every finding is recorded, with an owner and a remediation date set by risk."}
+      - {id: MON-05.6, applies: core, text: "Findings are tracked, and their status is reported to leadership (MON-08)."}
+      - {id: MON-05.7, applies: core, text: "The AI governance arrangements as a whole are independently audited on a set cycle."}
+    questions:
+      - "Which uses of AI have had an independent review, and how was the reviewer independent?"
+      - "How is the depth and frequency of review decided?"
+      - "What happened to the findings of the last review?"
+    evidence:
+      - "Finding log with owners, remediation dates and status, and the record of the periodic audit of AI governance as a whole"
+      - "The assurance plan or schedule by risk tier"
+      - "Recent review reports with findings and action tracking"
+    guidance:
+      steps:
+        - "Write an assurance approach that sets the depth and frequency of independent review for each risk tier (RSK-02), covering all uses of AI in the inventory (GOV-06)."
+        - "Add triggers for extra reviews on material change or emerging risk, and include a check of compliance against the obligations register (RSK-04) in every review."
+        - "Record each finding with an owner and a remediation date set by risk, and report status to leadership (MON-08)."
+        - "Arrange an independent audit of the AI governance arrangements as a whole on a set cycle, such as through internal audit or an external reviewer."
+      pitfalls:
+        - "Using reviewers from the delivery team's own line, who are not truly independent."
+        - "Reviewing only high-profile uses and leaving lower-risk uses with no review at all."
+        - "Recording findings without owners or dates, so they never close."
+      artefacts:
+        - "Assurance plan by risk tier"
+        - "Findings log with owners and dates"
+        - "Governance audit schedule"
+    owner: {accountable: risk_lead, contributors: [ai_governance_lead, business_owner]}
+    lifecycle: [design, deploy, operate]
+    applicability: core
+    dependencies: [GOV-06, RSK-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: MON-06
+    title: User feedback
+    objective: >
+      Feedback from people who use AI and people affected by it is gathered on a regular basis,
+      analysed, and acted on.
+    rationale: >
+      Users and affected people see problems that measures miss, such as outputs that are
+      technically correct but unhelpful or confusing. Acting visibly on their feedback also
+      improves trust and take-up.
+    levels:
+      1: "Feedback is not sought; what arrives comes through general complaints."
+      2: "Feedback is gathered for some uses, usually at launch, but is not analysed or acted on consistently."
+      3: "Every live use of AI has a feedback route for users and affected people, with a named owner who reviews it on a set cycle and records action."
+      4: "Feedback trends are measured and reported alongside performance data, and recurring issues lead to tracked changes."
+      5: "Feedback is built into the service, and the way it is gathered and used is improved from evidence of what leads to useful change."
+    criteria:
+      - {id: MON-06.1, applies: core, text: "Every live use of AI has a way for users and affected people to give feedback."}
+      - {id: MON-06.2, applies: core, text: "A named owner reviews the feedback for each use on a set cycle."}
+      - {id: MON-06.3, applies: core, text: "The action taken on feedback is recorded."}
+    questions:
+      - "How can users and affected people give feedback on a use of AI?"
+      - "Who reviews feedback, and how often?"
+      - "Can you show a change made because of feedback?"
+    evidence:
+      - "Feedback channels and a sample of feedback received"
+      - "Records of feedback reviews and resulting changes"
+    guidance:
+      steps:
+        - "Give every live use of AI a simple feedback route for users and affected people, such as a form, a button or a contact point."
+        - "Name an owner for feedback on each use and set how often they review it."
+        - "Record each review and the action taken, including where no action was needed and why."
+      pitfalls:
+        - "Collecting feedback only from staff users and not from the people affected by outputs."
+        - "Collecting feedback at launch and then stopping."
+        - "Treating feedback as a route to challenge a decision, which belongs under RSK-08."
+      artefacts:
+        - "Feedback route for each use"
+        - "Feedback review and action log"
+    owner: {accountable: business_owner, contributors: [delivery_lead]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [GOV-05]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: MON-07
+    title: Re-assessing AI maturity
+    objective: >
+      The organisation re-runs this framework's assessment on a set cycle, compares results with
+      earlier ones, and acts on the gaps it finds.
+    rationale: >
+      A single assessment gives a snapshot that soon becomes out of date as AI use and the
+      organisation change. Repeating it on a cycle shows whether improvement actions worked and
+      where to focus next.
+    levels:
+      1: "The assessment has been done once or not at all, and results were not acted on."
+      2: "The assessment is repeated irregularly, or results are produced but not turned into an improvement plan."
+      3: "A named owner re-runs the assessment on a set cycle, compares results with the previous round, and agrees an improvement plan with owners."
+      4: "Progress against the improvement plan is tracked and reported, and assessment results are checked against evidence rather than self-reported alone."
+      5: "Target levels and the assessment cycle are adjusted from results and external change, and results are used to set priorities across the organisation."
+    criteria:
+      - {id: MON-07.1, applies: core, text: "The assessment is re-run on a set cycle by a named owner."}
+      - {id: MON-07.2, applies: core, text: "Each round's results are compared with the previous round."}
+      - {id: MON-07.3, applies: core, text: "An improvement plan with owners is agreed after each round."}
+    questions:
+      - "When was the assessment last run, and when is the next one due?"
+      - "How do current results compare with the previous round?"
+      - "What improvement actions came out of the last assessment, and are they complete?"
+    evidence:
+      - "Completed assessments from at least two rounds"
+      - "The improvement plan with owners and progress"
+    guidance:
+      steps:
+        - "Name an owner for the assessment and set a cycle for re-running it, such as yearly."
+        - "Keep the results of each round in a form that can be compared with the next."
+        - "Compare each new round with the previous one and record what moved and what did not."
+        - "Agree an improvement plan with named owners for each action and get it approved by the executive sponsor."
+      pitfalls:
+        - "Running the assessment once and treating the result as permanent."
+        - "Producing results with no improvement plan behind them."
+        - "Changing the assessment method between rounds so results cannot be compared."
+      artefacts:
+        - "Assessment schedule"
+        - "Round-by-round comparison sheet"
+        - "Improvement plan with owners"
+    owner: {accountable: ai_governance_lead, contributors: [executive_sponsor, risk_lead]}
+    lifecycle: [strategy, operate]
+    applicability: core
+    dependencies: [GOV-02]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: MON-08
+    title: Reporting to leadership
+    objective: >
+      Leadership and the board receive consolidated, evidence-based reporting on AI use,
+      performance, benefits, incidents and risk, on a set cycle.
+    rationale: >
+      Leaders cannot oversee what they cannot see. Bringing measures, benefits, incidents and
+      assurance findings into one report lets them judge the overall position and make decisions
+      on evidence rather than anecdote.
+    levels:
+      1: "Leadership hears about AI through occasional updates or individual project reports."
+      2: "Some reporting reaches leadership, but it is not consolidated, is mostly narrative or covers only some uses of AI."
+      3: "Leadership and the board receive an owned, consolidated AI report from defined data on a set cycle, with a signed assurance statement where the organisation answers upward."
+      4: "The data behind the report is checked for accuracy, leadership actions are tracked, and reporting shows trends against targets."
+      5: "Report content is refined from what leaders use in decisions, and the report brings in external comparison and forward-looking indicators."
+    criteria:
+      - {id: MON-08.1, applies: core, text: "A consolidated report with an owner covers AI use, performance, benefits, incidents and risk."}
+      - {id: MON-08.2, applies: core, text: "The report is produced on a set cycle from defined data."}
+      - {id: MON-08.3, applies: core, text: "The report goes to leadership and the board."}
+      - {id: MON-08.4, applies: core, text: "Where the organisation answers to a parent body, regulator or group board, it gives a periodic signed assurance statement backed by auditable evidence."}
+    questions:
+      - "What does leadership receive about AI, and how often?"
+      - "Where does the data in the report come from, and how is it checked?"
+      - "Can you show a leadership decision made on the basis of the report?"
+    evidence:
+      - "Recent leadership or board reports on AI"
+      - "Minutes recording discussion and actions arising"
+      - "Signed assurance statements with their evidence, where required"
+    guidance:
+      steps:
+        - "Name an owner for leadership reporting on AI and agree the reporting cycle with the board."
+        - "Define the data for each section of the report: AI use from the inventory (GOV-06), performance from monitoring (MON-02), benefits (MON-03), incidents (MON-04) and risk."
+        - "Produce one consolidated report on that cycle and send it to leadership and the board."
+        - "Where you answer to a parent body, regulator or group board, add a signed assurance statement on the agreed cycle and keep the evidence behind it ready for audit."
+      pitfalls:
+        - "Sending a narrative update with no data behind it."
+        - "Reporting each project separately, so leaders never see the whole picture."
+        - "Signing assurance statements without keeping the evidence that supports them."
+      artefacts:
+        - "Consolidated AI report template"
+        - "Data source list for each report section"
+        - "Signed assurance statement with evidence pack"
+    owner: {accountable: executive_sponsor, contributors: [ai_governance_lead, risk_lead, business_owner]}
+    lifecycle: [strategy, operate]
+    applicability: core
+    dependencies: [GOV-02, MON-02, MON-03]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: MON-09
+    title: Serious AI incidents and external notification
+    objective: >
+      The organisation defines serious AI incidents, can suspend a use of AI when needed, and
+      tells suppliers, regulators and affected people through set routes and within set deadlines.
+    rationale: >
+      When AI causes or risks serious harm, the law may set short deadlines for telling the
+      supplier and the regulator, and the people affected need to hear promptly. Deciding in
+      advance what counts as serious, who can suspend a use and who must be told means these
+      duties are met under pressure rather than missed.
+    levels:
+      1: "Serious AI incidents are handled case by case; nobody has decided who must be told or who can suspend a use."
+      2: "Some notification duties are known, but serious incidents are not defined, deadlines are not set, or no one is named to suspend a use."
+      3: "Serious AI incidents are defined, notification routes and deadlines and a decision point to suspend use are set, affected people are told under a plan, and risks short of a serious incident are reported and acted on."
+      4: "Serious incidents lead to reviews of the use concerned, and notification and suspension decisions are reviewed with their actions tracked to completion."
+      5: "Lessons from serious incidents, including those reported by other organisations, routinely change designs, controls and notification arrangements."
+    criteria:
+      - {id: MON-09.1, applies: core, text: "Serious AI incidents are defined."}
+      - {id: MON-09.2, applies: [HIR], text: "The definition of serious incidents meets what applicable law requires."}
+      - {id: MON-09.3, applies: core, text: "Routes and deadlines for notifying suppliers of a serious incident are set."}
+      - {id: MON-09.4, applies: [HIR], text: "Routes and deadlines for notifying regulators of a serious incident are set."}
+      - {id: MON-09.5, applies: core, text: "A decision point to suspend a use of AI after a serious incident is defined."}
+      - {id: MON-09.6, applies: core, text: "A plan is in place for telling affected people about a serious incident."}
+      - {id: MON-09.7, applies: core, text: "When a use of AI presents a risk to health, safety or rights short of a serious incident, the supplier is told and use is suspended if needed."}
+      - {id: MON-09.8, applies: [HIR], text: "When the law requires it, the regulator is also told of such a risk."}
+    questions:
+      - "How are serious AI incidents defined here, and does the definition follow what the law requires?"
+      - "Who can suspend a use of AI after a serious incident, and how quickly can they act?"
+      - "Who must be told of a serious incident or a risk to health, safety or rights, by when, and how would affected people be told?"
+    evidence:
+      - "The serious incident definition and the legal source it follows"
+      - "Notification routes and deadlines for suppliers and regulators"
+      - "Suspension decision records, with the named decision maker"
+      - "The plan for telling affected people about a serious incident"
+    guidance:
+      steps:
+        - "Define serious AI incidents as applicable law requires, using the obligations register (RSK-04)."
+        - "Set routes and deadlines for notifying suppliers and regulators of a serious incident, and a plan for telling affected people."
+        - "Set a decision point and a named decision maker to suspend a use of AI after a serious incident."
+        - "Where a use presents a risk to health, safety or rights short of a serious incident, tell the supplier, and the regulator where the law requires, and suspend the use if needed."
+        - "Link these steps to the incident process (MON-04) so serious cases are recognised and escalated at triage."
+      pitfalls:
+        - "Not deciding in advance who can suspend a use of AI, so suspension is delayed."
+        - "Waiting for an investigation to finish before notifying, and missing a legal deadline."
+      artefacts:
+        - "Notification routes and deadlines table"
+        - "Suspension decision record"
+        - "Plan for telling affected people"
+    owner: {accountable: risk_lead, contributors: [ai_governance_lead, business_owner, delivery_lead]}
+    lifecycle: [deploy, operate]
+    applicability: core
+    dependencies: [MON-04, RSK-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0

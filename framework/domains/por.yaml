@@ -1,0 +1,437 @@
+# POR: Portfolio & Use Cases
+# How proposed uses of AI are found, judged, tried, scaled and withdrawn as a managed portfolio.
+# Phase 1 draft, 2026-11-09. Written from scratch from the record shape agreed in D0.4.
+# Mappings are left empty until Phase 2 (each one checked at source).
+# Level 0 (Absent) is generic and defined in meta.yaml; each control defines levels 1 to 5.
+# Boundary: POR-03 holds proposed and in-flight uses; live uses are recorded in GOV-06.
+
+domain: POR
+name: "Portfolio & Use Cases"
+summary: >
+  Covers how ideas for using AI are collected, ranked, tested and either scaled, stopped or
+  retired. Treating uses of AI as a portfolio means effort goes to the uses most likely to pay
+  off, weak ideas are stopped early and cheaply, and what works in one place is reused elsewhere.
+
+controls:
+
+  - id: POR-01
+    title: Idea intake open to all staff
+    objective: >
+      Anyone in the organisation can propose a use of AI through a simple, well-known route,
+      and every proposal is acknowledged and considered.
+    rationale: >
+      Many of the most useful ideas come from the people doing the work, not from a central
+      team. Without an open route, ideas are lost, pursued quietly outside governance, or only
+      come from those who already know the right people.
+    levels:
+      1: "No route for proposals; ideas progress only if someone senior or technical takes them up."
+      2: "A route exists in some teams or functions, or is not widely known, and proposals are not always answered."
+      3: "A single, documented and owned intake route is open to all staff and publicised, and every proposal is acknowledged and logged in the pipeline register."
+      4: "Volumes, sources and response times are measured, and parts of the organisation that submit little are followed up."
+      5: "The intake route is refined from proposer feedback and conversion rates, and actively draws in ideas from under-represented groups and functions."
+    criteria:
+      - {id: POR-01.1, applies: core, text: "A single, documented intake route for proposing uses of AI is open to all staff."}
+      - {id: POR-01.2, applies: core, text: "The intake route is publicised across the organisation."}
+      - {id: POR-01.3, applies: core, text: "The intake route has a named owner."}
+      - {id: POR-01.4, applies: core, text: "Every proposal received through the route is acknowledged."}
+      - {id: POR-01.5, applies: core, text: "Every proposal is logged in the pipeline register (POR-03)."}
+    questions:
+      - "How would a member of staff with an idea for using AI put it forward?"
+      - "What happens to a proposal once it is submitted, and how quickly does the proposer hear back?"
+      - "Which parts of the organisation do proposals come from, and which are missing?"
+    evidence:
+      - "The intake form or route, with its owner and how it is publicised"
+      - "A log of recent proposals showing acknowledgement and outcome"
+    guidance:
+      steps:
+        - "Set up one simple intake route for AI ideas, such as a short form, and name its owner."
+        - "Publicise the route to all staff through existing channels and AI learning material."
+        - "Acknowledge every proposal and log it in the pipeline register (POR-03)."
+      pitfalls:
+        - "Having several intake routes in different teams so ideas are duplicated or lost."
+        - "Collecting ideas without telling proposers what happened to them."
+      artefacts:
+        - "AI idea intake form"
+        - "Acknowledgement message template"
+    owner: {accountable: ai_governance_lead, contributors: [business_owner, delivery_lead]}
+    lifecycle: [strategy, design]
+    applicability: core
+    dependencies: [GOV-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: POR-02
+    title: Agreed prioritisation criteria
+    objective: >
+      Proposed uses of AI are ranked against published criteria covering value, feasibility,
+      risk, cost and strategic fit, applied the same way to every proposal.
+    rationale: >
+      Demand for AI work usually exceeds the capacity to deliver it. Published criteria make
+      choices explainable, stop the loudest voice winning, and keep the portfolio aligned with
+      what the organisation is trying to achieve.
+    levels:
+      1: "Proposals are chosen by preference, enthusiasm or who is asking."
+      2: "Criteria exist but are informal, unpublished, or applied differently by different teams."
+      3: "Approved, published criteria covering value, feasibility, risk, cost and strategic fit are applied to every proposal, with scoring and decisions recorded."
+      4: "Consistency of scoring is checked, and the realised value and cost of chosen uses are compared with their scores to test the criteria."
+      5: "Criteria and weightings are adjusted from portfolio outcomes and changes in strategy, and the effect of each change is reviewed."
+    criteria:
+      - {id: POR-02.1, applies: core, text: "Approved prioritisation criteria cover value, feasibility, risk, cost and strategic fit."}
+      - {id: POR-02.2, applies: core, text: "The prioritisation criteria are published."}
+      - {id: POR-02.3, applies: core, text: "The criteria are applied to every proposal."}
+      - {id: POR-02.4, applies: core, text: "The scoring and decision for each proposal are recorded."}
+    questions:
+      - "What criteria decide which proposals go ahead, and where are they published?"
+      - "Can you show how a recent proposal was scored and why it was or was not chosen?"
+      - "Have chosen uses delivered what their scores suggested?"
+    evidence:
+      - "The published prioritisation criteria and scoring method"
+      - "Scoring records for a sample of recent proposals"
+    guidance:
+      steps:
+        - "Draft prioritisation criteria covering value, feasibility, risk, cost and strategic fit, with a simple scoring scale."
+        - "Get the criteria approved and publish them so proposers know how they will be judged."
+        - "Apply the criteria to every proposal and record the scores and decision in the pipeline register (POR-03)."
+      pitfalls:
+        - "Letting senior sponsorship override the scores without recording why."
+        - "Using criteria so complex that small proposals cannot be scored quickly."
+      artefacts:
+        - "Prioritisation criteria and scoring sheet"
+    owner: {accountable: ai_governance_lead, contributors: [executive_sponsor, business_owner, risk_lead, delivery_lead]}
+    lifecycle: [strategy, design]
+    applicability: core
+    dependencies: [STR-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: POR-03
+    title: Pipeline register of proposed uses
+    objective: >
+      A single register records every proposed and in-flight use of AI with its status, owner
+      and decision history, and hands each entry to the AI inventory when it goes live.
+    rationale: >
+      Without a register, leaders cannot see what is being explored, duplicate work starts in
+      different places, and decisions are hard to trace. A clean hand-over to the AI inventory
+      (GOV-06) means nothing goes live without being recorded.
+    levels:
+      1: "No register; proposed and in-flight work is known only to the people doing it."
+      2: "Lists are kept by individual teams or for some uses, with inconsistent fields and no decision history."
+      3: "A single maintained register records every proposed and in-flight use with its status, owner, stage and decisions, and hands live uses to the inventory."
+      4: "Register completeness and accuracy are checked, stalled entries are flagged and resolved, and register data is reported to the oversight forum."
+      5: "The register is used to manage the portfolio as a whole, informing capacity, funding and reuse decisions, and its design is improved from use."
+    criteria:
+      - {id: POR-03.1, applies: core, text: "A single maintained register covers all proposed and in-flight uses of AI."}
+      - {id: POR-03.2, applies: core, text: "Each register entry records its status, owner, stage and decisions."}
+      - {id: POR-03.3, applies: core, text: "Uses are transferred from the register to the AI inventory (GOV-06) when they go live."}
+    questions:
+      - "Where can you see every use of AI currently proposed or being worked on?"
+      - "For a given entry, can you trace who decided what, and when?"
+      - "How does an entry move to the AI inventory when it goes live?"
+    evidence:
+      - "The pipeline register, with a recent update date"
+      - "Decision history for a sample of entries"
+      - "Examples of entries handed over to the AI inventory"
+    guidance:
+      steps:
+        - "Set up a single register for proposed and in-flight uses with fields for status, owner, stage and decisions."
+        - "Name a register owner and make updating it part of every gate decision (POR-04)."
+        - "Transfer each use to the AI inventory (GOV-06) when it goes live."
+      pitfalls:
+        - "Keeping separate registers in each team so nobody sees the whole pipeline."
+        - "Losing decision history when a use moves to the inventory."
+      artefacts:
+        - "Pipeline register template"
+        - "Go-live transfer checklist to the AI inventory"
+    owner: {accountable: ai_governance_lead, contributors: [business_owner, delivery_lead]}
+    lifecycle: [design, acquire_build, deploy]
+    applicability: core
+    dependencies: [POR-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: POR-04
+    title: Stage gates from idea to retirement
+    objective: >
+      Each use of AI passes through defined stages (explore, pilot, scale, operate, retire),
+      with entry and exit criteria checked at each gate.
+    rationale: >
+      Gates give a consistent point to ask whether a use should continue, and they let effort
+      and scrutiny grow as the use grows. Without them, pilots drift into live service without
+      the checks that live service needs.
+    levels:
+      1: "No defined stages; work moves forward by default until someone stops it."
+      2: "Stages are described but criteria are vague or optional, or gates are used only for some uses."
+      3: "Documented, risk-proportionate stages with entry and exit criteria apply to every use, with gate decisions and a running design record kept."
+      4: "Gate outcomes and time spent at each stage are measured, and uses that skip or stall at a gate are identified and dealt with."
+      5: "Gate criteria and stages are refined from evidence of which checks catch problems and which only add delay."
+    criteria:
+      - {id: POR-04.1, applies: core, text: "Documented stages for uses of AI have entry and exit criteria proportionate to risk."}
+      - {id: POR-04.2, applies: core, text: "The stages are applied to every use of AI."}
+      - {id: POR-04.3, applies: core, text: "Gate decisions are recorded in the pipeline register (POR-03)."}
+      - {id: POR-04.4, applies: core, text: "A record of key design decisions and assumptions, with reasons, is kept for each use of AI."}
+      - {id: POR-04.5, applies: core, text: "The design record is updated at each gate."}
+    questions:
+      - "What stages does a use of AI pass through, and what must be true to pass each gate?"
+      - "Who decides at each gate, and where is the decision recorded?"
+      - "Have any uses reached live service without passing the expected gates?"
+    evidence:
+      - "Design decision record for each use, updated at each gate"
+      - "The documented stage-gate model with entry and exit criteria"
+      - "Gate decision records for a sample of uses"
+    guidance:
+      steps:
+        - "Define stages for each use, such as explore, pilot, scale, operate and retire."
+        - "Write entry and exit criteria for each stage, scaled to risk tier so low-risk uses move quickly."
+        - "Apply the stages to every use and record each gate decision in the pipeline register (POR-03)."
+        - "Keep a record of key design decisions and assumptions, with reasons, for each use and update it at each gate."
+      pitfalls:
+        - "Applying the same heavy gates to every use regardless of risk."
+        - "Recording gate outcomes but not the design decisions and assumptions behind them."
+      artefacts:
+        - "Stage gate criteria by risk tier"
+        - "Design decision and assumptions log template"
+    owner: {accountable: ai_governance_lead, contributors: [business_owner, delivery_lead, risk_lead]}
+    lifecycle: [design, acquire_build, deploy, operate, retire]
+    applicability: core
+    dependencies: [GOV-03]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: POR-05
+    title: Proportionate business case
+    objective: >
+      Each use of AI has a business case scaled to its size and risk that states expected
+      benefits, full costs and assumptions, and is approved before significant commitment.
+    rationale: >
+      A business case forces the question of whether AI is the right answer and gives a baseline
+      to judge the use against later. Making it proportionate stops small, low-risk uses being
+      held up by paperwork meant for large investments.
+    levels:
+      1: "Uses go ahead without a stated case; benefits are assumed rather than described."
+      2: "Business cases are written for some uses, often large ones, but costs or benefits are incomplete or not quantified."
+      3: "Every use of AI has a plain-language business case, scaled by a template to its size and risk, covering problem, benefits, costs, assumptions and options, approved at a gate."
+      4: "Business case assumptions are revisited at later gates, and cases that no longer hold lead to a recorded decision to continue, change or stop."
+      5: "Estimates are calibrated against actual costs and benefits from past uses, so cases become more accurate over time."
+    criteria:
+      - {id: POR-05.1, applies: core, text: "A business case template is scaled by the size and risk of the use."}
+      - {id: POR-05.2, applies: core, text: "Every use of AI has a business case prepared with the template."}
+      - {id: POR-05.3, applies: core, text: "Each business case states in plain language the problem the use solves, its benefits, one-off and running costs, assumptions, and options including not using AI."}
+      - {id: POR-05.4, applies: core, text: "Each business case is approved at the right gate."}
+    questions:
+      - "Does each use of AI have a business case, and how does its depth vary with size and risk?"
+      - "Does the case include running costs as well as set-up costs?"
+      - "When were the assumptions in a live use's case last checked?"
+    evidence:
+      - "The business case template and guidance on proportionality"
+      - "Approved business cases for a sample of uses of different sizes"
+    guidance:
+      steps:
+        - "Create a business case template with a short version for small, low-risk uses and a fuller one for large or high-risk uses."
+        - "Require each case to state in plain language the problem solved, benefits, one-off and running costs, assumptions and options, including not using AI."
+        - "Set which gate approves the business case for each size and risk level (POR-04) and apply it to every use."
+      pitfalls:
+        - "Leaving out running costs such as usage charges and support (see OPM-03)."
+        - "Not considering a non-AI option, so AI is assumed to be the answer."
+      artefacts:
+        - "Scaled business case template"
+        - "Cost checklist for one-off and running costs"
+    owner: {accountable: business_owner, contributors: [delivery_lead, ai_governance_lead]}
+    lifecycle: [design, acquire_build]
+    applicability: core
+    dependencies: [POR-04]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: POR-06
+    title: Safe experimentation
+    objective: >
+      Staff can try AI quickly within defined guardrails covering approved environments, data
+      limits, time limits and exit criteria.
+    rationale: >
+      People learn what AI can do by trying it, and blocking all experiments pushes them towards
+      unapproved tools. Clear guardrails make fast trials possible while keeping sensitive data
+      and live services out of reach until a use has been properly assessed.
+    levels:
+      1: "No sanctioned route to experiment; trials happen informally, often with unapproved tools or real data."
+      2: "Some teams have a place or permission to experiment, but rules on data, duration and exit are unclear or inconsistent."
+      3: "A documented experimentation route with approved environments, data rules, time limits and exit criteria is open to all teams and used."
+      4: "Experiments are logged and checked against the guardrails, breaches are acted on, and the route's speed and take-up are measured."
+      5: "Guardrails and environments are adjusted from what experiments reveal, so the route stays fast and safe as tools and needs change."
+    criteria:
+      - {id: POR-06.1, applies: core, text: "A documented experimentation route names the approved environments for trying AI."}
+      - {id: POR-06.2, applies: core, text: "The experimentation route sets rules on what data may be used."}
+      - {id: POR-06.3, applies: core, text: "The experimentation route sets time limits and exit criteria for experiments."}
+      - {id: POR-06.4, applies: core, text: "The experimentation route is available to all teams."}
+      - {id: POR-06.5, applies: core, text: "Teams use the experimentation route."}
+    questions:
+      - "If a team wants to try an AI tool, where and how can they do it safely?"
+      - "What data may and may not be used in an experiment?"
+      - "How is an experiment ended, and what happens to its data and findings?"
+    evidence:
+      - "The experimentation rules, covering environments, data, time limits and exit"
+      - "A log of recent experiments with their start, end and outcome"
+    guidance:
+      steps:
+        - "Provide one or more approved environments where staff can try AI tools safely (see TEC-01)."
+        - "Write simple rules on what data may and may not be used in experiments (see SEC-04 and DAT-05)."
+        - "Set a default time limit and exit criteria for each experiment, with a route into the pipeline (POR-03) if it succeeds."
+        - "Document the route, make it available to all teams and check it is used."
+      pitfalls:
+        - "Making the route so slow that staff experiment with unapproved tools instead (see TEC-08)."
+        - "Allowing experiments to run on with no end date until they become live services by default."
+      artefacts:
+        - "Experimentation guardrails note"
+        - "Experiment registration form with time limit and exit criteria"
+    owner: {accountable: delivery_lead, contributors: [security_lead, data_owner, ai_governance_lead]}
+    lifecycle: [design, acquire_build]
+    applicability: core
+    dependencies: [GOV-01, TEC-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: POR-07
+    title: Pilot to production decisions
+    objective: >
+      Every pilot ends in a recorded decision to scale, extend or stop, made against criteria
+      and evidence agreed before the pilot started.
+    rationale: >
+      Pilots that are never formally ended either drift into live use without proper checks or
+      linger and absorb effort. Agreeing success criteria in advance stops results being judged
+      by enthusiasm after the event.
+    levels:
+      1: "Pilots continue or end by default; decisions are not recorded."
+      2: "Some pilots have success criteria, but they are set late, loosely defined, or not used to decide."
+      3: "Every pilot has success and stop criteria agreed at the start and ends in a recorded, evidence-based decision to scale, extend or stop."
+      4: "Pilot outcomes are tracked across the portfolio, extensions are time-limited and reviewed, and pilots running past their end date are flagged and resolved."
+      5: "Decision criteria and pilot design are improved from how scaled uses perform in live service."
+    criteria:
+      - {id: POR-07.1, applies: core, text: "Every pilot has success and stop criteria agreed at the start."}
+      - {id: POR-07.2, applies: core, text: "Every pilot ends in a recorded decision to scale, extend or stop."}
+      - {id: POR-07.3, applies: core, text: "Each pilot decision is based on the evidence gathered in the pilot."}
+    questions:
+      - "What criteria were agreed before your most recent pilot began?"
+      - "How was the decision to scale, extend or stop it made, and by whom?"
+      - "Are any pilots running past their planned end without a decision?"
+    evidence:
+      - "Pilot plans showing success and stop criteria"
+      - "Recorded scale, extend or stop decisions with supporting evidence"
+    guidance:
+      steps:
+        - "Before each pilot starts, agree success and stop criteria and the evidence that will be gathered (see MON-01)."
+        - "Gather the evidence during the pilot as planned."
+        - "End every pilot with a recorded scale, extend or stop decision based on the evidence, logged in the pipeline register (POR-03)."
+      pitfalls:
+        - "Setting criteria after the pilot has run, so they fit the results."
+        - "Extending pilots repeatedly to avoid making a decision."
+      artefacts:
+        - "Pilot charter with success and stop criteria"
+        - "Pilot decision record"
+    owner: {accountable: business_owner, contributors: [delivery_lead, ai_governance_lead]}
+    lifecycle: [acquire_build, deploy]
+    applicability: core
+    dependencies: [POR-04, MON-01]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: POR-08
+    title: Reuse across the organisation
+    objective: >
+      Successful patterns, components and lessons from uses of AI are recorded so others can
+      find them, and are reused before anything new is built.
+    rationale: >
+      Different teams often face the same problem. Reuse cuts cost and time, spreads approaches
+      already assessed and approved, and avoids several slightly different solutions that each
+      need supporting.
+    levels:
+      1: "Each team starts from scratch; reuse happens only through personal contacts."
+      2: "Some patterns or components are shared, but there is no place to find them and no expectation to look."
+      3: "Reusable patterns, components and lessons are recorded in a known place, checked before new work starts, and each shared component has an owner."
+      4: "The amount of reuse and the effort it saves are measured, and proposals that duplicate existing work are caught at intake or the first gate."
+      5: "Assets are designed for reuse from the start, and the reuse library is curated and improved from how it is used."
+    criteria:
+      - {id: POR-08.1, applies: core, text: "Reusable patterns, components and lessons from uses of AI are recorded in a known place."}
+      - {id: POR-08.2, applies: core, text: "New proposals are checked against the recorded patterns, components and lessons before work starts."}
+      - {id: POR-08.3, applies: core, text: "Each shared component has a named owner responsible for its upkeep and documentation."}
+    questions:
+      - "Where would a team look to see whether a similar use of AI already exists?"
+      - "Is checking for reuse part of how new proposals are assessed?"
+      - "Can you give an example where something built for one use was reused elsewhere?"
+    evidence:
+      - "The catalogue or library of reusable patterns, components and lessons"
+      - "Proposal or gate records showing the reuse check"
+    guidance:
+      steps:
+        - "Choose one known place to record reusable patterns, components and lessons, and tell staff about it."
+        - "Give each shared component a named owner responsible for its upkeep and documentation."
+        - "Add a check at intake or the first gate (POR-01, POR-04) that new proposals are compared against what already exists before work starts."
+      pitfalls:
+        - "Recording components with no owner, so they go out of date and nobody trusts them."
+        - "Sharing only successes and not the lessons from what failed (see CUL-05)."
+      artefacts:
+        - "Reuse catalogue of patterns, components and lessons"
+        - "Component owner record"
+    owner: {accountable: delivery_lead, contributors: [ai_governance_lead, business_owner]}
+    lifecycle: [design, acquire_build, operate]
+    applicability: core
+    dependencies: [POR-03]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
+
+  - id: POR-09
+    title: Retiring uses of AI
+    objective: >
+      Uses of AI that no longer earn their place are withdrawn through a planned process that
+      covers users, dependent processes and disposal or retention of models and data.
+    rationale: >
+      AI that stays in use after it stops delivering costs money, carries risk and may give
+      worse results as conditions change. Unplanned withdrawal leaves users stranded and leaves
+      models and data behind with nobody accountable for them.
+    levels:
+      1: "Uses are left running or switched off without a plan; models and data are left in place."
+      2: "Some uses are retired deliberately, but steps for users, data and models are worked out each time."
+      3: "A documented retirement process, triggered by periodic review, withdraws uses of AI with care for users, people, data, models and hardware, and updates the inventory."
+      4: "Live uses are routinely reviewed against retirement triggers, retirements are checked for completion, and leftover models or data are found and dealt with."
+      5: "Retirement is planned from the design stage, and the process is refined from lessons of past withdrawals."
+    criteria:
+      - {id: POR-09.1, applies: core, text: "A documented retirement process is triggered by periodic review of live uses of AI."}
+      - {id: POR-09.2, applies: core, text: "The retirement process covers user transition, dependent processes, records, and disposal or retention of models and data."}
+      - {id: POR-09.3, applies: core, text: "The retirement process covers reuse, recycling or disposal of dedicated hardware and infrastructure."}
+      - {id: POR-09.4, applies: core, text: "Each retirement updates the AI inventory (GOV-06)."}
+      - {id: POR-09.5, applies: core, text: "The effect of a withdrawal on affected people and services is assessed, and groups at greater risk are identified."}
+      - {id: POR-09.6, applies: core, text: "Users and affected people are told about a withdrawal in advance."}
+    questions:
+      - "How do you decide that a use of AI should be retired?"
+      - "When a use was last retired, what happened to its users, models and data?"
+      - "Are there uses still running that nobody would miss?"
+    evidence:
+      - "Withdrawal impact assessment and notice to users and affected people for each retired use"
+      - "The retirement process and its triggers"
+      - "Records of a completed retirement, including data and model disposal"
+      - "AI inventory entries marked as retired"
+    guidance:
+      steps:
+        - "Set a periodic review of live uses that asks whether each still earns its place and triggers retirement if not."
+        - "Write a retirement process covering user transition, dependent processes, records, disposal or retention of models and data, and reuse, recycling or disposal of dedicated hardware and infrastructure."
+        - "Assess the effect of withdrawal on affected people and services, identify groups at greater risk, and tell users and affected people in advance."
+        - "Update the AI inventory (GOV-06) when a use is retired."
+      pitfalls:
+        - "Switching off a use without checking which processes depend on it."
+        - "Keeping models and data indefinitely after retirement with no retention decision (see DAT-06)."
+      artefacts:
+        - "AI retirement checklist"
+        - "Withdrawal impact and communication plan"
+    owner: {accountable: business_owner, contributors: [delivery_lead, data_owner, ai_governance_lead]}
+    lifecycle: [operate, retire]
+    applicability: core
+    dependencies: [POR-04, GOV-06]
+    mappings: []
+    status: reviewed
+    version: 1.0.0
