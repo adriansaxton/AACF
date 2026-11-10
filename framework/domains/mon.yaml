@@ -190,13 +190,16 @@ controls:
       - {id: MON-04.1, applies: core, text: "A defined process covers reporting, triage, investigation and resolution of non-security AI incidents and near misses."}
       - {id: MON-04.2, applies: core, text: "A definition of an AI incident and a near miss is in place and staff understand it."}
       - {id: MON-04.3, applies: core, text: "The process has a defined link to security incident handling."}
+      - {id: MON-04.4, applies: core, text: "People affected by an AI incident that is not serious are told what happened and what is being done, in a way that suits the incident."}
     questions:
       - "What counts as an AI incident here, and how would staff report one?"
       - "Are near misses recorded as well as incidents?"
       - "Can you show an AI incident that led to a change?"
+      - "When an incident that is not serious affects people, how are they told?"
     evidence:
       - "The AI incident process and definition"
       - "The incident and near miss log, with investigations and actions"
+      - "Examples of how affected people were told about lesser incidents"
     guidance:
       steps:
         - "Write a plain definition of a non-security AI incident and near miss, with examples, and a process for reporting, triage, investigation and resolution that hands security cases to SEC-05."
@@ -214,7 +217,7 @@ controls:
     dependencies: [GOV-05, CUL-04]
     mappings: []
     status: reviewed
-    version: 1.0.0
+    version: 1.1.0
 
   - id: MON-05
     title: Independent assurance reviews

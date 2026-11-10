@@ -469,10 +469,12 @@ controls:
       - {id: GOV-10.1, applies: [GEN], text: "Approved rules set how AI-generated content released outside the organisation, including synthetic media, is reviewed and disclosed."}
       - {id: GOV-10.2, applies: [GEN], text: "Approved rules set how AI-generated content used inside the organisation to inform decisions or form official records is reviewed and disclosed."}
       - {id: GOV-10.3, applies: [GEN], text: "The rules require disclosure at least to the extent the law requires, made clearly when a person first meets the content."}
+      - {id: GOV-10.4, applies: [GEN], text: "Review before release checks that AI-generated content does not reproduce others' protected work or copy a person's likeness or voice without permission."}
     questions:
       - "Are there approved rules for reviewing and disclosing AI-generated content released outside the organisation, including synthetic media?"
       - "Do the rules also cover AI-generated content used inside the organisation to inform decisions or form official records?"
       - "How and when is disclosure made, and how do you know it meets what the law requires?"
+      - "How does review check that released content does not reproduce protected work or copy someone's likeness or voice?"
     evidence:
       - "The approved rules for reviewing and disclosing AI-generated content, with owner and approval record"
       - "A sample of released content and internal records showing review and disclosure"
@@ -495,4 +497,4 @@ controls:
     dependencies: [GOV-01]
     mappings: []
     status: reviewed
-    version: 1.0.0
+    version: 1.1.0

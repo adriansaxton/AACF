@@ -45,7 +45,9 @@
 
 source: EUAIA
 status: draft
-mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+mapped_by: drafted with AI assistance, 2026-11-09
+reviewed_by: the author, 2026-11-10
+checked: 2026-11-10
 items:
 
   # ---------------------------------------------------------------- Chapters I and II (apply from 2 Feb 2025)
@@ -53,135 +55,171 @@ items:
     label: Make sure staff and others who run or use AI on the organisation's behalf are sufficiently AI literate
     controls: [{id: PPL-01, strength: direct}, {id: PPL-05, strength: partial}, {id: PPL-02, strength: partial}]
     note: PPL-01 Level 3 requires the literacy baseline for all staff and for contractors and others who operate AI on the organisation's behalf, with completion recorded; PPL-05 adds learning suited to role and context, and reaches suppliers and contractors who operate AI for the organisation. Considering the people the AI is used on is not named, but is a factor the Act asks to be taken into account rather than a separate duty.
+    confidence: high
   - ref: "Art 5"
     label: Do not use AI for any prohibited practice
     controls: [{id: GOV-03, strength: direct}, {id: GOV-01, strength: partial}, {id: STR-02, strength: partial}, {id: RSK-04, strength: partial}]
     note: GOV-01 Level 3 requires the prohibited uses to include practices banned by law, and GOV-03 Level 3 screens each proposed use against prohibited practices in the approval route. AI added to bought products after purchase reaches that screen through RSK-09 due diligence on updates to existing products.
+    confidence: high
 
   # ---------------------------------------------------------------- Chapter III high-risk: classification and value chain
   - ref: "Art 6"
     label: Work out whether each use of AI is high-risk under Annex I or Annex III, and record the reasoning
     controls: [{id: GOV-06, strength: direct}, {id: RSK-04, strength: partial}, {id: GOV-03, strength: partial}]
     note: GOV-06 Level 3 records each inventory entry's regulatory risk classification with reasons, and RSK-04 records the organisation's regulatory role for each use. Where the organisation is the provider and relies on the Art 6(3) derogation, the recorded reasons serve as the documented assessment; registering such a system under Art 49(2) is a provider obligation not itemised here.
+    confidence: medium
+    confidence_note: "Classification under Annex I and III is a legal judgement, and the Art 6(3) derogation route is left to the provider."
   - ref: "Art 25"
     label: Know when rebranding, substantially modifying or repurposing an AI system makes the organisation its provider
-    controls: [{id: RSK-04, strength: direct}, {id: GOV-03, strength: partial}, {id: TEC-05, strength: partial}, {id: OPM-04, strength: partial}]
-    note: "RSK-04 Level 3 records the organisation's regulatory role (for example provider or deployer) for each use and re-checks it when purpose, branding or the system changes, which catches the three Art 25(1) triggers. Still partial: Art 25(4) written agreements with suppliers of components for a high-risk system; OPM-04 terms cover transparency and model change notice, not the information, capabilities and technical access a provider needs."
+    controls: [{id: RSK-04, strength: partial}, {id: GOV-03, strength: partial}, {id: TEC-05, strength: partial}, {id: OPM-04, strength: partial}]
+    note: "RSK-04 Level 3 records the organisation's regulatory role (for example provider or deployer) for each use and re-checks it when purpose, branding or the system changes, which catches the three Art 25(1) triggers. Missing: Art 25(4) written agreements with suppliers of components for a high-risk system; OPM-04 terms cover transparency and model change notice, not the information, capabilities and technical access a provider needs."
+    confidence: high
 
   # ---------------------------------------------------------------- Art 26 deployer obligations
   - ref: "Art 26(1)"
     label: Use high-risk AI in line with the provider's instructions for use, through technical and organisational measures
     controls: [{id: RSK-09, strength: partial}, {id: GOV-03, strength: partial}, {id: MON-02, strength: partial}, {id: PPL-08, strength: partial}]
     note: "RSK-09 Level 3 obtains the provider's instructions for use before use, approval sets the purpose (GOV-03) and monitoring catches use outside it (MON-02). Still missing: a requirement to build the instructions for use into approval conditions, staff guidance and monitoring, so that use follows them."
+    confidence: high
   - ref: "Art 26(2)"
     label: Give human oversight to people with the competence, training, authority and support to do it
     controls: [{id: RSK-07, strength: direct}, {id: PPL-05, strength: partial}]
     note: RSK-07 Level 3 names who reviews, with what information and authority to override or stop, and requires reviewers to be trained.
+    confidence: high
   - ref: "Art 26(4)"
     label: Where it controls input data, make sure it is relevant and sufficiently representative for the intended purpose
     controls: [{id: DAT-03, strength: direct}, {id: RSK-06, strength: partial}]
     note: DAT-03 Level 3 sets quality requirements for each use that include relevance and representativeness for the intended purpose, assessed before use and at intervals.
+    confidence: high
   - ref: "Art 26(5)"
     label: Monitor operation, tell the provider and regulator of risks and suspend use, and report serious incidents
     controls: [{id: MON-09, strength: direct}, {id: MON-02, strength: direct}, {id: RSK-04, strength: partial}, {id: RSK-09, strength: partial}, {id: OPM-09, strength: partial}, {id: RSK-07, strength: partial}]
     note: "MON-02 Level 3 monitors AI provided by others against the provider's instructions for use, and MON-09 Level 3 covers serious incident notification with deadlines, the suspension decision, and telling the supplier and, where the law requires, the regulator of risks short of a serious incident."
+    confidence: medium
+    confidence_note: "Several separate duties are met only by two controls together, one partly through the HIR overlay."
   - ref: "Art 26(6)"
     label: Keep automatically generated logs under its control for at least six months, or longer where the law requires
     controls: [{id: DAT-06, strength: direct}, {id: MON-02, strength: partial}]
     note: DAT-06 Level 3 covers system logs, kept at least as long as the law requires, within records and retention rules applied to every use of AI. MON-02 requires event logging in use.
+    confidence: high
   - ref: "Art 26(7)"
     label: Before using high-risk AI at work, inform workers' representatives and the workers affected
     controls: [{id: CUL-03, strength: direct}, {id: CUL-02, strength: partial}, {id: PPL-06, strength: partial}]
     note: CUL-03 Level 3 involves affected staff and their representatives at the design stage of significant uses, which goes beyond informing them.
+    confidence: high
   - ref: "Art 26(8)"
     label: Public authority deployers register their use, and do not use a high-risk system missing from the EU database
     controls: [{id: RSK-09, strength: direct}, {id: GOV-09, strength: partial}]
     note: "RSK-09 Level 3 checks regulatory status including registration before use, does not use high-risk AI that is not registered where the law requires it, and tells the provider or distributor; GOV-09 completes registrations the law requires before use."
+    confidence: high
   - ref: "Art 26(9)"
     label: Use the provider's transparency information when carrying out a data protection impact assessment
     controls: [{id: DAT-05, strength: partial}, {id: RSK-03, strength: partial}, {id: GOV-07, strength: partial}, {id: RSK-09, strength: partial}]
     note: "Data protection advice (DAT-05), the privacy part of the impact assessment (RSK-03) and the data protection step in existing governance (GOV-07) cover the assessment, and RSK-09 Level 3 obtains the provider's instructions for use. Still missing: a requirement to use that provider information in the data protection impact assessment."
+    confidence: high
   - ref: "Art 26(10)"
     label: Get authorisation for, limit, document and report post-remote biometric identification in criminal investigations
     controls: []
     note: "out of scope: applies only to law enforcement use of post-remote biometric identification; a sector overlay would be needed."
+    confidence: high
   - ref: "Art 26(11)"
     label: Tell people when an Annex III high-risk system makes or helps make decisions about them
     controls: [{id: RSK-08, strength: direct}]
     note: RSK-08 Level 3 requires people to be told AI was involved in every decision it supports about them.
+    confidence: high
   - ref: "Art 26(12)"
     label: Cooperate with competent authorities acting on the high-risk system
-    controls: [{id: RSK-04, strength: direct}, {id: GOV-05, strength: partial}]
-    note: RSK-04 Level 3 names an owner for contact with regulators for each use, alongside an owner for each obligation; GOV-05 names owners per use.
+    controls: [{id: RSK-04, strength: partial}, {id: GOV-05, strength: partial}]
+    note: RSK-04 Level 3 names an owner for contact with regulators for each use, alongside an owner for each obligation; GOV-05 names owners per use. Missing a commitment to cooperate with authorities, such as providing information and access on request.
+    confidence: high
 
   # ---------------------------------------------------------------- Art 27 and Art 49
   - ref: "Art 27"
     label: Public bodies, providers of public services and some credit and insurance deployers assess fundamental rights impact first
     controls: [{id: RSK-03, strength: partial}, {id: RSK-07, strength: partial}, {id: RSK-08, strength: partial}, {id: RSK-04, strength: partial}]
     note: "RSK-03 Level 3 assesses rights before go-live, signs off, tracks mitigations and is kept current during use; RSK-04 lists the reporting duties that follow from the organisation's role. Still missing: the set contents (processes, period and frequency of use, categories of people affected, oversight measures, complaint mechanisms) and an explicit duty to notify the market surveillance authority of the results."
+    confidence: high
   - ref: "Art 49(3)"
     label: Public authority deployers register themselves and their use of an Annex III high-risk system before use
     controls: [{id: GOV-09, strength: direct}, {id: RSK-04, strength: partial}]
     note: GOV-09 Level 3 requires any registration the law requires to be completed before use, and GOV-09 applicability is core, so public bodies outside the UK are covered.
+    confidence: high
 
   # ---------------------------------------------------------------- Art 50 transparency
   - ref: "Art 50(1)"
     label: As provider, design AI that interacts with people so they are told it is AI
     controls: [{id: RSK-08, strength: direct}, {id: OPM-06, strength: partial}]
     note: RSK-08 Level 3 requires people to be told when they are interacting with AI, at first contact, clearly and accessibly, unless it is obvious, which also meets the manner set by Art 50(5). Building this into the design of systems the organisation provides rests on OPM-06 delivery standards.
+    confidence: medium
+    confidence_note: "RSK-08 tells people, but the Act puts the duty on design by the provider, which rests on OPM-06."
   - ref: "Art 50(2)"
     label: As provider of a generative system, mark outputs in a machine-readable way as AI generated
     controls: [{id: TEC-02, strength: direct}]
     note: TEC-02 Level 3 requires the reference patterns to mark outputs as AI generated in a machine-readable way where the organisation builds or offers generative AI. The technical quality the Act expects (effective, interoperable, robust and reliable as far as feasible) is left to the technical standard the pattern adopts.
+    confidence: medium
+    confidence_note: "TEC-02 requires the marking, but its technical quality is left to whatever standard is adopted."
   - ref: "Art 50(3)"
     label: As deployer of emotion recognition or biometric categorisation, inform the people exposed to it
     controls: [{id: RSK-08, strength: direct}, {id: DAT-05, strength: partial}]
     note: RSK-08 Level 3 requires people exposed to emotion recognition or biometric categorisation to be told at first contact, clearly and accessibly; DAT-05 covers lawful processing of the personal data.
+    confidence: high
   - ref: "Art 50(4)"
     label: As deployer, disclose deep fakes and AI generated text published to inform the public
     controls: [{id: GOV-10, strength: direct}, {id: GOV-09, strength: partial}]
     note: "GOV-10 Level 3 sets rules for reviewing and disclosing AI generated content released outside the organisation, including synthetic media, with disclosure at least as the law requires made clearly at first exposure. This also meets the manner set by Art 50(5)."
+    confidence: high
 
   # ---------------------------------------------------------------- Art 73 and Art 86
   - ref: "Art 73"
     label: Report serious incidents to the authorities within the legal deadlines where the deployer must do so
     controls: [{id: MON-09, strength: direct}, {id: RSK-04, strength: partial}]
     note: MON-09 Level 3 defines serious incidents as the law requires and sets routes and deadlines for notifying regulators, which covers the deployer's reporting where it cannot reach the provider (Art 26(5)); RSK-04 lists the reporting duties.
+    confidence: high
   - ref: "Art 86"
     label: Give affected people a clear explanation of the AI's role and the main elements of a high-risk decision
     controls: [{id: RSK-08, strength: direct}, {id: DAT-06, strength: partial}]
     note: RSK-08 Level 3 gives a meaningful explanation and a route to challenge for every decision about people; DAT-06 keeps the records the explanation needs.
+    confidence: high
 
   # ---------------------------------------------------------------- High-risk provider requirements (when the organisation builds or becomes provider)
   - ref: "Art 9"
     label: Run a documented, continuous risk management system across the high-risk system's lifecycle, with testing
     controls: [{id: RSK-02, strength: partial}, {id: RSK-01, strength: partial}, {id: TEC-06, strength: partial}, {id: MON-05, strength: partial}, {id: RSK-06, strength: partial}]
     note: "RSK-02 assesses and treats risk before approval and, again during live use and on material change, recording residual risk; RSK-01 sets acceptable risk, TEC-06 tests against criteria agreed in advance and MON-05 reviews by risk tier. Still missing: a risk process for each system fed by post-market monitoring data, reasonably foreseeable misuse, residual risk judged acceptable per hazard, and attention to under-18s and other vulnerable groups."
+    confidence: high
   - ref: "Art 10"
     label: Govern training, validation and testing data for quality, representativeness and bias
     controls: [{id: DAT-03, strength: partial}, {id: DAT-08, strength: partial}, {id: RSK-06, strength: partial}]
     note: Quality, including relevance and representativeness for the intended purpose (DAT-03), provenance, with the preparation and labelling steps applied and how any synthetic or augmented data was generated and checked (DAT-08), and bias testing (RSK-06) are covered at organisation level; data set design choices, examination for bias in the training data itself, completeness of each data set, and the conditions for processing special category data to correct bias are system-level detail not required.
+    confidence: high
   - ref: "Art 11"
     label: Draw up and keep current the technical documentation before the system is placed on the market or put into service
     controls: [{id: TEC-05, strength: partial}, {id: OPM-06, strength: partial}]
     note: TEC-05 keeps documentation for each version suited to regulators; the contents the Act sets in Annex IV are not required.
+    confidence: high
   - ref: "Art 12"
     label: Build automatic event logging into the system for its whole lifetime
     controls: [{id: MON-02, strength: partial}, {id: TEC-02, strength: partial}]
     note: MON-02 requires event logging while in use; designing the system to record events automatically over its lifetime, with the content needed for traceability and post-market monitoring, is not required.
+    confidence: high
   - ref: "Art 13"
     label: Give deployers instructions for use and enough transparency to understand and use the outputs
     controls: [{id: TEC-05, strength: partial}, {id: RSK-08, strength: partial}]
     note: "TEC-05 provides documentation for users and operators, which states intended purpose and users, how it works, inputs and outputs, known limitations and where it must not be relied on. Still missing from the Act's set contents: accuracy and its metrics, oversight measures and log handling."
+    confidence: high
   - ref: "Art 14"
     label: Design the system so people can oversee it effectively, including override and stop
-    controls: [{id: RSK-07, strength: partial}, {id: TEC-04, strength: partial}, {id: TEC-02, strength: partial}, {id: MON-01, strength: partial}]
-    note: RSK-07 sets the oversight model for each use and TEC-04 makes integrations able to be switched off; TEC-02 patterns build in explainability of outputs and MON-01 measures reliance against accuracy, which shows automation bias in use. Building the full set of oversight measures into each system (tools to interpret outputs, override and a stop function, separate verification by two people for some biometric identification) remains a design duty not required.
+    controls: [{id: RSK-07, strength: partial}, {id: TEC-04, strength: partial}, {id: TEC-02, strength: partial}, {id: MON-01, strength: partial}, {id: MON-02, strength: partial}]
+    note: "RSK-07 sets the oversight model for each use and TEC-04 makes integrations able to be switched off; TEC-02 patterns build in explainability of outputs and MON-01 measures reliance against accuracy, which shows automation bias in use. Building the full set of oversight measures into each system (tools to interpret outputs, override and a stop function, separate verification by two people for some biometric identification) remains a design duty not required. For agents, RSK-07 needs a person's approval before consequential or hard to reverse actions and MON-02 lets a named person stop each agent at once, which covers the stop function for that kind of system only."
+    confidence: high
   - ref: "Art 15"
     label: Achieve and declare appropriate accuracy, robustness and cybersecurity throughout the lifecycle
     controls: [{id: TEC-06, strength: partial}, {id: SEC-06, strength: partial}, {id: SEC-01, strength: partial}, {id: SEC-02, strength: partial}, {id: OPM-09, strength: partial}, {id: MON-02, strength: partial}, {id: OPM-06, strength: partial}]
     note: "Testing (TEC-06), the security baseline and threat modelling (SEC-01, SEC-02), fallbacks (OPM-09) and drift monitoring (MON-02) cover much, SEC-06 adds security testing against the threat model, and OPM-06 sets accuracy, robustness and reliability requirements at design. Still not explicit: declaring accuracy levels in the instructions, consistent performance across the lifecycle, managing feedback loops in systems that keep learning, and resilience against data poisoning and adversarial inputs as a design requirement."
+    confidence: high
   - ref: "Art 17"
     label: Put a documented quality management system in place for high-risk systems the organisation provides
     controls: [{id: GOV-01, strength: partial}, {id: OPM-06, strength: partial}, {id: POR-04, strength: partial}, {id: RSK-02, strength: partial}, {id: DAT-06, strength: partial}, {id: GOV-05, strength: partial}, {id: RSK-04, strength: partial}, {id: MON-09, strength: partial}]
     note: "Operated as a whole, the framework covers most listed aspects (design and development procedures, testing, data management, risk management, records, resources, accountability). MON-09 covers serious incident reporting and RSK-04 names an owner for contact with regulators. Still missing: a regulatory compliance strategy covering conformity assessment and management of modifications, post-market monitoring under Art 72, and communication with notified bodies."
+    confidence: medium
+    confidence_note: "Partial is clear, but the control list is a broad spread and a reviewer might pick a different set."

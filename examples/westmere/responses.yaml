@@ -204,7 +204,7 @@ responses:
     delivery: Not started
   GOV-10:
     level: 2
-    criteria_not_met: [GOV-10.1, GOV-10.2, GOV-10.3]
+    criteria_not_met: [GOV-10.1, GOV-10.2, GOV-10.3, GOV-10.4]
     confidence: Medium
     target: 3
     evidence: "Using Copilot Safely intranet guidance, June 2026, section 3 (check before you send); Communications team publishing checklist, 2026 (no AI-generated images)"
@@ -827,7 +827,7 @@ responses:
     notes: "The Copilot business case forecast time savings, but these have not been tracked since approval. Level 2 needs at least a first review of benefits for one use."
   MON-04:
     level: 1
-    criteria_not_met: [MON-04.1, MON-04.2, MON-04.3]
+    criteria_not_met: [MON-04.1, MON-04.2, MON-04.3, MON-04.4]
     confidence: High
     target: 3
     evidence: "IT service desk category list, October 2026 (no AI category); interview with the team that corrected the September 2026 Copilot summary"
@@ -884,3 +884,15 @@ responses:
     assessor: "Head of Data (J. Okafor)"
     reviewer: "Head of Internal Audit (P. Rourke)"
     notes: "Serious AI incidents are not defined, and nobody has decided who tells Microsoft or affected people, or who can suspend a use. Personal data breach notification is set out for security incidents, but not for AI incidents. MON-09.2, MON-09.4 and MON-09.8 are left out: HIR does not apply."
+
+# Standards Westmere answers to (Profile sheet). All are on by default; listed here only where a choice is recorded.
+standards:
+  JSP936:
+    applies: "No"
+    notes: "Not a defence body; JSP 936 applies to defence organisations only."
+  MITREAIMM:
+    applies: "No"
+    notes: "The board uses this framework's own levels; no second maturity model wanted."
+  UNESCOAIMF:
+    applies: "No"
+    notes: "As for MITRE: no second maturity model."

@@ -12,301 +12,391 @@
 
 source: NISTRMF
 status: draft
-mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+mapped_by: drafted with AI assistance, 2026-11-09
+reviewed_by: the author, 2026-11-10
+checked: 2026-11-10
 items:
 
   # ---------------------------------------------------------------- GOVERN 1 Policies, processes and procedures
   - ref: "GOVERN 1.1"
     label: Understand, manage and document the legal and regulatory requirements for AI
     controls: [{id: RSK-04, strength: direct}, {id: STR-05, strength: partial}]
+    confidence: high
   - ref: "GOVERN 1.2"
     label: Build the characteristics of trustworthy AI into policies and processes
     controls: [{id: RSK-05, strength: partial}, {id: GOV-01, strength: partial}]
     note: Adopted principles are applied through a review route (RSK-05) and the policy sets permitted uses (GOV-01); no control requires the trustworthy characteristics (valid and reliable, safe, secure, accountable, explainable, privacy, fair) to be written into policies and procedures as a set.
+    confidence: high
   - ref: "GOVERN 1.3"
     label: Scale risk management effort to the organisation's risk tolerance
     controls: [{id: RSK-02, strength: direct}, {id: RSK-01, strength: direct}, {id: GOV-03, strength: partial}]
+    confidence: high
   - ref: "GOVERN 1.4"
     label: Set up the risk management process through clear policies and procedures
     controls: [{id: RSK-02, strength: direct}, {id: GOV-01, strength: partial}, {id: GOV-07, strength: partial}]
+    confidence: high
   - ref: "GOVERN 1.5"
     label: Plan ongoing monitoring and periodic review of the risk management process
     controls: [{id: MON-07, strength: partial}, {id: MON-05, strength: partial}, {id: RSK-01, strength: partial}]
     note: MON-07 re-runs this assessment on a cycle (which includes the RSK controls), MON-05 reviews individual uses and independently audits the governance arrangements as a whole on a set cycle, and RSK-01 has a review date. Still missing is planned ongoing monitoring of the risk management process and its outcomes between audits, with defined roles for it.
+    confidence: high
   - ref: "GOVERN 1.6"
     label: Keep an inventory of AI systems, resourced by risk priority
     controls: [{id: GOV-06, strength: direct}]
+    confidence: high
   - ref: "GOVERN 1.7"
     label: Decommission and phase out AI systems safely
     controls: [{id: POR-09, strength: direct}, {id: DAT-06, strength: partial}]
+    confidence: high
 
   # ---------------------------------------------------------------- GOVERN 2 Accountability structures
   - ref: "GOVERN 2.1"
     label: Document roles, responsibilities and lines of communication for AI risk
     controls: [{id: GOV-05, strength: direct}, {id: GOV-04, strength: partial}, {id: GOV-03, strength: partial}]
+    confidence: high
   - ref: "GOVERN 2.2"
     label: Train staff and partners in AI risk management for their duties
     controls: [{id: PPL-05, strength: direct}, {id: PPL-01, strength: partial}, {id: PPL-02, strength: partial}]
     note: PPL-05 Level 3 covers specific risk management duties in role pathways and extends them to suppliers and contractors where they operate AI for the organisation; PPL-01 reaches contractors and others operating AI on its behalf.
+    confidence: high
   - ref: "GOVERN 2.3"
     label: Executive leadership owns decisions about AI risk
     controls: [{id: GOV-02, strength: direct}, {id: RSK-01, strength: partial}, {id: GOV-03, strength: partial}]
+    confidence: high
 
   # ---------------------------------------------------------------- GOVERN 3 Workforce diversity and human-AI roles
   - ref: "GOVERN 3.1"
     label: A diverse team informs AI risk decisions across the lifecycle
     controls: [{id: GOV-04, strength: direct}, {id: OPM-06, strength: partial}, {id: PPL-07, strength: partial}]
     note: "The oversight forum (GOV-04) brings diverse demographic backgrounds and lived experience as well as disciplines; delivery teams are multidisciplinary and include subject matter experts (OPM-06), and the recruitment plan covers the diversity of AI teams (PPL-07)."
+    confidence: medium
+    confidence_note: forum diversity stands in for diverse teams across the lifecycle
   - ref: "GOVERN 3.2"
     label: Define roles for human-AI configurations and human oversight
     controls: [{id: RSK-07, strength: direct}, {id: GOV-05, strength: partial}, {id: OPM-06, strength: partial}, {id: STR-02, strength: partial}]
     note: "RSK-07 sets the oversight model and reviewer roles for each use and GOV-05 names owners; OPM-06 delivery standards cover the design of how people and AI share work, and STR-02 names the kinds of decision that must always be taken by a person."
+    confidence: high
 
   # ---------------------------------------------------------------- GOVERN 4 Risk-aware culture
   - ref: "GOVERN 4.1"
     label: Foster critical thinking and a safety-first mindset around AI
     controls: [{id: CUL-04, strength: partial}, {id: CUL-05, strength: partial}, {id: RSK-05, strength: partial}, {id: PPL-01, strength: partial}, {id: SEC-06, strength: partial}, {id: OPM-06, strength: partial}]
     note: No-blame concern raising (CUL-04), learning from failure (CUL-05), ethical review (RSK-05) and literacy (PPL-01) build the culture; SEC-06 tests generative AI against attempts to bypass safeguards and requires security testing independent of the build team for higher-risk uses, and OPM-06 requires safety by design. Independent challenge of designs and a safety-first mindset in use are not explicit.
+    confidence: high
   - ref: "GOVERN 4.2"
     label: Teams document the risks and impacts of the AI they build or use and communicate them
     controls: [{id: RSK-02, strength: direct}, {id: RSK-03, strength: direct}, {id: GOV-09, strength: partial}]
+    confidence: high
   - ref: "GOVERN 4.3"
     label: Practices that enable AI testing, incident identification and information sharing
-    controls: [{id: TEC-06, strength: partial}, {id: MON-04, strength: partial}, {id: MON-09, strength: partial}, {id: SEC-05, strength: partial}, {id: OPM-08, strength: partial}]
-    note: Met by several controls together rather than one; testing (TEC-06), incidents (MON-04, SEC-05) and sharing with peers (OPM-08) each cover a part. MON-09 sets routes for notifying suppliers and regulators of serious incidents; wider sharing of incident information outside the organisation is not explicit.
+    controls: [{id: TEC-06, strength: partial}, {id: SEC-06, strength: partial}, {id: MON-04, strength: partial}, {id: MON-09, strength: partial}, {id: SEC-05, strength: partial}, {id: OPM-08, strength: partial}]
+    note: Met by several controls together rather than one; testing (TEC-06, SEC-06), incidents (MON-04, SEC-05) and sharing with peers (OPM-08) each cover a part. MON-09 sets routes for notifying suppliers and regulators of serious incidents; wider sharing of incident information outside the organisation is not explicit.
+    confidence: high
 
   # ---------------------------------------------------------------- GOVERN 5 Engagement with AI actors
   - ref: "GOVERN 5.1"
     label: Gather and act on outside feedback about individual and societal impacts
-    controls: [{id: CUL-08, strength: direct}, {id: MON-06, strength: partial}, {id: STR-07, strength: partial}]
+    controls: [{id: CUL-08, strength: direct}, {id: MON-06, strength: partial}, {id: STR-07, strength: partial}, {id: OPM-10, strength: partial}]
+    note: CUL-08 Level 3 gathers the views of the people the organisation serves and considers them in design and explanation; OPM-10 engages affected communities and outside experts for significant uses and records the response.
+    confidence: high
   - ref: "GOVERN 5.2"
     label: Feed reviewed feedback regularly into system design and implementation
-    controls: [{id: MON-06, strength: direct}, {id: CUL-03, strength: partial}, {id: OPM-06, strength: partial}]
+    controls: [{id: MON-06, strength: direct}, {id: CUL-03, strength: partial}, {id: OPM-06, strength: partial}, {id: OPM-10, strength: partial}]
+    note: MON-06 Level 3 reviews feedback for each use on a set cycle and records the action taken; staff input (CUL-03), user research (OPM-06) and affected community input recorded at design (OPM-10) feed design.
+    confidence: high
 
   # ---------------------------------------------------------------- GOVERN 6 Third parties
   - ref: "GOVERN 6.1"
     label: Policies for third-party AI risks, including intellectual property infringement
     controls: [{id: RSK-09, strength: direct}, {id: OPM-04, strength: partial}, {id: SEC-03, strength: partial}, {id: DAT-08, strength: partial}]
+    confidence: high
   - ref: "GOVERN 6.2"
     label: Contingency plans for failures in high-risk third-party data or AI
     controls: [{id: OPM-09, strength: direct}, {id: OPM-05, strength: partial}, {id: MON-04, strength: partial}]
+    confidence: medium
+    confidence_note: fallback is per AI service, not specific to third party failure
 
   # ---------------------------------------------------------------- MAP 1 Context
   - ref: "MAP 1.1"
     label: Document the intended purpose, setting, users, norms and expected impacts of a system
     controls: [{id: POR-05, strength: partial}, {id: RSK-03, strength: partial}, {id: RSK-04, strength: partial}, {id: GOV-06, strength: partial}]
     note: The business case (purpose, benefits, assumptions), impact assessment (effects on people and society), obligations register (laws) and inventory (purpose) each hold part of the context; a single documented context for each system covering users, deployment setting and limitations is system-level.
+    confidence: high
   - ref: "MAP 1.2"
     label: Context is set by diverse, interdisciplinary people whose involvement is recorded
     controls: [{id: OPM-06, strength: partial}, {id: OPM-10, strength: partial}, {id: CUL-03, strength: partial}, {id: GOV-04, strength: partial}, {id: PPL-07, strength: partial}]
     note: "Multidisciplinary teams that include subject matter experts for the data and the work (OPM-06) and staff involvement (CUL-03) bring a range of disciplines and experience; the oversight forum brings diverse backgrounds and lived experience (GOV-04), the recruitment plan covers the diversity of AI teams (PPL-07), OPM-06 considers diversity of perspective for each team, and OPM-10 records input from affected communities and outside experts for significant uses. Still missing: recording who took part in setting the context for each use."
+    confidence: high
   - ref: "MAP 1.3"
     label: Document the organisation's mission and goals for AI
     controls: [{id: STR-01, strength: direct}]
+    confidence: high
   - ref: "MAP 1.4"
     label: Define the business value, or re-evaluate it for existing systems
     controls: [{id: POR-05, strength: direct}, {id: STR-04, strength: partial}, {id: MON-03, strength: partial}]
+    confidence: high
   - ref: "MAP 1.5"
     label: Set and document risk tolerances
     controls: [{id: RSK-01, strength: direct}]
+    confidence: high
   - ref: "MAP 1.6"
     label: Elicit system requirements and account for socio-technical effects in design
-    controls: [{id: OPM-06, strength: partial}, {id: POR-05, strength: partial}, {id: RSK-03, strength: partial}]
-    note: User-centred delivery standards (OPM-06), the business case (POR-05) and the impact assessment (RSK-03) shape requirements; documented system requirements are system-level.
+    controls: [{id: OPM-06, strength: partial}, {id: POR-05, strength: partial}, {id: RSK-03, strength: partial}, {id: OPM-10, strength: partial}]
+    note: User-centred delivery standards (OPM-06), the business case (POR-05), the impact assessment (RSK-03) and engagement of affected communities and outside experts at design (OPM-10) shape requirements and bring in socio-technical effects; documented system requirements are system-level.
+    confidence: high
 
   # ---------------------------------------------------------------- MAP 2 Categorisation
   - ref: "MAP 2.1"
     label: Define the tasks the system supports and the AI methods used
     controls: [{id: GOV-06, strength: partial}, {id: POR-05, strength: partial}]
     note: The inventory and business case record purpose; recording the AI technique used for each system (classifier, generative, recommender) is system-level and not required.
+    confidence: high
   - ref: "MAP 2.2"
     label: Document the system's knowledge limits and how people use and oversee its output
     controls: [{id: TEC-05, strength: direct}, {id: RSK-07, strength: partial}]
     note: "TEC-05 Level 3 requires documentation for each version to state known limitations and where the AI must not be used or relied on, and RSK-07 sets how output is used and overseen by people."
+    confidence: high
   - ref: "MAP 2.3"
     label: Identify scientific integrity and test and evaluation considerations
     controls: [{id: TEC-06, strength: partial}, {id: DAT-03, strength: partial}, {id: DAT-08, strength: partial}]
     note: System-level; representative test data (TEC-06), data quality (DAT-03) and provenance (DAT-08) are covered, but experimental design and construct validity are not.
+    confidence: high
 
   # ---------------------------------------------------------------- MAP 3 Capabilities, benefits and costs
   - ref: "MAP 3.1"
     label: Examine and document expected benefits
     controls: [{id: POR-05, strength: direct}, {id: STR-04, strength: partial}]
+    confidence: high
   - ref: "MAP 3.2"
     label: Examine the costs of AI errors, including non-monetary ones, against risk tolerance
     controls: [{id: POR-05, strength: partial}, {id: RSK-02, strength: partial}, {id: RSK-03, strength: partial}]
     note: The business case covers financial costs (POR-05) and the risk and impact assessments cover harms (RSK-02, RSK-03); assessing the cost of the system's errors against risk tolerance is not explicit.
+    confidence: high
   - ref: "MAP 3.3"
     label: Specify and document the targeted scope of application
     controls: [{id: TEC-06, strength: direct}, {id: GOV-03, strength: partial}, {id: GOV-06, strength: partial}, {id: TEC-01, strength: partial}]
     note: "TEC-06 Level 3 requires intended operating conditions (where, when and on what inputs the AI can be relied on) to be defined before testing, given to operators and risk owners, and enforced by limits, which is the targeted scope based on tested capability; approval sets the purpose (GOV-03) and the inventory records it with its risk classification (GOV-06)."
+    confidence: medium
+    confidence_note: operating conditions read as the targeted scope of application
   - ref: "MAP 3.4"
     label: Define and assess operator and practitioner proficiency
     controls: [{id: PPL-05, strength: direct}, {id: PPL-04, strength: partial}, {id: RSK-07, strength: partial}]
+    confidence: medium
+    confidence_note: role learning covers proficiency; assessing operators per system is not explicit
   - ref: "MAP 3.5"
     label: Define, assess and document human oversight processes
     controls: [{id: RSK-07, strength: direct}]
+    confidence: high
 
   # ---------------------------------------------------------------- MAP 4 Components and third parties
   - ref: "MAP 4.1"
     label: Map technology and legal risks of components, including third-party data, software and IP
     controls: [{id: RSK-02, strength: partial}, {id: RSK-09, strength: partial}, {id: SEC-03, strength: partial}, {id: DAT-08, strength: partial}, {id: OPM-04, strength: partial}]
     note: Risks are assessed for each use (RSK-02) and for bought AI (RSK-09), external components are security checked (SEC-03) and data rights recorded (DAT-08); mapping legal and IP risks for each component, including open-source models taken without a contract, is system-level and not explicit.
+    confidence: high
   - ref: "MAP 4.2"
     label: Identify and document internal risk controls for system components
     controls: [{id: RSK-02, strength: partial}, {id: SEC-03, strength: partial}, {id: RSK-09, strength: partial}]
     note: RSK-02 records the controls applied for each use of AI; recording them for each component, including third-party models, is system-level.
+    confidence: high
 
   # ---------------------------------------------------------------- MAP 5 Impacts
   - ref: "MAP 5.1"
     label: Judge the likelihood and size of each beneficial and harmful impact
     controls: [{id: RSK-03, strength: direct}, {id: RSK-02, strength: partial}, {id: POR-05, strength: partial}]
+    confidence: high
   - ref: "MAP 5.2"
     label: Regular engagement with AI actors and feedback on impacts
-    controls: [{id: MON-06, strength: direct}, {id: CUL-03, strength: partial}, {id: CUL-08, strength: partial}]
+    controls: [{id: MON-06, strength: direct}, {id: CUL-03, strength: partial}, {id: CUL-08, strength: partial}, {id: OPM-10, strength: partial}]
+    note: MON-06 gives users and affected people a feedback route reviewed on a set cycle; CUL-03, CUL-08 and OPM-10 engage staff, the public and affected communities on impacts.
+    confidence: medium
+    confidence_note: user feedback stands in for regular engagement with AI actors
 
   # ---------------------------------------------------------------- MEASURE 1 Methods and metrics
   - ref: "MEASURE 1.1"
     label: Choose measures for the most significant risks first and record what cannot be measured
     controls: [{id: MON-01, strength: partial}, {id: TEC-06, strength: partial}, {id: RSK-06, strength: partial}]
     note: "Measures cover accuracy, outcome and effect on people (MON-01), test criteria (TEC-06) and fairness (RSK-06), and MON-01 records risks that cannot yet be measured with their proxy indicators. Still missing: choosing measures for each assessed risk in order of significance."
+    confidence: high
   - ref: "MEASURE 1.2"
     label: Regularly review whether metrics fit and controls work
     controls: [{id: MON-05, strength: partial}, {id: GOV-08, strength: partial}, {id: MON-07, strength: partial}, {id: TEC-06, strength: partial}]
     note: Independent assurance (MON-05), compliance checks (GOV-08) and the maturity re-assessment (MON-07) test whether controls work, and TEC-06 reviews test metrics on a set cycle against live performance and incidents. Regularly reviewing whether the live measures for each use (MON-01) are still the right ones is not explicit.
+    confidence: high
   - ref: "MEASURE 1.3"
     label: Independent assessors and outside experts take part in regular assessments
-    controls: [{id: MON-05, strength: direct}, {id: CUL-03, strength: partial}, {id: MON-06, strength: partial}]
+    controls: [{id: MON-05, strength: direct}, {id: CUL-03, strength: partial}, {id: MON-06, strength: partial}, {id: OPM-10, strength: partial}]
+    note: MON-05 Level 3 sets independent review by risk tier; OPM-10 engages experts who are not users for significant uses, and CUL-03 and MON-06 bring in staff and users.
+    confidence: high
 
   # ---------------------------------------------------------------- MEASURE 2 Trustworthy characteristics
   - ref: "MEASURE 2.1"
     label: Document test sets, metrics and tools used in testing
     controls: [{id: TEC-06, strength: partial}]
     note: System-level; TEC-06 records results and criteria, but documenting the test sets and tools used is not explicit.
+    confidence: high
   - ref: "MEASURE 2.2"
     label: Evaluations with human participants are protected and representative
     controls: [{id: OPM-10, strength: direct}, {id: RSK-05, strength: partial}, {id: DAT-05, strength: partial}]
     note: OPM-10 Level 3 requires evaluations and user research involving people to have informed consent, ethics review through the established route and participants who represent the people the service will serve, and protects their wellbeing and right to withdraw.
+    confidence: high
   - ref: "MEASURE 2.3"
     label: Measure performance against criteria in conditions like live use
     controls: [{id: TEC-06, strength: direct}, {id: MON-01, strength: partial}]
+    confidence: high
   - ref: "MEASURE 2.4"
     label: Monitor system behaviour in production
     controls: [{id: MON-02, strength: direct}]
+    confidence: high
   - ref: "MEASURE 2.5"
     label: Show the system is valid and reliable and record limits on generalising
     controls: [{id: TEC-06, strength: direct}, {id: TEC-05, strength: partial}]
     note: "TEC-06 Level 3 tests accuracy and robustness before release and defines the operating conditions in which the AI can be relied on; TEC-05 documentation states known limitations and where the AI must not be relied on, which records the limits beyond the tested conditions."
+    confidence: high
   - ref: "MEASURE 2.6"
     label: Evaluate safety regularly, keep residual risk in tolerance and fail safely
     controls: [{id: TEC-06, strength: partial}, {id: OPM-09, strength: partial}, {id: MON-02, strength: partial}, {id: RSK-01, strength: partial}, {id: RSK-02, strength: partial}, {id: GOV-07, strength: partial}, {id: GOV-03, strength: partial}]
     note: "Safe stop and fallback (OPM-09, tested on a set cycle at Level 3), live monitoring (MON-02) and pre-release testing (TEC-06) are covered, and RSK-02 reassesses risk during live use and records residual risk. GOV-07 requires a hazard analysis for uses that could contribute to physical harm and TEC-06 enforces operating conditions by limits, and GOV-03 refuses or stops a use whose residual risk cannot be brought within the risk appetite. Still missing: safety evaluation as such on a regular cycle."
+    confidence: high
   - ref: "MEASURE 2.7"
     label: Evaluate and document security and resilience
     controls: [{id: SEC-06, strength: direct}, {id: TEC-06, strength: partial}, {id: SEC-01, strength: partial}, {id: SEC-02, strength: partial}, {id: SEC-05, strength: partial}]
     note: "SEC-06 Level 3 requires security testing against the threats in the threat model, by testers with the right skills, independent of the build team for higher-risk uses, and TEC-06 records test results before release; SEC-02 supplies the threat model, SEC-01 adds security monitoring of live use and SEC-05 recovery from AI-specific attacks, exercised at Level 3. Detailed security test methods remain delegated to the baseline."
+    confidence: high
   - ref: "MEASURE 2.8"
     label: Examine and document transparency and accountability risks
     controls: [{id: GOV-09, strength: partial}, {id: RSK-08, strength: partial}, {id: GOV-05, strength: partial}]
     note: Published records (GOV-09), explanation to affected people (RSK-08) and named owners (GOV-05) provide transparency and accountability; examining the risks where they fall short is not an explicit part of each risk assessment.
+    confidence: high
   - ref: "MEASURE 2.9"
     label: Explain, validate and document the model and interpret output in context
     controls: [{id: TEC-02, strength: direct}, {id: RSK-08, strength: partial}, {id: TEC-05, strength: partial}, {id: TEC-06, strength: partial}]
     note: TEC-02 reference patterns, applied through design review, build in explainability and traceability of outputs; TEC-05 documents how each version works and its limits, TEC-06 validates against agreed criteria and RSK-08 explains outcomes to affected people. The explanation technique for each model is system-level.
+    confidence: medium
+    confidence_note: explainability is set in patterns; per model validation is system-level
   - ref: "MEASURE 2.10"
     label: Examine and document privacy risk
-    controls: [{id: RSK-03, strength: direct}, {id: DAT-05, strength: direct}, {id: SEC-04, strength: partial}]
+    controls: [{id: RSK-03, strength: direct}, {id: DAT-05, strength: direct}, {id: SEC-04, strength: partial}, {id: SEC-06, strength: partial}, {id: MON-02, strength: partial}]
+    note: Privacy impact (RSK-03) and lawful use records (DAT-05) examine and document privacy risk; SEC-06 tests that personal or sensitive information is not disclosed before release and MON-02 monitors outputs for it in live use.
+    confidence: high
   - ref: "MEASURE 2.11"
     label: Evaluate fairness and bias and document the results
     controls: [{id: RSK-06, strength: direct}, {id: MON-02, strength: partial}]
     note: RSK-06 defines groups at risk and fairness measures and tests before release, with results recorded; MON-02 monitors those fairness measures in live use.
+    confidence: high
   - ref: "MEASURE 2.12"
     label: Assess the environmental impact of training and running AI
     controls: [{id: RSK-03, strength: partial}, {id: OPM-02, strength: partial}, {id: RSK-09, strength: partial}, {id: MON-01, strength: direct}]
     note: MON-01 measures environmental footprint (such as energy, compute and water) for each use where material, with a baseline; RSK-03 includes environmental effects in the impact assessment, OPM-02 weighs footprint in sourcing and RSK-09 assesses supplier energy use and sustainability practice.
+    confidence: medium
+    confidence_note: MON-01 applies only where footprint is material
   - ref: "MEASURE 2.13"
     label: Evaluate whether the testing and evaluation methods themselves work
     controls: [{id: TEC-06, strength: direct}, {id: MON-05, strength: partial}]
     note: TEC-06 Level 3 reviews the testing approach and its metrics on a set cycle against live performance and incidents.
+    confidence: high
 
   # ---------------------------------------------------------------- MEASURE 3 Tracking risk over time
   - ref: "MEASURE 3.1"
     label: Regularly identify and track existing, unexpected and emerging risks in live use
     controls: [{id: RSK-02, strength: direct}, {id: MON-02, strength: partial}, {id: MON-04, strength: partial}, {id: MON-05, strength: partial}]
     note: RSK-02 Level 3 reassesses risk during live use and on material change; live monitoring catches unexpected behaviour (MON-02), incidents surface new risks (MON-04) and assurance reviews recur by risk tier (MON-05).
+    confidence: high
   - ref: "MEASURE 3.2"
     label: Track risks that current metrics cannot measure
     controls: [{id: MON-01, strength: direct}, {id: MON-05, strength: partial}]
     note: MON-01 Level 3 records risks that cannot yet be measured, with the indicators or proxies used to track them.
+    confidence: high
   - ref: "MEASURE 3.3"
     label: Users and affected people can report problems and appeal, feeding evaluation
     controls: [{id: MON-06, strength: partial}, {id: RSK-08, strength: partial}]
     note: Feedback routes (MON-06) and challenge with human review (RSK-08) give people a way to report and appeal; feeding what they raise into the system's evaluation measures is not explicit.
+    confidence: high
 
   # ---------------------------------------------------------------- MEASURE 4 Efficacy of measurement
   - ref: "MEASURE 4.1"
     label: Tie measurement to the deployment context, informed by domain experts and users
     controls: [{id: MON-01, strength: partial}, {id: OPM-06, strength: partial}, {id: CUL-03, strength: partial}]
     note: "Measures are agreed for each use (MON-01), users are involved in delivery (OPM-06, CUL-03), and subject matter experts for the data and the work take part in design and evaluation (OPM-06). Still missing: a requirement that the MON-01 measures themselves are set with domain experts and end users for the deployment context."
+    confidence: high
   - ref: "MEASURE 4.2"
     label: Validate live trustworthiness results with domain experts and AI actors
     controls: [{id: MON-02, strength: partial}, {id: MON-05, strength: partial}, {id: MON-06, strength: partial}]
     note: Live monitoring (MON-02), independent review (MON-05) and user feedback (MON-06) give the evidence; asking domain experts to confirm the system performs as intended in its setting is system-level and not explicit.
+    confidence: high
   - ref: "MEASURE 4.3"
     label: Record performance gains or declines from field data and consultation
     controls: [{id: MON-02, strength: partial}, {id: MON-06, strength: partial}, {id: MON-03, strength: partial}]
     note: Drift and accuracy are monitored against thresholds (MON-02), feedback is reviewed (MON-06) and benefits tracked (MON-03); recording performance trends from field data and consultation with affected communities is not explicit.
+    confidence: high
 
   # ---------------------------------------------------------------- MANAGE 1 Prioritise and respond to risks
   - ref: "MANAGE 1.1"
     label: Decide whether the system meets its purpose and should proceed
     controls: [{id: POR-04, strength: direct}, {id: POR-07, strength: direct}, {id: GOV-03, strength: partial}]
+    confidence: high
   - ref: "MANAGE 1.2"
     label: Prioritise risk treatment by impact, likelihood and resources
     controls: [{id: RSK-02, strength: direct}, {id: RSK-01, strength: partial}]
+    confidence: high
   - ref: "MANAGE 1.3"
     label: Plan and document responses to high-priority risks
     controls: [{id: RSK-02, strength: direct}]
+    confidence: high
   - ref: "MANAGE 1.4"
     label: Document residual risks to downstream acquirers and end users
     controls: [{id: RSK-02, strength: partial}, {id: TEC-05, strength: partial}, {id: PPL-08, strength: partial}]
     note: "RSK-02 Level 3 records residual risk for each use; TEC-05 documentation states known limitations and where not to rely on the AI, and PPL-08 tool guidance states residual security risks. Still missing: documenting residual risk in general for downstream acquirers and end users."
+    confidence: high
 
   # ---------------------------------------------------------------- MANAGE 2 Maximise benefit, minimise harm
   - ref: "MANAGE 2.1"
     label: Weigh risk management resources and non-AI alternatives
     controls: [{id: POR-05, strength: partial}, {id: OPM-02, strength: partial}, {id: STR-03, strength: partial}]
     note: The business case states options that include not using AI (POR-05), build or buy includes waiting (OPM-02) and funding is judged centrally (STR-03); weighing the cost of managing the risks for each use is not explicit.
+    confidence: high
   - ref: "MANAGE 2.2"
     label: Sustain the value of deployed systems
     controls: [{id: MON-03, strength: direct}, {id: OPM-07, strength: partial}, {id: TEC-07, strength: partial}]
+    confidence: medium
+    confidence_note: benefits tracking read as sustaining the value of deployed systems
   - ref: "MANAGE 2.3"
     label: Respond to and recover from a newly found risk
-    controls: [{id: MON-09, strength: direct}, {id: MON-04, strength: partial}, {id: SEC-05, strength: partial}, {id: OPM-09, strength: partial}]
+    controls: [{id: MON-09, strength: direct}, {id: MON-04, strength: direct}, {id: SEC-05, strength: partial}, {id: OPM-09, strength: partial}]
     note: MON-09 Level 3 tells the supplier, and the regulator where the law requires, of a risk to health, safety or rights and suspends use if needed; MON-04 investigates and resolves incidents, SEC-05 handles security cases and OPM-09 keeps the service running or stops it safely.
+    confidence: medium
+    confidence_note: MON-09 covers health, safety and rights risks; other newly found risks rest on MON-04 (direct) and RSK-02
   - ref: "MANAGE 2.4"
     label: Assign responsibility and means to override, disengage or switch off a system
-    controls: [{id: RSK-07, strength: direct}, {id: OPM-09, strength: partial}, {id: TEC-04, strength: partial}, {id: TEC-05, strength: partial}]
+    controls: [{id: RSK-07, strength: direct}, {id: OPM-09, strength: partial}, {id: TEC-04, strength: partial}, {id: TEC-05, strength: partial}, {id: MON-02, strength: partial}, {id: MON-09, strength: partial}]
+    note: RSK-07 Level 3 states who can override or stop each use; OPM-09 gives a safe stop, TEC-04 lets integrations be disabled and TEC-05 rolls back. MON-09 sets when a use is suspended after a serious incident, and for agents MON-02 gives a named person the means to stop each one at once.
+    confidence: high
 
   # ---------------------------------------------------------------- MANAGE 3 Third-party risk
   - ref: "MANAGE 3.1"
     label: Monitor third-party AI risks and benefits regularly and apply controls
     controls: [{id: RSK-09, strength: direct}, {id: OPM-05, strength: partial}, {id: SEC-03, strength: partial}]
     note: RSK-09 Level 3 reassesses supplier AI risk on significant change and at set intervals, and its results feed the risk assessment for each use.
+    confidence: high
   - ref: "MANAGE 3.2"
     label: Monitor pre-trained models as part of routine monitoring
     controls: [{id: MON-02, strength: partial}, {id: TEC-07, strength: partial}, {id: SEC-03, strength: partial}]
     note: Live monitoring covers the system (MON-02), TEC-07 keeps a bill of materials naming each model, and SEC-03 reassesses external models at set intervals and on disclosed vulnerabilities. Watching the underlying pre-trained model for upstream changes and for known issues other than security vulnerabilities is not explicit.
+    confidence: high
 
   # ---------------------------------------------------------------- MANAGE 4 Treatment, response and communication
   - ref: "MANAGE 4.1"
     label: Run post-deployment monitoring with feedback, appeal, override, incident and change routes
     controls: [{id: MON-02, strength: direct}, {id: OPM-07, strength: partial}, {id: MON-06, strength: partial}, {id: RSK-08, strength: partial}, {id: MON-04, strength: partial}, {id: POR-09, strength: partial}]
+    confidence: medium
+    confidence_note: item spans several routes; MON-02 carries the monitoring part
   - ref: "MANAGE 4.2"
     label: Build measurable improvement into system updates with stakeholder input
     controls: [{id: MON-06, strength: partial}, {id: OPM-07, strength: partial}, {id: MON-07, strength: partial}]
     note: Feedback is acted on (MON-06), changes are managed (OPM-07) and the governance system improves (MON-07); measurable improvement targets for each system's updates are system-level and not explicit.
+    confidence: high
   - ref: "MANAGE 4.3"
     label: Tell relevant parties and affected people about incidents and track them
-    controls: [{id: MON-09, strength: direct}, {id: MON-04, strength: partial}, {id: SEC-05, strength: partial}]
-    note: MON-09 Level 3 sets routes for notifying suppliers and regulators of serious incidents and a plan for telling affected people; MON-04 tracks incidents through to resolution.
+    controls: [{id: MON-09, strength: direct}, {id: MON-04, strength: direct}, {id: SEC-05, strength: partial}]
+    note: MON-09 Level 3 sets routes for notifying suppliers and regulators of serious incidents and a plan for telling affected people; MON-04 tracks incidents through to resolution and tells affected people about lesser ones.
+    confidence: high

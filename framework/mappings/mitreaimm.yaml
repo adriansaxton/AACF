@@ -7,7 +7,7 @@
 # maps across such models, so this file lets an organisation that has assessed itself against MITRE carry its results
 # across, and shows which of our controls to look at for each MITRE dimension.
 #
-# Provenance. Our 89 controls were drafted before the MITRE model was read (see ../../CLAUDE.md, provenance record).
+# Provenance. The original 89 controls (93 after the v1.0 splits) were drafted before the MITRE model was read (see ../../CLAUDE.md, provenance record).
 # Nothing here copies MITRE wording, level descriptors, supporting evidence lists or assessment questions: refs are
 # dimension numbers, dimension names appear only as short identifiers at the start of each label, and the rest of each
 # label and every note is our own wording.
@@ -53,97 +53,125 @@
 
 source: MITREAIMM
 status: draft
-mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+mapped_by: drafted with AI assistance, 2026-11-09
+reviewed_by: the author, 2026-11-10
+checked: 2026-11-10
 items:
 
   # ---------------------------------------------------------------- P1 Ethical, Equitable and Responsible Use
   - ref: "P1.1"
     label: "Responsible, Governable and Contestable: responsible use is governed and enforced, people are accountable, and AI outcomes can be challenged"
     controls: [{id: RSK-04, strength: direct}, {id: GOV-08, strength: direct}, {id: RSK-08, strength: direct}, {id: GOV-05, strength: direct}, {id: RSK-05, strength: partial}, {id: GOV-02, strength: partial}, {id: STR-02, strength: direct}, {id: GOV-01, strength: partial}, {id: RSK-07, strength: partial}]
-    note: "The obligations register (RSK-04) identifies the regulatory and organisational rules that apply; compliance checks and exceptions (GOV-08) enforce them; named owners for each use (GOV-05) and the accountable executive (GOV-02) carry accountability; RSK-08 gives affected people a route to challenge an outcome with authority to change it; RSK-05 applies the ethical principles through a review route that can stop a use. STR-02 names the kinds of decision that must always be taken by a person, alongside ruled-out areas, with prohibited uses (GOV-01) and per-use human oversight (RSK-07) in support."
+    note: "The obligations register (RSK-04) identifies the regulatory and organisational rules that apply; compliance checks and exceptions (GOV-08) enforce them; named owners for each use (GOV-05) and the accountable executive (GOV-02) carry accountability; RSK-08 gives affected people a route to challenge an outcome with authority to change it; RSK-05 applies the ethical principles through a review route that can stop a use. STR-02 names the kinds of decision that must always be taken by a person, alongside ruled-out areas, with prohibited uses (GOV-01) and per-use human oversight (RSK-07) in support; for agents, RSK-07 also requires a person's approval before actions that are consequential or hard to reverse."
+    confidence: medium
+    confidence_note: "Five controls marked direct for a broad dimension; a reviewer may hold some of them, such as RSK-04, at partial."
   - ref: "P1.2"
     label: "Transparency: what an AI system produced, and why, can be traced, explained and justified to users and to the people affected"
-    controls: [{id: RSK-08, strength: direct}, {id: DAT-06, strength: direct}, {id: TEC-05, strength: direct}, {id: TEC-02, strength: direct}, {id: GOV-09, strength: partial}, {id: GOV-10, strength: partial}, {id: RSK-07, strength: partial}, {id: DAT-08, strength: partial}, {id: OPM-06, strength: partial}]
-    note: "RSK-08 gives affected people notice and a meaningful explanation; DAT-06 keeps inputs, outputs and supported decisions retrievable; TEC-05 versions models, prompts and data together and documents how each version works and its limits, which makes outputs traceable; DAT-08 links training data to models. TEC-02 reference patterns build in explainability and traceability of outputs from the start, and mark AI-generated content. GOV-09 publishes records of use, GOV-10 covers disclosure of AI-generated content, and OPM-06 brings user research into design. Still beyond Level 3: involving affected people (not only users) through the life of a use."
+    controls: [{id: RSK-08, strength: direct}, {id: DAT-06, strength: direct}, {id: TEC-05, strength: direct}, {id: TEC-02, strength: direct}, {id: GOV-09, strength: partial}, {id: GOV-10, strength: partial}, {id: RSK-07, strength: partial}, {id: DAT-08, strength: partial}, {id: OPM-06, strength: partial}, {id: OPM-10, strength: partial}]
+    note: "RSK-08 gives affected people notice and a meaningful explanation; DAT-06 keeps inputs, outputs and supported decisions retrievable; TEC-05 versions models, prompts and data together and documents how each version works and its limits, which makes outputs traceable; DAT-08 links training data to models. TEC-02 reference patterns build in explainability and traceability of outputs from the start, and mark AI-generated content. GOV-09 publishes records of use, GOV-10 covers disclosure of AI-generated content, and OPM-06 brings user research into design. OPM-10 engages affected communities and experts who are not users at planning and design for significant uses. Still missing at Level 3: keeping affected people involved through the whole life of a use, and for uses below the significant threshold."
+    confidence: high
   - ref: "P1.3"
     label: "Human-Centric, Fair and Equitable: AI respects rights, diversity and well-being, with deliberate steps against unfair bias and discrimination"
-    controls: [{id: RSK-06, strength: direct}, {id: RSK-03, strength: direct}, {id: MON-02, strength: partial}, {id: RSK-05, strength: partial}, {id: DAT-05, strength: partial}, {id: DAT-03, strength: partial}, {id: GOV-04, strength: partial}]
-    note: "RSK-06 sets an organisation-wide approach to defining groups at risk, fairness measures, testing and mitigation; RSK-03 assesses equality, rights, safety and wider societal effects before go-live. Adopted principles (RSK-05), fairness in data use (DAT-05), representative data (DAT-03) and a diverse oversight forum (GOV-04) support it. Monitoring fairness in live use, which MITRE puts at its Managed level, is in our baseline through MON-02 Level 3; acting on fairness breaches is RSK-06 Level 4."
+    controls: [{id: RSK-06, strength: direct}, {id: RSK-03, strength: direct}, {id: MON-02, strength: partial}, {id: RSK-05, strength: partial}, {id: DAT-05, strength: partial}, {id: DAT-03, strength: partial}, {id: GOV-04, strength: partial}, {id: OPM-10, strength: partial}]
+    note: "RSK-06 sets an organisation-wide approach to defining groups at risk, fairness measures, testing and mitigation; RSK-03 assesses equality, rights, safety and wider societal effects before go-live. Adopted principles (RSK-05), fairness in data use (DAT-05), representative data (DAT-03) and a diverse oversight forum (GOV-04) support it; OPM-10 protects the wellbeing of people taking part in research and evaluation and engages affected communities on significant uses. Monitoring fairness in live use, which MITRE puts at its Managed level, is in our baseline through MON-02 Level 3; acting on fairness breaches is RSK-06 Level 4."
+    confidence: high
 
   # ---------------------------------------------------------------- P2 Strategy and Resources
   - ref: "P2.1"
     label: "AI Strategic Plan: an approved direction for AI with leadership, policy and funding behind it"
     controls: [{id: STR-01, strength: direct}, {id: STR-03, strength: direct}, {id: GOV-02, strength: direct}, {id: GOV-01, strength: partial}, {id: STR-06, strength: partial}, {id: STR-04, strength: partial}, {id: STR-08, strength: partial}, {id: CUL-02, strength: partial}, {id: STR-07, strength: partial}]
     note: STR-01 is the approved ambition tied to organisational objectives, STR-03 the funding approach and GOV-02 the accountable leadership role. The AI policy (GOV-01), roadmap (STR-06), value case (STR-04), review cycle (STR-08), communication plan (CUL-02) and staff input to strategy (STR-07) supply the rest. Tracking outcomes against objectives sits at our Level 4 (MON-03, MON-08).
+    confidence: high
   - ref: "P2.2"
     label: "Partnerships: working relationships with industry, academia, government and research bodies that bring in other perspectives and build responsible capability"
     controls: [{id: OPM-08, strength: direct}, {id: STR-07, strength: partial}, {id: STR-05, strength: partial}]
     note: "OPM-08 requires a stated approach to collaboration, taking part in peer groups or partnerships, and sharing within agreed rules on data and intellectual property; its Level 3 also requires partnership agreements to state the adopted ethical principles and the data and intellectual property terms, and the approach to say which kinds of partner are sought and why, which covers responsible use in partnerships and a deliberate choice of partners. STR-07 lets partners shape the strategy and STR-05 tracks peer practice."
+    confidence: high
   - ref: "P2.3"
     label: "Governance: structures, processes, policies and audits that keep AI in line with the organisation's ethics, regulations and policies"
     controls: [{id: GOV-04, strength: direct}, {id: GOV-02, strength: direct}, {id: GOV-08, strength: direct}, {id: MON-05, strength: direct}, {id: GOV-01, strength: partial}, {id: GOV-07, strength: partial}, {id: RSK-05, strength: partial}, {id: RSK-04, strength: partial}, {id: GOV-09, strength: partial}, {id: MON-08, strength: partial}]
     note: "The oversight forum with recorded decisions (GOV-04), the accountable executive (GOV-02), compliance checks (GOV-08) and independent assurance reviews (MON-05, the audit element) evidence the substance. Policy (GOV-01), integration with existing governance (GOV-07), the ethics review route (RSK-05, comparable to an expert review board), regulator contact (RSK-04), published records (GOV-09) and board reporting (MON-08) support it. Publishing governance results on fairness, privacy and security is beyond our Level 3; GOV-09 publishes records of each use, not governance performance."
+    confidence: high
 
   # ---------------------------------------------------------------- P3 Organization
   - ref: "P3.1"
     label: "Culture: shared norms and values that make the organisation ready to accept the change AI brings and to take measured risks"
     controls: [{id: CUL-01, strength: direct}, {id: CUL-05, strength: direct}, {id: CUL-04, strength: direct}, {id: CUL-02, strength: partial}, {id: CUL-06, strength: partial}, {id: POR-06, strength: partial}, {id: PPL-01, strength: partial}]
     note: "CUL-01 manages adoption as planned change with sponsors and resource; CUL-05 (no-blame review of what did not work) and POR-06 (safe experimentation) build tolerance of risk; CUL-04 makes it safe to raise concerns. Communication (CUL-02), champions (CUL-06) and literacy (PPL-01) carry responsible use norms to staff. The CUL-01 change plan starts from an assessment of the current culture and what has to change; measuring progress sits at CUL-01 Level 4."
+    confidence: medium
+    confidence_note: "Our controls evidence the processes that shape culture, not the shared norms MITRE describes, so direct is a judgement."
   - ref: "P3.2"
     label: "Organizational Structure: AI structures, roles and working procedures are defined, documented and used"
     controls: [{id: OPM-01, strength: direct}, {id: GOV-05, strength: direct}, {id: GOV-03, strength: partial}, {id: GOV-02, strength: partial}, {id: PPL-03, strength: partial}, {id: GOV-04, strength: partial}]
     note: OPM-01 sets central and local responsibilities with named teams, resourcing and interfaces; GOV-05 names the owners for each use. Decision rights (GOV-03), the accountable executive (GOV-02), specialist roles (PPL-03) and the forum's terms of reference (GOV-04) complete the documented structure.
+    confidence: high
   - ref: "P3.3"
     label: "Workforce Development: training, recruitment and planning for the effect of AI on careers, to build and reshape the AI workforce"
     controls: [{id: PPL-04, strength: direct}, {id: PPL-05, strength: direct}, {id: PPL-06, strength: direct}, {id: PPL-07, strength: direct}, {id: PPL-03, strength: partial}, {id: PPL-01, strength: partial}, {id: PPL-02, strength: partial}]
-    note: "Skills assessment (PPL-04), role-based learning (PPL-05), workforce planning including reskilling and redeployment (PPL-06) and recruitment and retention (PPL-07) evidence the substance, with careers (PPL-03), literacy (PPL-01) and leadership learning (PPL-02). PPL-07 also covers the diversity of AI teams, alongside the diverse oversight forum (GOV-04) and research participants (OPM-06)."
+    note: "Skills assessment (PPL-04), role-based learning (PPL-05), workforce planning including reskilling and redeployment (PPL-06) and recruitment and retention (PPL-07) evidence the substance, with careers (PPL-03), literacy (PPL-01) and leadership learning (PPL-02). PPL-07 also covers the diversity of AI teams, alongside the diverse oversight forum (GOV-04), diversity of perspective in delivery teams (OPM-06) and representative research participants (OPM-10)."
+    confidence: high
 
   # ---------------------------------------------------------------- P4 Technology Enablers
   - ref: "P4.1"
     label: "AI Innovation: research, engineering practice and design principles for how people and AI work together, used to bring AI into operations"
     controls: [{id: OPM-06, strength: direct}, {id: POR-06, strength: partial}, {id: POR-04, strength: partial}, {id: RSK-07, strength: partial}, {id: STR-05, strength: partial}, {id: POR-01, strength: partial}]
     note: "OPM-06 delivery standards, applied to all AI delivery, include AI-specific engineering practice and the design of how people and AI share work, with subject matter experts in design and evaluation, alongside multidisciplinary teams and user-centred methods. Safe experimentation (POR-06), stage gates (POR-04), oversight designed for each use (RSK-07), horizon scanning (STR-05) and idea intake (POR-01) bring AI into operations."
+    confidence: medium
+    confidence_note: "The research and innovation side rests on one delivery standards control; a reviewer could read it as partial."
   - ref: "P4.2"
     label: "Test and Evaluation: AI-specific testing standards verify and validate that each solution meets its requirements"
-    controls: [{id: TEC-06, strength: direct}, {id: RSK-06, strength: direct}, {id: SEC-06, strength: partial}, {id: MON-01, strength: partial}, {id: SEC-02, strength: partial}, {id: MON-05, strength: partial}, {id: SEC-04, strength: partial}]
-    note: "TEC-06 sets acceptance criteria in advance, representative and independent test data, robustness and harmful output testing, and sign-off before every release; SEC-06 adds security testing against the threat model and checks that personal or sensitive information is not disclosed; RSK-06 adds bias testing before release. MON-01 supplies the measures, SEC-02 the threats to test against, MON-05 independent review. Auditing test results is MITRE's Managed level and our MON-05."
+    controls: [{id: TEC-06, strength: direct}, {id: RSK-06, strength: direct}, {id: SEC-06, strength: direct}, {id: MON-01, strength: partial}, {id: SEC-02, strength: partial}, {id: MON-05, strength: partial}, {id: SEC-04, strength: partial}]
+    note: "TEC-06 sets acceptance criteria in advance, representative and independent test data, robustness and harmful output testing, and sign-off before every release; SEC-06 adds security testing of every release against the threat model by skilled testers, independent for higher-risk uses, and checks that personal or sensitive information is not disclosed, which evidences the security and privacy verification MITRE expects of a defined test approach (for agents it also tries to push each agent outside its permissions); RSK-06 adds bias testing before release. MON-01 supplies the measures, SEC-02 the threats to test against, MON-05 independent review. Auditing test results is MITRE's Managed level and our MON-05."
+    confidence: high
   - ref: "P4.3"
     label: "AI Platforms: a defined set of architecture, standards, infrastructure and tools to build, integrate and run AI"
     controls: [{id: TEC-01, strength: direct}, {id: TEC-02, strength: direct}, {id: TEC-03, strength: partial}, {id: TEC-04, strength: partial}, {id: POR-06, strength: partial}, {id: SEC-01, strength: partial}, {id: TEC-07, strength: partial}]
     note: TEC-01 maintains approved tools and platforms with conditions of use, including the environments and toolchains used to build, test and run AI where it is built in house, each with an owner and support; TEC-02 the reference architecture. Hosting requirements (TEC-03), supported integration (TEC-04), approved experimentation environments (POR-06), security logging (SEC-01) and refresh planning (TEC-07, which MITRE places at its Managed level) support it.
+    confidence: high
 
   # ---------------------------------------------------------------- P5 Data
   - ref: "P5.1"
     label: "Architecture: how the organisation takes in, stores, organises and maintains its data, with common definitions, in a way that serves AI"
     controls: [{id: DAT-01, strength: direct}, {id: DAT-04, strength: partial}, {id: TEC-02, strength: partial}]
     note: "DAT-01 Level 3 requires the data strategy to be backed by an approved data architecture covering how data used by AI is taken in, stored, organised and maintained, with shared definitions. The catalogue records meaning, coverage and limits (DAT-04), and the AI reference architecture shows how AI fits the estate (TEC-02)."
+    confidence: high
   - ref: "P5.2"
     label: "Security and Privacy: privacy and data security are built in and upheld by the people who design, use and oversee AI"
-    controls: [{id: DAT-05, strength: direct}, {id: SEC-04, strength: direct}, {id: DAT-07, strength: direct}, {id: RSK-03, strength: partial}, {id: SEC-01, strength: partial}, {id: SEC-02, strength: partial}, {id: TEC-03, strength: partial}, {id: RSK-04, strength: partial}]
-    note: "Lawful basis, purpose and fairness with notice to the people concerned (DAT-05), leakage rules backed by technical measures (SEC-04) and least-privilege access and sharing agreements (DAT-07) evidence the substance; privacy impact (RSK-03), the security baseline and monitoring (SEC-01), threat modelling (SEC-02) and data location (TEC-03) support it. DAT-05 also handles individual rights requests, including where personal data has been used to train a model, with the obligations register (RSK-04) in support."
+    controls: [{id: DAT-05, strength: direct}, {id: SEC-04, strength: direct}, {id: DAT-07, strength: direct}, {id: RSK-03, strength: partial}, {id: SEC-01, strength: partial}, {id: SEC-02, strength: partial}, {id: TEC-03, strength: partial}, {id: RSK-04, strength: partial}, {id: SEC-06, strength: partial}]
+    note: "Lawful basis, purpose and fairness with notice to the people concerned (DAT-05), leakage rules backed by technical measures (SEC-04) and least-privilege access and sharing agreements (DAT-07) evidence the substance; privacy impact (RSK-03), the security baseline and monitoring (SEC-01), threat modelling (SEC-02), testing before release that personal or sensitive information cannot be drawn out of the system (SEC-06) and data location (TEC-03) support it. DAT-05 also handles individual rights requests, including where personal data has been used to train a model, with the obligations register (RSK-04) in support."
+    confidence: high
   - ref: "P5.3"
     label: "AI Data Governance: managing data for AI so it is available, usable and sound, compliant, and guarded against bias"
     controls: [{id: DAT-02, strength: direct}, {id: DAT-03, strength: direct}, {id: DAT-08, strength: partial}, {id: RSK-06, strength: partial}, {id: DAT-05, strength: partial}, {id: GOV-07, strength: partial}, {id: SEC-03, strength: partial}, {id: MON-05, strength: partial}]
     note: "Owners and stewards with defined responsibilities (DAT-02) and quality requirements, including representativeness, assessed before use and at intervals (DAT-03) evidence the substance. Provenance, including preparation, labelling and synthetic data (DAT-08), bias management (RSK-06), lawful use (DAT-05), the data governance step in existing governance (GOV-07), supply-chain security for external data (SEC-03) and independent review (MON-05) support it. Data audits as a distinct activity are not required by name; DAT-03 reassessment and MON-05 review stand in for them."
+    confidence: medium
+    confidence_note: "Data audits are not required by name; reassessment and independent review stand in for them."
   - ref: "P5.4"
     label: "Accessibility: an agreed framework and legal agreements for sharing data securely inside and outside the organisation"
     controls: [{id: DAT-07, strength: direct}, {id: DAT-04, strength: partial}, {id: DAT-01, strength: partial}, {id: DAT-02, strength: partial}]
     note: "DAT-07 requires sharing with other systems and organisations to follow documented agreements, approved by the data owner. The catalogue (DAT-04), data strategy actions (DAT-01) and owners who approve use (DAT-02) cover making data available. Our controls lean towards limiting access; the enabling side (freeing data from single applications and breaking down silos) rests on DAT-01 and DAT-04."
+    confidence: medium
+    confidence_note: "The enabling side of data sharing rests on general data strategy and catalogue wording."
 
   # ---------------------------------------------------------------- P6 Performance and Application
   - ref: "P6.1"
     label: "Usage and Adoption: uses of AI are identified, documented and built into ways of working so they deliver strategic outcomes"
     controls: [{id: POR-03, strength: direct}, {id: POR-05, strength: direct}, {id: CUL-07, strength: direct}, {id: POR-02, strength: partial}, {id: RSK-03, strength: partial}, {id: TEC-04, strength: partial}, {id: TEC-05, strength: partial}, {id: STR-04, strength: partial}, {id: MON-03, strength: partial}]
     note: "The pipeline register (POR-03) and proportionate business cases (POR-05) document each use; CUL-07 supports teams through process change and tracks adoption. Prioritisation (POR-02), the assessment of who is affected (RSK-03), integration with core systems (TEC-04), documentation of how each version works (TEC-05) and the value case (STR-04) support it. Measuring each use against outcome indicators is MITRE's Managed level and our MON-03 and MON-01."
+    confidence: high
   - ref: "P6.2"
     label: "Solution Monitoring: tools and processes watch deployed AI for changes in performance, fairness, security and trust, and act on problems"
-    controls: [{id: MON-02, strength: direct}, {id: SEC-01, strength: partial}, {id: MON-04, strength: partial}, {id: OPM-07, strength: partial}, {id: MON-06, strength: partial}, {id: RSK-06, strength: partial}]
-    note: "MON-02 monitors every live use for accuracy, drift, misuse and unexpected behaviour against thresholds with named responders, and also against the fairness measures set under RSK-06 and for personal or sensitive data appearing in outputs, which covers the unfair outcomes and leakage of personal data that MITRE's Defined level names. SEC-01 puts every live use within security monitoring; MON-04 and OPM-07 handle what is found; MON-06 gathers feedback; RSK-06 Level 4 acts on fairness breaches."
+    controls: [{id: MON-02, strength: direct}, {id: SEC-01, strength: partial}, {id: MON-04, strength: partial}, {id: OPM-07, strength: partial}, {id: MON-06, strength: partial}, {id: RSK-06, strength: partial}, {id: MON-09, strength: partial}]
+    note: "MON-02 monitors every live use for accuracy, drift, misuse and unexpected behaviour against thresholds with named responders, and also against the fairness measures set under RSK-06 and for personal or sensitive data appearing in outputs, which covers the unfair outcomes and leakage of personal data that MITRE's Defined level names. SEC-01 puts every live use within security monitoring; for agents, MON-02 also logs every action with its trigger and lets a named person stop the agent at once. MON-04 and OPM-07 handle what is found, and MON-09 sets the decision to suspend a use and the notification routes when a finding is serious; MON-06 gathers feedback; RSK-06 Level 4 acts on fairness breaches."
+    confidence: high
   - ref: "P6.3"
     label: "Robust and Reliable: AI is specified, designed and tested through its whole life to work as intended, avoid failure and meet quality requirements"
-    controls: [{id: TEC-06, strength: direct}, {id: TEC-05, strength: partial}, {id: MON-02, strength: partial}, {id: OPM-09, strength: partial}, {id: MON-01, strength: partial}, {id: OPM-07, strength: partial}]
-    note: "TEC-06 tests robustness against agreed criteria, defines and enforces intended operating conditions, and reviews the testing approach against live performance. TEC-05 documents intended purpose and allows rollback; MON-02 watches live behaviour against operating conditions; OPM-09 provides tested fallbacks; MON-01 sets the quality measures; OPM-07 manages change in live use."
+    controls: [{id: TEC-06, strength: direct}, {id: TEC-05, strength: partial}, {id: MON-02, strength: partial}, {id: OPM-09, strength: partial}, {id: MON-01, strength: partial}, {id: OPM-07, strength: partial}, {id: SEC-06, strength: partial}]
+    note: "TEC-06 tests robustness against agreed criteria, defines and enforces intended operating conditions, and reviews the testing approach against live performance. TEC-05 documents intended purpose and allows rollback; MON-02 watches live behaviour against operating conditions; OPM-09 provides tested fallbacks; MON-01 sets the quality measures; OPM-07 manages change in live use; SEC-06 tests resistance to deliberate attack before release."
+    confidence: high
   - ref: "P6.4"
     label: "User Trust: diligent processes and measures help people place the right amount of trust in AI, and correct over- or under-reliance"
-    controls: [{id: MON-01, strength: direct}, {id: CUL-08, strength: partial}, {id: MON-06, strength: partial}, {id: RSK-03, strength: partial}, {id: PPL-08, strength: partial}, {id: TEC-05, strength: partial}, {id: RSK-07, strength: partial}, {id: RSK-08, strength: partial}]
-    note: "MON-01 Level 3 requires the measures for each use to include reliance (how often outputs are accepted, checked or overridden) compared with measured accuracy, with a named owner, so over- and under-reliance show up. Correction draws on guidance on each tool's limits (PPL-08), trained reviewers (RSK-07), version documentation of limitations (TEC-05) and explanations for affected people (RSK-08); organisation-level trust (CUL-08), feedback per use (MON-06) and over-reliance in the impact assessment for public-facing assistants (RSK-03) support it. Monitoring trust measures across all uses is MITRE's Managed level."
+    controls: [{id: MON-01, strength: direct}, {id: CUL-08, strength: partial}, {id: MON-06, strength: partial}, {id: RSK-03, strength: partial}, {id: PPL-08, strength: partial}, {id: TEC-05, strength: partial}, {id: RSK-07, strength: partial}, {id: RSK-08, strength: partial}, {id: GOV-10, strength: partial}]
+    note: "MON-01 Level 3 requires the measures for each use to include reliance (how often outputs are accepted, checked or overridden) compared with measured accuracy, with a named owner, so over- and under-reliance show up. Correction draws on guidance on each tool's limits (PPL-08), trained reviewers (RSK-07), version documentation of limitations (TEC-05) explanations for affected people (RSK-08) and review and disclosure of AI-generated content, so people know when they are relying on it (GOV-10); organisation-level trust (CUL-08), feedback per use (MON-06) and over-reliance in the impact assessment for public-facing assistants (RSK-03) support it. Monitoring trust measures across all uses is MITRE's Managed level."
+    confidence: medium
+    confidence_note: "One direct control, and its reliance measure is a proxy for trust calibration rather than a trust measure."

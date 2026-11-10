@@ -42,7 +42,9 @@
 
 source: UNESCOAIMF
 status: draft
-mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+mapped_by: drafted with AI assistance, 2026-11-09
+reviewed_by: the author, 2026-11-10
+checked: 2026-11-10
 items:
 
   # ---------------------------------------------------------------- Pillar 1 Strategy & Value
@@ -50,125 +52,157 @@ items:
     label: AI Vision & Ambition. A stated purpose for AI that serves the organisation's mission and is understood across it
     controls: [{id: STR-01, strength: direct}, {id: STR-08, strength: partial}, {id: STR-03, strength: partial}]
     note: STR-01 Level 3 requires an approved ambition expressed in terms of the organisation's objectives, owned and communicated organisation wide. Review of the ambition as results and technology change sits in STR-08, and its influence on funding in STR-03.
+    confidence: high
   - ref: "1.2"
     label: Strategic Alignment. AI work is chosen and run because it advances the organisation's priorities
     controls: [{id: POR-02, strength: direct}, {id: STR-01, strength: direct}, {id: POR-05, strength: partial}, {id: STR-02, strength: partial}]
     note: POR-02 Level 3 applies approved criteria including strategic fit to every proposal and records the decision; STR-01 gives the test to apply. The business case (POR-05) and strategic boundaries (STR-02) support it. Using AI to open up new strategic options is beyond Level 3 (STR-05, STR-08 at higher levels).
+    confidence: high
   - ref: "1.3"
     label: Roadmap & Planning. A phased, resourced plan for AI adoption tied to the organisation's planning cycles
     controls: [{id: STR-06, strength: direct}, {id: STR-08, strength: partial}, {id: DAT-01, strength: partial}, {id: PPL-04, strength: partial}]
     note: STR-06 Level 3 requires an approved multi-year phased roadmap, aligned with business and financial planning, with decision points and an owner; STR-08 keeps it under review. STR-06 also names the capability, data and technology capacity the planned uses depend on, with the dependencies; the enablers themselves are planned in DAT-01 (data) and PPL-04 (skills).
+    confidence: high
   - ref: "1.4"
     label: Value Identification & Measurement. Finding the uses with most value and tracking whether the value arrives
     controls: [{id: POR-02, strength: direct}, {id: POR-05, strength: direct}, {id: MON-01, strength: direct}, {id: MON-03, strength: direct}, {id: STR-04, strength: partial}, {id: POR-01, strength: partial}]
     note: Proposals are ranked on value and feasibility (POR-02), each use has a business case with stated benefits (POR-05), measures and baselines are set before go-live (MON-01) and benefits are tracked against the business case and reported across the portfolio (MON-03). Experimental validation of impact is a technique above Level 3.
+    confidence: high
   - ref: "1.5"
     label: Innovation & Experimentation. A safe, resourced route to try AI and to scale or stop what is learned
     controls: [{id: POR-06, strength: direct}, {id: POR-07, strength: direct}, {id: CUL-05, strength: partial}, {id: STR-05, strength: partial}, {id: STR-03, strength: partial}, {id: OPM-08, strength: partial}]
     note: POR-06 Level 3 provides a documented experimentation route with approved environments, data rules and exit criteria; POR-07 ends every pilot in a recorded scale, extend or stop decision. Lessons from stopped work (CUL-05), scanning for new ideas (STR-05), funding (STR-03) and external partners (OPM-08) support it.
+    confidence: high
 
   # ---------------------------------------------------------------- Pillar 2 People & Culture
   - ref: "2.1"
     label: Talent & Skills. Defining the AI roles and skills needed, and recruiting and developing people to fill them
     controls: [{id: PPL-03, strength: direct}, {id: PPL-04, strength: direct}, {id: PPL-05, strength: direct}, {id: PPL-07, strength: partial}, {id: PPL-06, strength: partial}]
     note: Specialist roles and career paths (PPL-03), skills needed and held assessed by role (PPL-04) and learning pathways linked to that assessment (PPL-05). Recruitment and retention (PPL-07) and workforce planning (PPL-06) cover the rest.
+    confidence: high
   - ref: "2.2"
     label: Organizational Structure. How AI work is organised, with mandates, reporting lines and clear responsibilities
     controls: [{id: OPM-01, strength: direct}, {id: GOV-04, strength: direct}, {id: GOV-05, strength: partial}, {id: PPL-03, strength: partial}]
     note: OPM-01 Level 3 requires an approved operating model setting central and local responsibilities with named teams, resourcing and interfaces; GOV-04 gives a cross-functional oversight forum with terms of reference. Named owners per use (GOV-05) and defined specialist roles (PPL-03) support it.
+    confidence: high
   - ref: "2.3"
     label: Leadership & Sponsorship. Senior leaders visibly back AI adoption, review progress and hold people to account
     controls: [{id: GOV-02, strength: direct}, {id: MON-08, strength: direct}, {id: CUL-01, strength: partial}, {id: PPL-02, strength: partial}, {id: CUL-02, strength: partial}]
     note: A named executive formally accountable with AI a standing item at the board (GOV-02), and consolidated reporting to leadership and the board (MON-08). Named senior sponsors for change (CUL-01), leadership learning (PPL-02) and an owned communication plan (CUL-02) support it.
+    confidence: high
   - ref: "2.4"
     label: Change Management & Adoption. Managing the effect of AI on people and work so that it is taken up as intended
     controls: [{id: CUL-01, strength: direct}, {id: CUL-07, strength: direct}, {id: CUL-03, strength: partial}, {id: CUL-02, strength: partial}, {id: MON-06, strength: partial}]
     note: A planned, sponsored and funded approach to AI change (CUL-01) and a support plan for each affected team with adoption tracked (CUL-07). Early involvement of affected staff (CUL-03), communication (CUL-02) and feedback routes (MON-06) cover the rest.
+    confidence: high
   - ref: "2.5"
     label: AI Literacy & Awareness. A baseline understanding of AI, its limits and its ethical questions across the workforce
     controls: [{id: PPL-01, strength: direct}, {id: PPL-05, strength: partial}, {id: PPL-02, strength: partial}, {id: CUL-06, strength: partial}]
     note: PPL-01 Level 3 requires a defined literacy baseline for all staff, joiners and contractors, covering capabilities, limits, risks and policy, with completion recorded. Tailoring by role is PPL-05 and PPL-02; champions and communities (CUL-06) spread everyday know-how.
+    confidence: high
 
   # ---------------------------------------------------------------- Pillar 3 Technology & Infrastructure (four categories)
   - ref: "3.1"
     label: AI Development Platforms & Tools. Supported tooling for building, testing and deploying AI
     controls: [{id: TEC-01, strength: direct}, {id: TEC-05, strength: partial}, {id: PPL-08, strength: partial}]
     note: "TEC-01 Level 3 keeps an approved list of tools and platforms with conditions of use and, where the organisation builds its own AI, covers the environments and toolchains used to build, test and run it, each with an owner and support. Version control and controlled release (TEC-05) and support for users (PPL-08) complete it. Which tools to standardise on is below this framework's altitude."
+    confidence: high
   - ref: "3.2"
     label: Cloud & Compute Infrastructure. Enough computing, storage and network capacity for planned AI work
     controls: [{id: STR-06, strength: partial}, {id: OPM-03, strength: partial}, {id: TEC-03, strength: partial}, {id: SEC-01, strength: partial}, {id: STR-03, strength: partial}]
-    note: "Gap closed: STR-06 Level 3 requires the roadmap to name the technology capacity, including compute and storage, that planned uses depend on, with the dependencies; funding comes through STR-03, running cost tracking and limits through OPM-03, hosting and data location through TEC-03 and security through SEC-01. Still partial: planning and funding capacity is not the same as having it in place, and no Level 3 control checks that the capacity named in the roadmap has been provisioned and is allocated to the uses that need it (progress against the roadmap is STR-06 Level 4). Hardware and cloud configuration choices are below this framework's altitude."
+    note: "STR-06 Level 3 requires the roadmap to name the technology capacity, including compute and storage, that planned uses depend on, with the dependencies; funding comes through STR-03, running cost tracking and limits through OPM-03, hosting and data location through TEC-03 and security through SEC-01. Partial because planning and funding capacity is not the same as having it in place, and no Level 3 control checks that the capacity named in the roadmap has been provisioned and is allocated to the uses that need it (progress against the roadmap is STR-06 Level 4). Hardware and cloud configuration choices are below this framework's altitude."
+    confidence: medium
+    confidence_note: "A reviewer could hold this as a gap, since no control checks that the planned capacity is in place."
   - ref: "3.3"
     label: AI-Specific Architectures. An estate designed so AI can be fitted in, changed and replaced cleanly
     controls: [{id: TEC-02, strength: direct}, {id: TEC-04, strength: direct}, {id: TEC-05, strength: partial}]
     note: TEC-02 Level 3 requires owned reference patterns applied through design review with departures approved; TEC-04 requires supported, documented interfaces that can be disabled without disrupting core systems. Independent release and rollback of AI components is TEC-05. Particular architectural styles are below this framework's altitude.
+    confidence: high
   - ref: "3.4"
     label: Data Science Environment. Secure shared workspaces where people building AI can work together
     controls: [{id: TEC-01, strength: direct}, {id: POR-06, strength: partial}, {id: DAT-07, strength: partial}, {id: SEC-04, strength: partial}, {id: TEC-05, strength: partial}]
     note: "Where AI is built in house, TEC-01 Level 3 brings the environments used to build, test and run it under the approved list, each with an owner and support. Approved environments for experimentation (POR-06), controlled data access (DAT-07), information protection on approved tools (SEC-04) and versioning (TEC-05) cover the security, data and version control side. The workspace's own features, such as experiment tracking, are below this framework's altitude."
+    confidence: medium
+    confidence_note: "A shared build workspace is mostly a technical facility; the direct rests on the TEC-01 clause on build environments."
 
   # ---------------------------------------------------------------- Pillar 4 AI Operations & Ecosystem
   - ref: "4.1"
     label: Model Deployment & Management (MLOps). Reliable, repeatable release, versioning and rollback of models in live use
-    controls: [{id: TEC-05, strength: direct}, {id: TEC-06, strength: direct}, {id: MON-02, strength: partial}, {id: POR-09, strength: partial}, {id: OPM-07, strength: partial}]
-    note: TEC-05 Level 3 versions models, prompts, configuration and data sets, releases them through an approved process and keeps every live use able to roll back; TEC-06 tests and signs off before every release, which includes retrained versions. Monitoring (MON-02), change management (OPM-07) and retirement (POR-09) complete the lifecycle. Whether release is automated is a technical choice below this framework's altitude.
+    controls: [{id: TEC-05, strength: direct}, {id: TEC-06, strength: direct}, {id: MON-02, strength: partial}, {id: POR-09, strength: partial}, {id: OPM-07, strength: partial}, {id: SEC-06, strength: partial}]
+    note: TEC-05 Level 3 versions models, prompts, configuration and data sets, releases them through an approved process and keeps every live use able to roll back; TEC-06 tests and signs off before every release, which includes retrained versions, and SEC-06 security tests every release against its threat model. Monitoring (MON-02), change management (OPM-07) and retirement (POR-09) complete the lifecycle. Whether release is automated is a technical choice below this framework's altitude.
+    confidence: high
   - ref: "4.2"
     label: Performance Monitoring & Optimization. Watching live AI for accuracy, drift and fairness and acting on what is found
     controls: [{id: MON-02, strength: direct}, {id: MON-01, strength: partial}, {id: RSK-06, strength: partial}, {id: MON-08, strength: partial}]
     note: "MON-02 Level 3 monitors every live use for accuracy, drift, misuse and unexpected behaviour against thresholds, with named responders, and also against the fairness measures set under RSK-06. MON-01 sets the measures, MON-08 reports to leadership and RSK-06 Level 4 acts on fairness breaches. Whether monitoring is automated is a technical choice below this framework's altitude."
+    confidence: high
   - ref: "4.3"
     label: Integration & Interoperability. AI exchanges data with existing systems and processes in a supported, standard way
     controls: [{id: TEC-04, strength: direct}, {id: TEC-02, strength: direct}, {id: OPM-07, strength: partial}]
     note: TEC-04 Level 3 requires every integration with core systems to use supported interfaces, be documented with owner and data flows, and be able to be disabled safely; TEC-02 makes integration part of design review through reference patterns. OPM-07 supports integrations once live.
+    confidence: high
   - ref: "4.4"
     label: External Collaboration & Partnerships. Drawing on outside organisations for knowledge, capacity and shared work
     controls: [{id: OPM-08, strength: direct}, {id: PPL-07, strength: partial}, {id: STR-05, strength: partial}]
     note: OPM-08 Level 3 requires a stated approach to collaboration, active part in peer groups or partnerships, and sharing within agreed data and intellectual property rules, with partnership agreements stating principles and terms and a reasoned choice of partners. Use of external expertise with knowledge transfer (PPL-07) and external scanning (STR-05) support it. Contributing to standards bodies and regulatory discussion is above Level 3.
+    confidence: high
   - ref: "4.5"
     label: Reusability & Shared Components. Common AI assets are found and reused rather than rebuilt
     controls: [{id: POR-08, strength: direct}, {id: TEC-02, strength: partial}, {id: OPM-08, strength: partial}]
     note: "POR-08 Level 3 records reusable patterns, components and lessons in a known place, checks new proposals against it, and gives each shared component a named owner responsible for its upkeep and documentation. TEC-02 and OPM-08 add shared patterns and outside reuse."
+    confidence: high
 
   # ---------------------------------------------------------------- Pillar 5 AI Governance, Ethics & Risk
   - ref: "5.1"
     label: AI Governance Framework. AI-specific policy, decision rights, roles and oversight built into the lifecycle
     controls: [{id: GOV-01, strength: direct}, {id: GOV-03, strength: direct}, {id: GOV-04, strength: direct}, {id: GOV-05, strength: direct}, {id: GOV-02, strength: partial}, {id: GOV-07, strength: partial}, {id: POR-04, strength: partial}, {id: GOV-08, strength: partial}]
     note: An approved AI policy with scope (GOV-01), risk-tiered decision rights (GOV-03), an oversight forum (GOV-04) and named owners for each use (GOV-05). Lifecycle integration comes from stage gates (POR-04) and AI steps in existing governance (GOV-07); compliance and exceptions are GOV-08.
+    confidence: high
   - ref: "5.2"
     label: Ethical Principles & Guidelines. Adopted ethical principles that are applied in real decisions, not only published
-    controls: [{id: RSK-05, strength: direct}, {id: RSK-06, strength: direct}, {id: RSK-03, strength: direct}, {id: STR-07, strength: partial}, {id: CUL-08, strength: partial}, {id: GOV-04, strength: partial}]
-    note: RSK-05 Level 3 applies adopted principles through a review route with authority to require change and assesses each use against them at the outset; RSK-06 tests for bias before release and RSK-03 assesses impact on people and society. Stakeholder input comes from STR-07, CUL-08 and a diverse forum (GOV-04). Tracking the review route's use and effect is RSK-05 Level 4.
+    controls: [{id: RSK-05, strength: direct}, {id: RSK-06, strength: direct}, {id: RSK-03, strength: direct}, {id: STR-07, strength: partial}, {id: CUL-08, strength: partial}, {id: GOV-04, strength: partial}, {id: OPM-10, strength: partial}]
+    note: RSK-05 Level 3 applies adopted principles through a review route with authority to require change and assesses each use against them at the outset; RSK-06 tests for bias before release and RSK-03 assesses impact on people and society. Stakeholder input comes from STR-07, CUL-08 and a diverse forum (GOV-04); OPM-10 puts research and evaluation with people through consent and ethics review and, for significant uses, engages affected communities at planning and design, with the response recorded. Tracking the review route's use and effect is RSK-05 Level 4.
+    confidence: medium
+    confidence_note: "UNESCO's Dynamic level also expects ethics metrics tracked, which we place at Level 4."
   - ref: "5.3"
     label: Risk Assessment & Mitigation. AI risks are identified, assessed and treated consistently through the lifecycle
     controls: [{id: RSK-02, strength: direct}, {id: RSK-01, strength: direct}, {id: RSK-06, strength: partial}, {id: SEC-02, strength: partial}, {id: RSK-03, strength: partial}]
     note: RSK-02 Level 3 applies a documented method covering AI-specific risks to every use before approval, in live use and on change, recording treatment and residual risk in corporate registers; RSK-01 sets a board-approved appetite. Bias (RSK-06), security threats (SEC-02) and impact on people (RSK-03) cover the main risk categories.
+    confidence: high
   - ref: "5.4"
     label: Compliance & Legal. AI use meets the laws and rules that apply, with legal input during design and change
-    controls: [{id: RSK-04, strength: direct}, {id: GOV-08, strength: partial}, {id: GOV-07, strength: partial}, {id: DAT-05, strength: partial}, {id: TEC-05, strength: partial}]
-    note: RSK-04 Level 3 keeps a register of obligations with owners, used at design and approval, with legal advice at design and on material change and the regulatory role recorded per use. Compliance checking (GOV-08), legal and data protection steps in existing governance (GOV-07, DAT-05) and documentation per version (TEC-05) support verification. Watching for coming regulation is STR-05.
+    controls: [{id: RSK-04, strength: direct}, {id: GOV-08, strength: partial}, {id: GOV-07, strength: partial}, {id: DAT-05, strength: partial}, {id: TEC-05, strength: partial}, {id: MON-09, strength: partial}, {id: GOV-10, strength: partial}]
+    note: "RSK-04 Level 3 keeps a register of obligations with owners, used at design and approval, with legal advice at design and on material change and the regulatory role recorded per use. Compliance checking (GOV-08), legal and data protection steps in existing governance (GOV-07, DAT-05) and documentation per version (TEC-05) support verification. Two specific legal duties sit in their own controls: notifying regulators of serious incidents where the law requires it (MON-09) and disclosing AI-generated content at least as the law requires (GOV-10). Watching for coming regulation is STR-05."
+    confidence: high
   - ref: "5.5"
     label: Transparency & Explainability. People who build, use, oversee or are affected by AI can understand what it does
-    controls: [{id: RSK-08, strength: direct}, {id: TEC-05, strength: direct}, {id: TEC-02, strength: direct}, {id: GOV-09, strength: partial}, {id: RSK-07, strength: partial}]
-    note: Explanation and challenge for affected people (RSK-08) and documentation for each version suited to users, operators and regulators (TEC-05) cover the audiences, and TEC-02 reference patterns build in explainability and traceability of outputs; public records (GOV-09) and information for human reviewers (RSK-07) add the rest. The choice of explanation technique for a given model is below this framework's altitude.
+    controls: [{id: RSK-08, strength: direct}, {id: TEC-05, strength: direct}, {id: TEC-02, strength: direct}, {id: GOV-09, strength: partial}, {id: RSK-07, strength: partial}, {id: GOV-10, strength: partial}]
+    note: Explanation and challenge for affected people (RSK-08) and documentation for each version suited to users, operators and regulators (TEC-05) cover the audiences, and TEC-02 reference patterns build in explainability and traceability of outputs; public records (GOV-09), information for human reviewers (RSK-07) and disclosure of AI-generated content to the people who meet it (GOV-10) add the rest. The choice of explanation technique for a given model is below this framework's altitude.
+    confidence: high
 
   # ---------------------------------------------------------------- Pillar 6 Data (AI-Specific Focus)
   - ref: "6.1"
     label: AI Use Case Data Identification. Knowing and obtaining the data each planned use of AI needs
     controls: [{id: DAT-01, strength: direct}, {id: DAT-04, strength: direct}, {id: DAT-03, strength: partial}, {id: DAT-08, strength: partial}, {id: OPM-04, strength: partial}]
     note: DAT-01 Level 3 sets out what planned uses need from data, with actions and funding, backed by an approved data architecture; DAT-04 catalogues data with meaning, limits and conditions of use so it can be found. Requirements per use (DAT-03), and the source and rights of data obtained from others (DAT-08, OPM-04), support it.
+    confidence: high
   - ref: "6.2"
     label: Data Readiness for AI. Data is assessed and prepared so it suits what each use of AI needs
     controls: [{id: DAT-03, strength: direct}, {id: DAT-08, strength: direct}, {id: TEC-05, strength: partial}]
     note: "DAT-03 Level 3 sets quality requirements, including relevance and representativeness, for each use, assesses data before use and plans remediation; DAT-08 records collection method and also the preparation and labelling steps applied to each data set, so preparation is documented and can be repeated. TEC-05 versions data sets with models. Preparation pipelines and labelling methods are below this framework's altitude."
+    confidence: high
   - ref: "6.3"
     label: Data Access for AI Teams. People and systems building and running AI get the data they need securely and without undue delay
     controls: [{id: DAT-07, strength: direct}, {id: DAT-02, strength: partial}, {id: TEC-03, strength: partial}]
     note: "DAT-07 Level 3 limits access to what the purpose needs, approved by the data owner, with sharing under documented agreements; it also requires a documented route for requesting access to data for AI work. DAT-02 assigns who approves access. How quickly requests are met is not measured at Level 3."
+    confidence: high
   - ref: "6.4"
     label: Synthetic Data Generation & Use. Making and checking artificial data for training or testing AI
     controls: [{id: DAT-08, strength: direct}, {id: DAT-03, strength: partial}, {id: DAT-05, strength: partial}]
     note: "DAT-08 Level 3 names synthetic and augmented data as such and records how they were generated and how their fitness was checked; such data must also meet the use's quality requirements (DAT-03), and DAT-05 covers privacy where synthetic data replaces personal data. The capability to generate synthetic data, and the choice of technique, are below this framework's altitude."
+    confidence: high
   - ref: "6.5"
     label: Domain-Specific Data Understanding. Subject experts help interpret data and judge whether AI outputs make sense
     controls: [{id: OPM-06, strength: direct}, {id: DAT-04, strength: partial}, {id: DAT-02, strength: partial}]
     note: "OPM-06 Level 3 requires teams to include subject matter experts for the data and the work, involved in design and evaluation. DAT-04 records the meaning and known limits of data and DAT-02 names stewards who know it."
+    confidence: high

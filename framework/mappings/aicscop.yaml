@@ -21,7 +21,9 @@
 
 source: AICSCOP
 status: draft
-mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+mapped_by: drafted with AI assistance, 2026-11-09
+reviewed_by: the author, 2026-11-10
+checked: 2026-11-10
 items:
 
   # ---------------------------------------------------------------- Secure design: Principle 1 Raise awareness of AI security threats and risks
@@ -29,227 +31,287 @@ items:
     label: Include AI security content in the cyber security training programme, kept current and tailored to role (System Operators, Developers, Data Custodians)
     controls: [{id: PPL-05, strength: direct}, {id: PPL-01, strength: partial}, {id: SEC-05, strength: partial}]
     note: "PPL-05 Level 3 requires pathways for roles that build, run, buy or secure AI to include AI security, with secure design and development for builders, reviewed when significant new threats emerge. That is the role-tailored AI security content of 1.1 and 1.1.1. PPL-01 carries AI security threats into the all-staff baseline and SEC-05 trains incident responders."
+    confidence: high
   - ref: "1.2"
     label: Keep all staff aware of current AI security threats and vulnerabilities and their mitigations (System Operators, Developers, Data Custodians)
     controls: [{id: PPL-01, strength: direct}, {id: CUL-02, strength: partial}, {id: PPL-05, strength: partial}]
     note: "PPL-01 Level 3 requires the literacy baseline to cover AI security threats relevant to all staff, kept current with updates on new threats; CUL-02 regular communication is one of the channels 1.2.1 suggests. Developer training in secure AI coding (1.2.2) is met by PPL-05's secure design and development content for builders."
+    confidence: high
 
   # ---------------------------------------------------------------- Principle 2 Design your AI system for security as well as functionality and performance
   - ref: "2.1"
     label: When deciding to create an AI system, document the business need with its AI security risks and mitigations (System Operators, Developers)
     controls: [{id: SEC-02, strength: direct}, {id: RSK-02, strength: partial}, {id: POR-05, strength: partial}, {id: DAT-02, strength: partial}]
     note: SEC-02 Level 3 requires AI-specific threats to be assessed for every use, with findings recorded and shaping design; RSK-02 brings the assessment into the approval decision and records treatment with reasons; POR-05 documents the business need. Including the data owner in requirements discussions (2.1.1) rests on DAT-02 owners approving use.
+    confidence: high
   - ref: "2.2"
     label: Design and build AI systems to withstand adversarial attacks, unexpected inputs and failure (Developers, System Operators)
     controls: [{id: SEC-01, strength: partial}, {id: SEC-02, strength: partial}, {id: TEC-06, strength: partial}, {id: SEC-06, strength: partial}, {id: OPM-09, strength: partial}]
     note: "The baseline (SEC-01) and threat model (SEC-02) set the security requirements, TEC-06 tests robustness, SEC-06 security tests against the threat model and tests attempts to bypass safeguards, and OPM-09 handles failure safely. Resilience to adversarial attack as a design requirement is technical detail left to the baseline by design."
+    confidence: medium
+    confidence_note: "Partial depends on accepting that adversarial resilience detail is left to the adopted baseline."
   - ref: "2.3"
     label: Keep documentation and an audit trail of the operation and lifecycle of models, data sets and prompts (Developers)
     controls: [{id: TEC-05, strength: direct}, {id: DAT-08, strength: partial}, {id: DAT-06, strength: partial}, {id: MON-02, strength: partial}, {id: SEC-01, strength: partial}]
     note: "TEC-05 Level 3 versions models, prompts and configuration through a controlled, approved release, and versions data sets alongside each model version, which gives the lifecycle audit trail for models, data sets and prompts. DAT-08 records the source of training and test data, and the operational trail comes from MON-02 event logging, DAT-06 system logs and SEC-01 logs that support investigating AI-specific attacks. Changes made to data during preparation are captured only through the versioned data sets, not step by step."
+    confidence: high
   - ref: "2.4"
     label: Assess the AI security risks of any external component through due diligence (Developers, System Operators)
     controls: [{id: SEC-03, strength: direct}, {id: RSK-09, strength: partial}]
     note: SEC-03 Level 3 assesses the security of every external model, data set and component before use, including freely downloaded ones.
+    confidence: high
   - ref: "2.5"
     label: Make sure a system's intended use suits the sensitivity of the data it was trained on and the controls protecting it (Data Custodians)
     controls: [{id: SEC-04, strength: direct}, {id: DAT-02, strength: partial}, {id: DAT-07, strength: partial}, {id: DAT-05, strength: partial}, {id: CUL-04, strength: partial}]
     note: "SEC-04 Level 3 requires models trained or tuned on protected information to be handled at least at that protection level, taking account of aggregation, so a model's audience and use cannot go beyond what its training data allows. DAT-02 gives the data owner a defined role in approving use, DAT-07 limits access to the agreed purpose and DAT-05 checks purpose compatibility. Encouraging staff to report AI security risks (2.5.1) is met by CUL-04, a no-blame route for any AI concern."
+    confidence: medium
+    confidence_note: "SEC-04 handles models at the protection level of their data; reading that as matching use to data sensitivity is a judgement."
   - ref: "2.6"
     label: Limit and risk assess the permissions an AI system is given on other systems and data sources (Developers, System Operators)
-    controls: [{id: TEC-04, strength: direct}, {id: DAT-07, strength: partial}, {id: SEC-02, strength: partial}]
-    note: "TEC-04 Level 3 limits the permissions and actions an AI system or agent holds on other systems to what its purpose needs, approved and risk assessed. DAT-07 does the same for access to data, and SEC-02's threat model covers misuse of connected tools."
+    controls: [{id: TEC-04, strength: direct}, {id: DAT-07, strength: partial}, {id: SEC-02, strength: partial}, {id: GOV-06, strength: partial}, {id: SEC-06, strength: partial}]
+    note: "TEC-04 Level 3 limits the permissions and actions an AI system or agent holds on other systems to what its purpose needs, approved and risk assessed. DAT-07 does the same for access to data, and SEC-02's threat model covers misuse of connected tools. For agents, GOV-06 records the tools, systems and data each agent can act on, and SEC-06 tests before release that it cannot act beyond its approved permissions."
+    confidence: high
   - ref: "2.7"
     label: Carry out due diligence on external providers and expect them to follow this Code (Developers, System Operators)
-    controls: [{id: RSK-09, strength: direct}, {id: SEC-03, strength: direct}, {id: OPM-04, strength: partial}]
-    note: RSK-09 Level 3 is standard due diligence on supplier AI, including assurance, and SEC-03 sets security expectations for suppliers. Expecting adherence to this Code is met where the baseline adopted under SEC-01 is this Code or one built on it, and SEC-03 carries it to suppliers.
+    controls: [{id: RSK-09, strength: partial}, {id: SEC-03, strength: partial}, {id: OPM-04, strength: partial}]
+    note: RSK-09 Level 3 is standard due diligence on supplier AI, including assurance, and SEC-03 sets security expectations for suppliers. Expecting suppliers to follow this Code is met only where the baseline adopted under SEC-01 is this Code or one built on it; no control requires that.
+    confidence: high
 
   # ---------------------------------------------------------------- Principle 3 Evaluate the threats and manage the risks to your AI system
   - ref: "3.1"
     label: Analyse threats, including AI-specific attacks, and manage the security risks, reviewing on change (Developers, System Operators)
     controls: [{id: SEC-02, strength: direct}, {id: RSK-02, strength: partial}, {id: RSK-01, strength: partial}]
-    note: SEC-02 Level 3 covers AI-specific threats for every use before live and again when it changes, which includes new settings or configuration (3.1.1); regular review as new threats emerge is Level 4. Choosing controls in line with cost and corporate risk tolerance (3.1.3) is RSK-02's recorded treatment against the RSK-01 appetite. Managing risk from superfluous model functions (3.1.2) is a developer design point not named, left to the baseline.
+    note: "SEC-02 Level 3 covers AI-specific threats for every use before live and again when it changes, which includes new settings or configuration (3.1.1); regular review as new threats emerge is Level 4. For agents, SEC-02 also covers instructions hidden in content they read, misuse of their tools and chains of actions beyond their purpose. Choosing controls in line with cost and corporate risk tolerance (3.1.3) is RSK-02's recorded treatment against the RSK-01 appetite. Managing risk from superfluous model functions (3.1.2) is a developer design point not named, left to the baseline."
+    confidence: medium
+    confidence_note: "Direct, although managing superfluous model functions (3.1.2) is not named and is left to the baseline."
   - ref: "3.2"
     label: Pass on security threats the developer cannot resolve, from developer to operator and from operator to end-users (Developers, System Operators)
     controls: [{id: PPL-08, strength: direct}, {id: TEC-05, strength: partial}, {id: RSK-09, strength: partial}, {id: CUL-02, strength: partial}]
     note: "PPL-08 Level 3 requires guidance for each approved tool to state its known limitations, failure modes and residual security risks, with what users should do, and users to be told promptly of security-relevant changes. RSK-09 obtains the provider's instructions for use, which is how a developer's unresolved threats reach the organisation, and TEC-05 documentation states known limitations and where the AI must not be relied on, for people outside the organisation who use AI it provides."
+    confidence: high
   - ref: "3.3"
     label: Get assurance that external parties responsible for AI security risks in the organisation's infrastructure can address them (System Operators)
     controls: [{id: SEC-03, strength: partial}, {id: RSK-09, strength: partial}, {id: OPM-05, strength: partial}]
     note: "RSK-09 gathers the assurance a supplier offers at due diligence and SEC-03 sets security expectations; reviewing supplier security on a set cycle is SEC-03 Level 4. Missing at Level 3: assurance sought for specific security risks the organisation has found and a third party owns, such as a managed service or hosting provider."
+    confidence: high
   - ref: "3.4"
     label: Monitor and review system infrastructure continuously according to risk appetite, accepting that residual risk remains (Developers, System Operators)
     controls: [{id: SEC-01, strength: direct}, {id: MON-02, strength: partial}, {id: RSK-02, strength: partial}, {id: RSK-01, strength: partial}, {id: SEC-04, strength: partial}]
     note: "SEC-01 Level 3 puts every live use of AI within security monitoring, with logs that support detecting and investigating AI-specific attacks, at a depth set by risk. RSK-02 records the residual risk accepted against the RSK-01 appetite, MON-02 monitors for misuse and unexpected behaviour, and SEC-04 monitors leakage at Level 4."
+    confidence: medium
+    confidence_note: "A 'should' provision rated direct on security monitoring; continuous review against appetite is partly Level 4."
 
   # ---------------------------------------------------------------- Principle 4 Enable human responsibility for AI systems
   - ref: "4.1"
     label: Build in and maintain the ability for humans to oversee the AI system (Developers, System Operators)
-    controls: [{id: RSK-07, strength: direct}, {id: TEC-04, strength: partial}]
-    note: RSK-07 Level 3 sets a documented oversight model for every use, with the authority to override or stop; TEC-04 makes integrations able to be switched off.
+    controls: [{id: RSK-07, strength: direct}, {id: TEC-04, strength: partial}, {id: MON-02, strength: partial}]
+    note: "RSK-07 Level 3 sets a documented oversight model for every use, with the authority to override or stop; TEC-04 makes integrations able to be switched off. For agents, RSK-07 needs a person's approval before consequential or hard to reverse actions and MON-02 lets a named person stop each agent at once."
+    confidence: high
   - ref: "4.2"
     label: Design systems so humans can readily assess the outputs they are responsible for, for example through explainability (Developers)
     controls: [{id: TEC-02, strength: direct}, {id: RSK-07, strength: partial}, {id: RSK-08, strength: partial}]
     note: TEC-02 Level 3 reference patterns, applied through design review with departures approved, build in explainability and traceability of outputs; RSK-07 requires reviewers to have the information they need and RSK-08 gives affected people an explanation.
+    confidence: high
   - ref: "4.3"
     label: Where human oversight is a risk control, design, verify and maintain technical measures that make it work (Developers, System Operators)
-    controls: [{id: RSK-07, strength: partial}, {id: RSK-02, strength: partial}, {id: TEC-06, strength: partial}]
-    note: "RSK-02 records oversight where it is the chosen control, RSK-07 designs the oversight model and tests the design before go-live to show reviewers can detect problems and intervene in time. Still missing: maintaining the technical measures that support oversight through the life of the system, and verifying those measures as such rather than the oversight arrangement as a whole."
+    controls: [{id: RSK-07, strength: partial}, {id: RSK-02, strength: partial}, {id: TEC-06, strength: partial}, {id: MON-02, strength: partial}]
+    note: "RSK-02 records oversight where it is the chosen control, RSK-07 designs the oversight model and tests the design before go-live to show reviewers can detect problems and intervene in time. For agents, RSK-07 lists the actions that need a person's approval and MON-02 logs each agent action and gives a named person a way to stop it at once, which are technical measures behind oversight. Still missing: maintaining the technical measures that support oversight through the life of the system, and verifying those measures as such rather than the oversight arrangement as a whole."
+    confidence: high
   - ref: "4.4"
     label: Verify that the security controls the data custodian specified have been built into the system (Developers)
     controls: [{id: SEC-01, strength: partial}, {id: DAT-07, strength: partial}, {id: SEC-06, strength: partial}]
     note: "DAT-07 access rules are approved by the data owner and SEC-01 applies the baseline before go-live, with conformance checked at Level 4; SEC-06 security tests each release against the threat model. Missing: verifying before release that the data owner's security requirements are in place."
+    confidence: high
   - ref: "4.5"
     label: Make end-users aware of the uses of the AI system that are prohibited (Developers, System Operators)
     controls: [{id: TEC-01, strength: direct}, {id: GOV-01, strength: partial}, {id: PPL-01, strength: partial}, {id: TEC-05, strength: partial}]
     note: "TEC-01 Level 3 publishes the permitted uses of each approved tool to all staff and GOV-01 communicates prohibited uses. For people outside the organisation who use AI it provides, TEC-05 documentation states where the AI must not be used or relied on."
+    confidence: high
 
   # ---------------------------------------------------------------- Secure development: Principle 5 Identify, track and protect your assets
   - ref: "5.1"
     label: Keep a comprehensive inventory of AI assets and their interdependencies (Developers, System Operators, Data Custodians)
     controls: [{id: GOV-06, strength: direct}, {id: TEC-07, strength: partial}, {id: DAT-04, strength: partial}, {id: TEC-04, strength: partial}, {id: SEC-03, strength: partial}, {id: TEC-05, strength: partial}]
     note: "GOV-06 Level 3 links each inventory entry to its models, data sets and integrations, which joins the asset picture held by TEC-07 (model, supplier and platform dependencies), DAT-04 (data catalogue), TEC-04 (integrations and data flows) and SEC-03 (external components). Prompts are held as versioned configuration under TEC-05."
+    confidence: high
   - ref: "5.2"
     label: Have processes and tools to track, authenticate, version and secure AI assets (Developers, System Operators, Data Custodians)
     controls: [{id: TEC-05, strength: partial}, {id: SEC-03, strength: partial}, {id: DAT-08, strength: partial}, {id: SEC-01, strength: partial}]
     note: TEC-05 versions models, prompts and configuration, SEC-03 and DAT-08 record where components and data came from. Authenticating assets (integrity checks such as hashes) and securing them are technical detail left to the SEC-01 baseline.
+    confidence: high
   - ref: "5.3"
     label: Tailor disaster recovery plans to attacks aimed at AI systems, able to restore a known good state (System Operators)
     controls: [{id: SEC-05, strength: direct}, {id: TEC-05, strength: partial}, {id: OPM-09, strength: partial}]
     note: "SEC-05 Level 3 requires playbooks to cover recovery from AI-specific attacks to a known good state, linked to continuity plans; TEC-05 can roll every live use back to a known good version (5.3.1) and OPM-09 puts fallbacks into continuity plans."
+    confidence: high
   - ref: "5.4"
     label: Protect sensitive data, such as training and test data, against unauthorised access (Developers, System Operators, Data Custodians, End-users)
     controls: [{id: DAT-07, strength: direct}, {id: SEC-04, strength: partial}, {id: DAT-03, strength: partial}, {id: SEC-01, strength: partial}]
     note: DAT-07 Level 3 limits access by each AI system and its users to what the purpose needs, approved by the data owner; SEC-04 protects sensitive information in prompts and outputs. Checking and sanitising data and inputs, repeated when the model is revised (5.4.1), and protecting confidential training data and weights (5.4.2) are technical detail left to the baseline; DAT-03 checks quality, not malicious content.
+    confidence: medium
+    confidence_note: "Direct on access, while data sanitising and protection of weights (5.4.1, 5.4.2) are left to the baseline."
 
   # ---------------------------------------------------------------- Principle 6 Secure your infrastructure
   - ref: "6.1"
     label: Review access control and secure APIs, models, data and training and processing pipelines (Developers, System Operators)
     controls: [{id: DAT-07, strength: partial}, {id: SEC-01, strength: partial}, {id: TEC-02, strength: partial}, {id: TEC-04, strength: partial}]
     note: DAT-07 covers least privilege access to data and TEC-02 and TEC-04 govern architecture and integrations. Securing APIs, models and pipelines is technical detail left to the SEC-01 baseline by design.
+    confidence: high
   - ref: "6.2"
     label: Where an API is offered to outside users, apply controls against attacks through it, such as rate limits (Developers)
     controls: [{id: SEC-01, strength: partial}, {id: SEC-02, strength: partial}]
     note: Applies when the organisation offers AI to others. SEC-02 threat modelling should find attacks through the API and SEC-01 brings in the baseline; the specific API controls are technical detail left to the baseline.
+    confidence: high
   - ref: "6.3"
     label: Use separate, least privilege environments for development and tuning, with non-public training data kept in them (Developers)
     controls: [{id: POR-06, strength: partial}, {id: DAT-07, strength: partial}, {id: SEC-01, strength: partial}, {id: TEC-01, strength: partial}]
     note: POR-06 sets approved environments and data limits for experiments, TEC-01 approves the environments used to build, test and run AI, each with an owner, and DAT-07 limits access to data. Dedicated, separated development and tuning environments are technical detail left to the baseline.
+    confidence: high
   - ref: "6.4"
     label: Implement and publish a clear, accessible vulnerability disclosure policy (Developers, System Operators)
     controls: [{id: SEC-05, strength: direct}, {id: CUL-04, strength: partial}]
     note: "SEC-05 Level 3 requires a published vulnerability disclosure route covering the organisation's AI services, with reports feeding incident handling. CUL-04 is the internal route for concerns."
+    confidence: high
   - ref: "6.5"
     label: Create, test and maintain an AI incident management plan and an AI recovery plan (Developers, System Operators)
     controls: [{id: SEC-05, strength: direct}, {id: OPM-09, strength: partial}, {id: TEC-05, strength: partial}]
     note: "SEC-05 Level 3 has AI scenarios, playbooks, trained responders and a way to contain each service (the incident plan), and covers recovery from AI-specific attacks to a known good state and exercises AI scenarios on a set cycle; OPM-09 tests fallbacks on a set cycle at Level 3. TEC-05 rollback supports recovery."
+    confidence: high
   - ref: "6.6"
     label: Make sure contracts with cloud service providers support these infrastructure requirements (Developers, System Operators)
     controls: [{id: OPM-04, strength: direct}, {id: SEC-03, strength: partial}, {id: TEC-03, strength: partial}]
     note: "OPM-04 Level 3 terms set security requirements and the split of security responsibilities, incident notification, access to logs, audit rights or accepted assurance and operational resilience in every relevant procurement, which covers cloud providers; SEC-03 sets supplier security expectations and TEC-03 checks hosting."
+    confidence: high
 
   # ---------------------------------------------------------------- Principle 7 Secure your supply chain
   - ref: "7.1"
     label: Follow secure software supply chain processes for AI model and system development (Developers, System Operators)
     controls: [{id: SEC-03, strength: direct}, {id: SEC-01, strength: partial}]
     note: SEC-03 Level 3 is a defined process for the security of every external model, data set and component, with source recorded; tracking versions in use is Level 4. Specific techniques such as software bills of materials are left to the baseline.
+    confidence: medium
+    confidence_note: "SEC-03 is a process for external components; a reviewer may want named techniques such as software bills of materials."
   - ref: "7.2"
     label: Justify in writing any use of poorly documented or secured models or components, with mitigations and a risk assessment (System Operators, Developers)
     controls: [{id: SEC-03, strength: partial}, {id: RSK-02, strength: partial}, {id: GOV-08, strength: partial}, {id: SEC-01, strength: partial}, {id: PPL-08, strength: partial}]
     note: "SEC-03 assesses each component, RSK-02 records the treatment and controls with reasons (7.2.1), and GOV-08 records approved exceptions, with each exception's risk and treatment; a register of baseline gaps with risk acceptance is SEC-01 evidence at Level 4. No control asks specifically for a written justification when a component falls short of security expectations. Sharing that documentation with end users (7.2.2) is met by PPL-08, whose tool guidance states residual security risks."
+    confidence: high
   - ref: "7.3"
     label: Re-run evaluations on released models the organisation intends to use (Developers, System Operators)
-    controls: [{id: TEC-06, strength: direct}, {id: RSK-09, strength: partial}, {id: TEC-05, strength: partial}]
-    note: TEC-06 Level 3 tests against criteria agreed in advance before every release, including models from others; detecting supplier model updates is TEC-05 Level 4.
+    controls: [{id: TEC-06, strength: direct}, {id: RSK-09, strength: partial}, {id: TEC-05, strength: partial}, {id: SEC-06, strength: partial}]
+    note: "TEC-06 Level 3 tests against criteria agreed in advance before every release, including models from others, and SEC-06 security tests each release against the threat model, so a released model is evaluated again before use; detecting supplier model updates is TEC-05 Level 4."
+    confidence: medium
+    confidence_note: "Re-running evaluations is read as release testing of models from others; a reviewer may want an explicit trigger on supplier release."
   - ref: "7.4"
     label: Tell end-users in an accessible way before models are updated (System Operators)
     controls: [{id: TEC-05, strength: direct}, {id: OPM-07, strength: partial}, {id: CUL-02, strength: partial}]
     note: "TEC-05 Level 3 requires users to be told in advance, accessibly, of planned changes that affect them, alongside controlled release of model changes; OPM-07 runs change management."
+    confidence: high
 
   # ---------------------------------------------------------------- Principle 8 Document your data, models and prompts
   - ref: "8.1"
     label: Document system design and post-deployment maintenance plans with an audit trail, and share them downstream (Developers)
     controls: [{id: TEC-05, strength: partial}, {id: TEC-02, strength: partial}, {id: DAT-08, strength: partial}, {id: RSK-09, strength: partial}]
     note: "TEC-05 keeps documentation for each version, which states intended purpose and users, how it works, inputs and outputs, known limitations and where it must not be relied on; TEC-02 records design decisions, DAT-08 records data sources, and RSK-09 obtains the provider's instructions for use when the organisation is the operator. Still not set: guardrails, retention time, suggested review frequency and failure modes in that documentation (8.1.1), a maintenance plan as such, and releasing cryptographic hashes for model components (8.1.2), which is left to the baseline."
+    confidence: high
   - ref: "8.2"
     label: Document how publicly sourced training data was obtained, where from and how it is used (Developers)
     controls: [{id: DAT-08, strength: direct}, {id: SEC-03, strength: partial}]
     note: DAT-08 Level 3 records source, collection method, rights and use limits for every training, tuning and test data set before use, linked to the models that used it. The minimum detail suggested in 8.2.1 (source address and date obtained) is the level of detail the record should hold, not named in the control.
+    confidence: high
   - ref: "8.3"
     label: Keep an audit log of changes to system prompts and other model configuration (Developers)
     controls: [{id: TEC-05, strength: direct}, {id: OPM-07, strength: partial}]
     note: TEC-05 Level 3 versions models, prompts and configuration and releases them through a controlled process with approval; OPM-07 change management covers prompt changes.
+    confidence: high
 
   # ---------------------------------------------------------------- Principle 9 Conduct appropriate testing and evaluation
   - ref: "9.1"
     label: Security test every model, application and system before release to operators or users (Developers)
     controls: [{id: SEC-06, strength: direct}, {id: TEC-06, strength: partial}, {id: SEC-01, strength: partial}, {id: SEC-02, strength: partial}]
     note: "SEC-06 Level 3 security tests every release against the threats in the threat model; TEC-06 tests accuracy, robustness and behaviour and signs off results before every release, SEC-02 supplies the threat model and SEC-01 applies the baseline before go-live."
+    confidence: high
   - ref: "9.2"
     label: Test before deployment, with the developer's support and ideally independent security testers (System Operators)
     controls: [{id: SEC-06, strength: direct}, {id: TEC-06, strength: partial}, {id: MON-05, strength: partial}, {id: RSK-09, strength: partial}]
     note: "SEC-06 Level 3 security tests every release before deployment, by testers with the right skills who are independent of the build team for higher-risk uses, which meets 9.2.1; TEC-06 covers the wider testing before release. Developer support for the operator's testing rests on RSK-09 due diligence, and MON-05 adds independent assurance by risk tier."
+    confidence: high
   - ref: "9.3"
     label: Share testing and evaluation findings with system operators to inform their own testing (Developers)
     controls: [{id: RSK-09, strength: partial}, {id: TEC-06, strength: partial}]
     note: "Where the organisation is the operator, RSK-09 gathers the assurance a supplier offers; where it builds AI for its own use, TEC-06 records and signs off results. Missing: asking suppliers for their test findings, and passing test results on when the organisation provides AI to others."
+    confidence: high
   - ref: "9.4"
     label: Check that outputs do not let users reverse engineer the model or training data, or gain unintended influence over the system (Developers)
     controls: [{id: SEC-06, strength: partial}, {id: SEC-04, strength: partial}, {id: SEC-02, strength: partial}, {id: MON-02, strength: partial}]
     note: "SEC-06 tests attempts to bypass safeguards and that personal or sensitive information is not disclosed, MON-02 monitors outputs for personal or sensitive data in live use, and SEC-04 protects against outputs revealing information; SEC-02 threat models include manipulated inputs (9.4.1). Still missing: checking that outputs do not allow the model itself to be reverse engineered; testing for model extraction is technical detail left to the baseline."
+    confidence: high
 
   # ---------------------------------------------------------------- Secure deployment: Principle 10 Communication and processes for End-users and Affected entities
   - ref: "10.1"
     label: Tell end-users accessibly where and how their data will be used, accessed and stored, including retraining and human review (System Operators; Developers to supply the information)
     controls: [{id: DAT-05, strength: direct}, {id: TEC-01, strength: partial}, {id: RSK-09, strength: partial}, {id: GOV-09, strength: partial}]
     note: "DAT-05 Level 3 requires people whose data or inputs an AI system uses to be told, accessibly, how they are used, accessed and stored, including any retraining and review by staff or suppliers. RSK-09 learns from suppliers how they use data, which is the information developers supply; TEC-01 tells staff which data may be used with each tool."
+    confidence: high
   - ref: "10.2"
     label: Give end-users accessible guidance on using and configuring the AI, with limitations, failure modes and security updates (System Operators; Developers to supply the information)
     controls: [{id: PPL-08, strength: direct}, {id: TEC-01, strength: partial}, {id: TEC-05, strength: partial}, {id: PPL-01, strength: partial}]
     note: "PPL-08 Level 3 gives guidance for all approved tools and requires it to state known limitations, failure modes and residual security risks with what to do, and users to be told promptly of security-relevant changes, which meets 10.2.1 and 10.2.2. TEC-01 states conditions of use and TEC-05 documentation serves people outside the organisation."
+    confidence: high
   - ref: "10.3"
     label: Support end-users and affected entities to contain and limit the impact of a cyber security incident, with the process agreed in contracts (Developers, System Operators)
     controls: [{id: SEC-05, strength: direct}, {id: MON-04, strength: partial}, {id: OPM-04, strength: partial}]
     note: "SEC-05 Level 3 requires playbooks to support affected users and other parties through an incident, set out in agreements where the organisation provides AI to others."
+    confidence: high
 
   # ---------------------------------------------------------------- Secure maintenance: Principle 11 Maintain regular security updates, patches and mitigations
   - ref: "11.1"
     label: Developers provide and notify security updates; operators deliver them to end-users; contingency where updates cannot be provided (Developers, System Operators)
     controls: [{id: TEC-05, strength: partial}, {id: OPM-07, strength: partial}, {id: TEC-07, strength: partial}, {id: RSK-09, strength: partial}, {id: PPL-08, strength: partial}]
     note: "TEC-05 and OPM-07 release changes under control, RSK-09 reassesses on supplier model change, and TEC-07 plans for models and platforms that lose support, which is the contingency in 11.1.1. Users are told promptly of security-relevant changes through PPL-08. Still missing: obtaining security updates from suppliers and applying them promptly, which is general security practice left to the baseline."
+    confidence: high
   - ref: "11.2"
     label: Treat major AI system updates as a new version, with new security testing and evaluation (Developers)
     controls: [{id: SEC-06, strength: direct}, {id: TEC-06, strength: partial}, {id: TEC-05, strength: partial}, {id: SEC-02, strength: partial}]
     note: "SEC-06 Level 3 security tests every release against the threat model and TEC-06 re-runs evaluation against the acceptance criteria before every release; TEC-05 controls each release and SEC-02 re-assesses threats on change, so a major update gets new security testing and evaluation."
+    confidence: high
   - ref: "11.3"
     label: Help operators evaluate and respond to model changes, for example with preview access and versioned APIs (Developers)
     controls: [{id: OPM-04, strength: partial}, {id: TEC-07, strength: partial}, {id: RSK-09, strength: partial}]
     note: OPM-04 contract terms give notice of model changes, TEC-07 plans for supplier change and RSK-09 reassesses on change. Asking suppliers for preview access or versioned interfaces, and offering them when the organisation provides AI to others, is not required.
+    confidence: high
 
   # ---------------------------------------------------------------- Principle 12 Monitor your system's behaviour
   - ref: "12.1"
     label: Log system and user actions to support security compliance, incident investigation and fixing vulnerabilities (System Operators)
-    controls: [{id: SEC-01, strength: direct}, {id: MON-02, strength: partial}, {id: DAT-06, strength: partial}, {id: SEC-05, strength: partial}]
-    note: "SEC-01 Level 3 requires logs for every live use that support detecting and investigating AI-specific attacks; MON-02 enables event logging while in use, DAT-06 keeps system logs at least as long as the law requires, and SEC-05 uses them in incident handling. Logging of user actions is not named separately; it is part of the logging an investigation needs."
+    controls: [{id: SEC-01, strength: partial}, {id: MON-02, strength: partial}, {id: DAT-06, strength: partial}, {id: SEC-05, strength: partial}]
+    note: "SEC-01 Level 3 requires logs for every live use that support detecting and investigating AI-specific attacks; MON-02 enables event logging while in use, DAT-06 keeps system logs at least as long as the law requires, and SEC-05 uses them in incident handling. For agents, MON-02 logs every action an agent takes in another system with what triggered it. Missing: logging of user actions is not named."
+    confidence: high
   - ref: "12.2"
     label: Analyse logs to confirm models still produce the desired outputs and to detect anomalies, breaches, drift or poisoning (System Operators)
     controls: [{id: SEC-01, strength: direct}, {id: MON-02, strength: partial}, {id: SEC-04, strength: partial}]
     note: "MON-02 Level 3 monitors accuracy, drift, misuse and unexpected behaviour against thresholds, and SEC-01 places every live use within security monitoring, with logs that support detecting AI-specific attacks such as poisoning; SEC-04 detects attempted exposure at Level 4."
+    confidence: high
   - ref: "12.3"
     label: Monitor internal states of AI systems where this helps address security threats or future security analytics (System Operators, Developers)
     controls: [{id: MON-02, strength: partial}, {id: SEC-01, strength: partial}]
     note: MON-02 monitors behaviour from outside; monitoring internal model states is technical detail left to the baseline.
+    confidence: medium
+    confidence_note: "Monitoring internal model states is technical detail; whether partial or out of scope is arguable."
   - ref: "12.4"
     label: Monitor model and system performance over time to detect sudden or gradual changes that could affect security (System Operators, Developers)
     controls: [{id: MON-02, strength: direct}, {id: TEC-05, strength: partial}]
     note: MON-02 Level 3 monitors every live use for accuracy, drift and unexpected behaviour against thresholds, with named responders; detecting unplanned supplier model changes is TEC-05 Level 4.
+    confidence: high
 
   # ---------------------------------------------------------------- Secure end of life: Principle 13 Ensure proper data and model disposal
   - ref: "13.1"
     label: When transferring or sharing ownership of training data or a model, involve data custodians and dispose securely (Developers, System Operators)
     controls: [{id: DAT-07, strength: partial}, {id: DAT-02, strength: partial}, {id: POR-09, strength: partial}]
     note: "DAT-07 sharing with other organisations follows documented agreements approved by the data owner (DAT-02), and POR-09 covers disposal at retirement. Missing: secure disposal of the organisation's copies when a model or training data is transferred rather than retired."
+    confidence: high
   - ref: "13.2"
     label: When decommissioning a model or system, involve data custodians and securely delete data and configuration (Developers, System Operators)
     controls: [{id: POR-09, strength: direct}, {id: DAT-06, strength: partial}, {id: DAT-02, strength: partial}]
     note: POR-09 Level 3 is a retirement process covering records and disposal or retention of models and data; DAT-06 sets deletion rules and DAT-02 gives the data owner a defined role. Secure deletion methods, and configuration such as system prompts and credentials, are left to the baseline.
+    confidence: medium
+    confidence_note: "Direct on retirement, while secure deletion of configuration and credentials is left to the baseline."

@@ -29,7 +29,9 @@
 
 source: ATRS
 status: draft
-mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+mapped_by: drafted with AI assistance, 2026-11-09
+reviewed_by: the author, 2026-11-10
+checked: 2026-11-10
 items:
 
   # ---------------------------------------------------------------- Tier 1
@@ -37,59 +39,75 @@ items:
     label: Give a plain, non-technical public summary of the tool, what it is and why it is used, with a web link and contact
     controls: [{id: GOV-06, strength: direct}, {id: GOV-09, strength: partial}, {id: MON-06, strength: partial}, {id: CUL-08, strength: partial}]
     note: "GOV-06 holds the name, purpose and status of every use, which gives the what, the why and the metadata phase field; GOV-09 publishes the record. Not required at Level 3: a public contact point for each use (MON-06 gives users and affected people a feedback route, and GOV-09 only tracks public questions at Level 4), and the region a tool affects."
+    confidence: high
 
   # ---------------------------------------------------------------- Tier 2
   - ref: "Tier 2 Owner and responsibility"
     label: Say which organisation and team are responsible, who the senior owner is, and which suppliers were involved and on what terms
-    controls: [{id: GOV-05, strength: direct}, {id: TEC-07, strength: partial}, {id: RSK-09, strength: partial}, {id: OPM-04, strength: partial}, {id: OPM-05, strength: partial}]
-    note: "GOV-05 names business, data, technical and assurance owners for each use in the inventory. Suppliers come from TEC-07 (recorded supplier dependencies per service), RSK-09 (due diligence) and OPM-05 (an owner per supplier); OPM-04 contract terms on data use and rights give the supplier's data access terms. The supplier's role in development or deployment and the procurement route are held in procurement records, not with the use of AI."
+    controls: [{id: GOV-05, strength: direct}, {id: TEC-07, strength: partial}, {id: RSK-09, strength: partial}, {id: OPM-04, strength: partial}, {id: OPM-05, strength: partial}, {id: GOV-06, strength: partial}]
+    note: "GOV-05 names business, data, technical and assurance owners for each use in the inventory. Suppliers come from TEC-07 (recorded supplier dependencies per service), RSK-09 (due diligence) and OPM-05 (an owner per supplier); OPM-04 contract terms on data use and rights give the supplier's data access terms. GOV-06 also records the supplier or source of each use and of its components. The supplier's role in development or deployment and the procurement route are held in procurement records, not with the use of AI."
+    confidence: high
   - ref: "Tier 2 Description and rationale"
     label: Describe how the tool works, its users, scope and limits, its benefits, the process it replaced and the alternatives considered
     controls: [{id: TEC-05, strength: direct}, {id: POR-05, strength: partial}, {id: OPM-02, strength: partial}, {id: MON-01, strength: partial}, {id: GOV-06, strength: partial}]
     note: "TEC-05 Level 3 requires documentation for each version to state the intended purpose and users, how it works, its inputs and outputs, known limitations and where it must not be used or relied on. The rationale comes from POR-05 (benefits, assumptions and options), OPM-02 (why configure, procure, build or wait was chosen) and MON-01 (a baseline of the process being replaced)."
+    confidence: high
   - ref: "Tier 2 Deployment context"
     label: Explain how the tool fits the wider process, how people review its output, how often it is used, the training needed and how the public can appeal
     controls: [{id: RSK-07, strength: direct}, {id: RSK-08, strength: direct}, {id: TEC-04, strength: partial}, {id: PPL-05, strength: partial}, {id: MON-05, strength: partial}, {id: MON-02, strength: partial}]
     note: "RSK-07 states who reviews output, when, with what information and authority, and that reviewers are trained; MON-05 gives independent assurance of that review; RSK-08 gives affected people a challenge route with human review. TEC-04 documents data flows into core systems and PPL-05 sets role-based learning. Frequency and scale of use are not required to be recorded, though MON-02 monitoring and OPM-03 usage tracking would produce the figures."
+    confidence: high
   - ref: "Tier 2 Tool specification"
     label: Describe the tool's architecture, inputs and outputs, maintenance and review schedule, and the models in it
     controls: [{id: TEC-02, strength: partial}, {id: TEC-04, strength: partial}, {id: TEC-05, strength: partial}, {id: TEC-07, strength: partial}, {id: OPM-07, strength: partial}, {id: GOV-06, strength: partial}]
-    note: "TEC-05 documentation states how each use works and its inputs and outputs, and GOV-06 links each inventory entry to its models, data sets and integrations, which gives the models field; architecture comes through TEC-02 design review and TEC-04 documented integrations. Still missing: a stated maintenance and review schedule for each tool, including how often models are retrained (TEC-07 refresh plans and OPM-07 change management cover maintenance without fixing a schedule)."
+    note: "TEC-05 documentation states how each use works and its inputs and outputs, and GOV-06 links each inventory entry to its models, data sets and integrations, which gives the models field, and TEC-07 keeps a bill of materials naming the models, libraries, services and platforms in each service; architecture comes through TEC-02 design review and TEC-04 documented integrations. Still missing: a stated maintenance and review schedule for each tool, including how often models are retrained (TEC-07 refresh plans and bill of materials reviews and OPM-07 change management cover maintenance without fixing a schedule for the tool or its retraining)."
+    confidence: medium
+    confidence_note: a reviewer could read TEC-07 refresh plans and review cycles as a maintenance schedule and lift this to covered
   - ref: "Tier 2 Model specification"
     label: For each model the organisation trained, tuned or tested, give its name, version, task, inputs, outputs, design, test performance and datasets
     controls: [{id: TEC-06, strength: direct}, {id: DAT-08, strength: direct}, {id: TEC-05, strength: partial}, {id: TEC-07, strength: partial}]
     note: "TEC-06 records acceptance criteria, test data and results for each release (model performance); DAT-08 records every training, tuning and test data set and links it to the models that used it (datasets and their purposes); TEC-05 versions models, with their data sets, and its documentation states how the model works and its inputs and outputs; TEC-07 records the model and supplier. Model type and design are not required to be recorded as such. The template lets off-the-shelf models the organisation has not trained or tested skip this section."
+    confidence: medium
+    confidence_note: model type and design are not required to be recorded, so a reviewer might hold this at partial
   - ref: "Tier 2 Development data specification"
     label: Describe the data used to develop the tool, its size, sensitive attributes, representativeness, cleaning, collection, storage and sharing
     controls: [{id: DAT-08, strength: direct}, {id: DAT-03, strength: direct}, {id: DAT-05, strength: direct}, {id: DAT-07, strength: direct}, {id: DAT-04, strength: partial}, {id: DAT-06, strength: partial}, {id: DAT-02, strength: partial}, {id: RSK-06, strength: partial}]
-    note: "DAT-08 gives source, collection method, rights and limits; DAT-03 representativeness and completeness for the purpose; DAT-05 purpose compatibility when data is repurposed, and fairness; DAT-07 access and sharing agreements; DAT-04 meaning, coverage and limits; DAT-02 the owner responsible for storage; RSK-06 the groups at risk, which covers protected characteristics and proxies. Not explicit: cleaning and pre-processing steps, and retention of development data (DAT-06 names inputs, prompts, outputs and decisions). The optional dataset card draws on the same controls."
+    note: "DAT-08 gives source, collection method, rights and limits; DAT-03 representativeness and completeness for the purpose; DAT-05 purpose compatibility when data is repurposed, and fairness; DAT-07 access and sharing agreements; DAT-04 meaning, coverage and limits; DAT-02 the owner responsible for storage; RSK-06 the groups at risk, which covers protected characteristics and proxies. DAT-08 also records the preparation and labelling steps applied to each data set, which covers cleaning and pre-processing. Not explicit: retention of development data (DAT-06 names inputs, prompts, outputs and decisions). The optional dataset card draws on the same controls."
+    confidence: high
   - ref: "Tier 2 Operational data specification"
     label: Describe the data the tool uses in live operation, its sensitive attributes, processing, storage, access and sharing
     controls: [{id: DAT-06, strength: direct}, {id: DAT-07, strength: direct}, {id: DAT-05, strength: partial}, {id: TEC-04, strength: partial}, {id: SEC-04, strength: partial}, {id: RSK-03, strength: partial}, {id: MON-02, strength: partial}]
     note: "DAT-06 covers how inputs, prompts, outputs and logs are kept, retrieved and deleted; DAT-07 who can access them and the sharing agreements; TEC-04 data flows show where operational data comes from; DAT-05, RSK-03 (sensitive inferences) and SEC-04 cover sensitive attributes and their protection. Pre-processing of live data is only touched by MON-02 drift monitoring."
+    confidence: high
   - ref: "Tier 2 Risks, mitigations and impact assessments"
     label: List the impact assessments done with dates and findings, and the key risks of the tool with their mitigations
-    controls: [{id: RSK-03, strength: direct}, {id: RSK-02, strength: direct}, {id: DAT-05, strength: partial}, {id: RSK-06, strength: partial}, {id: SEC-02, strength: partial}]
-    note: "RSK-03 is signed off before go-live and covers equality, privacy, rights, safety, societal and environmental effects with tracked mitigations; RSK-02 records each risk, the treatment and controls chosen and the residual risk. DAT-05 feeds the data protection assessment, RSK-06 unfair outcomes and SEC-02 security threats."
+    controls: [{id: RSK-03, strength: direct}, {id: RSK-02, strength: direct}, {id: DAT-05, strength: partial}, {id: RSK-06, strength: partial}, {id: SEC-02, strength: partial}, {id: GOV-09, strength: partial}]
+    note: "RSK-03 is signed off before go-live and covers equality, privacy, rights, safety, societal and environmental effects with tracked mitigations; RSK-02 records each risk, the treatment and controls chosen and the residual risk. DAT-05 feeds the data protection assessment, RSK-06 unfair outcomes and SEC-02 security threats. GOV-09 decides, with reasons, whether each impact assessment is published, which gives the public link where there is one."
+    confidence: high
 
   # ---------------------------------------------------------------- Mandatory Scope and Exemptions Policy
   - ref: "Scope mandatory organisations"
     label: Know whether the organisation is one that must publish records, and when the requirement reaches it
-    controls: [{id: RSK-04, strength: direct}, {id: GOV-09, strength: partial}]
-    note: "RSK-04 keeps a register of the laws, regulations and standards that apply, with an owner for each, which is where a publication mandate and its rollout phase are recorded; GOV-09 publishes to the extent obligations and public role require. For bodies outside the mandate the standard is recommended, and publishing is a choice GOV-09 allows but does not require."
+    controls: [{id: RSK-04, strength: partial}, {id: GOV-09, strength: partial}]
+    note: "Partial: the control is general and the ATRS specifics live only in this mapping. RSK-04 keeps a register of the laws, regulations and standards that apply, with an owner for each, which is where a publication mandate and its rollout phase are recorded; GOV-09 publishes to the extent obligations and public role require. For bodies outside the mandate the standard is recommended, and publishing is a choice GOV-09 allows but does not require."
+    confidence: high
   - ref: "Scope tools in scope"
     label: Identify which uses of AI must have a record, namely those with significant influence on decisions affecting the public or that interact directly with the public
-    controls: [{id: GOV-09, strength: direct}, {id: GOV-06, strength: partial}, {id: RSK-08, strength: partial}, {id: RSK-04, strength: partial}]
-    note: "GOV-09 Level 3 requires a decision for each inventory entry, against the criteria that apply, on whether a record must be published, with the reason recorded. For a mandated body the criteria are the ATRS ones (significant influence on decisions affecting the public, or direct interaction with the public), which stay in this mapping; RSK-08 identifies uses that support decisions about people or that people interact with."
+    controls: [{id: GOV-09, strength: partial}, {id: GOV-06, strength: partial}, {id: RSK-08, strength: partial}, {id: RSK-04, strength: partial}]
+    note: "Partial: the control is general and the ATRS specifics live only in this mapping. GOV-09 Level 3 requires a decision for each inventory entry, against the criteria that apply, on whether a record must be published, with the reason recorded. For a mandated body the criteria are the ATRS ones (significant influence on decisions affecting the public, or direct interaction with the public), which stay in this mapping; RSK-08 identifies uses that support decisions about people or that people interact with."
+    confidence: high
   - ref: "Scope timing and updates"
     label: Publish once a tool reaches pilot or live use, keep the record current, and update it to show retirement
-    controls: [{id: GOV-09, strength: direct}, {id: GOV-06, strength: partial}, {id: POR-09, strength: partial}, {id: POR-04, strength: partial}]
-    note: "GOV-09 Level 3 requires published records to be updated when a use changes materially or is retired, on top of an owner and review cycle for each. The stage at which a record is due (pilot or production under ATRS) stays in this mapping; POR-04 stages and GOV-06 status give it, and POR-09 updates the inventory at retirement."
+    controls: [{id: GOV-09, strength: partial}, {id: GOV-06, strength: partial}, {id: POR-09, strength: partial}, {id: POR-04, strength: partial}]
+    note: "Partial: the control is general and the ATRS specifics live only in this mapping. GOV-09 Level 3 requires published records to be updated when a use changes materially or is retired, on top of an owner and review cycle for each. The stage at which a record is due (pilot or production under ATRS) stays in this mapping; POR-04 stages and GOV-06 status give it, and POR-09 updates the inventory at retirement."
+    confidence: high
   - ref: "Scope exemptions"
     label: Withhold or summarise only information that access-to-information law would exempt, record the reason, and leave a tool unpublished only if its existence cannot be confirmed
-    controls: [{id: GOV-09, strength: direct}, {id: GOV-07, strength: partial}, {id: SEC-04, strength: partial}, {id: RSK-04, strength: partial}]
-    note: "GOV-09 Level 3 requires each record to be checked through information access and security routes before release, with the reason recorded for anything withheld, and a publication decision with reasons for each inventory entry. The policy's test (the FOI and related exemptions, applied as if to a request for the full record, and leaving a tool unpublished only where its existence cannot be confirmed) stays in this mapping for the assessor."
+    controls: [{id: GOV-09, strength: partial}, {id: GOV-07, strength: partial}, {id: SEC-04, strength: partial}, {id: RSK-04, strength: partial}]
+    note: "Partial: the control is general and the ATRS specifics live only in this mapping. GOV-09 Level 3 requires each record to be checked through information access and security routes before release, with the reason recorded for anything withheld, and a publication decision with reasons for each inventory entry. The policy's test (the FOI and related exemptions, applied as if to a request for the full record, and leaving a tool unpublished only where its existence cannot be confirmed) stays in this mapping for the assessor."
+    confidence: high
   - ref: "Scope supplier transparency"
     label: Tell suppliers from the start that this level of transparency is expected, and work with them so little is withheld for commercial reasons
     controls: [{id: OPM-04, strength: direct}, {id: RSK-09, strength: partial}]
     note: "OPM-04 Level 3 puts transparency terms in every relevant AI contract, including the information the organisation needs to publish about the use, so suppliers know from the start; RSK-09 gathers what the AI does, its data use and assurance before use."
+    confidence: high

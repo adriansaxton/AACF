@@ -6,9 +6,9 @@
 framework:
   name: AI Adoption Controls Framework
   short_name: AACF
-  version: 1.0.1
+  version: 1.1.0
   status: release
-  updated: 2026-11-09
+  updated: 2026-11-10
 
 # D0.5: 0 to 5 scale. Level 3 is the default "control met" line; an organisation
 # profile may set a different target per control. N/A is recorded with a reason,

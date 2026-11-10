@@ -180,6 +180,11 @@ def validate(meta, domains):
 
 
 STRENGTHS = {"direct", "partial"}
+HELD_BACK = {"AICM"}  # sources whose mapping is not published (AICM: until CSA agrees)
+CONFIDENCE = {"high", "medium", "low"}
+DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+# Provenance (10 Nov 2026, Adrian): file-level mapped_by, reviewed_by, checked; per item confidence
+# (high/medium/low, confidence_note required below high); an item may override checked or reviewed_by.
 
 
 def load_mappings():
@@ -190,6 +195,62 @@ def load_mappings():
         for f in sorted(d.glob("*.yaml")):
             out[f.name] = yaml.safe_load(f.read_text(encoding="utf-8"))
     return out
+
+
+def attach_mappings(meta, domains, mappings):
+    """Copy each mapping item onto the controls it names (with strength and confidence), and each file's
+    provenance (mapped_by, reviewed_by, checked) onto meta['sources'][src]['provenance']. Used by every output."""
+    by_id = {c["id"]: c for d in domains.values() for c in d["controls"]}
+    for c in by_id.values():
+        c["mappings"] = []
+    for m in mappings.values():
+        meta["sources"][m["source"]]["provenance"] = {k: str(m[k]) for k in ("mapped_by", "reviewed_by", "checked") if m.get(k)}
+        for it in m.get("items") or []:
+            for mc in it.get("controls") or []:
+                by_id[mc["id"]]["mappings"].append({"source": m["source"], "ref": str(it["ref"]), "strength": mc["strength"],
+                                                    "label": it["label"], "confidence": it.get("confidence", "")})
+
+
+def standards_items(meta, mappings=None):
+    """Published standards for the standards view: [(code, name, [item...])] in meta order, held-back sources left
+    out. Each item: ref, label, status (covered/partial/gap/out of scope), direct and partial control IDs."""
+    mappings = load_mappings() if mappings is None else mappings
+    by_src = {m["source"]: m for m in mappings.values() if m["source"] not in HELD_BACK}
+    out = []
+    for code in meta["sources"]:
+        if code not in by_src:
+            continue
+        items = [{"ref": str(it["ref"]), "label": it["label"], "status": item_status(it),
+                  "direct": [c["id"] for c in it.get("controls") or [] if c["strength"] == "direct"],
+                  "partial": [c["id"] for c in it.get("controls") or [] if c["strength"] == "partial"]}
+                 for it in by_src[code].get("items") or []]
+        out.append((code, meta["sources"][code]["name"], items))
+    return out
+
+
+# Standards view (10 Nov 2026, Adrian): an item's foundation is in place when every control mapped DIRECT to it is at
+# Level 3 or above. Readiness, not compliance. Partial-only items are never shown as in place.
+STD_RESULTS = ["Foundation in place", "Not yet", "Not assessed", "N/A", "Partial cover only",
+               "Not covered by the framework", "Out of scope"]
+
+
+def item_result(item, level_of):
+    """level_of: control ID -> int level, 'N/A', or None (not assessed or insufficient evidence)."""
+    if item["status"] == "gap":
+        return "Not covered by the framework"
+    if item["status"] == "out of scope":
+        return "Out of scope"
+    if not item["direct"]:
+        return "Partial cover only"
+    vals = [level_of.get(c) for c in item["direct"]]
+    if any(isinstance(v, int) and v < 3 for v in vals):
+        return "Not yet"
+    live = [v for v in vals if v != "N/A"]
+    if not live:
+        return "N/A"
+    if any(v is None for v in live):
+        return "Not assessed"
+    return "Foundation in place"
 
 
 def item_status(item):
@@ -213,6 +274,12 @@ def validate_mappings(meta, domains, mappings):
         if src in seen_sources:
             errors.append(f"mappings/{fname}: source {src} already mapped in {seen_sources[src]}")
         seen_sources[src] = fname
+        for k in ("mapped_by", "reviewed_by", "checked"):
+            if not m.get(k):
+                warnings.append(f"mappings/{fname}: missing file-level provenance field '{k}'")
+        if m.get("checked") and not DATE_RE.match(str(m["checked"])):
+            errors.append(f"mappings/{fname}: checked must be YYYY-MM-DD")
+        no_conf = 0
         refs = set()
         for it in m.get("items") or []:
             ref = str(it.get("ref", ""))
@@ -238,9 +305,20 @@ def validate_mappings(meta, domains, mappings):
                     errors.append(f"{where}: {cid} strength '{c.get('strength')}' must be direct or partial")
             if ctrls and all(c.get("strength") == "partial" for c in ctrls) and not note:
                 warnings.append(f"{where}: partial cover only, with no note saying what is missing")
-            for text in (str(it.get("label", "")), note):
+            conf = it.get("confidence")
+            if conf is None:
+                no_conf += 1
+            elif conf not in CONFIDENCE:
+                errors.append(f"{where}: confidence '{conf}' must be high, medium or low")
+            elif conf != "high" and not it.get("confidence_note"):
+                errors.append(f"{where}: confidence {conf} needs a confidence_note")
+            if it.get("checked") and not DATE_RE.match(str(it["checked"])):
+                errors.append(f"{where}: checked must be YYYY-MM-DD")
+            for text in (str(it.get("label", "")), note, str(it.get("confidence_note") or "")):
                 if DASHES.search(text):
                     errors.append(f"{where}: dash used as a separator (writing voice): '{text[:60]}'")
+        if no_conf:
+            warnings.append(f"mappings/{fname}: {no_conf} item(s) without confidence")
     for d in domains.values():
         for c in d.get("controls") or []:
             if c.get("mappings"):

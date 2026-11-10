@@ -5,46 +5,61 @@
 
 source: GDSPB
 status: draft
-mapped_by: drafted with AI assistance and reviewed by the author, 2026-11-09
+mapped_by: drafted with AI assistance, 2026-11-09
+reviewed_by: the author, 2026-11-10
+checked: 2026-11-10
 items:
 
   - ref: P1
     label: "You know what AI is and what its limitations are"
-    controls: [{id: PPL-01, strength: direct}, {id: PPL-02, strength: partial}, {id: PPL-08, strength: partial}]
-    note: Asks for understanding of capability, limits and accuracy, and safe use; literacy (PPL-01) carries it.
+    controls: [{id: PPL-01, strength: direct}, {id: PPL-02, strength: partial}, {id: PPL-08, strength: partial}, {id: TEC-06, strength: partial}]
+    note: Asks for understanding of capability, limits and accuracy, and safe use; literacy (PPL-01) carries it. The process to test outputs comes from TEC-06 testing before release.
+    confidence: high
   - ref: P2
     label: "You use AI lawfully, ethically and responsibly"
-    controls: [{id: RSK-04, strength: direct}, {id: RSK-05, strength: direct}, {id: DAT-05, strength: direct}, {id: RSK-06, strength: partial}, {id: RSK-03, strength: partial}]
-    note: Early legal, compliance and data protection advice; equalities and fairness; intellectual property (IP sits partly with OPM-04).
+    controls: [{id: RSK-04, strength: direct}, {id: RSK-05, strength: direct}, {id: DAT-05, strength: direct}, {id: RSK-06, strength: partial}, {id: RSK-03, strength: partial}, {id: OPM-10, strength: partial}]
+    note: Early legal, compliance and data protection advice; equalities and fairness; intellectual property (IP sits partly with OPM-04). Engaging the public and those most likely to be harmed is met for significant uses by OPM-10, which records their input and the response.
+    confidence: medium
+    confidence_note: broad principle spread over many controls; whether the three direct controls together meet it is a judgement
   - ref: P3
     label: "You know how to use AI securely"
-    controls: [{id: SEC-01, strength: direct}, {id: SEC-02, strength: direct}, {id: SEC-04, strength: partial}]
-    note: Secure by Design and the government Cyber Security Standard (SEC-01 baseline); AI-specific threats such as data poisoning and prompt injection (SEC-02).
+    controls: [{id: SEC-01, strength: direct}, {id: SEC-02, strength: direct}, {id: SEC-04, strength: partial}, {id: SEC-06, strength: partial}, {id: TEC-02, strength: partial}]
+    note: Secure by Design and the government Cyber Security Standard (SEC-01 baseline); AI-specific threats such as data poisoning and prompt injection (SEC-02). The safeguards the principle names come from security testing before release, including checks that the system does not leak personal or sensitive data (SEC-06), and input and output guardrails (TEC-02).
+    confidence: high
   - ref: P4
     label: "You have meaningful human control at the right stages"
-    controls: [{id: RSK-07, strength: direct}, {id: MON-02, strength: partial}, {id: TEC-06, strength: partial}]
-    note: Human validation of high-risk decisions and plans for intervention (RSK-07); monitoring behaviour (MON-02); testing before deployment where real-time review is impossible (TEC-06).
+    controls: [{id: RSK-07, strength: direct}, {id: MON-02, strength: partial}, {id: TEC-06, strength: partial}, {id: MON-06, strength: partial}]
+    note: Human validation of high-risk decisions and plans for intervention (RSK-07); monitoring behaviour (MON-02); testing before deployment where real-time review is impossible (TEC-06). Users can report issues through MON-06, though a report is not required to prompt a human review.
+    confidence: high
   - ref: P5
     label: "You understand how to manage the full AI life cycle"
     controls: [{id: POR-04, strength: direct}, {id: OPM-07, strength: partial}, {id: TEC-05, strength: partial}, {id: MON-02, strength: partial}, {id: TEC-06, strength: partial}, {id: POR-09, strength: partial}]
     note: Set-up, maintenance resource, updates, drift and bias monitoring, testing, and secure close-down at end of life. Spread across several controls by design.
+    confidence: medium
+    confidence_note: covered rests on stage gates while drift, hallucination and maintenance asks are only partly held elsewhere
   - ref: P6
     label: "You use the right tool for the job"
     controls: [{id: OPM-02, strength: direct}, {id: STR-02, strength: partial}, {id: POR-05, strength: partial}]
     note: Includes being open to the conclusion that AI is not the right answer (OPM-02 "wait"; STR-02 where AI is not used).
+    confidence: high
   - ref: P7
     label: "You are open and collaborative"
-    controls: [{id: OPM-08, strength: direct}, {id: POR-08, strength: partial}, {id: CUL-06, strength: partial}, {id: STR-07, strength: partial}, {id: GOV-09, strength: partial}]
-    note: Cross-government communities and reuse of ideas, code and infrastructure (OPM-08, POR-08, CUL-06); engaging civil society (STR-07); openness (GOV-09).
+    controls: [{id: OPM-08, strength: direct}, {id: POR-08, strength: partial}, {id: CUL-06, strength: partial}, {id: STR-07, strength: partial}, {id: GOV-09, strength: partial}, {id: OPM-10, strength: partial}, {id: RSK-08, strength: partial}]
+    note: Cross-government communities and reuse of ideas, code and infrastructure (OPM-08, POR-08, CUL-06); engaging civil society (STR-07, and OPM-10 for significant uses with input and response recorded); openness (GOV-09); telling people when a response comes from AI (RSK-08). The ATRS duty for bodies in scope is held in the ATRS mapping.
+    confidence: medium
+    confidence_note: OPM-08 carries collaboration, but openness to the public and the engagement plan rest on several partial controls
   - ref: P8
     label: "You work with commercial colleagues from the start"
     controls: [{id: OPM-04, strength: direct}, {id: RSK-09, strength: partial}]
     note: Early commercial advice; the same responsible-use expectations for in-house and procured AI; contract terms requiring supplier transparency.
+    confidence: high
   - ref: P9
     label: "You have the skills and expertise needed to implement and use AI solutions"
     controls: [{id: PPL-03, strength: direct}, {id: PPL-05, strength: direct}, {id: PPL-02, strength: direct}, {id: PPL-07, strength: partial}]
     note: Team skills to use, design, build and maintain (PPL-03, PPL-05); decision makers and SROs (PPL-02).
+    confidence: high
   - ref: P10
     label: "You use these principles alongside your organisation's policies and have the right assurance in place"
-    controls: [{id: GOV-07, strength: direct}, {id: MON-05, strength: direct}, {id: RSK-02, strength: partial}, {id: GOV-01, strength: partial}]
-    note: Follow organisation-specific policies (GOV-07), understand and mitigate risk (RSK-02), assurance (MON-05).
+    controls: [{id: GOV-07, strength: direct}, {id: MON-05, strength: direct}, {id: RSK-02, strength: partial}, {id: GOV-01, strength: partial}, {id: GOV-04, strength: direct}]
+    note: Follow organisation-specific policies (GOV-07), understand and mitigate risk (RSK-02), assurance (MON-05). The AI review board with documented escalation is GOV-04.
+    confidence: high

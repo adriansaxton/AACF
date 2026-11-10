@@ -485,14 +485,17 @@ controls:
       - {id: OPM-10.3, applies: core, text: "Participants represent the people the service will serve."}
       - {id: OPM-10.4, applies: core, text: "Research with participants protects their wellbeing and their right to withdraw."}
       - {id: OPM-10.5, applies: core, text: "For significant uses, affected communities and experts who are not users are engaged at planning and design, and their input and the organisation's response are recorded."}
+      - {id: OPM-10.6, applies: core, text: "Research and evaluation plans assess and manage risks to the physical and emotional safety of the researchers as well as the participants."}
     questions:
       - "How do evaluations and user research involving people get informed consent and ethics review?"
       - "How do you make sure participants represent the people the service will serve, and that their wellbeing and right to withdraw are protected?"
       - "For significant uses, which affected communities and outside experts were engaged at planning and design, and what was done with their input?"
+      - "How are researchers kept safe, for example when research covers sensitive topics?"
     evidence:
       - "Consent and ethics review records for evaluations involving people"
       - "Participant recruitment records showing how representation was sought"
       - "Engagement records for significant uses, with the input received and the organisation's response"
+      - "Research plans showing the risk assessment for researchers"
     guidance:
       steps:
         - "Set rules for research with people: informed consent, and ethics review through the organisation's existing route."
@@ -511,4 +514,4 @@ controls:
     dependencies: [OPM-06]
     mappings: []
     status: reviewed
-    version: 1.0.0
+    version: 1.1.0
