@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.2 (2026-11-10)
+
+Presentation only; no change to controls, criteria or mappings.
+
+- The logo's rising steps now mark every page title on the website, replacing the red bar.
+- The downloads carry the logo: the workbooks' cover sheets, and the reference guide's cover and page headers.
+- The repository README opens with the logo (light and dark versions).
+
 ## 1.1.1 (2026-11-10)
 
 Website only; no change to controls, criteria or mappings.
