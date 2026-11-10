@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 (2026-11-10)
+
+Website only; no change to controls, criteria or mappings.
+
+- New logo: six steps rising from Level 0 to Level 5 in the scoring colours, beside AACF. Also used as the site icon.
+
 ## 1.1.0 (2026-11-10)
 
 Minor release: three new Level 3 criteria, so Level 3 asks for more on three controls (443 criteria in all).

@@ -1,6 +1,6 @@
 # AI adoption assessment: Westmere Standards Agency (fictional)
 
-Assessed against AI Adoption Controls Framework version 1.1.0. Report generated from `westmere-assessment.xlsx`; results are recomputed from the levels and targets entered. This is a framework assessment, not a certification or legal compliance opinion.
+Assessed against AI Adoption Controls Framework version 1.1.1. Report generated from `westmere-assessment.xlsx`; results are recomputed from the levels and targets entered. This is a framework assessment, not a certification or legal compliance opinion.
 
 | | |
 |---|---|
