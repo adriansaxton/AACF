@@ -1,0 +1,141 @@
+# AACF public roadmap: the single source for ROADMAP.md, the website's /roadmap/ page and the GitHub issues.
+# horizon: now | next | later.  status: in progress | planned | waiting | done.
+# type: review | feature | source | content.  target: the release it is expected in, or blank.
+# issue: the GitHub issue number once created (github-setup.sh creates them in this order, 1 upward).
+# Public text: plain English, no dashes as separators, nothing about private sessions or people.
+
+updated: 2026-11-11
+board: https://github.com/orgs/adriansaxton/projects/1
+items:
+  - id: independent-review
+    title: Independent review of the mappings
+    horizon: now
+    status: in progress
+    type: review
+    target: "1.2"
+    summary: >
+      A qualified reviewer is sampling the high-impact cross-references to check the controls and strengths
+      assigned. Findings will be folded into a release, with the mapping files' reviewer and date updated.
+    issue: 1
+
+  - id: mcp-server
+    title: AACF MCP server
+    horizon: next
+    status: planned
+    type: feature
+    target: ""
+    summary: >
+      A public, read-only MCP server so any AI assistant that supports MCP can look up controls, criteria and
+      cross-references directly, for example "which controls cover ISO/IEC 42001 clause 6.1.2". It will serve the
+      published release data and store nothing.
+    issue: 2
+
+  - id: owasp-llm
+    title: "Cross-reference: OWASP Top 10 for LLM Applications"
+    horizon: next
+    status: planned
+    type: source
+    target: "1.2"
+    summary: >
+      Map the OWASP Top 10 for LLM Applications to the security and technology controls, by risk ID, as a source
+      for the detail the framework leaves to specialist security frameworks.
+    issue: 3
+
+  - id: owasp-agentic
+    title: "Cross-reference: OWASP Top 10 for Agentic Applications"
+    horizon: next
+    status: planned
+    type: source
+    target: "1.2"
+    summary: >
+      Map the OWASP Top 10 for Agentic Applications to the agentic AI overlay criteria and the security controls,
+      giving the agentic criteria a dedicated security source.
+    issue: 4
+
+  - id: lite
+    title: Lite version
+    horizon: next
+    status: planned
+    type: feature
+    target: ""
+    summary: >
+      A short baseline of about twenty foundation controls with a quick self-assessment and a simple result, as a
+      front door to the full framework.
+    issue: 5
+
+  - id: aicm
+    title: "Cross-reference: CSA AI Controls Matrix"
+    horizon: later
+    status: waiting
+    type: source
+    target: ""
+    summary: >
+      A cross-reference to the CSA AI Controls Matrix by control ID. Prepared, and waiting on permission from the
+      Cloud Security Alliance to publish.
+    issue: 6
+
+  - id: gap-agentic
+    title: "Agentic AI: identity, delegation and limits"
+    horizon: later
+    status: planned
+    type: content
+    target: ""
+    summary: >
+      Further agentic criteria on the identity and credentials an agent holds, agents acting for other agents, and
+      spending and resource limits. Theme A1 in what the framework does not cover.
+    issue: 7
+
+  - id: gap-ip
+    title: "Intellectual property beyond contracts"
+    horizon: later
+    status: planned
+    type: content
+    target: ""
+    summary: >
+      Criteria on using content the organisation does not own when prompting or grounding AI, and on the licence
+      terms of open models and datasets it adopts. Theme A2.
+    issue: 8
+
+  - id: gap-redteam
+    title: Red-teaming in live use
+    horizon: later
+    status: planned
+    type: content
+    target: ""
+    summary: >
+      Adversarial testing repeated while a system is live and after model or supplier changes, covering harms
+      beyond security. Theme A3.
+    issue: 9
+
+  - id: gap-jobs
+    title: Effects on jobs and work design
+    horizon: later
+    status: planned
+    type: content
+    target: ""
+    summary: >
+      Assessing how a use of AI changes roles before it is deployed, and planning redeployment or reskilling.
+      Theme A4.
+    issue: 10
+
+  - id: gap-sustainability
+    title: Environmental sustainability targets
+    horizon: later
+    status: planned
+    type: content
+    target: ""
+    summary: >
+      An organisation-level target for AI's energy, compute and water use, reported to leadership, and supplier
+      disclosure of footprint. Theme A5.
+    issue: 11
+
+  - id: gap-higher-risk
+    title: People at higher risk of harm
+    horizon: later
+    status: planned
+    type: content
+    target: ""
+    summary: >
+      Specific care where AI affects children or other people at higher risk of harm, such as stricter approval
+      or a person in the loop by default. Theme A6.
+    issue: 12

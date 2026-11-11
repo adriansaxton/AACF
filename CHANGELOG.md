@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.3 (2026-11-11)
+
+Website and repository only; no change to controls, criteria or mappings.
+
+- **Public roadmap:** a new Roadmap page on the website and ROADMAP.md in the repository (Now, Next, Later), each
+  item linked to its GitHub issue, with a live board at https://github.com/orgs/adriansaxton/projects/1.
+- **Feedback routes:** ideas and questions in GitHub Discussions; specific problems as issues. The About page, the
+  README and CONTRIBUTING say where each goes, and the site footer links to the roadmap.
+
 ## 1.1.2 (2026-11-10)
 
 Presentation only; no change to controls, criteria or mappings.

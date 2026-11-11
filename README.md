@@ -10,7 +10,7 @@
 <p align="center">
   <strong>Controls, levels and cross-references for organisations adopting AI</strong><br>
   <a href="https://aacf.adriansaxton.com">Website</a> · <a href="https://aacf.adriansaxton.com/assess/">Self-assessment</a> ·
-  <a href="https://aacf.adriansaxton.com/downloads/">Downloads</a> · <a href="CHANGELOG.md">Changelog</a>
+  <a href="https://aacf.adriansaxton.com/downloads/">Downloads</a> · <a href="ROADMAP.md">Roadmap</a> · <a href="CHANGELOG.md">Changelog</a>
 </p>
 
 # AI Adoption Controls Framework (AACF)
@@ -79,4 +79,4 @@ cross-reference that is over-claimed: [issues](https://github.com/adriansaxton/A
 Content (everything except `_build/validate.py`): Creative Commons Attribution-ShareAlike 4.0 International. The
 validator: MIT. The AACF name, logo and website design are not covered by these licences; see NOTICE.md.
 
-Version 1.1.2. Copyright 2026 Adrian Saxton.
+Version 1.1.3. Copyright 2026 Adrian Saxton.
