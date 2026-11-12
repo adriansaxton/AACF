@@ -1,0 +1,22 @@
+name: Something else wrong
+description: A problem with the downloads, the website or the validator.
+title: "Problem: "
+body:
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options:
+        - Downloads (workbook, PDF, data files)
+        - Website or online self-assessment
+        - Validator
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what you saw. Include the framework version and, for the website, the page address and browser.
+    validations:
+      required: true

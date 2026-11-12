@@ -1,0 +1,30 @@
+name: Mapping or control correction
+description: A control, criterion or cross-reference that is wrong, unclear, missing or over-claimed.
+title: "Correction: "
+body:
+  - type: input
+    id: control
+    attributes:
+      label: Control or criterion
+      description: The ID, for example STR-01 or STR-01.2.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source item (if it is about a cross-reference)
+      description: The standard and its clause, article or ID, for example ISO/IEC 42001 6.1.2.
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong
+      description: For example marked "direct" when the control only covers part of the item, or a criterion that should be core rather than tied to an overlay.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: Your reasoning, with references by clause or ID. Please do not paste text from the standard itself.
+    validations:
+      required: true
