@@ -10,7 +10,8 @@
 <p align="center">
   <strong>Controls, levels and cross-references for organisations adopting AI</strong><br>
   <a href="https://aacf.adriansaxton.com">Website</a> · <a href="https://aacf.adriansaxton.com/assess/">Self-assessment</a> ·
-  <a href="https://aacf.adriansaxton.com/downloads/">Downloads</a> · <a href="ROADMAP.md">Roadmap</a> · <a href="CHANGELOG.md">Changelog</a>
+  <a href="https://aacf.adriansaxton.com/downloads/">Downloads</a> · <a href="ROADMAP.md">Roadmap</a> · <a href="CHANGELOG.md">Changelog</a><br>
+  <a href="https://doi.org/10.5281/zenodo.24171718"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.24171718.svg" alt="DOI 10.5281/zenodo.24171718"></a>
 </p>
 
 # AI Adoption Controls Framework (AACF)
@@ -73,6 +74,12 @@ A result is a framework assessment, not certification or a legal compliance opin
 
 Ideas and questions: [Discussions](https://github.com/adriansaxton/AACF/discussions). Something wrong, unclear or missing, or a
 cross-reference that is over-claimed: [issues](https://github.com/adriansaxton/AACF/issues). See CONTRIBUTING.md.
+
+## Citing
+
+Use GitHub's "Cite this repository" button (from CITATION.cff), or cite the DOI
+[10.5281/zenodo.24171718](https://doi.org/10.5281/zenodo.24171718), which always points to the latest version. Each version also has its own DOI on
+Zenodo.
 
 ## Licence
 
