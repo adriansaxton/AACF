@@ -1,5 +1,12 @@
 # Changelog
 
+Changes to the framework: controls, criteria, overlays, levels, mappings and the method documents. Versions follow
+MAJOR.MINOR.PATCH as set out in CONTRIBUTING.md.
+
+From 12 November 2026 the website at https://aacf.adriansaxton.com is released separately and does not change the
+framework version. Versions 1.0.1, 1.1.1, 1.1.2 and 1.1.3 below changed only the website and repository; they are
+kept as published.
+
 ## 1.1.3 (2026-11-11)
 
 Website and repository only; no change to controls, criteria or mappings.
