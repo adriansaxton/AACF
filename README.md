@@ -83,7 +83,15 @@ Zenodo.
 
 ## Licence
 
-Content (everything except `_build/validate.py`): Creative Commons Attribution-ShareAlike 4.0 International. The
-validator: MIT. The AACF name, logo and website design are not covered by these licences; see NOTICE.md.
+The framework (all content in this repository except `_build/validate.py`) is copyright 2026
+Adrian Saxton and licensed under the **Creative Commons Attribution-ShareAlike 4.0 International** licence
+(CC BY-SA 4.0): full legal code in [LICENSE](LICENSE), summary at https://creativecommons.org/licenses/by-sa/4.0/.
+You may share and adapt it for any purpose, including commercially, provided you give appropriate credit, indicate if
+changes were made, and distribute your contributions under the same licence. The validator is MIT
+([LICENSE-CODE](LICENSE-CODE)). The AACF name, logo and website design are not covered by these licences; see
+NOTICE.md.
+
+Suggested credit: "AI Adoption Controls Framework (AACF) v1.1.3 by Adrian Saxton, https://github.com/adriansaxton/AACF, licensed under
+CC BY-SA 4.0."
 
 Version 1.1.3. Copyright 2026 Adrian Saxton.
