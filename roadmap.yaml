@@ -4,7 +4,7 @@
 # issue: the GitHub issue number once created (github-setup.sh creates them in this order, 1 upward).
 # Public text: plain English, no dashes as separators, nothing about private sessions or people.
 
-updated: 2026-11-11
+updated: 2026-11-13
 board: https://github.com/orgs/adriansaxton/projects/1
 items:
   - id: independent-review
@@ -15,7 +15,8 @@ items:
     target: "1.2"
     summary: >
       A qualified reviewer is sampling the high-impact cross-references to check the controls and strengths
-      assigned. Findings will be folded into a release, with the mapping files' reviewer and date updated.
+      assigned. Findings will be folded into a release, with the mapping files' reviewer and date updated. The site
+      and the README will then say what was reviewed, how, and by whom.
     issue: 1
 
   - id: mcp-server
@@ -60,7 +61,8 @@ items:
     target: ""
     summary: >
       A short baseline of about twenty foundation controls with a quick self-assessment and a simple result, as a
-      front door to the full framework.
+      front door to the full framework. It will include a guide for small teams showing how the eight owner roles
+      combine when two or three people share them.
     issue: 5
 
   - id: aicm
@@ -81,8 +83,9 @@ items:
     type: content
     target: ""
     summary: >
-      Further agentic criteria on the identity and credentials an agent holds, agents acting for other agents, and
-      spending and resource limits. Theme A1 in what the framework does not cover.
+      Further agentic criteria on the identity and credentials an agent holds, least privilege for the tools it can
+      use, running agents in a contained environment, undoing an agent's actions, agents acting for other agents,
+      and spending and resource limits. Theme A1 in what the framework does not cover.
     issue: 7
 
   - id: gap-ip
@@ -139,3 +142,33 @@ items:
       Specific care where AI affects children or other people at higher risk of harm, such as stricter approval
       or a person in the loop by default. Theme A6.
     issue: 12
+
+  - id: oscal
+    title: OSCAL export
+    horizon: next
+    status: planned
+    type: feature
+    target: ""
+    summary: >
+      Publish the controls and criteria in OSCAL, NIST's open format for control catalogues, alongside the JSON
+      and CSV, so compliance tools that read OSCAL can import the framework without custom work.
+
+  - id: assessor-consistency
+    title: Assessor consistency trial
+    horizon: later
+    status: planned
+    type: review
+    target: ""
+    summary: >
+      Two assessors score the worked example separately and compare results. Where their scores differ, the
+      rulebook and criteria wording are tightened so that different assessors reach the same result.
+
+  - id: supplier-assurance
+    title: Meeting criteria through supplier assurance
+    horizon: later
+    status: planned
+    type: content
+    target: ""
+    summary: >
+      For AI obtained from suppliers, show which criteria can be met with supplier evidence, contract terms or
+      independent evaluations, and which always need the organisation's own practice.

@@ -70,6 +70,28 @@ formats and writing style, and must pass before a change is accepted.
 A result is a framework assessment, not certification or a legal compliance opinion. See
 `framework/intended-use.md`.
 
+## Common questions
+
+**Does it assess a whole organisation or a single AI system?**
+
+The organisation, or a defined part of it such as a division or a group of services. Many criteria apply to each use of AI, so an assessor checks that the practice is applied across the uses in scope, sampling where there are many. It is not a test of one AI system. [How an assessment works](https://aacf.adriansaxton.com/method/).
+
+**Does every organisation have to meet every control?**
+
+No. Six overlays switch on criteria that apply only to some organisations, such as public bodies or users of agentic AI, and a conditional criterion counts only when its overlay applies. Each control has its own target, normally Level 3; a lower target needs a recorded reason, an approver and a review date. Inside the organisation, GOV-03 makes approval routes proportionate to risk, using the risk tiers it sets under RSK-01 and RSK-02. [See the overlays](https://aacf.adriansaxton.com/overlays/).
+
+**How does it tell a control that exists from one that works?**
+
+Through the levels. Level 3 means the practice is documented, owned and applied across the organisation. Level 4 means it is measured, assured and reported, and exceptions are caught. Live AI is monitored (MON-02) and measured against baselines (MON-01), and assurance reviews also run after material change (MON-05). [How the levels and scoring work](https://aacf.adriansaxton.com/method/).
+
+**Does it cover agentic AI and AI bought from suppliers?**
+
+Yes. The agentic AI overlay adds five criteria (GOV-06.6, RSK-07.4, SEC-02.6, SEC-06.6, MON-02.8): a record of what each agent can act on, a person's approval for consequential actions, threat modelling and testing before release, and a log of every action with a way to stop each agent at once. RSK-09 covers due diligence on AI in bought products, including supplier updates that add AI to products already in use. Deeper agentic criteria are on the roadmap. [See the roadmap](https://aacf.adriansaxton.com/roadmap/).
+
+**Has it been independently reviewed?**
+
+A review is under way: a qualified reviewer is sampling the high-impact cross-references. When it is complete, what was reviewed, how and by whom will be published here and in the repository. [See the roadmap](https://aacf.adriansaxton.com/roadmap/).
+
 ## Feedback and contributions
 
 Ideas and questions: [Discussions](https://github.com/adriansaxton/AACF/discussions). Something wrong, unclear or missing, or a
