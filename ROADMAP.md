@@ -20,7 +20,7 @@ Live board: https://github.com/orgs/adriansaxton/projects/1
 
 - **Lite version** ([#5](https://github.com/adriansaxton/AACF/issues/5)). A short baseline of about twenty foundation controls with a quick self-assessment and a simple result, as a front door to the full framework. It will include a guide for small teams showing how the eight owner roles combine when two or three people share them. *Planned.*
 
-- **OSCAL export**. Publish the controls and criteria in OSCAL, NIST's open format for control catalogues, alongside the JSON and CSV, so compliance tools that read OSCAL can import the framework without custom work. *Planned.*
+- **OSCAL export** ([#14](https://github.com/adriansaxton/AACF/issues/14)). Publish the controls and criteria in OSCAL, NIST's open format for control catalogues, alongside the JSON and CSV, so compliance tools that read OSCAL can import the framework without custom work. *Planned.*
 
 ## Later
 
@@ -38,6 +38,6 @@ Live board: https://github.com/orgs/adriansaxton/projects/1
 
 - **People at higher risk of harm** ([#12](https://github.com/adriansaxton/AACF/issues/12)). Specific care where AI affects children or other people at higher risk of harm, such as stricter approval or a person in the loop by default. Theme A6. *Planned.*
 
-- **Assessor consistency trial**. Two assessors score the worked example separately and compare results. Where their scores differ, the rulebook and criteria wording are tightened so that different assessors reach the same result. *Planned.*
+- **Assessor consistency trial** ([#15](https://github.com/adriansaxton/AACF/issues/15)). Two assessors score the worked example separately and compare results. Where their scores differ, the rulebook and criteria wording are tightened so that different assessors reach the same result. *Planned.*
 
-- **Meeting criteria through supplier assurance**. For AI obtained from suppliers, show which criteria can be met with supplier evidence, contract terms or independent evaluations, and which always need the organisation's own practice. *Planned.*
+- **Meeting criteria through supplier assurance** ([#16](https://github.com/adriansaxton/AACF/issues/16)). For AI obtained from suppliers, show which criteria can be met with supplier evidence, contract terms or independent evaluations, and which always need the organisation's own practice. *Planned.*

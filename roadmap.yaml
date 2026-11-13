@@ -152,6 +152,7 @@ items:
     summary: >
       Publish the controls and criteria in OSCAL, NIST's open format for control catalogues, alongside the JSON
       and CSV, so compliance tools that read OSCAL can import the framework without custom work.
+    issue: 14
 
   - id: assessor-consistency
     title: Assessor consistency trial
@@ -162,6 +163,7 @@ items:
     summary: >
       Two assessors score the worked example separately and compare results. Where their scores differ, the
       rulebook and criteria wording are tightened so that different assessors reach the same result.
+    issue: 15
 
   - id: supplier-assurance
     title: Meeting criteria through supplier assurance
@@ -172,3 +174,4 @@ items:
     summary: >
       For AI obtained from suppliers, show which criteria can be met with supplier evidence, contract terms or
       independent evaluations, and which always need the organisation's own practice.
+    issue: 16
