@@ -10,17 +10,17 @@ Live board: https://github.com/orgs/adriansaxton/projects/1
 
 - **Independent review of the mappings** ([#1](https://github.com/adriansaxton/AACF/issues/1)). A qualified reviewer is sampling the high-impact cross-references to check the controls and strengths assigned. Findings will be folded into a release, with the mapping files' reviewer and date updated. The site and the README will then say what was reviewed, how, and by whom. *In progress, target 1.2.*
 
+- **Cross-reference: OWASP Top 10 for LLM Applications** ([#3](https://github.com/adriansaxton/AACF/issues/3)). Map the OWASP Top 10 for LLM Applications to the security and technology controls, by risk ID, as a source for the detail the framework leaves to specialist security frameworks. *Done, target 1.2.*
+
+- **Cross-reference: OWASP Top 10 for Agentic Applications** ([#4](https://github.com/adriansaxton/AACF/issues/4)). Map the OWASP Top 10 for Agentic Applications to the agentic AI overlay criteria and the security controls, giving the agentic criteria a dedicated security source. *Done, target 1.2.*
+
+- **OSCAL export** ([#14](https://github.com/adriansaxton/AACF/issues/14)). Publish the controls and criteria in OSCAL, NIST's open format for control catalogues, alongside the JSON and CSV, so compliance tools that read OSCAL can import the framework without custom work. *Done, target 1.2.*
+
 ## Next
 
 - **AACF MCP server** ([#2](https://github.com/adriansaxton/AACF/issues/2)). A public, read-only MCP server so any AI assistant that supports MCP can look up controls, criteria and cross-references directly, for example "which controls cover ISO/IEC 42001 clause 6.1.2". It will serve the published release data and store nothing. *Planned.*
 
-- **Cross-reference: OWASP Top 10 for LLM Applications** ([#3](https://github.com/adriansaxton/AACF/issues/3)). Map the OWASP Top 10 for LLM Applications to the security and technology controls, by risk ID, as a source for the detail the framework leaves to specialist security frameworks. *Planned, target 1.2.*
-
-- **Cross-reference: OWASP Top 10 for Agentic Applications** ([#4](https://github.com/adriansaxton/AACF/issues/4)). Map the OWASP Top 10 for Agentic Applications to the agentic AI overlay criteria and the security controls, giving the agentic criteria a dedicated security source. *Planned, target 1.2.*
-
 - **Lite version** ([#5](https://github.com/adriansaxton/AACF/issues/5)). A short baseline of about twenty foundation controls with a quick self-assessment and a simple result, as a front door to the full framework. It will include a guide for small teams showing how the eight owner roles combine when two or three people share them. *Planned.*
-
-- **OSCAL export** ([#14](https://github.com/adriansaxton/AACF/issues/14)). Publish the controls and criteria in OSCAL, NIST's open format for control catalogues, alongside the JSON and CSV, so compliance tools that read OSCAL can import the framework without custom work. *Planned.*
 
 ## Later
 

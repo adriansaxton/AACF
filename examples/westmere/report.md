@@ -1,6 +1,6 @@
 # AI adoption assessment: Westmere Standards Agency (fictional)
 
-Assessed against AI Adoption Controls Framework version 1.1.3. Report generated from `westmere-assessment.xlsx`; results are recomputed from the levels and targets entered. This is a framework assessment, not a certification or legal compliance opinion.
+Assessed against AI Adoption Controls Framework version 1.2.0. Report generated from `westmere-assessment.xlsx`; results are recomputed from the levels and targets entered. This is a framework assessment, not a certification or legal compliance opinion.
 
 | | |
 |---|---|
@@ -63,6 +63,8 @@ For each standard selected on the Profile sheet, an item's foundation is in plac
 | Algorithmic Transparency Recording Standard | 14 | 0 | 9 | 0 | 5 | 0 |
 | AI Cyber Security Code of Practice | 51 | 2 | 31 | 0 | 18 | 0 |
 | UK Data and AI Ethics Framework | 116 | 3 | 100 | 5 | 6 | 2 |
+| OWASP Top 10 for LLM Applications 2026 | 10 | 0 | 6 | 0 | 4 | 0 |
+| OWASP Top 10 for Agentic Applications 2026 | 10 | 0 | 5 | 0 | 5 | 0 |
 
 ### ISO/IEC 42001: not yet in place (47)
 
@@ -372,6 +374,27 @@ For each standard selected on the Profile sheet, an item's foundation is in plac
 | SAT 4.10 | What procedures are in place to safely stop or retire the system? | OPM-09 (now 1), POR-09 (now 1) |
 | SAT 4.11 | Will people affected by shutdown or replacement be told? What are the wider impacts? | POR-09 (now 1) |
 | SAT 4.13 | What measures responsibly manage or recycle hardware and infrastructure? | POR-09 (now 1) |
+
+### OWASP Top 10 for LLM Applications 2026: not yet in place (6)
+
+| Ref | Item | Controls to lift |
+|---|---|---|
+| LLM01:2026 | Prompt Injection; input from users, retrieved content, tools or memory that changes what the model does in ways the builder did not intend | SEC-02 (now 2), SEC-06 (now 1) |
+| LLM02:2026 | Sensitive Information Disclosure; personal, confidential or proprietary data exposed through model outputs, retrieval, logs or reasoning traces | SEC-06 (now 1), MON-02 (now 2) |
+| LLM03:2026 | Excessive Agency; a model given more tools, functions, permissions or autonomy than its task needs, so a bad output becomes a harmful action | TEC-04 (now 2), RSK-07 (now 2) |
+| LLM04:2026 | Supply Chain; compromised or vulnerable third party models, data sets, adapters, packages and platforms used to build or run an LLM application | SEC-03 (now 2) |
+| LLM06:2026 | Unbounded Consumption; uncontrolled use of a model that runs up cost, exhausts capacity or lets an attacker copy the model through bulk queries | OPM-03 (now 2) |
+| LLM07:2026 | Misinformation; false or unsupported output that people or connected systems rely on, including tool calls made on wrong premises | TEC-06 (now 2) |
+
+### OWASP Top 10 for Agentic Applications 2026: not yet in place (5)
+
+| Ref | Item | Controls to lift |
+|---|---|---|
+| ASI01 | Agent Goal Hijack; content an agent reads, or a user's input, redirects its goals or plan so it pursues an attacker's aim | SEC-02 (now 2), SEC-06 (now 1) |
+| ASI02 | Tool Misuse and Exploitation; an agent using legitimate tools in unsafe or unintended ways, including chaining them or spending without limit | TEC-04 (now 2), SEC-02 (now 2) |
+| ASI04 | Agentic Supply Chain Vulnerabilities; malicious or compromised tools, plugins, prompts, model servers or other agents loaded at build or run time | SEC-03 (now 2) |
+| ASI09 | Human-Agent Trust Exploitation; people over-trusting a fluent or authoritative agent and approving harmful actions it proposes | RSK-07 (now 2) |
+| ASI10 | Rogue Agents; an agent drifting from its intended behaviour, or acting deceptively or harmfully, while appearing legitimate | MON-02 (now 2) |
 
 Not selected: JSP 936 Part 1, MITRE AI Maturity Model, UNESCO AI Maturity Framework.
 

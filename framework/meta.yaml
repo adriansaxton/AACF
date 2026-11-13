@@ -6,9 +6,9 @@
 framework:
   name: AI Adoption Controls Framework
   short_name: AACF
-  version: 1.1.3
+  version: 1.2.0
   status: release
-  updated: 2026-11-10
+  updated: 2026-11-13
 
 # D0.5: 0 to 5 scale. Level 3 is the default "control met" line; an organisation
 # profile may set a different target per control. N/A is recorded with a reason,
@@ -32,7 +32,7 @@ domains:
   OPM: {name: "Operating Model & Delivery", file: opm.yaml}
   DAT: {name: "Data & Information", file: dat.yaml}
   TEC: {name: "Technology & Platforms", file: tec.yaml}
-  SEC: {name: "AI Security", file: sec.yaml, note: "Bridge domain: adoption-level objectives only; detail delegated to CSA AICM and the AI Cyber Security Code of Practice."}
+  SEC: {name: "AI Security", file: sec.yaml, note: "Bridge domain: adoption-level objectives only; detail delegated to recognised AI security frameworks such as the OWASP Top 10 lists for LLM and agentic applications, the CSA AICM and the AI Cyber Security Code of Practice."}
   PPL: {name: "People & Skills", file: ppl.yaml}
   CUL: {name: "Culture & Change", file: cul.yaml}
   MON: {name: "Measure & Improve", file: mon.yaml}
@@ -92,3 +92,6 @@ sources:
   MITREAIMM: {name: "MITRE AI Maturity Model", url: "https://www.mitre.org/news-insights/publication/mitre-ai-maturity-model-and-organizational-assessment-tool-guide", layer: core, ref_pattern: '^P[1-6]\.[1-4]$'}   # pillar.dimension in the guide's order (6 pillars, 20 dimensions)
   UNESCOAIMF: {name: "UNESCO AI Maturity Framework", url: "https://unesdoc.unesco.org/ark:/48223/pf0000397145", layer: core, ref_pattern: '^[1-6]\.[1-5]$'}
   UKDAIEF: {name: "UK Data and AI Ethics Framework", url: "https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework", layer: uk_public, ref_pattern: '^((Transparency|Accountability|Fairness|Privacy|Environmental sustainability|Societal impact|Safety|Trade-offs) \d{1,2}|SAT [1-4]\.\d{1,2})$'}
+  # Roadmap #3 and #4 (13 Nov 2026): OWASP GenAI Security Project lists, CC BY-SA 4.0; security detail for the SEC bridge
+  OWASPLLM: {name: "OWASP Top 10 for LLM Applications 2026", url: "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/", layer: core, ref_pattern: '^LLM(0[1-9]|10):2026$'}   # the ten risks as the document numbers them
+  OWASPASI: {name: "OWASP Top 10 for Agentic Applications 2026", url: "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/", layer: core, ref_pattern: '^ASI(0[1-9]|10)$'}   # the ten agentic risks

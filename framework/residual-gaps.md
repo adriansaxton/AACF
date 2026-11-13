@@ -28,10 +28,15 @@ framework or level.
   a person's approval (RSK-07.4), threat modelling covers hidden instructions and tool misuse (SEC-02.6), and testing
   tries to push an agent beyond its permissions (SEC-06.6).
 - **Missing:** agents acting for or with other agents (delegation chains and multi-agent systems); the identity and
-  credentials an agent holds, and how they are issued, limited and withdrawn; spending and resource limits; who is
-  answerable when an agent acts in another organisation's systems.
-- **Likely route:** further AGT criteria on agent identity and credentials, delegation and spending limits.
-  Watch the EU AI Act guidance, NIST work on agent security, and the OWASP agentic AI material.
+  credentials an agent holds, and how they are issued, limited and withdrawn; running agents and the code they
+  generate in a contained environment; validating what is written to agent memory and retrieval stores; limits on how
+  far one agent's actions can spread; spending and resource limits; who is answerable when an agent acts in another
+  organisation's systems.
+- **Evidence:** the cross-reference to the OWASP Top 10 for Agentic Applications 2026 (version 1.2.0) finds ASI03,
+  ASI05, ASI06, ASI07 and ASI08 only partly met, each for one of the reasons above; LLM05:2026 and LLM09:2026 in the
+  OWASP LLM list point to the same gap for retrieval stores.
+- **Likely route:** further AGT criteria on agent identity and credentials, delegation, containment, memory and
+  spending limits (roadmap item 7). Watch the EU AI Act guidance and NIST work on agent security.
 
 ### A2. Intellectual property beyond contracts
 
@@ -135,3 +140,4 @@ Framework items (choice of explainability technique).
 | Date | Change |
 |---|---|
 | 1.1.0 | First published. Themes A1 to A11; A2 narrowed by GOV-10.4. |
+| 1.2.0 | A1 updated with the gaps the OWASP agentic and LLM cross-references show. |

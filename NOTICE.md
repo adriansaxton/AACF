@@ -27,6 +27,9 @@ is the author's own interpretation. No source owner has endorsed it.
 - **UNESCO, AI Maturity Framework: a self-positioning guide for public administrations** (2025). Licensed by UNESCO
   under CC BY-SA 3.0 IGO. Referenced by pillar and category. Category names are cited as names only, with
   descriptions in the author's own words. No UNESCO endorsement is implied.
+- **OWASP Top 10 for LLM Applications 2026 and OWASP Top 10 for Agentic Applications 2026.** OWASP GenAI Security
+  Project, https://genai.owasp.org, licensed under CC BY-SA 4.0. Referenced by risk identifier; risk names are cited
+  as names, with descriptions in the author's own words. No OWASP endorsement is implied.
 - **CSA AI Controls Matrix (AICM).** Not included in this release. A cross-reference will be added only with the
   Cloud Security Alliance's permission.
 

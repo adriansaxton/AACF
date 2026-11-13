@@ -44,6 +44,10 @@ https://aacf.adriansaxton.com
   - MITRE AI Maturity Model
   - UNESCO AI Maturity Framework
   - UK Data and AI Ethics Framework
+  - OWASP Top 10 for LLM Applications 2026
+  - OWASP Top 10 for Agentic Applications 2026
+- **An OSCAL catalog** (`data/aacf-oscal-catalog.json`, NIST OSCAL 1.2.3) for compliance tools that read OSCAL: each
+  domain is a group, each control carries its Level 3 criteria as statement items, and cross-references are properties.
 - **A worked example** of a completed assessment (`examples/westmere/`, a fictional organisation).
 
 ## Repository layout
@@ -51,7 +55,7 @@ https://aacf.adriansaxton.com
 | Path | What |
 |---|---|
 | `framework/` | The source of truth: `meta.yaml`, `domains/*.yaml`, `mappings/*.yaml`, rulebook, intended use |
-| `data/` | Every control in plain machine-readable form: `aacf.json` and `aacf-controls.csv` |
+| `data/` | Every control in plain machine-readable form: `aacf.json`, `aacf-controls.csv`, and `aacf-oscal-catalog.json` (NIST OSCAL catalog format) |
 | `examples/westmere/` | Worked example (fictional organisation) |
 | `_build/validate.py` | Checks the YAML against the framework's rules |
 
@@ -113,7 +117,7 @@ changes were made, and distribute your contributions under the same licence. The
 ([LICENSE-CODE](LICENSE-CODE)). The AACF name, logo and website design are not covered by these licences; see
 NOTICE.md.
 
-Suggested credit: "AI Adoption Controls Framework (AACF) v1.1.3 by Adrian Saxton, https://github.com/adriansaxton/AACF, licensed under
+Suggested credit: "AI Adoption Controls Framework (AACF) v1.2.0 by Adrian Saxton, https://github.com/adriansaxton/AACF, licensed under
 CC BY-SA 4.0."
 
-Version 1.1.3. Copyright 2026 Adrian Saxton.
+Version 1.2.0. Copyright 2026 Adrian Saxton.

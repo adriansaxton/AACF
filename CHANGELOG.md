@@ -7,6 +7,21 @@ From 12 November 2026 the website at https://aacf.adriansaxton.com is released s
 framework version. Versions 1.0.1, 1.1.1, 1.1.2 and 1.1.3 below changed only the website and repository; they are
 kept as published.
 
+## 1.2.0 (2026-11-13)
+
+New cross-references and a new data format; no change to controls or criteria.
+
+- **OWASP Top 10 for LLM Applications 2026** cross-referenced by risk (LLM01:2026 to LLM10:2026): six risks met
+  directly at Level 3 and four in part. Where only the security baseline (SEC-01) would address a risk, it is marked
+  in part and the note says so.
+- **OWASP Top 10 for Agentic Applications 2026** cross-referenced by risk (ASI01 to ASI10): five met directly and five
+  in part. The partial items set the scope for further agentic criteria (roadmap item 7); what the framework does not
+  cover (theme A1) is updated to match.
+- **OSCAL catalog:** `data/aacf-oscal-catalog.json`, the controls in NIST OSCAL 1.2.3 catalog format for compliance
+  tools that read OSCAL. Domains are groups, Level 3 criteria are statement items, and cross-references are
+  properties in the AACF namespace (OSCAL's mapping model needs both sides published as OSCAL catalogs, which the
+  cross-referenced standards are not). Checked against the official OSCAL catalog schema.
+
 ## 1.1.3 (2026-11-11)
 
 Website and repository only; no change to controls, criteria or mappings.

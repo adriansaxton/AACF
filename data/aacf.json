@@ -3,9 +3,9 @@
   "framework": {
    "name": "AI Adoption Controls Framework",
    "short_name": "AACF",
-   "version": "1.1.3",
+   "version": "1.2.0",
    "status": "release",
-   "updated": "2026-11-10"
+   "updated": "2026-11-13"
   },
   "scale": {
    "baseline_level": 3,
@@ -68,7 +68,7 @@
    "SEC": {
     "name": "AI Security",
     "file": "sec.yaml",
-    "note": "Bridge domain: adoption-level objectives only; detail delegated to CSA AICM and the AI Cyber Security Code of Practice."
+    "note": "Bridge domain: adoption-level objectives only; detail delegated to recognised AI security frameworks such as the OWASP Top 10 lists for LLM and agentic applications, the CSA AICM and the AI Cyber Security Code of Practice."
    },
    "PPL": {
     "name": "People & Skills",
@@ -2552,6 +2552,62 @@
        "confidence": "medium"
       },
       {
+       "source": "OWASPASI",
+       "ref": "ASI01",
+       "strength": "partial",
+       "label": "Agent Goal Hijack; content an agent reads, or a user's input, redirects its goals or plan so it pursues an attacker's aim",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI02",
+       "strength": "partial",
+       "label": "Tool Misuse and Exploitation; an agent using legitimate tools in unsafe or unintended ways, including chaining them or spending without limit",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI03",
+       "strength": "partial",
+       "label": "Identity and Privilege Abuse; agents inheriting, caching or passing on credentials and permissions so they act with more authority than intended",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI04",
+       "strength": "partial",
+       "label": "Agentic Supply Chain Vulnerabilities; malicious or compromised tools, plugins, prompts, model servers or other agents loaded at build or run time",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI07",
+       "strength": "partial",
+       "label": "Insecure Inter-Agent Communication; messages between agents that can be intercepted, spoofed, replayed or altered",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI10",
+       "strength": "partial",
+       "label": "Rogue Agents; an agent drifting from its intended behaviour, or acting deceptively or harmfully, while appearing legitimate",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM03:2026",
+       "strength": "partial",
+       "label": "Excessive Agency; a model given more tools, functions, permissions or autonomy than its task needs, so a bad output becomes a harmful action",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM04:2026",
+       "strength": "partial",
+       "label": "Supply Chain; compromised or vulnerable third party models, data sets, adapters, packages and platforms used to build or run an LLM application",
+       "confidence": "high"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Transparency 2",
        "strength": "partial",
@@ -3507,6 +3563,20 @@
        "ref": "R10",
        "strength": "direct",
        "label": "Intellectual Property; AI reproducing protected work, exposing trade secrets, or copying likeness or voice without permission",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI09",
+       "strength": "partial",
+       "label": "Human-Agent Trust Exploitation; people over-trusting a fluent or authoritative agent and approving harmful actions it proposes",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM07:2026",
+       "strength": "partial",
+       "label": "Misinformation; false or unsupported output that people or connected systems rely on, including tool calls made on wrong premises",
        "confidence": "high"
       },
       {
@@ -5897,6 +5967,76 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPASI",
+       "ref": "ASI01",
+       "strength": "partial",
+       "label": "Agent Goal Hijack; content an agent reads, or a user's input, redirects its goals or plan so it pursues an attacker's aim",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI02",
+       "strength": "partial",
+       "label": "Tool Misuse and Exploitation; an agent using legitimate tools in unsafe or unintended ways, including chaining them or spending without limit",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI03",
+       "strength": "partial",
+       "label": "Identity and Privilege Abuse; agents inheriting, caching or passing on credentials and permissions so they act with more authority than intended",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI05",
+       "strength": "partial",
+       "label": "Unexpected Code Execution; an agent generating or running code that leads to remote code execution or compromise of its host",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI08",
+       "strength": "partial",
+       "label": "Cascading Failures; one agent's fault or compromise spreading through connected agents and systems faster than people can intervene",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI09",
+       "strength": "direct",
+       "label": "Human-Agent Trust Exploitation; people over-trusting a fluent or authoritative agent and approving harmful actions it proposes",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI10",
+       "strength": "partial",
+       "label": "Rogue Agents; an agent drifting from its intended behaviour, or acting deceptively or harmfully, while appearing legitimate",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM01:2026",
+       "strength": "partial",
+       "label": "Prompt Injection; input from users, retrieved content, tools or memory that changes what the model does in ways the builder did not intend",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM03:2026",
+       "strength": "direct",
+       "label": "Excessive Agency; a model given more tools, functions, permissions or autonomy than its task needs, so a bad output becomes a harmful action",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM07:2026",
+       "strength": "partial",
+       "label": "Misinformation; false or unsupported output that people or connected systems rely on, including tool calls made on wrong premises",
+       "confidence": "high"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Accountability 8",
        "strength": "direct",
@@ -6595,6 +6735,27 @@
        "ref": "MANAGE 3.1",
        "strength": "direct",
        "label": "Monitor third-party AI risks and benefits regularly and apply controls",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI04",
+       "strength": "partial",
+       "label": "Agentic Supply Chain Vulnerabilities; malicious or compromised tools, plugins, prompts, model servers or other agents loaded at build or run time",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM02:2026",
+       "strength": "partial",
+       "label": "Sensitive Information Disclosure; personal, confidential or proprietary data exposed through model outputs, retrieval, logs or reasoning traces",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM04:2026",
+       "strength": "partial",
+       "label": "Supply Chain; compromised or vulnerable third party models, data sets, adapters, packages and platforms used to build or run an LLM application",
        "confidence": "high"
       },
       {
@@ -8376,6 +8537,27 @@
      ],
      "mappings": [
       {
+       "source": "OWASPASI",
+       "ref": "ASI02",
+       "strength": "partial",
+       "label": "Tool Misuse and Exploitation; an agent using legitimate tools in unsafe or unintended ways, including chaining them or spending without limit",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI08",
+       "strength": "partial",
+       "label": "Cascading Failures; one agent's fault or compromise spreading through connected agents and systems faster than people can intervene",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM06:2026",
+       "strength": "direct",
+       "label": "Unbounded Consumption; uncontrolled use of a model that runs up cost, exhausts capacity or lets an attacker copy the model through bulk queries",
+       "confidence": "medium"
+      },
+      {
        "source": "UNESCOAIMF",
        "ref": "3.2",
        "strength": "partial",
@@ -8594,6 +8776,20 @@
        "ref": "MAP 4.1",
        "strength": "partial",
        "label": "Map technology and legal risks of components, including third-party data, software and IP",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM02:2026",
+       "strength": "partial",
+       "label": "Sensitive Information Disclosure; personal, confidential or proprietary data exposed through model outputs, retrieval, logs or reasoning traces",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM04:2026",
+       "strength": "partial",
+       "label": "Supply Chain; compromised or vulnerable third party models, data sets, adapters, packages and platforms used to build or run an LLM application",
        "confidence": "high"
       },
       {
@@ -9674,6 +9870,27 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPASI",
+       "ref": "ASI08",
+       "strength": "partial",
+       "label": "Cascading Failures; one agent's fault or compromise spreading through connected agents and systems faster than people can intervene",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM06:2026",
+       "strength": "partial",
+       "label": "Unbounded Consumption; uncontrolled use of a model that runs up cost, exhausts capacity or lets an attacker copy the model through bulk queries",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM07:2026",
+       "strength": "partial",
+       "label": "Misinformation; false or unsupported output that people or connected systems rely on, including tool calls made on wrong premises",
+       "confidence": "high"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "SAT 4.1",
        "strength": "direct",
@@ -10403,6 +10620,13 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPLLM",
+       "ref": "LLM05:2026",
+       "strength": "partial",
+       "label": "Data and Model Poisoning; training, tuning, retrieval or feedback data manipulated to plant bias, backdoors or false content in a model's behaviour",
+       "confidence": "medium"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Safety 5",
        "strength": "direct",
@@ -10805,6 +11029,13 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPLLM",
+       "ref": "LLM02:2026",
+       "strength": "partial",
+       "label": "Sensitive Information Disclosure; personal, confidential or proprietary data exposed through model outputs, retrieval, logs or reasoning traces",
+       "confidence": "high"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Accountability 2",
        "strength": "partial",
@@ -11137,6 +11368,13 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPLLM",
+       "ref": "LLM09:2026",
+       "strength": "partial",
+       "label": "Vector and Embedding Weaknesses; retrieval stores that leak data across users, accept poisoned content or reveal source text through embeddings",
+       "confidence": "medium"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Privacy 7",
        "strength": "partial",
@@ -11347,6 +11585,34 @@
        "strength": "partial",
        "label": "Data Privacy; leakage, misuse or inference of personal and sensitive data through AI training, prompts and outputs",
        "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI03",
+       "strength": "partial",
+       "label": "Identity and Privilege Abuse; agents inheriting, caching or passing on credentials and permissions so they act with more authority than intended",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI06",
+       "strength": "partial",
+       "label": "Memory and Context Poisoning; false or malicious content written into an agent's memory or context that shapes its later decisions",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM02:2026",
+       "strength": "partial",
+       "label": "Sensitive Information Disclosure; personal, confidential or proprietary data exposed through model outputs, retrieval, logs or reasoning traces",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM09:2026",
+       "strength": "partial",
+       "label": "Vector and Embedding Weaknesses; retrieval stores that leak data across users, accept poisoned content or reveal source text through embeddings",
+       "confidence": "medium"
       },
       {
        "source": "UKDAIEF",
@@ -11671,6 +11937,34 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPASI",
+       "ref": "ASI06",
+       "strength": "partial",
+       "label": "Memory and Context Poisoning; false or malicious content written into an agent's memory or context that shapes its later decisions",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM04:2026",
+       "strength": "partial",
+       "label": "Supply Chain; compromised or vulnerable third party models, data sets, adapters, packages and platforms used to build or run an LLM application",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM05:2026",
+       "strength": "partial",
+       "label": "Data and Model Poisoning; training, tuning, retrieval or feedback data manipulated to plant bias, backdoors or false content in a model's behaviour",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM09:2026",
+       "strength": "partial",
+       "label": "Vector and Embedding Weaknesses; retrieval stores that leak data across users, accept poisoned content or reveal source text through embeddings",
+       "confidence": "medium"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Transparency 6",
        "strength": "direct",
@@ -11884,6 +12178,13 @@
        "ref": "MAP 3.3",
        "strength": "partial",
        "label": "Specify and document the targeted scope of application",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI04",
+       "strength": "partial",
+       "label": "Agentic Supply Chain Vulnerabilities; malicious or compromised tools, plugins, prompts, model servers or other agents loaded at build or run time",
        "confidence": "medium"
       },
       {
@@ -12476,6 +12777,76 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPASI",
+       "ref": "ASI01",
+       "strength": "partial",
+       "label": "Agent Goal Hijack; content an agent reads, or a user's input, redirects its goals or plan so it pursues an attacker's aim",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI02",
+       "strength": "direct",
+       "label": "Tool Misuse and Exploitation; an agent using legitimate tools in unsafe or unintended ways, including chaining them or spending without limit",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI03",
+       "strength": "partial",
+       "label": "Identity and Privilege Abuse; agents inheriting, caching or passing on credentials and permissions so they act with more authority than intended",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI05",
+       "strength": "partial",
+       "label": "Unexpected Code Execution; an agent generating or running code that leads to remote code execution or compromise of its host",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI07",
+       "strength": "partial",
+       "label": "Insecure Inter-Agent Communication; messages between agents that can be intercepted, spoofed, replayed or altered",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI08",
+       "strength": "partial",
+       "label": "Cascading Failures; one agent's fault or compromise spreading through connected agents and systems faster than people can intervene",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM01:2026",
+       "strength": "partial",
+       "label": "Prompt Injection; input from users, retrieved content, tools or memory that changes what the model does in ways the builder did not intend",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM03:2026",
+       "strength": "direct",
+       "label": "Excessive Agency; a model given more tools, functions, permissions or autonomy than its task needs, so a bad output becomes a harmful action",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM08:2026",
+       "strength": "partial",
+       "label": "Hidden Context Exposure; system prompts, tool schemas and other hidden instructions extracted, and harm where they hold secrets or act as a security boundary",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM10:2026",
+       "strength": "partial",
+       "label": "Improper Output Handling; model output passed to browsers, databases, shells or other systems without validation, enabling injection and code execution",
+       "confidence": "medium"
+      },
+      {
        "source": "UNESCOAIMF",
        "ref": "3.3",
        "strength": "direct",
@@ -12904,6 +13275,48 @@
        "strength": "partial",
        "label": "Assign responsibility and means to override, disengage or switch off a system",
        "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI04",
+       "strength": "partial",
+       "label": "Agentic Supply Chain Vulnerabilities; malicious or compromised tools, plugins, prompts, model servers or other agents loaded at build or run time",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI06",
+       "strength": "partial",
+       "label": "Memory and Context Poisoning; false or malicious content written into an agent's memory or context that shapes its later decisions",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI10",
+       "strength": "partial",
+       "label": "Rogue Agents; an agent drifting from its intended behaviour, or acting deceptively or harmfully, while appearing legitimate",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM04:2026",
+       "strength": "partial",
+       "label": "Supply Chain; compromised or vulnerable third party models, data sets, adapters, packages and platforms used to build or run an LLM application",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM05:2026",
+       "strength": "partial",
+       "label": "Data and Model Poisoning; training, tuning, retrieval or feedback data manipulated to plant bias, backdoors or false content in a model's behaviour",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM08:2026",
+       "strength": "partial",
+       "label": "Hidden Context Exposure; system prompts, tool schemas and other hidden instructions extracted, and harm where they hold secrets or act as a security boundary",
+       "confidence": "medium"
       },
       {
        "source": "UKDAIEF",
@@ -13516,6 +13929,20 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPLLM",
+       "ref": "LLM05:2026",
+       "strength": "partial",
+       "label": "Data and Model Poisoning; training, tuning, retrieval or feedback data manipulated to plant bias, backdoors or false content in a model's behaviour",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM07:2026",
+       "strength": "direct",
+       "label": "Misinformation; false or unsupported output that people or connected systems rely on, including tool calls made on wrong premises",
+       "confidence": "high"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Transparency 11",
        "strength": "partial",
@@ -14113,6 +14540,48 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPASI",
+       "ref": "ASI05",
+       "strength": "partial",
+       "label": "Unexpected Code Execution; an agent generating or running code that leads to remote code execution or compromise of its host",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI07",
+       "strength": "partial",
+       "label": "Insecure Inter-Agent Communication; messages between agents that can be intercepted, spoofed, replayed or altered",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM01:2026",
+       "strength": "partial",
+       "label": "Prompt Injection; input from users, retrieved content, tools or memory that changes what the model does in ways the builder did not intend",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM06:2026",
+       "strength": "partial",
+       "label": "Unbounded Consumption; uncontrolled use of a model that runs up cost, exhausts capacity or lets an attacker copy the model through bulk queries",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM08:2026",
+       "strength": "partial",
+       "label": "Hidden Context Exposure; system prompts, tool schemas and other hidden instructions extracted, and harm where they hold secrets or act as a security boundary",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM10:2026",
+       "strength": "partial",
+       "label": "Improper Output Handling; model output passed to browsers, databases, shells or other systems without validation, enabling injection and code execution",
+       "confidence": "medium"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Safety 2",
        "strength": "direct",
@@ -14439,6 +14908,97 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPASI",
+       "ref": "ASI01",
+       "strength": "direct",
+       "label": "Agent Goal Hijack; content an agent reads, or a user's input, redirects its goals or plan so it pursues an attacker's aim",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI02",
+       "strength": "direct",
+       "label": "Tool Misuse and Exploitation; an agent using legitimate tools in unsafe or unintended ways, including chaining them or spending without limit",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI03",
+       "strength": "partial",
+       "label": "Identity and Privilege Abuse; agents inheriting, caching or passing on credentials and permissions so they act with more authority than intended",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI05",
+       "strength": "partial",
+       "label": "Unexpected Code Execution; an agent generating or running code that leads to remote code execution or compromise of its host",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI06",
+       "strength": "partial",
+       "label": "Memory and Context Poisoning; false or malicious content written into an agent's memory or context that shapes its later decisions",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI07",
+       "strength": "partial",
+       "label": "Insecure Inter-Agent Communication; messages between agents that can be intercepted, spoofed, replayed or altered",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM01:2026",
+       "strength": "direct",
+       "label": "Prompt Injection; input from users, retrieved content, tools or memory that changes what the model does in ways the builder did not intend",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM03:2026",
+       "strength": "partial",
+       "label": "Excessive Agency; a model given more tools, functions, permissions or autonomy than its task needs, so a bad output becomes a harmful action",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM05:2026",
+       "strength": "partial",
+       "label": "Data and Model Poisoning; training, tuning, retrieval or feedback data manipulated to plant bias, backdoors or false content in a model's behaviour",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM06:2026",
+       "strength": "partial",
+       "label": "Unbounded Consumption; uncontrolled use of a model that runs up cost, exhausts capacity or lets an attacker copy the model through bulk queries",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM08:2026",
+       "strength": "partial",
+       "label": "Hidden Context Exposure; system prompts, tool schemas and other hidden instructions extracted, and harm where they hold secrets or act as a security boundary",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM09:2026",
+       "strength": "partial",
+       "label": "Vector and Embedding Weaknesses; retrieval stores that leak data across users, accept poisoned content or reveal source text through embeddings",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM10:2026",
+       "strength": "partial",
+       "label": "Improper Output Handling; model output passed to browsers, databases, shells or other systems without validation, enabling injection and code execution",
+       "confidence": "medium"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Safety 5",
        "strength": "partial",
@@ -14742,6 +15302,27 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPASI",
+       "ref": "ASI04",
+       "strength": "direct",
+       "label": "Agentic Supply Chain Vulnerabilities; malicious or compromised tools, plugins, prompts, model servers or other agents loaded at build or run time",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM04:2026",
+       "strength": "direct",
+       "label": "Supply Chain; compromised or vulnerable third party models, data sets, adapters, packages and platforms used to build or run an LLM application",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM05:2026",
+       "strength": "partial",
+       "label": "Data and Model Poisoning; training, tuning, retrieval or feedback data manipulated to plant bias, backdoors or false content in a model's behaviour",
+       "confidence": "medium"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Accountability 4",
        "strength": "partial",
@@ -14943,6 +15524,27 @@
        "strength": "partial",
        "label": "Examine and document privacy risk",
        "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM02:2026",
+       "strength": "direct",
+       "label": "Sensitive Information Disclosure; personal, confidential or proprietary data exposed through model outputs, retrieval, logs or reasoning traces",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM08:2026",
+       "strength": "partial",
+       "label": "Hidden Context Exposure; system prompts, tool schemas and other hidden instructions extracted, and harm where they hold secrets or act as a security boundary",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM09:2026",
+       "strength": "partial",
+       "label": "Vector and Embedding Weaknesses; retrieval stores that leak data across users, accept poisoned content or reveal source text through embeddings",
+       "confidence": "medium"
       },
       {
        "source": "UKDAIEF",
@@ -15159,6 +15761,34 @@
        "ref": "MANAGE 4.3",
        "strength": "partial",
        "label": "Tell relevant parties and affected people about incidents and track them",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI04",
+       "strength": "partial",
+       "label": "Agentic Supply Chain Vulnerabilities; malicious or compromised tools, plugins, prompts, model servers or other agents loaded at build or run time",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI08",
+       "strength": "partial",
+       "label": "Cascading Failures; one agent's fault or compromise spreading through connected agents and systems faster than people can intervene",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI10",
+       "strength": "partial",
+       "label": "Rogue Agents; an agent drifting from its intended behaviour, or acting deceptively or harmfully, while appearing legitimate",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM02:2026",
+       "strength": "partial",
+       "label": "Sensitive Information Disclosure; personal, confidential or proprietary data exposed through model outputs, retrieval, logs or reasoning traces",
        "confidence": "high"
       },
       {
@@ -15462,6 +16092,83 @@
        "confidence": "high"
       },
       {
+       "source": "OWASPASI",
+       "ref": "ASI01",
+       "strength": "direct",
+       "label": "Agent Goal Hijack; content an agent reads, or a user's input, redirects its goals or plan so it pursues an attacker's aim",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI02",
+       "strength": "partial",
+       "label": "Tool Misuse and Exploitation; an agent using legitimate tools in unsafe or unintended ways, including chaining them or spending without limit",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI05",
+       "strength": "partial",
+       "label": "Unexpected Code Execution; an agent generating or running code that leads to remote code execution or compromise of its host",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI06",
+       "strength": "partial",
+       "label": "Memory and Context Poisoning; false or malicious content written into an agent's memory or context that shapes its later decisions",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM01:2026",
+       "strength": "direct",
+       "label": "Prompt Injection; input from users, retrieved content, tools or memory that changes what the model does in ways the builder did not intend",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM02:2026",
+       "strength": "direct",
+       "label": "Sensitive Information Disclosure; personal, confidential or proprietary data exposed through model outputs, retrieval, logs or reasoning traces",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM03:2026",
+       "strength": "partial",
+       "label": "Excessive Agency; a model given more tools, functions, permissions or autonomy than its task needs, so a bad output becomes a harmful action",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM05:2026",
+       "strength": "partial",
+       "label": "Data and Model Poisoning; training, tuning, retrieval or feedback data manipulated to plant bias, backdoors or false content in a model's behaviour",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM08:2026",
+       "strength": "partial",
+       "label": "Hidden Context Exposure; system prompts, tool schemas and other hidden instructions extracted, and harm where they hold secrets or act as a security boundary",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM09:2026",
+       "strength": "partial",
+       "label": "Vector and Embedding Weaknesses; retrieval stores that leak data across users, accept poisoned content or reveal source text through embeddings",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM10:2026",
+       "strength": "partial",
+       "label": "Improper Output Handling; model output passed to browsers, databases, shells or other systems without validation, enabling injection and code execution",
+       "confidence": "medium"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Privacy 8",
        "strength": "partial",
@@ -15686,6 +16393,27 @@
        "ref": "GOVERN 4.1",
        "strength": "partial",
        "label": "Foster critical thinking and a safety-first mindset around AI",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI09",
+       "strength": "partial",
+       "label": "Human-Agent Trust Exploitation; people over-trusting a fluent or authoritative agent and approving harmful actions it proposes",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM01:2026",
+       "strength": "partial",
+       "label": "Prompt Injection; input from users, retrieved content, tools or memory that changes what the model does in ways the builder did not intend",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM07:2026",
+       "strength": "partial",
+       "label": "Misinformation; false or unsupported output that people or connected systems rely on, including tool calls made on wrong premises",
        "confidence": "high"
       },
       {
@@ -18532,6 +19260,111 @@
        "confidence": "medium"
       },
       {
+       "source": "OWASPASI",
+       "ref": "ASI01",
+       "strength": "partial",
+       "label": "Agent Goal Hijack; content an agent reads, or a user's input, redirects its goals or plan so it pursues an attacker's aim",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI02",
+       "strength": "partial",
+       "label": "Tool Misuse and Exploitation; an agent using legitimate tools in unsafe or unintended ways, including chaining them or spending without limit",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI03",
+       "strength": "partial",
+       "label": "Identity and Privilege Abuse; agents inheriting, caching or passing on credentials and permissions so they act with more authority than intended",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI06",
+       "strength": "partial",
+       "label": "Memory and Context Poisoning; false or malicious content written into an agent's memory or context that shapes its later decisions",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI08",
+       "strength": "partial",
+       "label": "Cascading Failures; one agent's fault or compromise spreading through connected agents and systems faster than people can intervene",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI09",
+       "strength": "partial",
+       "label": "Human-Agent Trust Exploitation; people over-trusting a fluent or authoritative agent and approving harmful actions it proposes",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI10",
+       "strength": "direct",
+       "label": "Rogue Agents; an agent drifting from its intended behaviour, or acting deceptively or harmfully, while appearing legitimate",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM01:2026",
+       "strength": "partial",
+       "label": "Prompt Injection; input from users, retrieved content, tools or memory that changes what the model does in ways the builder did not intend",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM02:2026",
+       "strength": "direct",
+       "label": "Sensitive Information Disclosure; personal, confidential or proprietary data exposed through model outputs, retrieval, logs or reasoning traces",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM03:2026",
+       "strength": "partial",
+       "label": "Excessive Agency; a model given more tools, functions, permissions or autonomy than its task needs, so a bad output becomes a harmful action",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM05:2026",
+       "strength": "partial",
+       "label": "Data and Model Poisoning; training, tuning, retrieval or feedback data manipulated to plant bias, backdoors or false content in a model's behaviour",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM06:2026",
+       "strength": "partial",
+       "label": "Unbounded Consumption; uncontrolled use of a model that runs up cost, exhausts capacity or lets an attacker copy the model through bulk queries",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM07:2026",
+       "strength": "partial",
+       "label": "Misinformation; false or unsupported output that people or connected systems rely on, including tool calls made on wrong premises",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM09:2026",
+       "strength": "partial",
+       "label": "Vector and Embedding Weaknesses; retrieval stores that leak data across users, accept poisoned content or reveal source text through embeddings",
+       "confidence": "medium"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM10:2026",
+       "strength": "partial",
+       "label": "Improper Output Handling; model output passed to browsers, databases, shells or other systems without validation, enabling injection and code execution",
+       "confidence": "medium"
+      },
+      {
        "source": "UKDAIEF",
        "ref": "Fairness 6",
        "strength": "direct",
@@ -18905,6 +19738,13 @@
        "ref": "MANAGE 4.3",
        "strength": "direct",
        "label": "Tell relevant parties and affected people about incidents and track them",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPLLM",
+       "ref": "LLM07:2026",
+       "strength": "partial",
+       "label": "Misinformation; false or unsupported output that people or connected systems rely on, including tool calls made on wrong premises",
        "confidence": "high"
       },
       {
@@ -19392,6 +20232,13 @@
        "ref": "MANAGE 4.2",
        "strength": "partial",
        "label": "Build measurable improvement into system updates with stakeholder input",
+       "confidence": "high"
+      },
+      {
+       "source": "OWASPASI",
+       "ref": "ASI09",
+       "strength": "partial",
+       "label": "Human-Agent Trust Exploitation; people over-trusting a fluent or authoritative agent and approving harmful actions it proposes",
        "confidence": "high"
       },
       {

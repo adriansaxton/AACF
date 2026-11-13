@@ -1,0 +1,81 @@
+# OWASP Top 10 for LLM Applications 2026 (OWASP GenAI Security Project) mapping
+# One entry per risk, refs LLM01:2026 to LLM10:2026 as the document numbers them (1 Prompt Injection, 2 Sensitive
+# Information Disclosure, 3 Excessive Agency, 4 Supply Chain, 5 Data and Model Poisoning, 6 Unbounded Consumption,
+# 7 Misinformation, 8 Hidden Context Exposure, 9 Vector and Embedding Weaknesses, 10 Improper Output Handling).
+# Risk names are OWASP's (CC BY-SA 4.0, attributed in NOTICE); the descriptions after them are our own.
+# Source used: resources/sources/owasp-llm-top-10-2026.txt.md (each entry's description and its prevention and
+# mitigation strategies).
+#
+# strength: direct  = an organisation meeting the control at Level 3 would have a credible way to identify and manage the risk
+#           partial = the control contributes but is not enough on its own; the note says what is missing
+# An item with no controls, or whose note starts "gap:", is a gap: our controls do not credibly address the risk.
+# Note on altitude: this list is written for teams building LLM applications, and most of its mitigations are
+# engineering measures (input and output filtering, encoding, token handling). AACF's security domain is a bridge:
+# it requires a recognised AI security baseline (SEC-01), threat modelling (SEC-02) and testing (SEC-06), and
+# leaves the engineering detail to that baseline, for which this OWASP list is itself a strong candidate. So an
+# item is direct only where a specific control addresses the risk; where only the baseline would, it is partial
+# and the note says so.
+
+source: OWASPLLM
+status: draft
+mapped_by: drafted with AI assistance, 2026-11-13
+reviewed_by: the author, 2026-11-13
+checked: 2026-11-13
+items:
+
+  - ref: "LLM01:2026"
+    label: Prompt Injection; input from users, retrieved content, tools or memory that changes what the model does in ways the builder did not intend
+    controls: [{id: SEC-02, strength: direct}, {id: SEC-06, strength: direct}, {id: TEC-04, strength: partial}, {id: RSK-07, strength: partial}, {id: MON-02, strength: partial}, {id: SEC-01, strength: partial}, {id: PPL-01, strength: partial}]
+    note: Threat modelling covers AI specific threats (SEC-02), and for agents it names instructions hidden in content they read (SEC-02.6). Testing before release attempts to bypass generative AI safeguards (SEC-06.4) and to make agents act outside their permissions through hidden instructions (SEC-06.6). The source's main defence, limiting what a compromised model can do, is carried by least privilege on other systems (TEC-04.4) and approval for consequential agent actions (RSK-07.4); MON-02 logs agent actions. Input filtering, separating untrusted content and stripping hidden characters are engineering measures left to the security baseline (SEC-01).
+    confidence: medium
+    confidence_note: direct rests partly on agentic and generative AI criteria; for a simple non-generative use the cover is lighter
+  - ref: "LLM02:2026"
+    label: Sensitive Information Disclosure; personal, confidential or proprietary data exposed through model outputs, retrieval, logs or reasoning traces
+    controls: [{id: SEC-04, strength: direct}, {id: SEC-06, strength: direct}, {id: MON-02, strength: direct}, {id: DAT-07, strength: partial}, {id: DAT-05, strength: partial}, {id: RSK-09, strength: partial}, {id: OPM-04, strength: partial}, {id: SEC-05, strength: partial}]
+    note: Rules on which information may be used with which tools, backed by technical measures (SEC-04), testing that personal or sensitive information is not disclosed (SEC-06.5) and monitoring outputs for it in live use (MON-02.7) carry it. Access limited to purpose (DAT-07.1) supports authorisation before retrieval; supplier due diligence and contract terms cover data sent to providers (RSK-09, OPM-04); SEC-05 covers the incident response. Scrubbing logs and traces and privacy preserving training are left to the security baseline.
+    confidence: high
+  - ref: "LLM03:2026"
+    label: Excessive Agency; a model given more tools, functions, permissions or autonomy than its task needs, so a bad output becomes a harmful action
+    controls: [{id: TEC-04, strength: direct}, {id: RSK-07, strength: direct}, {id: GOV-06, strength: partial}, {id: MON-02, strength: partial}, {id: SEC-02, strength: partial}, {id: SEC-06, strength: partial}]
+    note: TEC-04 limits the permissions and actions an AI system or agent holds on other systems to what its purpose needs, approved and risk assessed (TEC-04.4, TEC-04.5); RSK-07.4 requires a person's approval for consequential or hard to reverse agent actions. The inventory records what each agent can act on (GOV-06.6), MON-02.8 logs every agent action and lets a named person stop it, and SEC-02.6 and SEC-06.6 model and test misuse of tools. Running tools in the user's own security context and rate limiting tool use are not named.
+    confidence: high
+  - ref: "LLM04:2026"
+    label: Supply Chain; compromised or vulnerable third party models, data sets, adapters, packages and platforms used to build or run an LLM application
+    controls: [{id: SEC-03, strength: direct}, {id: RSK-09, strength: partial}, {id: OPM-04, strength: partial}, {id: GOV-06, strength: partial}, {id: DAT-08, strength: partial}, {id: TEC-05, strength: partial}]
+    note: SEC-03 assesses the security of every external model, data set and component before use, records its source, reassesses it and tracks disclosed vulnerabilities to mitigation. Supplier due diligence (RSK-09), contract terms (OPM-04), the inventory of components (GOV-06.4, GOV-06.5), data provenance (DAT-08) and version control (TEC-05) support it. A signed bill of materials and model signing are left to the security baseline.
+    confidence: high
+  - ref: "LLM05:2026"
+    label: Data and Model Poisoning; training, tuning, retrieval or feedback data manipulated to plant bias, backdoors or false content in a model's behaviour
+    controls: [{id: DAT-08, strength: partial}, {id: SEC-03, strength: partial}, {id: TEC-05, strength: partial}, {id: TEC-06, strength: partial}, {id: MON-02, strength: partial}, {id: SEC-02, strength: partial}, {id: SEC-06, strength: partial}, {id: DAT-03, strength: partial}]
+    note: "Held at partial: provenance of training and test data (DAT-08), security assessment of external data sets and models (SEC-03), versioned data with rollback (TEC-05), testing (TEC-06, SEC-06), drift and unexpected behaviour monitoring (MON-02) and threat modelling (SEC-02) all contribute. No control requires content entering retrieval stores, memory or automated retraining to be validated before it is trusted, which is where the source puts much of the 2026 risk. Candidate for the agentic AI roadmap item."
+    confidence: medium
+    confidence_note: a reviewer could see the training data side as direct through DAT-08 and SEC-03; partial rests on the retrieval and feedback side
+  - ref: "LLM06:2026"
+    label: Unbounded Consumption; uncontrolled use of a model that runs up cost, exhausts capacity or lets an attacker copy the model through bulk queries
+    controls: [{id: OPM-03, strength: direct}, {id: OPM-09, strength: partial}, {id: MON-02, strength: partial}, {id: SEC-01, strength: partial}, {id: SEC-02, strength: partial}]
+    note: OPM-03 tracks and forecasts running costs and sets usage limits or cost alerts for every AI service (OPM-03.4), which is the source's hard spending cap. OPM-09 gives a fallback or safe stop when a service degrades, MON-02 monitors misuse, and threat modelling (SEC-02) can cover model extraction. Per user rate limits, input size limits and circuit breakers for agent loops are left to the security baseline (SEC-01).
+    confidence: medium
+    confidence_note: cost is covered directly; availability attacks and model extraction rest on the baseline
+  - ref: "LLM07:2026"
+    label: Misinformation; false or unsupported output that people or connected systems rely on, including tool calls made on wrong premises
+    controls: [{id: TEC-06, strength: direct}, {id: MON-02, strength: partial}, {id: RSK-07, strength: partial}, {id: GOV-10, strength: partial}, {id: PPL-01, strength: partial}, {id: OPM-09, strength: partial}, {id: MON-04, strength: partial}]
+    note: Accuracy testing against agreed criteria before release (TEC-06) and accuracy monitoring in live use (MON-02.1) identify it; human oversight (RSK-07, including approval for consequential agent actions), review of AI generated content before it informs decisions (GOV-10.2), literacy about limits (PPL-01), fallbacks for wrong output (OPM-09.2) and incident reporting (MON-04) manage it. Checking claims against authoritative sources at run time, before an agent acts on them, is not named.
+    confidence: high
+  - ref: "LLM08:2026"
+    label: Hidden Context Exposure; system prompts, tool schemas and other hidden instructions extracted, and harm where they hold secrets or act as a security boundary
+    controls: [{id: SEC-04, strength: partial}, {id: TEC-05, strength: partial}, {id: TEC-04, strength: partial}, {id: SEC-02, strength: partial}, {id: SEC-06, strength: partial}, {id: SEC-01, strength: partial}]
+    note: "Held at partial: the source's two main measures, keeping secrets out of hidden context and enforcing authorisation outside the model, are engineering rules for the security baseline (SEC-01). Information rules (SEC-04), prompts under version control (TEC-05.1), least privilege on other systems (TEC-04.4), threat modelling (SEC-02) and disclosure testing (SEC-06.5) contribute."
+    confidence: medium
+    confidence_note: partial set by the altitude rule; no specific control names hidden context
+  - ref: "LLM09:2026"
+    label: Vector and Embedding Weaknesses; retrieval stores that leak data across users, accept poisoned content or reveal source text through embeddings
+    controls: [{id: DAT-07, strength: partial}, {id: SEC-04, strength: partial}, {id: DAT-08, strength: partial}, {id: SEC-02, strength: partial}, {id: SEC-06, strength: partial}, {id: MON-02, strength: partial}, {id: DAT-06, strength: partial}]
+    note: "Held at partial: access limited to purpose and approved by the data owner (DAT-07) supports permission aware retrieval, and information rules (SEC-04), provenance (DAT-08), threat modelling (SEC-02), disclosure testing (SEC-06.5), monitoring (MON-02) and records management (DAT-06) contribute. No control names retrieval stores, separating content by trust level, or validating content before it is embedded."
+    confidence: medium
+    confidence_note: retrieval stores are not named in any control
+  - ref: "LLM10:2026"
+    label: Improper Output Handling; model output passed to browsers, databases, shells or other systems without validation, enabling injection and code execution
+    controls: [{id: TEC-04, strength: partial}, {id: SEC-01, strength: partial}, {id: SEC-02, strength: partial}, {id: SEC-06, strength: partial}, {id: MON-02, strength: partial}]
+    note: "Held at partial: this is application security engineering (validation, encoding, parameterised queries, content security policy), which AACF leaves to the security baseline (SEC-01). Integrations through supported, documented interfaces (TEC-04), threat modelling (SEC-02), security testing (SEC-06) and output monitoring (MON-02) contribute."
+    confidence: medium
+    confidence_note: partial set by the altitude rule

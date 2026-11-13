@@ -1,0 +1,80 @@
+# OWASP Top 10 for Agentic Applications for 2026 (OWASP GenAI Security Project) mapping
+# One entry per risk, refs ASI01 to ASI10 as the document numbers them (1 Agent Goal Hijack, 2 Tool Misuse and
+# Exploitation, 3 Identity and Privilege Abuse, 4 Agentic Supply Chain Vulnerabilities, 5 Unexpected Code Execution,
+# 6 Memory and Context Poisoning, 7 Insecure Inter-Agent Communication, 8 Cascading Failures, 9 Human-Agent Trust
+# Exploitation, 10 Rogue Agents).
+# Risk names are OWASP's (CC BY-SA 4.0, attributed in NOTICE); the descriptions after them are our own.
+# Source used: resources/sources/owasp-agentic-top-10-2026.txt.md (each entry's description and its prevention and
+# mitigation guidelines).
+#
+# strength: direct  = an organisation meeting the control at Level 3 would have a credible way to identify and manage the risk
+#           partial = the control contributes but is not enough on its own; the note says what is missing
+# An item with no controls, or whose note starts "gap:", is a gap: our controls do not credibly address the risk.
+# Note on altitude: as with the LLM list, most mitigations here are engineering measures for teams building agents.
+# The agentic criteria in AACF (GOV-06.6, RSK-07.4, SEC-02.6, SEC-06.6, MON-02.8) and least privilege on other
+# systems (TEC-04.4) are the specific controls; agent identity and credentials, sandboxing, memory and agent to agent
+# communication are not yet named and are the scope of the agentic AI roadmap item.
+
+source: OWASPASI
+status: draft
+mapped_by: drafted with AI assistance, 2026-11-13
+reviewed_by: the author, 2026-11-13
+checked: 2026-11-13
+items:
+
+  - ref: ASI01
+    label: Agent Goal Hijack; content an agent reads, or a user's input, redirects its goals or plan so it pursues an attacker's aim
+    controls: [{id: SEC-02, strength: direct}, {id: SEC-06, strength: direct}, {id: TEC-04, strength: partial}, {id: RSK-07, strength: partial}, {id: MON-02, strength: partial}, {id: GOV-06, strength: partial}]
+    note: Threat modelling for agents covers instructions hidden in content they read and chains of actions that go beyond their purpose (SEC-02.6), and testing before release tries to make each agent act outside its permissions through hidden instructions (SEC-06.6). Least privilege (TEC-04.4), approval for consequential actions (RSK-07.4), logging every action with a way to stop the agent (MON-02.8) and the record of what each agent can act on (GOV-06.6) limit the damage. Validating intent at run time and locking system prompts are left to the security baseline.
+    confidence: high
+  - ref: ASI02
+    label: Tool Misuse and Exploitation; an agent using legitimate tools in unsafe or unintended ways, including chaining them or spending without limit
+    controls: [{id: TEC-04, strength: direct}, {id: SEC-02, strength: direct}, {id: GOV-06, strength: partial}, {id: RSK-07, strength: partial}, {id: MON-02, strength: partial}, {id: SEC-06, strength: partial}, {id: OPM-03, strength: partial}]
+    note: TEC-04 limits each agent's permissions and actions on other systems to its purpose, approved and risk assessed (TEC-04.4, TEC-04.5), and SEC-02.6 requires threat modelling to cover misuse of agents' tools. The inventory records each agent's tools (GOV-06.6); approval for consequential actions (RSK-07.4), logging of every action (MON-02.8), testing outside permissions (SEC-06.6) and usage limits (OPM-03.4) support it. Running tools in sandboxes with egress controls and short lived credentials is not named.
+    confidence: high
+  - ref: ASI03
+    label: Identity and Privilege Abuse; agents inheriting, caching or passing on credentials and permissions so they act with more authority than intended
+    controls: [{id: TEC-04, strength: partial}, {id: GOV-06, strength: partial}, {id: RSK-07, strength: partial}, {id: MON-02, strength: partial}, {id: SEC-02, strength: partial}, {id: DAT-07, strength: partial}]
+    note: "Held at partial: least privilege on other systems (TEC-04.4) and data access limited to purpose (DAT-07.1) set the principle, the inventory records what each agent can act on (GOV-06.6), approval covers consequential actions (RSK-07.4) and MON-02.8 logs actions. No control covers the identity and credentials an agent holds, task scoped and short lived permissions, or permissions passed between agents. Scope of the agentic AI roadmap item (identity, delegation and limits)."
+    confidence: high
+  - ref: ASI04
+    label: Agentic Supply Chain Vulnerabilities; malicious or compromised tools, plugins, prompts, model servers or other agents loaded at build or run time
+    controls: [{id: SEC-03, strength: direct}, {id: GOV-06, strength: partial}, {id: RSK-09, strength: partial}, {id: TEC-05, strength: partial}, {id: SEC-05, strength: partial}, {id: TEC-01, strength: partial}]
+    note: SEC-03 assesses the security of every external model, data set and component before use, records its source, reassesses it and tracks disclosed vulnerabilities; tools and plugins an agent loads are external components. The inventory (GOV-06.4, GOV-06.6), supplier due diligence (RSK-09), prompts and configuration under version control with controlled release (TEC-05), a known way to contain each AI service (SEC-05.3) and the approved tools list (TEC-01) support it. Components an agent discovers and loads at run time are not named.
+    confidence: medium
+    confidence_note: direct assumes run time tools are treated as external components; the control does not say so
+  - ref: ASI05
+    label: Unexpected Code Execution; an agent generating or running code that leads to remote code execution or compromise of its host
+    controls: [{id: SEC-02, strength: partial}, {id: SEC-06, strength: partial}, {id: TEC-04, strength: partial}, {id: RSK-07, strength: partial}, {id: SEC-01, strength: partial}]
+    note: "Held at partial: threat modelling (SEC-02.6) and testing (SEC-06.6) cover agents acting beyond their purpose, least privilege (TEC-04.4) and approval for consequential actions (RSK-07.4) limit the effect, and the security baseline (SEC-01) holds the engineering. Running agent code in a contained environment, never with elevated rights, is not named. Scope of the agentic AI roadmap item."
+    confidence: medium
+    confidence_note: a reviewer could see this as nearer a gap until sandboxing is named
+  - ref: ASI06
+    label: Memory and Context Poisoning; false or malicious content written into an agent's memory or context that shapes its later decisions
+    controls: [{id: SEC-02, strength: partial}, {id: TEC-05, strength: partial}, {id: MON-02, strength: partial}, {id: DAT-08, strength: partial}, {id: SEC-06, strength: partial}, {id: DAT-07, strength: partial}]
+    note: "Held at partial: threat modelling of instructions hidden in content agents read (SEC-02.6), version control and rollback (TEC-05), monitoring for unexpected behaviour (MON-02.1), provenance (DAT-08), testing (SEC-06.6) and access limits (DAT-07) contribute. No control names agent memory: validating what is written to it, separating sessions, or expiring unverified entries. Candidate for the agentic AI roadmap item."
+    confidence: medium
+    confidence_note: memory is not named in any control
+  - ref: ASI07
+    label: Insecure Inter-Agent Communication; messages between agents that can be intercepted, spoofed, replayed or altered
+    controls: [{id: TEC-04, strength: partial}, {id: SEC-01, strength: partial}, {id: SEC-02, strength: partial}, {id: GOV-06, strength: partial}]
+    note: "Held at partial: integrations through supported, documented interfaces (TEC-04.1, TEC-04.2), the security baseline (SEC-01), threat modelling (SEC-02) and the inventory's links to integrations (GOV-06.5) contribute. Authenticating agents to each other and protecting their messages is engineering for the baseline, and agents acting for other agents is the scope of the agentic AI roadmap item."
+    confidence: medium
+    confidence_note: thin cover; a reviewer could see this as nearer a gap
+  - ref: ASI08
+    label: Cascading Failures; one agent's fault or compromise spreading through connected agents and systems faster than people can intervene
+    controls: [{id: OPM-09, strength: partial}, {id: MON-02, strength: partial}, {id: TEC-04, strength: partial}, {id: SEC-05, strength: partial}, {id: RSK-07, strength: partial}, {id: OPM-03, strength: partial}]
+    note: "Held at partial: a fallback or safe stop for each AI dependent service (OPM-09.2), a named person able to stop each agent at once (MON-02.8), integrations that can be disabled without disrupting core systems (TEC-04.3), a known way to contain each service (SEC-05.3), approval for consequential actions (RSK-07.4) and usage limits (OPM-03.4) all help. Limits on how far one agent's actions can spread, such as circuit breakers between agents, are not named."
+    confidence: medium
+    confidence_note: a reviewer could see the stop and fallback controls together as direct
+  - ref: ASI09
+    label: Human-Agent Trust Exploitation; people over-trusting a fluent or authoritative agent and approving harmful actions it proposes
+    controls: [{id: RSK-07, strength: direct}, {id: PPL-01, strength: partial}, {id: MON-06, strength: partial}, {id: MON-02, strength: partial}, {id: GOV-10, strength: partial}]
+    note: RSK-07 requires a documented oversight model with trained reviewers, tested before go live to show they can detect problems and intervene in time (RSK-07.2, RSK-07.3), and a person's approval for consequential agent actions (RSK-07.4). Literacy about AI's limits (PPL-01), a route for users to report concerns (MON-06), logs of agent actions (MON-02.8) and review of AI generated content (GOV-10) support it. Interface cues that mark high risk recommendations are not named.
+    confidence: high
+  - ref: ASI10
+    label: Rogue Agents; an agent drifting from its intended behaviour, or acting deceptively or harmfully, while appearing legitimate
+    controls: [{id: MON-02, strength: direct}, {id: SEC-05, strength: partial}, {id: TEC-05, strength: partial}, {id: GOV-06, strength: partial}, {id: RSK-07, strength: partial}]
+    note: MON-02 monitors every live use for unexpected behaviour against thresholds with named responders (MON-02.1, MON-02.3), logs every agent action with what triggered it and lets a named person stop each agent at once (MON-02.8). Containment and recovery to a known good state (SEC-05.2, SEC-05.3), rollback (TEC-05.4), the inventory (GOV-06.6) and oversight (RSK-07) support it. Per agent identity attestation is not named.
+    confidence: medium
+    confidence_note: monitoring for unexpected behaviour may not catch an agent that appears legitimate
