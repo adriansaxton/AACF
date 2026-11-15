@@ -4,7 +4,7 @@
 # issue: the GitHub issue number once created (github-setup.sh creates them in this order, 1 upward).
 # Public text: plain English, no dashes as separators, nothing about private sessions or people.
 
-updated: 2026-11-13
+updated: 2026-11-15
 board: https://github.com/orgs/adriansaxton/projects/1
 items:
   - id: independent-review
@@ -12,7 +12,7 @@ items:
     horizon: now
     status: in progress
     type: review
-    target: "1.2"
+    target: ""
     summary: >
       A qualified reviewer is sampling the high-impact cross-references to check the controls and strengths
       assigned. Findings will be folded into a release, with the mapping files' reviewer and date updated. The site
@@ -21,14 +21,15 @@ items:
 
   - id: mcp-server
     title: AACF MCP server
-    horizon: next
-    status: planned
+    horizon: now
+    status: done
     type: feature
     target: ""
     summary: >
-      A public, read-only MCP server so any AI assistant that supports MCP can look up controls, criteria and
-      cross-references directly, for example "which controls cover ISO/IEC 42001 clause 6.1.2". It will serve the
-      published release data and store nothing.
+      A public, read-only MCP server at https://aacf.adriansaxton.com/mcp, so any AI assistant that supports MCP can
+      look up controls, criteria and cross-references directly, for example "which controls cover ISO/IEC 42001 clause
+      6.1.2". It serves the published release data, needs no sign-in and stores nothing. How to connect:
+      https://aacf.adriansaxton.com/connect/
     issue: 2
 
   - id: owasp-llm
