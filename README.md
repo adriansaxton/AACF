@@ -50,6 +50,9 @@ https://aacf.adriansaxton.com
   `meta.schema_version`, separate from the framework version: tools can check it before reading.
 - **An OSCAL catalog** (`data/aacf-oscal-catalog.json`, NIST OSCAL 1.2.3) for compliance tools that read OSCAL: each
   domain is a group, each control carries its Level 3 criteria as statement items, and cross-references are properties.
+- **An MCP server** at `https://aacf.adriansaxton.com/mcp` (read-only, no sign-in) so AI assistants can query the
+  controls and cross-references directly: [how to connect](https://aacf.adriansaxton.com/connect/), code in
+  [adriansaxton/aacf-mcp](https://github.com/adriansaxton/aacf-mcp).
 - **A worked example** of a completed assessment (`examples/westmere/`, a fictional organisation).
 
 ## Repository layout
@@ -93,6 +96,10 @@ Through the levels. Level 3 means the practice is documented, owned and applied 
 **Does it cover agentic AI and AI bought from suppliers?**
 
 Yes. The agentic AI overlay adds five criteria (GOV-06.6, RSK-07.4, SEC-02.6, SEC-06.6, MON-02.8): a record of what each agent can act on, a person's approval for consequential actions, threat modelling and testing before release, and a log of every action with a way to stop each agent at once. RSK-09 covers due diligence on AI in bought products, including supplier updates that add AI to products already in use. Deeper agentic criteria are on the roadmap. [See the roadmap](https://aacf.adriansaxton.com/roadmap/).
+
+**Can I use it from an AI assistant?**
+
+Yes. A free, read-only MCP server lets any assistant that supports the Model Context Protocol, such as Claude, look up controls, criteria and cross-references, and run a self-assessment in conversation. It needs no sign-in, stores nothing, and your assessment answers are never sent to it. [Connect an AI assistant](https://aacf.adriansaxton.com/connect/).
 
 **Has it been independently reviewed?**
 
