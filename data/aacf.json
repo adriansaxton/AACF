@@ -1,11 +1,12 @@
 {
  "meta": {
+  "schema_version": "1.0.0",
   "framework": {
    "name": "AI Adoption Controls Framework",
    "short_name": "AACF",
-   "version": "1.2.0",
+   "version": "1.2.1",
    "status": "release",
-   "updated": "2026-11-13"
+   "updated": "2026-11-15"
   },
   "scale": {
    "baseline_level": 3,
@@ -92,6 +93,195 @@
    "people_lead": "Accountable for workforce, skills and learning",
    "delivery_lead": "Accountable for building, buying and running AI services",
    "risk_lead": "Accountable for corporate risk, compliance and legal advice"
+  },
+  "lifecycle_stages": {
+   "strategy": "Setting direction and deciding where AI should and should not be used",
+   "design": "Shaping a specific AI use: need, options, risk and benefit",
+   "acquire_build": "Procuring, configuring or building the solution",
+   "deploy": "Putting it into live use",
+   "operate": "Running, monitoring and supporting it in live use",
+   "retire": "Withdrawing it and disposing of models and data"
+  },
+  "applicability": {
+   "core": "Any organisation",
+   "uk_public": "UK public sector overlay",
+   "defence": "UK defence overlay (mainly delivered through mappings: JSP 936 onto core controls)"
+  },
+  "overlays": {
+   "PUB": {
+    "name": "Public body",
+    "meaning": "A public sector organisation, or one acting on its behalf, with public duties such as transparency and equality."
+   },
+   "PRV": {
+    "name": "Provides AI to others",
+    "meaning": "Offers AI services, products or models to customers, partners or the public, not only for its own use."
+   },
+   "HIR": {
+    "name": "Regulated or high-impact use",
+    "meaning": "Has uses of AI that are regulated, high-risk under law, or could significantly affect people's rights, safety or access to services."
+   },
+   "GEN": {
+    "name": "Generative AI",
+    "meaning": "Uses AI that generates text, images, audio, video or code."
+   },
+   "AGT": {
+    "name": "Agentic AI",
+    "meaning": "Uses AI that can take actions in other systems or act with some autonomy, including through tools."
+   },
+   "BLD": {
+    "name": "Builds or tunes its own models",
+    "meaning": "Trains, fine-tunes or otherwise develops models or AI components itself, rather than only configuring others' products."
+   }
+  },
+  "statuses": [
+   "draft",
+   "reviewed",
+   "retired"
+  ],
+  "sources": {
+   "ISO42001": {
+    "name": "ISO/IEC 42001",
+    "url": "https://www.iso.org/standard/42001",
+    "layer": "core",
+    "ref_pattern": "^(\\d+(\\.\\d+)*|A\\.\\d+(\\.\\d+)*)$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "NISTRMF": {
+    "name": "NIST AI RMF 1.0",
+    "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+    "layer": "core",
+    "ref_pattern": "^(GOVERN|MAP|MEASURE|MANAGE) \\d+\\.\\d+$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "NIST600": {
+    "name": "NIST AI 600-1",
+    "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+    "layer": "core",
+    "ref_pattern": "^R(1[0-2]|[1-9])$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "EUAIA": {
+    "name": "EU AI Act",
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+    "layer": "core",
+    "ref_pattern": "^(Art(icle)?\\.? ?\\d+[a-z]?(\\(\\d+\\))?|Annex [IVX]+)$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "GDSPB": {
+    "name": "GDS AI Playbook",
+    "url": "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government",
+    "layer": "uk_public",
+    "ref_pattern": "^P([1-9]|10)$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "ATRS": {
+    "name": "Algorithmic Transparency Recording Standard",
+    "url": "https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub",
+    "layer": "uk_public",
+    "ref_pattern": "^(Tier [12]( .+)?|Scope .+)$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "AICSCOP": {
+    "name": "AI Cyber Security Code of Practice",
+    "url": "https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice",
+    "layer": "uk_public",
+    "ref_pattern": "^([1-9]|1[0-3])\\.\\d{1,2}$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "JSP936": {
+    "name": "JSP 936 Part 1",
+    "url": "https://www.gov.uk/government/publications/jsp-936-dependable-artificial-intelligence-ai-in-defence-part-1-directive",
+    "layer": "defence",
+    "ref_pattern": "^(Preface )?para \\d+[a-z]?$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "MITREAIMM": {
+    "name": "MITRE AI Maturity Model",
+    "url": "https://www.mitre.org/news-insights/publication/mitre-ai-maturity-model-and-organizational-assessment-tool-guide",
+    "layer": "core",
+    "ref_pattern": "^P[1-6]\\.[1-4]$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "UNESCOAIMF": {
+    "name": "UNESCO AI Maturity Framework",
+    "url": "https://unesdoc.unesco.org/ark:/48223/pf0000397145",
+    "layer": "core",
+    "ref_pattern": "^[1-6]\\.[1-5]$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "UKDAIEF": {
+    "name": "UK Data and AI Ethics Framework",
+    "url": "https://www.gov.uk/government/publications/data-ethics-framework/data-and-ai-ethics-framework",
+    "layer": "uk_public",
+    "ref_pattern": "^((Transparency|Accountability|Fairness|Privacy|Environmental sustainability|Societal impact|Safety|Trade-offs) \\d{1,2}|SAT [1-4]\\.\\d{1,2})$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-09",
+     "reviewed_by": "the author, 2026-11-10",
+     "checked": "2026-11-10"
+    }
+   },
+   "OWASPLLM": {
+    "name": "OWASP Top 10 for LLM Applications 2026",
+    "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/",
+    "layer": "core",
+    "ref_pattern": "^LLM(0[1-9]|10):2026$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-13",
+     "reviewed_by": "the author, 2026-11-13",
+     "checked": "2026-11-13"
+    }
+   },
+   "OWASPASI": {
+    "name": "OWASP Top 10 for Agentic Applications 2026",
+    "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+    "layer": "core",
+    "ref_pattern": "^ASI(0[1-9]|10)$",
+    "provenance": {
+     "mapped_by": "drafted with AI assistance, 2026-11-13",
+     "reviewed_by": "the author, 2026-11-13",
+     "checked": "2026-11-13"
+    }
+   }
   }
  },
  "domains": [

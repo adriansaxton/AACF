@@ -17,8 +17,14 @@ Say which control or source item, what you think is wrong, and why.
 From v1.0.0, control IDs and criterion IDs are stable. A control is never renumbered and a retired ID is never
 reused; retired controls stay in the data with a pointer to their replacement. Framework versions follow
 MAJOR.MINOR.PATCH: a new or retired control, or a change to what Level 3 requires, is a MINOR release; wording or
-mapping fixes that do not change requirements are a PATCH; a change to the scale or the structure is MAJOR. Each
-release is listed in CHANGELOG.md. Changes to the website do not change the framework version.
+mapping fixes that do not change requirements are a PATCH; a change to the scale or to how the framework is organised
+(levels, domains, criteria, overlays) is MAJOR. Each release is listed in CHANGELOG.md. Changes to the website do not
+change the framework version.
+
+The shape of `data/aacf.json` is versioned on its own, in `meta.schema_version`, and described by
+`data/aacf.schema.json`. A new field is a minor schema change; renaming or removing a field is a major schema change.
+A release that changes only the data files' shape, with no change to what the framework requires, is a framework
+PATCH. Tools that read `data/aacf.json` should check the major schema version before reading it.
 
 ## Pull requests
 

@@ -7,6 +7,21 @@ From 12 November 2026 the website at https://aacf.adriansaxton.com is released s
 framework version. Versions 1.0.1, 1.1.1, 1.1.2 and 1.1.3 below changed only the website and repository; they are
 kept as published.
 
+## 1.2.1 (2026-11-15)
+
+Data files only; no change to controls, criteria or cross-references.
+
+- **A versioned data shape:** `data/aacf.json` now carries `meta.schema_version` (1.0.0), which versions the file's
+  shape separately from the framework. A new field is a minor schema change; renaming or removing a field is a major
+  one. Tools that read the file can check the major version before reading.
+- **JSON Schema:** `data/aacf.schema.json` describes every field of `data/aacf.json`, and every release is checked
+  against it. It is also on the website's Downloads page.
+- **More of the vocabulary in the JSON:** `meta` now includes the overlays, lifecycle stages, applicability layers,
+  statuses and the cross-referenced sources (with how each mapping was made and checked), so the file can be used
+  without the YAML source.
+- **Change control** in CONTRIBUTING.md now says how the data shape is versioned, and that a release changing only
+  the data files' shape is a PATCH.
+
 ## 1.2.0 (2026-11-13)
 
 New cross-references and a new data format; no change to controls or criteria.
