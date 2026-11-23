@@ -2,9 +2,11 @@
 # horizon: now | next | later.  status: in progress | planned | waiting | done.
 # type: review | feature | source | content.  target: the release it is expected in, or blank.
 # issue: the GitHub issue number once created (github-setup.sh creates them in this order, 1 upward).
+# priority: Urgent | High | Medium | Low; target_date: YYYY-MM-DD or blank (waiting on others). Open items only;
+# both mirror the board's Priority and Target date fields (set 23 Nov 2026).
 # Public text: plain English, no dashes as separators, nothing about private sessions or people.
 
-updated: 2026-11-15
+updated: 2026-11-23
 board: https://github.com/orgs/adriansaxton/projects/1
 items:
   - id: independent-review
@@ -17,6 +19,8 @@ items:
       A qualified reviewer is sampling the high-impact cross-references to check the controls and strengths
       assigned. Findings will be folded into a release, with the mapping files' reviewer and date updated. The site
       and the README will then say what was reviewed, how, and by whom.
+    priority: Urgent
+    target_date: ""
     issue: 1
 
   - id: mcp-server
@@ -64,6 +68,8 @@ items:
       A short baseline of about twenty foundation controls with a quick self-assessment and a simple result, as a
       front door to the full framework. It will include a guide for small teams showing how the eight owner roles
       combine when two or three people share them.
+    priority: Medium
+    target_date: "2026-12-31"
     issue: 5
 
   - id: aicm
@@ -75,6 +81,8 @@ items:
     summary: >
       A cross-reference to the CSA AI Controls Matrix by control ID. Prepared, and waiting on permission from the
       Cloud Security Alliance to publish.
+    priority: Low
+    target_date: ""
     issue: 6
 
   - id: gap-agentic
@@ -87,6 +95,8 @@ items:
       Further agentic criteria on the identity and credentials an agent holds, least privilege for the tools it can
       use, running agents in a contained environment, undoing an agent's actions, agents acting for other agents,
       and spending and resource limits. Theme A1 in what the framework does not cover.
+    priority: High
+    target_date: "2027-03-26"
     issue: 7
 
   - id: gap-ip
@@ -98,6 +108,8 @@ items:
     summary: >
       Criteria on using content the organisation does not own when prompting or grounding AI, and on the licence
       terms of open models and datasets it adopts. Theme A2.
+    priority: Low
+    target_date: "2027-07-30"
     issue: 8
 
   - id: gap-redteam
@@ -109,6 +121,8 @@ items:
     summary: >
       Adversarial testing repeated while a system is live and after model or supplier changes, covering harms
       beyond security. Theme A3.
+    priority: High
+    target_date: "2027-02-26"
     issue: 9
 
   - id: gap-jobs
@@ -120,6 +134,8 @@ items:
     summary: >
       Assessing how a use of AI changes roles before it is deployed, and planning redeployment or reskilling.
       Theme A4.
+    priority: Medium
+    target_date: "2027-06-25"
     issue: 10
 
   - id: gap-sustainability
@@ -131,6 +147,8 @@ items:
     summary: >
       An organisation-level target for AI's energy, compute and water use, reported to leadership, and supplier
       disclosure of footprint. Theme A5.
+    priority: Low
+    target_date: "2027-09-24"
     issue: 11
 
   - id: gap-higher-risk
@@ -142,6 +160,8 @@ items:
     summary: >
       Specific care where AI affects children or other people at higher risk of harm, such as stricter approval
       or a person in the loop by default. Theme A6.
+    priority: Medium
+    target_date: "2027-04-30"
     issue: 12
 
   - id: oscal
@@ -164,15 +184,49 @@ items:
     summary: >
       Two assessors score the worked example separately and compare results. Where their scores differ, the
       rulebook and criteria wording are tightened so that different assessors reach the same result.
+    priority: Medium
+    target_date: "2027-05-28"
     issue: 15
 
   - id: supplier-assurance
     title: Meeting criteria through supplier assurance
-    horizon: later
+    horizon: next
     status: planned
     type: content
     target: ""
     summary: >
       For AI obtained from suppliers, show which criteria can be met with supplier evidence, contract terms or
       independent evaluations, and which always need the organisation's own practice.
+    priority: High
+    target_date: "2026-12-31"
     issue: 16
+
+  - id: uk-adoption-programme
+    title: "Cross-reference: UK AI adoption programme outputs"
+    horizon: later
+    status: waiting
+    type: source
+    target: ""
+    summary: >
+      Cross-reference the guidance from the UK's AI adoption programme once it is published: the AI Adoption
+      Framework and the data readiness playbook recommended in the AI Adoption Plan for the Digital and Technologies
+      sector, and the outputs of the AI Assurance Stakeholder Consortium, including the information that AI assurance
+      providers need from their clients. Waiting on publication.
+    priority: Medium
+    target_date: ""
+    issue: 17
+
+  - id: model-safety
+    title: Safety of models the organisation builds, tunes or provides
+    horizon: later
+    status: planned
+    type: content
+    target: ""
+    summary: >
+      Criteria for organisations that build or tune their own models, or provide models to others: safety evaluation
+      before a model is released and again after it is tuned, safeguards against misuse of models offered to others,
+      and a recorded decision on whether and how to release. Extends the builder and provider overlays. The safety of
+      AI an organisation uses is already covered across the controls; see https://aacf.adriansaxton.com/safety/
+    priority: High
+    target_date: "2027-02-26"
+    issue: 18

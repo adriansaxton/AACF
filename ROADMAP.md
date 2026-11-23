@@ -1,6 +1,6 @@
 # Roadmap
 
-Updated 2026-11-15. Also on the website: https://aacf.adriansaxton.com/roadmap/
+Updated 2026-11-23. Also on the website: https://aacf.adriansaxton.com/roadmap/
 
 What is planned for the AI Adoption Controls Framework. Each item has an issue for discussion; ideas for new items are welcome in [Discussions](https://github.com/adriansaxton/AACF/discussions/categories/ideas).
 
@@ -22,6 +22,8 @@ Live board: https://github.com/orgs/adriansaxton/projects/1
 
 - **Lite version** ([#5](https://github.com/adriansaxton/AACF/issues/5)). A short baseline of about twenty foundation controls with a quick self-assessment and a simple result, as a front door to the full framework. It will include a guide for small teams showing how the eight owner roles combine when two or three people share them. *Planned.*
 
+- **Meeting criteria through supplier assurance** ([#16](https://github.com/adriansaxton/AACF/issues/16)). For AI obtained from suppliers, show which criteria can be met with supplier evidence, contract terms or independent evaluations, and which always need the organisation's own practice. *Planned.*
+
 ## Later
 
 - **Cross-reference: CSA AI Controls Matrix** ([#6](https://github.com/adriansaxton/AACF/issues/6)). A cross-reference to the CSA AI Controls Matrix by control ID. Prepared, and waiting on permission from the Cloud Security Alliance to publish. *Waiting.*
@@ -40,4 +42,6 @@ Live board: https://github.com/orgs/adriansaxton/projects/1
 
 - **Assessor consistency trial** ([#15](https://github.com/adriansaxton/AACF/issues/15)). Two assessors score the worked example separately and compare results. Where their scores differ, the rulebook and criteria wording are tightened so that different assessors reach the same result. *Planned.*
 
-- **Meeting criteria through supplier assurance** ([#16](https://github.com/adriansaxton/AACF/issues/16)). For AI obtained from suppliers, show which criteria can be met with supplier evidence, contract terms or independent evaluations, and which always need the organisation's own practice. *Planned.*
+- **Cross-reference: UK AI adoption programme outputs** ([#17](https://github.com/adriansaxton/AACF/issues/17)). Cross-reference the guidance from the UK's AI adoption programme once it is published: the AI Adoption Framework and the data readiness playbook recommended in the AI Adoption Plan for the Digital and Technologies sector, and the outputs of the AI Assurance Stakeholder Consortium, including the information that AI assurance providers need from their clients. Waiting on publication. *Waiting.*
+
+- **Safety of models the organisation builds, tunes or provides** ([#18](https://github.com/adriansaxton/AACF/issues/18)). Criteria for organisations that build or tune their own models, or provide models to others: safety evaluation before a model is released and again after it is tuned, safeguards against misuse of models offered to others, and a recorded decision on whether and how to release. Extends the builder and provider overlays. The safety of AI an organisation uses is already covered across the controls; see https://aacf.adriansaxton.com/safety/ *Planned.*

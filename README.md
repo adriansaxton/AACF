@@ -97,6 +97,10 @@ Through the levels. Level 3 means the practice is documented, owned and applied 
 
 Yes. The agentic AI overlay adds five criteria (GOV-06.6, RSK-07.4, SEC-02.6, SEC-06.6, MON-02.8): a record of what each agent can act on, a person's approval for consequential actions, threat modelling and testing before release, and a log of every action with a way to stop each agent at once. RSK-09 covers due diligence on AI in bought products, including supplier updates that add AI to products already in use. Deeper agentic criteria are on the roadmap. [See the roadmap](https://aacf.adriansaxton.com/roadmap/).
 
+**How does it handle AI safety?**
+
+As something managed across the life of each use of AI, not as a separate domain. Before go-live, impact assessments cover safety (RSK-03), testing works to agreed acceptance criteria and operating limits and, for generative AI, covers harmful output (TEC-06), and human oversight is tested and has the authority to stop a use (RSK-07). Where AI could contribute to physical harm, a hazard analysis feeds the safety case (GOV-07). In live use, monitoring covers misuse and unexpected behaviour (MON-02), and serious incidents have a defined point to suspend the use (MON-09). Safety testing in live use and the safety of models an organisation builds itself are on the roadmap. [See where safety is managed](https://aacf.adriansaxton.com/safety/).
+
 **Can I use it from an AI assistant?**
 
 Yes. A free, read-only MCP server lets any assistant that supports the Model Context Protocol, such as Claude, look up controls, criteria and cross-references, and run a self-assessment in conversation. It needs no sign-in, stores nothing, and your assessment answers are never sent to it. [Connect an AI assistant](https://aacf.adriansaxton.com/connect/).
