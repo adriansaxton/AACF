@@ -3,11 +3,12 @@
 # type: review | feature | source | content.  target: the release it is expected in, or blank.
 # issue: the GitHub issue number once created (github-setup.sh creates them in this order, 1 upward).
 # priority: Urgent | High | Medium | Low; target_date: YYYY-MM-DD or blank (waiting on others). Open items only;
-# both mirror the board's Priority and Target date fields (set 23 Nov 2026).
+# both mirror the maintainer's planning board, which is private (set 23 Nov 2026).
+# progress: the public place to follow progress (the repository's milestones: Now, Next, Later).
 # Public text: plain English, no dashes as separators, nothing about private sessions or people.
 
 updated: 2026-11-23
-board: https://github.com/orgs/adriansaxton/projects/1
+progress: https://github.com/adriansaxton/AACF/milestones
 items:
   - id: independent-review
     title: Independent review of the mappings

@@ -4,7 +4,7 @@ Updated 2026-11-23. Also on the website: https://aacf.adriansaxton.com/roadmap/
 
 What is planned for the AI Adoption Controls Framework. Each item has an issue for discussion; ideas for new items are welcome in [Discussions](https://github.com/adriansaxton/AACF/discussions/categories/ideas).
 
-Live board: https://github.com/orgs/adriansaxton/projects/1
+Progress on GitHub, by milestone: https://github.com/adriansaxton/AACF/milestones
 
 ## Now
 
